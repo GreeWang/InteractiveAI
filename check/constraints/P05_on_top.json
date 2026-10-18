@@ -1,0 +1,27 @@
+{
+  "id": "P05_on_top",
+  "version": "0.2.0",
+  "description": "CupOnBox on RedBox",
+  "scene_hint": "Assets/Prompt2Scene/Fixtures/F03_ConstraintSandbox.unity",
+  "constraints": [
+    {
+      "id": "c_exist_cup",
+      "type": "must_exist",
+      "target": "CupOnBox"
+    },
+    {
+      "id": "c_exist_red",
+      "type": "must_exist",
+      "target": "RedBox"
+    },
+    {
+      "id": "c_on",
+      "type": "on_top_of",
+      "a": "CupOnBox",
+      "b": "RedBox",
+      "max_horizontal": 0.5,
+      "min_vertical": 0.3,
+      "max_vertical": 1.5
+    }
+  ]
+}

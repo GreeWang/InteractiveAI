@@ -1,0 +1,14 @@
+{
+  "id": "P08_no_overlap",
+  "version": "0.2.0",
+  "description": "no overlap",
+  "scene_hint": "Assets/Prompt2Scene/Fixtures/F03_ConstraintSandbox.unity",
+  "constraints": [
+    {
+      "id": "c_no",
+      "type": "no_overlap",
+      "a": "RedBox",
+      "b": "BlueBall"
+    }
+  ]
+}

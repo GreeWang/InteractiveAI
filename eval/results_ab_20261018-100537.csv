@@ -1,0 +1,11 @@
+prompt_id,phase,fixture,condition,automation,success,status,run_folder,passed,failed,notes
+P01_generate_table,generate,F01,n/a,none,False,not_automated,,,,Needs LLM/agent generation; not CLI-automated in this pass.
+P02_edit_move_sphere,edit,F02,baseline,baseline_cli,True,ok,/Users/greenwong/Projects/Prompt2Scene/eval/runs/20261018-100526_P02_edit_move_sphere_baseline,,,SphereB above CubeA (~y+1); CubeA/Floor transforms unchanged after restore
+P03_edit_duplicate_row,edit,F02,baseline,baseline_cli,True,ok,/Users/greenwong/Projects/Prompt2Scene/eval/runs/20261018-100528_P03_edit_duplicate_row_baseline,,,"exists:CubeC; distance(CubeA,CubeC) ≈ 1.5"
+P04_constraint_left_of,constraint,F03,check,check_cli,True,ok,/Users/greenwong/Projects/Prompt2Scene/eval/runs/20261018-100530_P04_constraint_left_of_check,4,0,"left_of:RedBox,BlueBall; same_y"
+P05_constraint_on_top,constraint,F03,check,check_cli,True,ok,/Users/greenwong/Projects/Prompt2Scene/eval/runs/20261018-100532_P05_constraint_on_top_check,3,0,"on_top_of:CupOnBox,RedBox"
+P06_constraint_distance,constraint,F03,check,check_cli,True,ok,/Users/greenwong/Projects/Prompt2Scene/eval/runs/20261018-100533_P06_constraint_distance_check,1,0,"distance in [2.5,3.5]"
+P07_constraint_facing,constraint,F03,check,check_cli,True,ok,/Users/greenwong/Projects/Prompt2Scene/eval/runs/20261018-100534_P07_constraint_facing_check,1,0,facing:RedBox→BlueBall
+P08_constraint_no_overlap,constraint,F03,check,check_cli,True,ok,/Users/greenwong/Projects/Prompt2Scene/eval/runs/20261018-100535_P08_constraint_no_overlap_check,1,0,"no_overlap:RedBox,BlueBall"
+P09_edit_raise_sphere,edit,F02,baseline,baseline_cli,True,ok,/Users/greenwong/Projects/Prompt2Scene/eval/runs/20261018-100536_P09_edit_raise_sphere_baseline,,,SphereB.y≈2.0 after edit
+P10_generate_row,generate,F01,n/a,none,False,not_automated,,,,Needs LLM/agent generation; not CLI-automated.

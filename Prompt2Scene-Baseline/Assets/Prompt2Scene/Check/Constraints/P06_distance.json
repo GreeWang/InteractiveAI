@@ -1,0 +1,16 @@
+{
+  "id": "P06_distance",
+  "version": "0.2.0",
+  "description": "distance Red–Blue",
+  "scene_hint": "Assets/Prompt2Scene/Fixtures/F03_ConstraintSandbox.unity",
+  "constraints": [
+    {
+      "id": "c_dist",
+      "type": "distance",
+      "a": "RedBox",
+      "b": "BlueBall",
+      "min_distance": 2.5,
+      "max_distance": 3.5
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+# Keep directory; ignore run artifacts
+*
+!.gitignore
+!.gitkeep
+!README.md

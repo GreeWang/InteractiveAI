@@ -1,0 +1,82 @@
+{
+  "id": "F03_sample",
+  "version": "0.2.0",
+  "description": "F03 sample incl. on_top_of, distance, facing (schema v0.2).",
+  "scene_hint": "Assets/Prompt2Scene/Fixtures/F03_ConstraintSandbox.unity",
+  "constraints": [
+    {
+      "id": "c_exist_red",
+      "type": "must_exist",
+      "target": "RedBox"
+    },
+    {
+      "id": "c_exist_blue",
+      "type": "must_exist",
+      "target": "BlueBall"
+    },
+    {
+      "id": "c_exist_cup",
+      "type": "must_exist",
+      "target": "CupOnBox"
+    },
+    {
+      "id": "c_left",
+      "type": "left_of",
+      "a": "RedBox",
+      "b": "BlueBall"
+    },
+    {
+      "id": "c_same_y",
+      "type": "same_y",
+      "a": "RedBox",
+      "b": "BlueBall",
+      "epsilon": 0.05
+    },
+    {
+      "id": "c_no_overlap",
+      "type": "no_overlap",
+      "a": "RedBox",
+      "b": "BlueBall"
+    },
+    {
+      "id": "c_bounds_red",
+      "type": "bounds",
+      "target": "RedBox",
+      "min": {
+        "x": -10,
+        "y": -1,
+        "z": -10
+      },
+      "max": {
+        "x": 10,
+        "y": 5,
+        "z": 10
+      }
+    },
+    {
+      "id": "c_cup_on_red",
+      "type": "on_top_of",
+      "a": "CupOnBox",
+      "b": "RedBox",
+      "max_horizontal": 0.5,
+      "min_vertical": 0.3,
+      "max_vertical": 1.5
+    },
+    {
+      "id": "c_dist_red_blue",
+      "type": "distance",
+      "a": "RedBox",
+      "b": "BlueBall",
+      "min_distance": 2.5,
+      "max_distance": 3.5
+    },
+    {
+      "id": "c_face_blue",
+      "type": "facing",
+      "target": "RedBox",
+      "toward": "BlueBall",
+      "max_angle_deg": 30,
+      "ignore_y": true
+    }
+  ]
+}

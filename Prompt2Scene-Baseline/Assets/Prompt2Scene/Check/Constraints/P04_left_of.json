@@ -1,0 +1,31 @@
+{
+  "id": "P04_left_of",
+  "version": "0.2.0",
+  "description": "left_of + same_y",
+  "scene_hint": "Assets/Prompt2Scene/Fixtures/F03_ConstraintSandbox.unity",
+  "constraints": [
+    {
+      "id": "c_exist_red",
+      "type": "must_exist",
+      "target": "RedBox"
+    },
+    {
+      "id": "c_exist_blue",
+      "type": "must_exist",
+      "target": "BlueBall"
+    },
+    {
+      "id": "c_left",
+      "type": "left_of",
+      "a": "RedBox",
+      "b": "BlueBall"
+    },
+    {
+      "id": "c_same_y",
+      "type": "same_y",
+      "a": "RedBox",
+      "b": "BlueBall",
+      "epsilon": 0.05
+    }
+  ]
+}

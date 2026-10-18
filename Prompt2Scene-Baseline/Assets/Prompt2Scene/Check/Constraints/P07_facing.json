@@ -1,0 +1,16 @@
+{
+  "id": "P07_facing",
+  "version": "0.2.0",
+  "description": "RedBox faces BlueBall",
+  "scene_hint": "Assets/Prompt2Scene/Fixtures/F03_ConstraintSandbox.unity",
+  "constraints": [
+    {
+      "id": "c_face",
+      "type": "facing",
+      "target": "RedBox",
+      "toward": "BlueBall",
+      "max_angle_deg": 30,
+      "ignore_y": true
+    }
+  ]
+}

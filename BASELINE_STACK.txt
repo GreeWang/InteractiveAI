@@ -1,0 +1,70 @@
+Prompt2Scene Baseline Stack
+===========================
+Updated: 2026-10-16 Asia/Shanghai (UTC+8)
+
+Project
+- Path: /Users/greenwong/Projects/Prompt2Scene-Baseline
+- Template: URP blank
+- Unity Editor: 6000.0.85f1 (ee7790f1426a)
+
+CLI
+- Binary: ~/.unity/bin/unity
+- Version: 1.0.0-beta.13
+- PATH tip: export PATH="$HOME/.unity/bin:$PATH"
+
+Pipeline package
+- Package: com.unity.pipeline 0.8.0-exp.1
+- Install method: local embedded (file:com.unity.pipeline)
+  Reason: UPM download from download.packages.unity.com failed with ECONNRESET
+  Location: Packages/com.unity.pipeline
+  packages-lock.json: source=local, version=file:com.unity.pipeline
+- Server: isReachable=true, port=7800, apiUrl=http://127.0.0.1:7800/api/editor_status
+- Smoke (2026-10-16):
+  - unity status → 7800 ready / Prompt2Scene-Baseline / 6000.0.85f1
+  - unity pipeline list → 服务器可达 true
+  - unity list → built-in commands enumerated
+
+Proxy (when needed for registry downloads)
+- Clash often at 127.0.0.1:7897
+- Example: export HTTPS_PROXY=http://127.0.0.1:7897 HTTP_PROXY=http://127.0.0.1:7897
+- Or: unity ... --proxy http://127.0.0.1:7897
+
+Notes
+- No third-party MCP installed (official Unity Pipeline HTTP + CLI only).
+- Editor was force-closed and reopened once to pick up the local package after lock fix.
+
+Formative eval (2026-10-17)
+- Protocol: ~/Projects/Prompt2Scene/EVAL_PROTOCOL.md
+- Fixtures: Prompt2Scene-Baseline/Assets/Prompt2Scene/Fixtures/{F01,F02,F03}
+- Prompts: ~/Projects/Prompt2Scene/eval/prompts/prompts.json
+- Runs: ~/Projects/Prompt2Scene/eval/runs/
+- Smoke stub: ~/Projects/Prompt2Scene/eval/scripts/smoke_run.sh (step 2 not wired yet)
+
+Smoke (2026-10-17 step 2)
+- Script: ~/Projects/Prompt2Scene/eval/scripts/smoke_run.sh
+- Invoke: smoke_run.sh P02_edit_move_sphere baseline
+- Example run: eval/runs/20261017-154222_P02_edit_move_sphere_baseline (success=true, exit 0)
+- Restores SphereB seed after edit so fixture stays idempotent
+
+Prompt2Scene-Check skeleton (2026-10-17 step 3)
+- Schema/docs: ~/Projects/Prompt2Scene/check/
+- Editor: Assets/Prompt2Scene/Editor/Prompt2SceneCheck/
+- Sample: Assets/Prompt2Scene/Check/Constraints/F03_sample.json
+- F03 seeded: RedBox / BlueBall
+- Verified: RunDefaultSample → 6/6 PASS; Pipeline 7800 still ready
+
+Smoke condition=check (2026-10-17)
+- Invoke: smoke_run.sh P04_constraint_left_of check
+- Example: eval/runs/20261017-155714_P04_constraint_left_of_check (success=true, exit 0)
+- Copies Logs/prompt2scene-check-last.json → run_dir/check_report.json
+
+Prompt2Scene-Check v0.2 (2026-10-18)
+- Schema: ~/Projects/Prompt2Scene/check/schema/constraint_schema_v0.2.json
+- New types: on_top_of, distance, facing
+- F03 seeded CupOnBox + RedBox facing BlueBall
+- Verified: RunDefaultSample / smoke check → 10/10 PASS
+
+Formative A/B first pass (2026-10-18)
+- prompts.json: 10 items (3 baseline_cli, 5 check_cli, 2 none)
+- Batch: eval/scripts/run_ab_batch.sh → RESULTS_AB.md
+- Automated: 8/8 success; P01/P10 not_automated (no LLM)

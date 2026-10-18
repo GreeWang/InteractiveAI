@@ -1,0 +1,143 @@
+{
+  "version": "0.2.0",
+  "description": "Formative A/B prompt set (official Unity CLI). automation: baseline_cli | check_cli | none (LLM not wired).",
+  "fixtures_root": "Assets/Prompt2Scene/Fixtures",
+  "prompts": [
+    {
+      "id": "P01_generate_table",
+      "phase": "generate",
+      "fixture": "F01",
+      "scene": "Assets/Prompt2Scene/Fixtures/F01_EmptyRoom.unity",
+      "text_zh": "在空场景中放置一张桌子 Table（立方体）在原点附近，桌子上放杯子 Cup（小球）。",
+      "text_en": "Place Table (cube) near origin and Cup (sphere) on the table.",
+      "success_criteria": [
+        "exists:Table",
+        "exists:Cup",
+        "on_top_of:Cup,Table"
+      ],
+      "automation": "none",
+      "notes": "Needs LLM/agent generation; not CLI-automated in this pass."
+    },
+    {
+      "id": "P02_edit_move_sphere",
+      "phase": "edit",
+      "fixture": "F02",
+      "scene": "Assets/Prompt2Scene/Fixtures/F02_EditBaseline.unity",
+      "text_zh": "把 SphereB 移到 CubeA 正上方，保持 CubeA 与 Floor 不动。",
+      "text_en": "Move SphereB directly above CubeA; leave CubeA and Floor unchanged.",
+      "success_criteria": [
+        "SphereB above CubeA (~y+1)",
+        "CubeA/Floor transforms unchanged after restore"
+      ],
+      "automation": "baseline_cli",
+      "baseline_action": "move_sphere_above_cube"
+    },
+    {
+      "id": "P03_edit_duplicate_row",
+      "phase": "edit",
+      "fixture": "F02",
+      "scene": "Assets/Prompt2Scene/Fixtures/F02_EditBaseline.unity",
+      "text_zh": "在 CubeA 右侧再放一个同样大小的立方体 CubeC，间距约 1.5 米。",
+      "text_en": "Place CubeC to the right of CubeA, ~1.5m apart.",
+      "success_criteria": [
+        "exists:CubeC",
+        "distance(CubeA,CubeC) ≈ 1.5"
+      ],
+      "automation": "baseline_cli",
+      "baseline_action": "create_cube_c"
+    },
+    {
+      "id": "P04_constraint_left_of",
+      "phase": "constraint",
+      "fixture": "F03",
+      "scene": "Assets/Prompt2Scene/Fixtures/F03_ConstraintSandbox.unity",
+      "text_zh": "RedBox 在 BlueBall 左侧，y 相同。",
+      "text_en": "RedBox left of BlueBall, same y.",
+      "success_criteria": [
+        "left_of:RedBox,BlueBall",
+        "same_y"
+      ],
+      "automation": "check_cli",
+      "constraint_file": "Assets/Prompt2Scene/Check/Constraints/P04_left_of.json"
+    },
+    {
+      "id": "P05_constraint_on_top",
+      "phase": "constraint",
+      "fixture": "F03",
+      "scene": "Assets/Prompt2Scene/Fixtures/F03_ConstraintSandbox.unity",
+      "text_zh": "CupOnBox 放在 RedBox 正上方。",
+      "text_en": "CupOnBox resting on RedBox.",
+      "success_criteria": [
+        "on_top_of:CupOnBox,RedBox"
+      ],
+      "automation": "check_cli",
+      "constraint_file": "Assets/Prompt2Scene/Check/Constraints/P05_on_top.json"
+    },
+    {
+      "id": "P06_constraint_distance",
+      "phase": "constraint",
+      "fixture": "F03",
+      "scene": "Assets/Prompt2Scene/Fixtures/F03_ConstraintSandbox.unity",
+      "text_zh": "RedBox 与 BlueBall 间距约 3 米（2.5–3.5）。",
+      "text_en": "Distance RedBox–BlueBall in [2.5, 3.5].",
+      "success_criteria": [
+        "distance in [2.5,3.5]"
+      ],
+      "automation": "check_cli",
+      "constraint_file": "Assets/Prompt2Scene/Check/Constraints/P06_distance.json"
+    },
+    {
+      "id": "P07_constraint_facing",
+      "phase": "constraint",
+      "fixture": "F03",
+      "scene": "Assets/Prompt2Scene/Fixtures/F03_ConstraintSandbox.unity",
+      "text_zh": "RedBox 朝向 BlueBall（水平偏角 ≤30°）。",
+      "text_en": "RedBox faces BlueBall (yaw ≤30°).",
+      "success_criteria": [
+        "facing:RedBox→BlueBall"
+      ],
+      "automation": "check_cli",
+      "constraint_file": "Assets/Prompt2Scene/Check/Constraints/P07_facing.json"
+    },
+    {
+      "id": "P08_constraint_no_overlap",
+      "phase": "constraint",
+      "fixture": "F03",
+      "scene": "Assets/Prompt2Scene/Fixtures/F03_ConstraintSandbox.unity",
+      "text_zh": "RedBox 与 BlueBall 不发生穿透重叠。",
+      "text_en": "RedBox and BlueBall do not overlap (ComputePenetration).",
+      "success_criteria": [
+        "no_overlap:RedBox,BlueBall"
+      ],
+      "automation": "check_cli",
+      "constraint_file": "Assets/Prompt2Scene/Check/Constraints/P08_no_overlap.json"
+    },
+    {
+      "id": "P09_edit_raise_sphere",
+      "phase": "edit",
+      "fixture": "F02",
+      "scene": "Assets/Prompt2Scene/Fixtures/F02_EditBaseline.unity",
+      "text_zh": "把 SphereB 抬高到 y=2.0，x/z 不变，然后可还原。",
+      "text_en": "Raise SphereB to y=2.0 keeping x/z; restore after.",
+      "success_criteria": [
+        "SphereB.y≈2.0 after edit"
+      ],
+      "automation": "baseline_cli",
+      "baseline_action": "raise_sphere"
+    },
+    {
+      "id": "P10_generate_row",
+      "phase": "generate",
+      "fixture": "F01",
+      "scene": "Assets/Prompt2Scene/Fixtures/F01_EmptyRoom.unity",
+      "text_zh": "在空场景沿 +X 摆放三个立方体 A B C，间距约 1 米。",
+      "text_en": "Place cubes A B C along +X ~1m apart.",
+      "success_criteria": [
+        "exists:A,B,C",
+        "spacing ≈1"
+      ],
+      "automation": "none",
+      "notes": "Needs LLM/agent generation; not CLI-automated."
+    }
+  ]
+}
