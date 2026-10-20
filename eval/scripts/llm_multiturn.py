@@ -153,7 +153,9 @@ def verify_constraint(proj: str, constraint_file: str, run_dir: Path, round_i: i
     # Build failure detail for LLM
     fails = []
     for c in report.get("constraints") or report.get("results") or []:
-        if isinstance(c, dict) and c.get("success") is False:
+        if not isinstance(c, dict):
+            continue
+        if c.get("success") is False or c.get("passed") is False:
             fails.append(c)
     detail = {
         "eval_snip": raw,

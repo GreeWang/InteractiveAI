@@ -206,6 +206,49 @@ for name in ["llm_response.json", "llm_client.stdout.json"]:
   fi
 fi
 
+
+run_logged() {
+  local label="$1"; shift
+  local started_ms ended_ms duration_ms exit_code out_file err_file success
+  started_ms="$(python3 -c 'import time; print(int(time.time()*1000))')"
+  out_file="$(mktemp)"; err_file="$(mktemp)"
+  set +e
+  unity "$@" >"$out_file" 2>"$err_file"
+  exit_code=$?
+  set -e
+  ended_ms="$(python3 -c 'import time; print(int(time.time()*1000))')"
+  duration_ms=$((ended_ms - started_ms))
+  { echo "===== [${label}] unity $* ====="; cat "$out_file"; echo; } >>"$RUN_DIR/stdout.log"
+  if [[ -s "$err_file" ]]; then
+    { echo "===== [${label}] unity $* ====="; cat "$err_file"; echo; } >>"$RUN_DIR/stderr.log"
+  fi
+  success=true
+  if [[ "$exit_code" -ne 0 ]]; then
+    success=false; OVERALL_OK=0; STEP_ERRORS+=("${label}:exit_${exit_code}")
+  elif grep -q '"success"[[:space:]]*:[[:space:]]*false' "$out_file" 2>/dev/null; then
+    success=false; OVERALL_OK=0; STEP_ERRORS+=("${label}:success_false")
+  fi
+  COMMAND_ARGV="$(python3 -c 'import json,sys; print(json.dumps(sys.argv[1:]))' -- "$@")" \
+  LABEL="$label" EXIT_CODE="$exit_code" DURATION_MS="$duration_ms" SUCCESS="$success" \
+  OUT_FILE="$out_file" python3 -c '
+import json, os
+from datetime import datetime
+from zoneinfo import ZoneInfo
+out = open(os.environ["OUT_FILE"], "r", errors="replace").read()
+print(json.dumps({
+  "ts": datetime.now(ZoneInfo("Asia/Shanghai")).isoformat(timespec="seconds"),
+  "label": os.environ["LABEL"],
+  "argv": ["unity"] + json.loads(os.environ["COMMAND_ARGV"]),
+  "exit_code": int(os.environ["EXIT_CODE"]),
+  "duration_ms": int(os.environ["DURATION_MS"]),
+  "success": os.environ["SUCCESS"] == "true",
+  "stdout_snip": out[:2000],
+}, ensure_ascii=False))
+' >>"$RUN_DIR/commands.ndjson"
+  rm -f "$out_file" "$err_file"
+  echo "[llm_run] ${label}: success=${success} exit=${exit_code} ${duration_ms}ms"
+}
+
 execute_plan() {
   [[ -f "$RUN_DIR/plan.json" ]] || return 1
   if [[ "$DRY_RUN" -eq 1 ]]; then

@@ -77,7 +77,7 @@ def chat(
     model: str | None = None,
     base_url: str | None = None,
     temperature: float = 0.2,
-    timeout_s: float = 120.0,
+    timeout_s: float = 300.0,
 ) -> dict[str, Any]:
     api_key = os.environ.get("DEEPSEEK_API_KEY", "").strip()
     if not api_key:

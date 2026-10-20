@@ -164,3 +164,16 @@ plan → execute → verify → on failure, feed report back to the model (defau
 - **Edit prompts (P02/P03/P09)**: verify = semantic postcheck from `success_criteria` (above / spacing 1.2–1.8 / y≈2)
 - Per-round logs: `eval/runs/<run>/round_01/…`, summary `multiturn_summary.json`
 
+## Formal formative Round 1 (minimal, DeepSeek-only)
+
+- Model: `deepseek-v4-pro` only (Qwen / other families deferred)
+- Prompts: **P02–P09** (edit + constraint); **P01/P10 generate deferred**
+- Matrix: each prompt × `baseline` (single-shot) × `check` (multiturn, max_rounds=3)
+- Seeds: 1 per cell for R1
+- Runner: `eval/scripts/run_formal_r1.sh` → `eval/RESULTS_FORMAL_R1.md`
+
+```bash
+./eval/scripts/run_formal_r1.sh
+python3 ./eval/scripts/write_formal_r1_results.py
+```
+
