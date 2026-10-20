@@ -110,7 +110,7 @@ fi
 echo "[llm_run] prompt=$PROMPT_ID condition=$CONDITION dry_run=$DRY_RUN"
 echo "[llm_run] scene=$SCENE fixture=$FIXTURE"
 echo "[llm_run] run_dir=$RUN_DIR"
-echo "[llm_run] model=${DEEPSEEK_MODEL:-deepseek-chat}"
+echo "[llm_run] model=${DEEPSEEK_MODEL:-deepseek-v4-pro}"
 
 # --- 1) Call DeepSeek for a command plan ---
 set +e
@@ -343,7 +343,7 @@ meta = {
   "cli_version": sys.argv[9],
   "pipeline_port": 7800,
   "dry_run": sys.argv[10] == "1",
-  "model": __import__("os").environ.get("DEEPSEEK_MODEL", "deepseek-chat"),
+  "model": __import__("os").environ.get("DEEPSEEK_MODEL", "deepseek-v4-pro"),
   "base_url": __import__("os").environ.get("DEEPSEEK_BASE_URL", "https://api.deepseek.com"),
   "status_note": sys.argv[11],
 }

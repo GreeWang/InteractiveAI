@@ -15,7 +15,7 @@ import urllib.request
 from typing import Any
 
 DEFAULT_BASE = "https://api.deepseek.com"
-DEFAULT_MODEL = "deepseek-chat"
+DEFAULT_MODEL = "deepseek-v4-pro"
 
 # Allowed Unity CLI verbs the model may emit (official Pipeline commands).
 ALLOWED_COMMANDS = [
