@@ -110,3 +110,42 @@ Smoke uses per-prompt `constraint_file` / `baseline_action`. True LLM A/B genera
 
 ## Restore fixtures
 After a dirty run: discard scene changes in Editor, or re-checkout fixture `.unity` files from git once versioned.
+
+## LLM harness (DeepSeek) / 真 LLM 生成
+
+Scripts (under `eval/scripts/`):
+- `llm_client.py` — OpenAI-compatible DeepSeek chat; `--plan` asks for a JSON Unity CLI command list
+- `llm_run.sh` — load prompt → call DeepSeek → (optional) execute via `unity command` → optional Check on F03
+
+### Config (do not commit secrets)
+
+```bash
+# eval/.env  (gitignored)  or export in shell / ~/.zshrc
+DEEPSEEK_API_KEY=...
+DEEPSEEK_BASE_URL=https://api.deepseek.com   # default
+DEEPSEEK_MODEL=deepseek-chat                 # default
+```
+
+Template: `eval/.env.example`.
+
+### Invoke
+
+```bash
+export PATH="$HOME/.unity/bin:$PATH"
+cd ~/Projects/InteractiveAI
+
+# Plan only (no Unity execute)
+./eval/scripts/llm_run.sh P02_edit_move_sphere baseline --dry-run
+
+# Plan + execute on live Pipeline (port 7800)
+./eval/scripts/llm_run.sh P02_edit_move_sphere baseline
+
+# After edits, also run ConstraintChecker when fixture is F03
+./eval/scripts/llm_run.sh P04_constraint_left_of check
+```
+
+Dry-run still calls the API and writes `plan.json` under `eval/runs/<ts>_<id>_<condition>_llm/`.
+Logs: `llm_response.json`, `plan.json`, `commands.ndjson`, `meta.json`, `result.json`.
+
+Allowed plan commands: `open_scene`, `save_scene`, `find_gameobjects`, `create_gameobject`, `delete_gameobject`, `set_transform`, `get_component_properties`, `eval`.
+

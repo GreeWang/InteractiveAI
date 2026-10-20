@@ -1,7 +1,7 @@
 # InteractiveAI / Prompt2Scene
 
 面向 formative study 的 **Prompt 驱动 Unity 场景编辑** 基线栈，配套约束校验 **Prompt2Scene-Check**。  
-当前只使用 **官方 Unity Pipeline CLI + HTTP 服务**（默认端口 **7800**），不依赖第三方 MCP。真 LLM 生成尚未接入；已有自动化是「CLI 编辑冒烟」与「对种子场景跑约束校验」。
+当前只使用 **官方 Unity Pipeline CLI + HTTP 服务**（默认端口 **7800**），不依赖第三方 MCP。已接入 **DeepSeek API**（`eval/scripts/llm_run.sh`）：模型输出 Unity CLI 命令计划，再由官方 CLI 执行；另有「CLI 编辑冒烟」与「对种子场景跑约束校验」。
 
 详细评测约定见：[EVAL_PROTOCOL.md](./EVAL_PROTOCOL.md)。工具版本与连通记录见：[BASELINE_STACK.txt](./BASELINE_STACK.txt)。
 
@@ -70,6 +70,21 @@ Editor 菜单：**Prompt2Scene → Check → Run Sample F03 Constraints**（需�
 
 约束类型见 `check/README.md`：v0.1（`must_exist`、`left_of`、`same_y`、`bounds`、`no_overlap`）与 v0.2（`on_top_of`、`distance`、`facing`）。  
 更多步骤、日志字段与 CLI 参数说明请读 [EVAL_PROTOCOL.md](./EVAL_PROTOCOL.md)。
+
+
+## DeepSeek LLM 评测
+
+```bash
+# 配置 key（不要提交）。可复制 eval/.env.example → eval/.env
+export DEEPSEEK_API_KEY='...'
+# 或写入 eval/.env / ~/.zshrc
+
+export PATH="$HOME/.unity/bin:$PATH"
+./eval/scripts/llm_run.sh P02_edit_move_sphere baseline --dry-run   # 只要计划
+./eval/scripts/llm_run.sh P02_edit_move_sphere baseline             # 计划并执行
+```
+
+详见 [EVAL_PROTOCOL.md](./EVAL_PROTOCOL.md) 的 LLM harness 小节。
 
 ## Git 说明
 
