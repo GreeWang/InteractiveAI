@@ -4,6 +4,7 @@
 #   ./llm_run.sh P02_edit_move_sphere baseline
 #   ./llm_run.sh P02_edit_move_sphere baseline --dry-run
 #   ./llm_run.sh P04_constraint_left_of check
+#   ./llm_run.sh P02_edit_move_sphere check --max-rounds 3
 # Env: DEEPSEEK_API_KEY (or eval/.env), DEEPSEEK_BASE_URL, DEEPSEEK_MODEL,
 #      PROMPT2SCENE_PROJECT, DRY_RUN=1
 set -euo pipefail
@@ -16,10 +17,13 @@ export TZ=Asia/Shanghai
 PROMPT_ID=""
 CONDITION="baseline"
 DRY_RUN=0
+MAX_ROUNDS="${LLM_MAX_ROUNDS:-3}"
 EXTRA_ARGS=()
 while [[ $# -gt 0 ]]; do
   case "$1" in
     --dry-run) DRY_RUN=1; shift ;;
+    --max-rounds)
+      MAX_ROUNDS="$2"; shift 2 ;;
     baseline|check)
       if [[ -z "$PROMPT_ID" ]]; then
         CONDITION="$1"; PROMPT_ID="P02_edit_move_sphere"
@@ -112,37 +116,83 @@ echo "[llm_run] scene=$SCENE fixture=$FIXTURE"
 echo "[llm_run] run_dir=$RUN_DIR"
 echo "[llm_run] model=${DEEPSEEK_MODEL:-deepseek-v4-pro}"
 
-# --- 1) Call DeepSeek for a command plan ---
-set +e
-python3 "$SCRIPT_DIR/llm_client.py" \
-  --dotenv "$ENV_FILE" \
-  --plan \
-  --scene "$SCENE" \
-  --fixture "$FIXTURE" \
-  --task "$TASK_TEXT" \
-  --out "$RUN_DIR/llm_response.json" \
-  >"$RUN_DIR/llm_client.stdout.json" 2>"$RUN_DIR/llm_client.stderr.txt"
-LLM_RC=$?
-set -e
+# --- LLM plan / multi-turn check ---
+echo "[llm_run] max_rounds=$MAX_ROUNDS"
+PROMPT_JSON_FILE="$RUN_DIR/prompt.json"
+printf '%s\n' "$PROMPT_JSON" >"$PROMPT_JSON_FILE"
 
-if [[ ! -f "$RUN_DIR/llm_response.json" ]]; then
-  OVERALL_OK=0
-  STEP_ERRORS+=("llm_no_response")
-  STATUS_NOTE="llm_failed"
-fi
+MULTITURN_USED=0
+PLAN_OK=0
 
-PLAN_OK="$(python3 -c 'import json,sys; d=json.load(open(sys.argv[1])); print("1" if d.get("plan_ok") else "0")' "$RUN_DIR/llm_response.json" 2>/dev/null || echo 0)"
-if [[ "$LLM_RC" -ne 0 || "$PLAN_OK" != "1" ]]; then
-  OVERALL_OK=0
-  STEP_ERRORS+=("llm_plan_failed:rc=${LLM_RC}")
-  STATUS_NOTE="llm_plan_failed"
-  echo "[llm_run] LLM plan failed rc=$LLM_RC plan_ok=$PLAN_OK" >&2
+if [[ "$CONDITION" == "check" ]]; then
+  MULTITURN_USED=1
+  set +e
+  MT_ARGS=(
+    --dotenv "$ENV_FILE"
+    --prompt-json "$PROMPT_JSON_FILE"
+    --project "$PROJ"
+    --run-dir "$RUN_DIR"
+    --max-rounds "$MAX_ROUNDS"
+  )
+  if [[ "$DRY_RUN" -eq 1 ]]; then
+    MT_ARGS+=(--dry-run)
+  fi
+  python3 "$SCRIPT_DIR/llm_multiturn.py" "${MT_ARGS[@]}" \
+    >"$RUN_DIR/multiturn_stdout.json" 2>"$RUN_DIR/multiturn_stderr.txt"
+  MT_RC=$?
+  set -e
+  if [[ -f "$RUN_DIR/multiturn_summary.json" ]]; then
+    FINAL_PASS="$(python3 -c 'import json,sys; print("1" if json.load(open(sys.argv[1])).get("final_pass") else "0")' "$RUN_DIR/multiturn_summary.json")"
+    ROUNDS_USED="$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1])).get("rounds_used",0))' "$RUN_DIR/multiturn_summary.json")"
+  else
+    FINAL_PASS=0; ROUNDS_USED=0
+  fi
+  if [[ "$FINAL_PASS" == "1" ]]; then
+    PLAN_OK=1
+    STATUS_NOTE="multiturn_pass_rounds=${ROUNDS_USED}"
+    echo "[llm_run] multiturn PASS rounds=$ROUNDS_USED"
+  else
+    OVERALL_OK=0
+    PLAN_OK=0
+    STEP_ERRORS+=("multiturn_failed:rc=${MT_RC}:rounds=${ROUNDS_USED}")
+    STATUS_NOTE="multiturn_fail_rounds=${ROUNDS_USED}"
+    echo "[llm_run] multiturn FAIL rounds=$ROUNDS_USED rc=$MT_RC" >&2
+  fi
+  # Copy last llm response to top-level for convenience
+  if [[ -f "$RUN_DIR/round_01/llm_response.json" ]]; then
+    cp "$RUN_DIR/round_01/llm_response.json" "$RUN_DIR/llm_response.json" 2>/dev/null || true
+  fi
 else
-  python3 -c 'import json,sys; d=json.load(open(sys.argv[1])); json.dump(d.get("plan",{}), open(sys.argv[2],"w"), indent=2, ensure_ascii=False); print("commands", len(d.get("plan",{}).get("commands",[])))' \
-    "$RUN_DIR/llm_response.json" "$RUN_DIR/plan.json"
-  # Redact: ensure no api key leaked into response dump (defensive)
-  python3 -c '
-import json, pathlib, re, os
+  # baseline: single-shot (original behavior)
+  set +e
+  python3 "$SCRIPT_DIR/llm_client.py" \
+    --dotenv "$ENV_FILE" \
+    --plan \
+    --scene "$SCENE" \
+    --fixture "$FIXTURE" \
+    --task "$TASK_TEXT" \
+    --out "$RUN_DIR/llm_response.json" \
+    >"$RUN_DIR/llm_client.stdout.json" 2>"$RUN_DIR/llm_client.stderr.txt"
+  LLM_RC=$?
+  set -e
+
+  if [[ ! -f "$RUN_DIR/llm_response.json" ]]; then
+    OVERALL_OK=0
+    STEP_ERRORS+=("llm_no_response")
+    STATUS_NOTE="llm_failed"
+  fi
+
+  PLAN_OK="$(python3 -c 'import json,sys; d=json.load(open(sys.argv[1])); print("1" if d.get("plan_ok") else "0")' "$RUN_DIR/llm_response.json" 2>/dev/null || echo 0)"
+  if [[ "$LLM_RC" -ne 0 || "$PLAN_OK" != "1" ]]; then
+    OVERALL_OK=0
+    STEP_ERRORS+=("llm_plan_failed:rc=${LLM_RC}")
+    STATUS_NOTE="llm_plan_failed"
+    echo "[llm_run] LLM plan failed rc=$LLM_RC plan_ok=$PLAN_OK" >&2
+  else
+    python3 -c 'import json,sys; d=json.load(open(sys.argv[1])); json.dump(d.get("plan",{}), open(sys.argv[2],"w"), indent=2, ensure_ascii=False); print("commands", len(d.get("plan",{}).get("commands",[])))' \
+      "$RUN_DIR/llm_response.json" "$RUN_DIR/plan.json"
+    python3 -c '
+import pathlib, os
 for name in ["llm_response.json", "llm_client.stdout.json"]:
   p = pathlib.Path(os.environ["RUN_DIR"]) / name
   if not p.exists():
@@ -152,50 +202,9 @@ for name in ["llm_response.json", "llm_client.stdout.json"]:
   if key and key in t:
     t = t.replace(key, "<redacted>")
     p.write_text(t, encoding="utf-8")
-' 
+'
+  fi
 fi
-
-run_logged() {
-  local label="$1"; shift
-  local started_ms ended_ms duration_ms exit_code out_file err_file success
-  started_ms="$(python3 -c 'import time; print(int(time.time()*1000))')"
-  out_file="$(mktemp)"; err_file="$(mktemp)"
-  set +e
-  unity "$@" >"$out_file" 2>"$err_file"
-  exit_code=$?
-  set -e
-  ended_ms="$(python3 -c 'import time; print(int(time.time()*1000))')"
-  duration_ms=$((ended_ms - started_ms))
-  { echo "===== [${label}] unity $* ====="; cat "$out_file"; echo; } >>"$RUN_DIR/stdout.log"
-  if [[ -s "$err_file" ]]; then
-    { echo "===== [${label}] unity $* ====="; cat "$err_file"; echo; } >>"$RUN_DIR/stderr.log"
-  fi
-  success=true
-  if [[ "$exit_code" -ne 0 ]]; then
-    success=false; OVERALL_OK=0; STEP_ERRORS+=("${label}:exit_${exit_code}")
-  elif grep -q '"success"[[:space:]]*:[[:space:]]*false' "$out_file" 2>/dev/null; then
-    success=false; OVERALL_OK=0; STEP_ERRORS+=("${label}:success_false")
-  fi
-  COMMAND_ARGV="$(python3 -c 'import json,sys; print(json.dumps(sys.argv[1:]))' -- "$@")" \
-  LABEL="$label" EXIT_CODE="$exit_code" DURATION_MS="$duration_ms" SUCCESS="$success" \
-  OUT_FILE="$out_file" python3 -c '
-import json, os
-from datetime import datetime
-from zoneinfo import ZoneInfo
-out = open(os.environ["OUT_FILE"], "r", errors="replace").read()
-print(json.dumps({
-  "ts": datetime.now(ZoneInfo("Asia/Shanghai")).isoformat(timespec="seconds"),
-  "label": os.environ["LABEL"],
-  "argv": ["unity"] + json.loads(os.environ["COMMAND_ARGV"]),
-  "exit_code": int(os.environ["EXIT_CODE"]),
-  "duration_ms": int(os.environ["DURATION_MS"]),
-  "success": os.environ["SUCCESS"] == "true",
-  "stdout_snip": out[:2000],
-}, ensure_ascii=False))
-' >>"$RUN_DIR/commands.ndjson"
-  rm -f "$out_file" "$err_file"
-  echo "[llm_run] ${label}: success=${success} exit=${exit_code} ${duration_ms}ms"
-}
 
 execute_plan() {
   [[ -f "$RUN_DIR/plan.json" ]] || return 1
@@ -316,10 +325,20 @@ if b.startswith(b"\xef\xbb\xbf"): p.write_bytes(b[3:])
 }
 
 export RUN_DIR
-if [[ "$PLAN_OK" == "1" ]]; then
+if [[ "$MULTITURN_USED" -eq 0 && "$PLAN_OK" == "1" ]]; then
   execute_plan || true
 fi
+# For multiturn, semantic/constraint success already decided final_pass; align OVERALL_OK
+if [[ "$MULTITURN_USED" -eq 1 ]]; then
+  if [[ "${FINAL_PASS:-0}" == "1" ]]; then OVERALL_OK=1; else OVERALL_OK=0; fi
+fi
 
+export LLM_MAX_ROUNDS_META="$MAX_ROUNDS"
+export LLM_MULTITURN_META="$MULTITURN_USED"
+# Merge multiturn_summary into result extras if present
+if [[ -f "$RUN_DIR/multiturn_summary.json" ]]; then
+  cp "$RUN_DIR/multiturn_summary.json" "$RUN_DIR/check_loop.json" 2>/dev/null || true
+fi
 END_ISO="$(iso_now)"
 success_bool=false
 [[ "$OVERALL_OK" -eq 1 ]] && success_bool=true
@@ -346,6 +365,8 @@ meta = {
   "model": __import__("os").environ.get("DEEPSEEK_MODEL", "deepseek-v4-pro"),
   "base_url": __import__("os").environ.get("DEEPSEEK_BASE_URL", "https://api.deepseek.com"),
   "status_note": sys.argv[11],
+  "max_rounds": int(__import__("os").environ.get("LLM_MAX_ROUNDS_META") or "3"),
+  "multiturn": __import__("os").environ.get("LLM_MULTITURN_META") == "1",
 }
 Path(sys.argv[13]).write_text(json.dumps(meta, indent=2, ensure_ascii=False)+"\n", encoding="utf-8")
 ' "$PROMPT_ID" "$CONDITION" "$PHASE" "$FIXTURE" "$SCENE" "$PROJ" "$START_ISO" "$END_ISO" "$CLI_VERSION" "$DRY_RUN" "$STATUS_NOTE" "$PROMPT_JSON" "$RUN_DIR/meta.json"
@@ -353,6 +374,12 @@ Path(sys.argv[13]).write_text(json.dumps(meta, indent=2, ensure_ascii=False)+"\n
 python3 -c '
 import json, sys
 from pathlib import Path
+import os
+from pathlib import Path
+extra={}
+ms=Path(sys.argv[4])/"multiturn_summary.json"
+if ms.exists():
+  extra=json.load(open(ms))
 Path(sys.argv[5]).write_text(json.dumps({
   "success": sys.argv[1]=="true",
   "prompt_id": sys.argv[2],
@@ -363,6 +390,10 @@ Path(sys.argv[5]).write_text(json.dumps({
   "automation": "llm_deepseek",
   "status_note": sys.argv[8],
   "dry_run": sys.argv[9]=="1",
+  "max_rounds": int(os.environ.get("LLM_MAX_ROUNDS_META") or "3"),
+  "multiturn": os.environ.get("LLM_MULTITURN_META")=="1",
+  "final_pass": extra.get("final_pass"),
+  "rounds_used": extra.get("rounds_used"),
 }, indent=2, ensure_ascii=False)+"\n", encoding="utf-8")
 ' "$success_bool" "$PROMPT_ID" "$CONDITION" "$RUN_DIR" "$RUN_DIR/result.json" "$errs_json" "llm_deepseek condition=$CONDITION" "$STATUS_NOTE" "$DRY_RUN"
 

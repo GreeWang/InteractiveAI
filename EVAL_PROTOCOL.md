@@ -149,3 +149,18 @@ Logs: `llm_response.json`, `plan.json`, `commands.ndjson`, `meta.json`, `result.
 
 Allowed plan commands: `open_scene`, `save_scene`, `find_gameobjects`, `create_gameobject`, `delete_gameobject`, `set_transform`, `get_component_properties`, `eval`.
 
+### Multi-turn repair (`condition=check`)
+
+`llm_run.sh … check` uses `llm_multiturn.py`:
+plan → execute → verify → on failure, feed report back to the model (default **3** rounds).
+
+```bash
+./eval/scripts/llm_run.sh P02_edit_move_sphere check --max-rounds 3
+./eval/scripts/llm_run.sh P04_constraint_left_of check
+# or: LLM_MAX_ROUNDS=3 ./eval/scripts/llm_run.sh P03_edit_duplicate_row check
+```
+
+- **F03**: verify = ConstraintChecker JSON
+- **Edit prompts (P02/P03/P09)**: verify = semantic postcheck from `success_criteria` (above / spacing 1.2–1.8 / y≈2)
+- Per-round logs: `eval/runs/<run>/round_01/…`, summary `multiturn_summary.json`
+

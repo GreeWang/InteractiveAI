@@ -49,6 +49,9 @@ Rules:
 - Do not invent packages, MCP tools, or non-listed commands.
 - Keep plans short (typically 1–8 commands). open_scene/save_scene may be omitted; the harness can open the scene.
 - If the task is ambiguous, pick a simple reasonable plan and explain in notes.
+- Do NOT restore/revert an edit unless the user explicitly asks to restore.
+- For ~1.5m spacing beside CubeA at (0,0.5,0), place the new cube near (1.5,0.5,0) (distance 1.2–1.8).
+- For raise to y=2 with x/z unchanged, set position like [1.5,2.0,0] and stop (no restore step).
 """
 
 
