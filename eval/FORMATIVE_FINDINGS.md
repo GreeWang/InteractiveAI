@@ -88,6 +88,11 @@ Updated: 2026-10-21T15:51:32+08:00 Asia/Shanghai (UTC+8)
 3. 继续「故意错位」prep，避免种子已满足约束导致虚高。
 4. 用户研究：轮次、主观可信度与 `sem_ok` 对照。
 
+
+## Proposal automated closeout
+
+Beyond this formative R1–R3/multiseed slice, agent-completable proposal work (Check v0.3, ~20-object catalog, 12×3 task matrix, 12-brief held-out A/B, checker P/R, skill ablation) is summarized in `eval/PROPOSAL_AUTOMATED_CLOSEOUT.md` with results in `RESULTS_TASK_MATRIX.md` / `RESULTS_HELDOUT_AB.md` / `RESULTS_ABLATION.md`. Human interviews and the 12→24 held-out expansion remain out of scope for the agent.
+
 ## 产物索引
 
 - `eval/RESULTS_FORMAL_R1.md` / `RESULTS_FORMAL_R2.md`（含 retry）

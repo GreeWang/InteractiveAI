@@ -17,9 +17,18 @@ Maps the 15 Oct 2026 course proposal to **agent-completable** work. Human-subjec
 | 7 | Skill-only ablation (6 briefs × 3 arms) | `eval/RESULTS_ABLATION.md` |
 | 8 | Docs + push | this file, `EVAL_PROTOCOL.md`, `README.md` |
 
-## Metrics placeholder
+## Aggregate metrics (qwen3.8-max, Asia/Shanghai)
 
-Filled after batch jobs finish (task matrix → held-out → ablation).
+| Suite | Cells | baseline | check | notes |
+|-------|-------|----------|-------|-------|
+| Scripted task matrix (12×3×A/B) | 72 | **36/36 (100%)** | **36/36 (100%)** | `RESULTS_TASK_MATRIX.md` |
+| Held-out A/B | 72 | **33/36 (92%)** | **36/36 (100%)** | 12 briefs (shortfall vs proposal **24**); all 3 fails = `H12_preserve_red` baseline; check repaired each in 2 rounds. `RESULTS_HELDOUT_AB.md` |
+| Skill-only ablation (6×3 arms) | 18 | **6/6 (100%)** | **6/6 (100%)** | skill arm also **6/6 (100%)**. `RESULTS_ABLATION.md` |
+| Checker P/R (single-annotator) | 16 labelled | — | P=R=F1=**1.000** | `CHECKER_PR.md` (not independent second assessor) |
+
+**Shortfall:** proposal called for 24 held-out briefs ×3 ×A/B; this closeout ran **12** held-out briefs (72 cells) for cost/time. Expanding 12→24 remains in Human-remaining / future budget.
+
+CSV mirrors: `results_task_matrix.csv`, `results_heldout_ab.csv`, `results_ablation.csv`.
 
 ## Human-remaining
 
