@@ -55,6 +55,20 @@ if retry:
             rows[by[key]] = r
         else:
             rows.append(r)
+# Post-harden P05 overlay for DS seed1 (and any future overlays)
+for tag in ("p05_harden_overlay",):
+    last = runs / f".last_formal_{tag}_batch"
+    b = Path(last.read_text().strip()) if last.exists() else pick_dir(f"batch_formal_{tag}_*")
+    if b:
+        by = {(r.get("prompt_id"), r.get("condition"), r.get("seed", 1), r.get("model")): i for i, r in enumerate(rows)}
+        for r in load_manifest(b / "manifest.ndjson"):
+            key = (r.get("prompt_id"), r.get("condition"), r.get("seed", 1), r.get("model"))
+            r["source_batch"] = b.name
+            if key in by:
+                rows[by[key]] = r
+            else:
+                rows.append(r)
+
 # Multiseed batches
 for tag in ("multiseed_ds", "multiseed_qwen"):
     last = runs / f".last_formal_{tag}_batch"
