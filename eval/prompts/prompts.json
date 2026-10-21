@@ -1,6 +1,6 @@
 {
-  "version": "0.2.0",
-  "description": "Formative A/B prompt set (official Unity CLI). automation: baseline_cli | check_cli | none (LLM not wired).",
+  "version": "0.3.0",
+  "description": "Formative A/B prompt set (official Unity CLI). automation: baseline_cli | check_cli | llm | none.",
   "fixtures_root": "Assets/Prompt2Scene/Fixtures",
   "prompts": [
     {
@@ -8,15 +8,17 @@
       "phase": "generate",
       "fixture": "F01",
       "scene": "Assets/Prompt2Scene/Fixtures/F01_EmptyRoom.unity",
-      "text_zh": "在空场景中放置一张桌子 Table（立方体）在原点附近，桌子上放杯子 Cup（小球）。",
-      "text_en": "Place Table (cube) near origin and Cup (sphere) on the table.",
+      "text_zh": "在空场景中创建桌子 Table（立方体）在原点附近，再创建杯子 Cup（球体）放在桌子正上方（X/Z 对齐）。",
+      "text_en": "In the empty scene, create Table (cube) near origin and Cup (sphere) resting on it (match Table X/Z; Cup y ≈ Table.y+0.75). Names must be exactly Table and Cup.",
       "success_criteria": [
         "exists:Table",
         "exists:Cup",
         "on_top_of:Cup,Table"
       ],
-      "automation": "none",
-      "notes": "Needs LLM/agent generation; not CLI-automated in this pass."
+      "automation": "llm",
+      "notes": "LLM→CLI generate on F01; scored by existence + on_top postcheck.",
+      "llm_hint": "F01 is empty. create_gameobject --name Table --primitive cube then set_transform /Table --position [0,0.5,0]; create Cup as sphere, optionally scale ~0.4, position [0,1.25,0].",
+      "postcheck": "generate_table"
     },
     {
       "id": "P02_edit_move_sphere",
@@ -58,20 +60,22 @@
         "same_y"
       ],
       "automation": "check_cli",
-      "constraint_file": "Assets/Prompt2Scene/Check/Constraints/P04_left_of.json"
+      "constraint_file": "Assets/Prompt2Scene/Check/Constraints/P04_left_of.json",
+      "llm_hint": "F03: RedBox≈(-1.5,0.5,0), BlueBall≈(1.5,0.5,0). left_of means RedBox.x < BlueBall.x with similar y."
     },
     {
       "id": "P05_constraint_on_top",
       "phase": "constraint",
       "fixture": "F03",
       "scene": "Assets/Prompt2Scene/Fixtures/F03_ConstraintSandbox.unity",
-      "text_zh": "CupOnBox 放在 RedBox 正上方。",
-      "text_en": "CupOnBox resting on RedBox.",
+      "text_zh": "把 CupOnBox 放到 RedBox 正上方：X/Z 必须与 RedBox 对齐（水平偏移≤0.5），Y 略高（约 RedBox.y+0.75）。不要放到世界原点，除非 RedBox 就在原点。",
+      "text_en": "Place CupOnBox centered on top of RedBox: match RedBox X/Z exactly (horizontal offset ≤0.5), y ≈ RedBox.y+0.75. Do NOT place at world origin unless RedBox is at origin. F03 seed: RedBox≈(-1.5,0.5,0) → CupOnBox≈[-1.5,1.25,0].",
       "success_criteria": [
         "on_top_of:CupOnBox,RedBox"
       ],
       "automation": "check_cli",
-      "constraint_file": "Assets/Prompt2Scene/Check/Constraints/P05_on_top.json"
+      "constraint_file": "Assets/Prompt2Scene/Check/Constraints/P05_on_top.json",
+      "llm_hint": "F03: RedBox≈(-1.5,0.5,0), BlueBall≈(1.5,0.5,0). on_top_of requires XZ alignment. Correct target ≈ [-1.5,1.25,0]."
     },
     {
       "id": "P06_constraint_distance",
@@ -84,7 +88,8 @@
         "distance in [2.5,3.5]"
       ],
       "automation": "check_cli",
-      "constraint_file": "Assets/Prompt2Scene/Check/Constraints/P06_distance.json"
+      "constraint_file": "Assets/Prompt2Scene/Check/Constraints/P06_distance.json",
+      "llm_hint": "F03 seeds are already ~3m apart on X. Adjust if needed so distance ∈ [2.5,3.5]."
     },
     {
       "id": "P07_constraint_facing",
@@ -97,7 +102,8 @@
         "facing:RedBox→BlueBall"
       ],
       "automation": "check_cli",
-      "constraint_file": "Assets/Prompt2Scene/Check/Constraints/P07_facing.json"
+      "constraint_file": "Assets/Prompt2Scene/Check/Constraints/P07_facing.json",
+      "llm_hint": "Rotate RedBox yaw so its forward points toward BlueBall (horizontal angle ≤30°)."
     },
     {
       "id": "P08_constraint_no_overlap",
@@ -110,7 +116,8 @@
         "no_overlap:RedBox,BlueBall"
       ],
       "automation": "check_cli",
-      "constraint_file": "Assets/Prompt2Scene/Check/Constraints/P08_no_overlap.json"
+      "constraint_file": "Assets/Prompt2Scene/Check/Constraints/P08_no_overlap.json",
+      "llm_hint": "Ensure RedBox and BlueBall do not interpenetrate; keep them separated on X if needed."
     },
     {
       "id": "P09_edit_raise_sphere",
@@ -130,14 +137,16 @@
       "phase": "generate",
       "fixture": "F01",
       "scene": "Assets/Prompt2Scene/Fixtures/F01_EmptyRoom.unity",
-      "text_zh": "在空场景沿 +X 摆放三个立方体 A B C，间距约 1 米。",
-      "text_en": "Place cubes A B C along +X ~1m apart.",
+      "text_zh": "在空场景沿 +X 创建三个立方体，名称必须为 A、B、C，相邻间距约 1 米（0.8–1.2）。",
+      "text_en": "In the empty scene create cubes named exactly A, B, C along +X about 1m apart (neighbor distance 0.8–1.2). Example: A(0,0.5,0), B(1,0.5,0), C(2,0.5,0).",
       "success_criteria": [
         "exists:A,B,C",
         "spacing ≈1"
       ],
-      "automation": "none",
-      "notes": "Needs LLM/agent generation; not CLI-automated."
+      "automation": "llm",
+      "notes": "LLM→CLI generate on F01; scored by exists A/B/C + spacing.",
+      "llm_hint": "create_gameobject three cubes named A,B,C; set positions along +X with ~1m spacing.",
+      "postcheck": "generate_row"
     }
   ]
 }

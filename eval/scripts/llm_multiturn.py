@@ -125,11 +125,47 @@ def verify_edit(proj: str, prompt_id: str) -> dict:
             # xz seed is 1.5,0 — require y≈2; xz preferably unchanged
             'return "pass="+ok+";y="+b.y+";xz_ok="+xz_ok+";SphereB="+b+";detail=SphereB_y_approx_2";'
         )
+    elif prompt_id.startswith("P01"):
+        code = (
+            'var table=GameObject.Find("Table"); var cup=GameObject.Find("Cup");'
+            'if(table==null||cup==null) return "pass=False;exists=False;detail=missing";'
+            'var tb=table.transform.position; var cp=cup.transform.position;'
+            'var horiz=Vector2.Distance(new Vector2(cp.x,cp.z), new Vector2(tb.x,tb.z));'
+            'var dy=cp.y-tb.y;'
+            'var ok=(horiz<=0.5f)&&(dy>=0.3f)&&(dy<=1.5f);'
+            'return "pass="+ok+";exists=True;horiz="+horiz+";dy="+dy+";Table="+tb+";Cup="+cp+";detail=Cup_on_Table";'
+        )
+    elif prompt_id.startswith("P10"):
+        code = (
+            'var a=GameObject.Find("A"); var b=GameObject.Find("B"); var c=GameObject.Find("C");'
+            'if(a==null||b==null||c==null) return "pass=False;exists=False;detail=missing_ABC";'
+            'var pa=a.transform.position; var pb=b.transform.position; var pc=c.transform.position;'
+            'var d1=Vector3.Distance(pa,pb); var d2=Vector3.Distance(pb,pc);'
+            'var ok=(d1>=0.8f&&d1<=1.2f)&&(d2>=0.8f&&d2<=1.2f);'
+            'return "pass="+ok+";exists=True;dAB="+d1+";dBC="+d2+";detail=ABC_spacing";'
+        )
     else:
         return {"pass": False, "report": f"no_edit_verifier_for:{prompt_id}", "kind": "edit_postcheck"}
     raw = eval_code(proj, code)
     passed = "pass=True" in raw or "pass=true" in raw
     return {"pass": passed, "report": raw, "kind": "edit_postcheck"}
+
+
+def snapshot_named_poses(proj: str, names: list[str]) -> str:
+    """Return compact name|pos=x,y,z;... for repair context."""
+    arr = ",".join(f'"{n}"' for n in names)
+    code = (
+        f'var names=new string[]{{{arr}}};'
+        'var sb=new System.Text.StringBuilder();'
+        'foreach(var n in names){'
+        '  var go=GameObject.Find(n);'
+        '  if(go==null){ sb.Append(n+"=MISSING;"); continue; }'
+        '  var t=go.transform.position;'
+        '  sb.Append(n+"|pos="+t.x+","+t.y+","+t.z+";");'
+        '}'
+        'return sb.ToString();'
+    )
+    return eval_code(proj, code)
 
 
 def verify_constraint(proj: str, constraint_file: str, run_dir: Path, round_i: int) -> dict:
@@ -150,18 +186,30 @@ def verify_constraint(proj: str, constraint_file: str, run_dir: Path, round_i: i
         dest.parent.mkdir(parents=True, exist_ok=True)
         dest.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     passed = bool(report.get("success")) if report else ("success=True" in raw)
-    # Build failure detail for LLM
+    items = report.get("results") or report.get("constraints") or []
     fails = []
-    for c in report.get("constraints") or report.get("results") or []:
+    fail_msgs = []
+    for c in items:
         if not isinstance(c, dict):
             continue
-        if c.get("success") is False or c.get("passed") is False:
+        ok = c.get("passed")
+        if ok is False or c.get("success") is False:
             fails.append(c)
+            fail_msgs.append(
+                f"{c.get('id')}|{c.get('type')}|{c.get('message')}"
+            )
+    poses = snapshot_named_poses(proj, ["RedBox", "BlueBall", "CupOnBox", "Table", "Cup", "A", "B", "C"])
     detail = {
         "eval_snip": raw,
         "failed_constraints": fails or report.get("failures") or [],
+        "failed_messages": fail_msgs,
+        "current_poses": poses,
         "passed": report.get("passed"),
         "failed": report.get("failed"),
+        "hint_on_top": (
+            "If on_top_of failed with XZ offset: set top object X/Z equal to support "
+            "(F03: RedBox≈(-1.5,0.5,0) → CupOnBox≈[-1.5,1.25,0])."
+        ),
     }
     return {"pass": passed, "report": json.dumps(detail, ensure_ascii=False), "kind": "constraint", "raw_report": report}
 
@@ -172,7 +220,7 @@ def verify(proj: str, prompt: dict, run_dir: Path, round_i: int) -> dict:
     cfile = prompt.get("constraint_file") or ""
     if fixture == "F03" and cfile:
         return verify_constraint(proj, cfile, run_dir, round_i)
-    if pid.startswith(("P02", "P03", "P09")):
+    if pid.startswith(("P01", "P02", "P03", "P09", "P10")):
         return verify_edit(proj, pid)
     return {"pass": False, "report": "unsupported_prompt_for_check", "kind": "none"}
 
@@ -184,14 +232,24 @@ Repair mode extras:
 - For raise/move tasks: leave the object at the target pose; never add a restore step.
 - For spacing: distance between CubeA and CubeC must be about 1.5 (acceptable 1.2–1.8). If CubeA is at (0,0.5,0), place CubeC near (1.5,0.5,0).
 - Prefer set_transform / create_gameobject / delete_gameobject only as needed.
+- If failed_messages mention XZ offset / on_top_of: copy the SUPPORT object's x and z exactly; set y ≈ support.y+0.75. Use current_poses in the report. Example RedBox=(-1.5,0.5,0) → CupOnBox=[-1.5,1.25,0].
+- Do not assume RedBox/CubeA are at the world origin unless current_poses say so.
 """
 
 
-def ask_plan(task: str, scene: str, fixture: str, extra: str, out_path: Path, temperature: float = 0.2) -> dict:
+def ask_plan(
+    task: str,
+    scene: str,
+    fixture: str,
+    extra: str,
+    out_path: Path,
+    temperature: float = 0.2,
+    seed: int | None = None,
+) -> dict:
     system = lc.SYSTEM_PROMPT + ("\n" + REPAIR_SYSTEM_EXTRA if extra else "")
     user = lc.build_user_prompt(task, scene, fixture, extra)
     messages = [{"role": "system", "content": system}, {"role": "user", "content": user}]
-    result = lc.chat(messages, temperature=temperature)
+    result = lc.chat(messages, temperature=temperature, seed=seed)
     # redact any provider API keys defensively
     text = lc.redact_text(json.dumps(result, ensure_ascii=False))
     result = json.loads(text)
@@ -214,6 +272,9 @@ def build_task(prompt: dict) -> str:
     parts = [zh, en]
     if criteria:
         parts.append("Success criteria:\n- " + "\n- ".join(criteria))
+    hint = prompt.get("llm_hint") or ""
+    if hint:
+        parts.append("Layout / placement hint:\n" + hint)
     parts.append(
         "Important: do not revert/restore the scene after applying the edit unless the user explicitly asks."
     )
@@ -227,6 +288,7 @@ def main() -> int:
     ap.add_argument("--project", required=True)
     ap.add_argument("--run-dir", required=True)
     ap.add_argument("--max-rounds", type=int, default=3)
+    ap.add_argument("--seed", type=int, default=-1, help="API seed (>=0); -1 omits")
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
     if args.dotenv:
@@ -265,7 +327,8 @@ def main() -> int:
             (round_dir / "failure_feedback.txt").write_text(extra, encoding="utf-8")
 
         try:
-            llm_res = ask_plan(task, scene, fixture, extra, round_dir / "llm_response.json")
+            seed = args.seed if args.seed is not None and args.seed >= 0 else None
+            llm_res = ask_plan(task, scene, fixture, extra, round_dir / "llm_response.json", seed=seed)
         except Exception as e:
             rounds_meta.append({"round": i, "plan_ok": False, "error": str(e)})
             last_report = f"llm_error:{e}"

@@ -18,7 +18,7 @@ from typing import Any
 DEFAULT_DEEPSEEK_BASE = "https://api.deepseek.com"
 DEFAULT_DEEPSEEK_MODEL = "deepseek-v4-pro"
 DEFAULT_BAILIAN_BASE = "https://dashscope.aliyuncs.com/compatible-mode/v1"
-DEFAULT_BAILIAN_MODEL = "qwen-plus"
+DEFAULT_BAILIAN_MODEL = "qwen3.8-max"
 
 # Allowed Unity CLI verbs the model may emit (official Pipeline commands).
 ALLOWED_COMMANDS = [
@@ -47,6 +47,7 @@ Rules:
 - Prefer scene-relative targets like /SphereB, /CubeA.
 - Positions are Unity world coords as strings like "[x,y,z]".
 - For get_component_properties use --type Transform (not --component).
+- IMPORTANT: single-shot plans cannot read get_component_properties results mid-plan. Do not call it and then guess; use the known fixture layout below (or positions given in Extra context).
 - For create_gameobject use --name X --primitive cube|sphere|capsule|cylinder|plane.
 - For set_transform typical: --target /Name --position "[x,y,z]" (optional --rotation / --scale).
 - Do not invent packages, MCP tools, or non-listed commands.
@@ -55,6 +56,22 @@ Rules:
 - Do NOT restore/revert an edit unless the user explicitly asks to restore.
 - For ~1.5m spacing beside CubeA at (0,0.5,0), place the new cube near (1.5,0.5,0) (distance 1.2–1.8).
 - For raise to y=2 with x/z unchanged, set position like [1.5,2.0,0] and stop (no restore step).
+
+Known fixture seeds (use these coords; do NOT assume everything is at origin):
+- F02_EditBaseline: CubeA≈(0,0.5,0), SphereB≈(1.5,0.5,0), Floor at y=0.
+- F03_ConstraintSandbox: RedBox≈(-1.5,0.5,0), BlueBall≈(1.5,0.5,0), CupOnBox starts near RedBox (may be offset before the task).
+- F01_EmptyRoom: empty; create primitives with create_gameobject.
+
+on_top_of / "resting on" / "正上方" (critical):
+- Match the SUPPORT object's X and Z EXACTLY (horizontal offset must be ≤0.5).
+- Place the top object slightly above: y ≈ support.y + 0.75 (acceptable dy in about 0.3–1.5).
+- Example: RedBox at (-1.5,0.5,0) → set CupOnBox to [-1.5,1.25,0] (NOT [0,1.5,0]).
+- Never place the top object at world origin unless the support is also at origin.
+
+Generate tasks (F01):
+- Create named primitives then set_transform. Keep scales modest (cube/sphere default ok; cup/sphere scale ~0.4 if needed).
+- For Cup on Table: Table (cube) near (0,0.5,0), Cup (sphere) at (0,1.25,0) matching Table XZ.
+- For A B C row along +X ~1m: e.g. A(0,0.5,0), B(1,0.5,0), C(2,0.5,0).
 """
 
 
@@ -192,18 +209,21 @@ def chat(
     base_url: str | None = None,
     temperature: float = 0.2,
     timeout_s: float = 300.0,
+    seed: int | None = None,
 ) -> dict[str, Any]:
     cfg = resolve_config(model=model, base_url=base_url)
     api_key = cfg["api_key"]
     base = cfg["base_url"]
     model = cfg["model"]
     url = completions_url(base)
-    body = {
+    body: dict[str, Any] = {
         "model": model,
         "messages": messages,
         "temperature": temperature,
         "stream": False,
     }
+    if seed is not None:
+        body["seed"] = int(seed)
     data = json.dumps(body).encode("utf-8")
     req = urllib.request.Request(
         url,
@@ -312,6 +332,7 @@ def main() -> int:
     ap.add_argument("--model", default="", help="Override model (CLI > env)")
     ap.add_argument("--base-url", default="", help="Override API base URL (CLI > env)")
     ap.add_argument("--temperature", type=float, default=0.2)
+    ap.add_argument("--seed", type=int, default=-1, help="Optional API seed (>=0); -1 omits")
     ap.add_argument("--system", default="", help="Override system prompt")
     ap.add_argument("--user", default="", help="User message (or use --prompt-file)")
     ap.add_argument("--prompt-file", default="", help="Read user message from file")
@@ -380,6 +401,7 @@ def main() -> int:
             model=args.model or None,
             base_url=args.base_url or None,
             temperature=args.temperature,
+            seed=(args.seed if args.seed is not None and args.seed >= 0 else None),
         )
     except Exception as e:
         err = {"ok": False, "error": str(e)}

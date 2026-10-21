@@ -105,6 +105,13 @@ TEXT_EN="$(read_field text_en)"
 TASK_TEXT="$TEXT_ZH"
 [[ -n "$TEXT_EN" ]] && TASK_TEXT="${TEXT_ZH}
 ${TEXT_EN}"
+LLM_HINT="$(read_field llm_hint)"
+EXTRA_CTX=""
+if [[ -n "$LLM_HINT" ]]; then
+  EXTRA_CTX="Layout / placement hint:
+${LLM_HINT}"
+fi
+LLM_SEED="${LLM_SEED:--1}"
 
 OVERALL_OK=1
 STEP_ERRORS=()
@@ -136,6 +143,7 @@ echo "[llm_run] scene=$SCENE fixture=$FIXTURE"
 echo "[llm_run] run_dir=$RUN_DIR"
 echo "[llm_run] provider=$LLM_RESOLVED_PROVIDER model=$LLM_RESOLVED_MODEL"
 echo "[llm_run] base_url=$LLM_RESOLVED_BASE"
+echo "[llm_run] seed=$LLM_SEED"
 
 # --- LLM plan / multi-turn check ---
 echo "[llm_run] max_rounds=$MAX_ROUNDS"
@@ -155,6 +163,9 @@ if [[ "$CONDITION" == "check" ]]; then
     --run-dir "$RUN_DIR"
     --max-rounds "$MAX_ROUNDS"
   )
+  if [[ "$LLM_SEED" != "-1" && -n "$LLM_SEED" ]]; then
+    MT_ARGS+=(--seed "$LLM_SEED")
+  fi
   if [[ "$DRY_RUN" -eq 1 ]]; then
     MT_ARGS+=(--dry-run)
   fi
@@ -186,13 +197,22 @@ if [[ "$CONDITION" == "check" ]]; then
 else
   # baseline: single-shot (original behavior)
   set +e
+  LLM_CLIENT_ARGS=(
+    --dotenv "$ENV_FILE"
+    --plan
+    --scene "$SCENE"
+    --fixture "$FIXTURE"
+    --task "$TASK_TEXT"
+    --out "$RUN_DIR/llm_response.json"
+  )
+  if [[ -n "$EXTRA_CTX" ]]; then
+    LLM_CLIENT_ARGS+=(--extra "$EXTRA_CTX")
+  fi
+  if [[ "$LLM_SEED" != "-1" && -n "$LLM_SEED" ]]; then
+    LLM_CLIENT_ARGS+=(--seed "$LLM_SEED")
+  fi
   python3 "$SCRIPT_DIR/llm_client.py" \
-    --dotenv "$ENV_FILE" \
-    --plan \
-    --scene "$SCENE" \
-    --fixture "$FIXTURE" \
-    --task "$TASK_TEXT" \
-    --out "$RUN_DIR/llm_response.json" \
+    "${LLM_CLIENT_ARGS[@]}" \
     >"$RUN_DIR/llm_client.stdout.json" 2>"$RUN_DIR/llm_client.stderr.txt"
   LLM_RC=$?
   set -e
