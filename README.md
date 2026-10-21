@@ -1,7 +1,7 @@
 # InteractiveAI / Prompt2Scene
 
 面向 formative study 的 **Prompt 驱动 Unity 场景编辑** 基线栈，配套约束校验 **Prompt2Scene-Check**。  
-当前只使用 **官方 Unity Pipeline CLI + HTTP 服务**（默认端口 **7800**），不依赖第三方 MCP。已接入 **DeepSeek API**（`eval/scripts/llm_run.sh`）：模型输出 Unity CLI 命令计划，再由官方 CLI 执行；另有「CLI 编辑冒烟」与「对种子场景跑约束校验」。
+当前只使用 **官方 Unity Pipeline CLI + HTTP 服务**（默认端口 **7800**），不依赖第三方 MCP。已接入 **OpenAI 兼容 LLM**（DeepSeek + 阿里云百炼/DashScope，`eval/scripts/llm_run.sh`）：模型输出 Unity CLI 命令计划，再由官方 CLI 执行；另有 CLI 编辑冒烟、ConstraintChecker，以及 formal R1/R2/R3/multiseed。
 
 详细评测约定见：[EVAL_PROTOCOL.md](./EVAL_PROTOCOL.md)。工具版本与连通记录见：[BASELINE_STACK.txt](./BASELINE_STACK.txt)。
 
@@ -72,19 +72,34 @@ Editor 菜单：**Prompt2Scene → Check → Run Sample F03 Constraints**（需�
 更多步骤、日志字段与 CLI 参数说明请读 [EVAL_PROTOCOL.md](./EVAL_PROTOCOL.md)。
 
 
-## DeepSeek LLM 评测
+## LLM 评测（DeepSeek + 百炼）
 
 ```bash
-# 配置 key（不要提交）。可复制 eval/.env.example → eval/.env
-export DEEPSEEK_API_KEY='...'
-# 或写入 eval/.env / ~/.zshrc
+# 配置 key（不要提交）。复制 eval/.env.example → eval/.env
+# DeepSeek（默认）
+# DEEPSEEK_API_KEY=...
+# DEEPSEEK_MODEL=deepseek-v4-pro
+# 百炼
+# LLM_PROVIDER=bailian
+# DASHSCOPE_API_KEY=...
+# DASHSCOPE_MODEL=qwen3.8-max
 
 export PATH="$HOME/.unity/bin:$PATH"
-./eval/scripts/llm_run.sh P02_edit_move_sphere baseline --dry-run   # 只要计划
-./eval/scripts/llm_run.sh P02_edit_move_sphere baseline             # 计划并执行
+./eval/scripts/llm_run.sh P02_edit_move_sphere baseline --dry-run
+./eval/scripts/llm_run.sh P05_constraint_on_top check
+./eval/scripts/llm_run.sh P01_generate_table baseline
+
+# Formal batches
+./eval/scripts/run_formal_r1.sh
+LLM_PROVIDER=bailian ./eval/scripts/run_formal_r2.sh
+./eval/scripts/run_formal_r3_generate.sh ds    # P01/P10
+./eval/scripts/run_formal_multiseed.sh qwen 2,3
 ```
 
-详见 [EVAL_PROTOCOL.md](./EVAL_PROTOCOL.md) 的 LLM harness 小节。
+结果：`eval/RESULTS_FORMAL_R1.md`、`RESULTS_FORMAL_R2.md`、`RESULTS_FORMAL_R3_GEN_*.md`、`RESULTS_FORMAL_MULTISEED.md`。  
+阶段性结论：`eval/FORMATIVE_FINDINGS.md`。  
+Check agent skill：`check/skill/SKILL.md`。  
+协议细节：[EVAL_PROTOCOL.md](./EVAL_PROTOCOL.md)。
 
 ## Git 说明
 

@@ -1,179 +1,122 @@
-# Prompt2Scene Formative Eval Protocol / 评测协议（Step 1）
+# Prompt2Scene Formative Eval Protocol / 评测协议
 
-Updated: 2026-10-18 Asia/Shanghai (UTC+8) — 10-prompt formative A/B first pass
+Updated: 2026-10-21 Asia/Shanghai (UTC+8)
 
 ## Goal / 目标
-Minimal A/B baseline using **official Unity Pipeline CLI only** (no third-party MCP).  
-用官方 Unity CLI 跑通「生成 → 编辑 → 落盘日志」，为 Prompt2Scene-Check 做对照。
+
+Minimal formative A/B using **official Unity Pipeline CLI only** (no third-party MCP).  
+LLM emits a Unity CLI JSON plan → harness executes → semantic / ConstraintChecker score.  
+Conditions: **baseline** (single-shot) vs **check** (multiturn repair ≤3 rounds).
 
 ## Layout / 目录
 
 | Role | Path |
 |------|------|
-| Unity project | `~/Projects/Prompt2Scene-Baseline` |
-| Fixtures (scenes) | `Prompt2Scene-Baseline/Assets/Prompt2Scene/Fixtures/` |
-| Prompts | `~/Projects/Prompt2Scene/eval/prompts/prompts.json` |
-| Run logs | `~/Projects/Prompt2Scene/eval/runs/` |
-| Smoke script | `~/Projects/Prompt2Scene/eval/scripts/smoke_run.sh` |
-| Stack notes | `~/Projects/Prompt2Scene/BASELINE_STACK.txt` |
+| Repo | `~/Projects/InteractiveAI` |
+| Unity project | `~/Projects/Prompt2Scene-Baseline` (or `$PROMPT2SCENE_PROJECT`) |
+| Fixtures | `Assets/Prompt2Scene/Fixtures/` |
+| Prompts | `eval/prompts/prompts.json` (v0.3) |
+| Run logs | `eval/runs/` |
+| LLM harness | `eval/scripts/llm_run.sh` |
+| Formal batch | `eval/scripts/run_formal_batch.sh` |
+| Check schema / samples | `check/schema/`, `check/constraints/` |
+| Check agent skill | `check/skill/SKILL.md` |
+| Findings | `eval/FORMATIVE_FINDINGS.md` |
 
 ## Fixtures
 
-- **F01_EmptyRoom** — generate from scratch  
-- **F02_EditBaseline** — edit existing (Floor / CubeA / SphereB seeded)  
-- **F03_ConstraintSandbox** — spatial / constraint checks (empty for now)
+| Id | Scene | Role | Seeds |
+|----|-------|------|-------|
+| F01 | `F01_EmptyRoom` | generate | empty (cleared between cells) |
+| F02 | `F02_EditBaseline` | edit | CubeA≈(0,0.5,0), SphereB≈(1.5,0.5,0) |
+| F03 | `F03_ConstraintSandbox` | constraints | RedBox≈(-1.5,0.5,0), BlueBall≈(1.5,0.5,0), CupOnBox near RedBox |
 
-See `Assets/Prompt2Scene/Fixtures/README.md`.
+**P05 prep:** before each `P05_constraint_on_top` cell, CupOnBox is moved to `[0,0.5,0]` so `on_top_of` is a real placement task (seed often already satisfies the constraint).
 
-## Logging convention / 日志约定
+## Prompt matrix
 
-Run dir: `eval/runs/<YYYYMMDD-HHMMSS>_<prompt_id>_<condition>/`
+| Id | Phase | Fixture | Notes |
+|----|-------|---------|-------|
+| P01 | generate | F01 | Table + Cup on table |
+| P02/P03/P09 | edit | F02 | move / duplicate / raise |
+| P04–P08 | constraint | F03 | left_of / on_top / distance / facing / no_overlap |
+| P10 | generate | F01 | cubes A B C ~1m apart |
 
-Required files:
-- `meta.json` — prompt, fixture, condition, start/end (Asia/Shanghai), CLI version, Editor version  
-- `commands.ndjson` — each `unity` invocation (argv, exit_code, duration_ms, success)  
-- `stdout.log` / `stderr.log`  
-- `result.json` — overall success + short summary  
+## LLM providers
 
-Condition labels: `baseline` | `check` (Prompt2Scene-Check constraint pass/fail).
+OpenAI-compatible chat completions via `eval/scripts/llm_client.py`.
 
-## CLI reminders
+| Provider | Env | Default model |
+|----------|-----|---------------|
+| DeepSeek (default) | `DEEPSEEK_API_KEY`, `DEEPSEEK_BASE_URL`, `DEEPSEEK_MODEL` | `deepseek-v4-pro` |
+| Bailian / DashScope | `LLM_PROVIDER=bailian`, `DASHSCOPE_API_KEY`, `DASHSCOPE_BASE_URL`, `DASHSCOPE_MODEL` | `qwen3.8-max` |
+
+Copy `eval/.env.example` → `eval/.env` (gitignored). Never commit keys.  
+Caller exports (e.g. `LLM_PROVIDER`) are preserved when scripts re-source `.env`.  
+Optional: `LLM_SEED` / `--seed` for API seed; `LLM_MAX_ROUNDS` for check.
+
 ```bash
 export PATH="$HOME/.unity/bin:$PATH"
-unity status
-unity command --project-path ~/Projects/Prompt2Scene-Baseline open_scene -- --path Assets/Prompt2Scene/Fixtures/F01_EmptyRoom.unity
+# DeepSeek
+./eval/scripts/llm_run.sh P02_edit_move_sphere baseline
+# Bailian
+export LLM_PROVIDER=bailian
+./eval/scripts/llm_run.sh P05_constraint_on_top check
 ```
 
-Args after command name need `--` then `--flag value` (e.g. `-- --path Assets/...`).
+## Formal rounds
 
-## Invoke smoke / 冒烟用法
+| Round | Script / tag | Model | Cells |
+|-------|--------------|-------|-------|
+| R1 | `run_formal_r1.sh` | deepseek-v4-pro | P02–P09 × baseline/check · seed 1 |
+| R2 | `run_formal_r2.sh` + `run_formal_r2_retry.sh` | qwen3.8-max | same; dirty cells retried |
+| R3 generate | `run_formal_r3_generate.sh ds\|qwen` | both | P01/P10 × baseline/check · seed 1 |
+| Multiseed | `run_formal_multiseed.sh ds\|qwen 2,3` | both | P02–P09 seeds 2–3; aggregate with R1/R2 seed 1 |
 
-```bash
-export PATH="$HOME/.unity/bin:$PATH"
-~/Projects/Prompt2Scene/eval/scripts/smoke_run.sh                         # P02 + baseline
-~/Projects/Prompt2Scene/eval/scripts/smoke_run.sh P02_edit_move_sphere baseline
-~/Projects/Prompt2Scene/eval/scripts/smoke_run.sh P04_constraint_left_of check
-~/Projects/Prompt2Scene/eval/scripts/smoke_run.sh check                   # shorthand → P04 + check
-```
+Generic driver: `FORMAL_TAG=… FORMAL_PROMPTS=… FORMAL_SEEDS=1,2,3 ./eval/scripts/run_formal_batch.sh`  
+Writers: `write_formal_r1_results.py`, `write_formal_r2_results.py`, `write_formal_batch_results.py`, `patch_r2_with_retry.py`.
 
-- **baseline (P02/F02):** status → open → find → move SphereB → restore → save  
-- **check (P04/F03):** status → open F03 → `ConstraintChecker.RunDefaultSample()` via `eval` → copy `check_report.json` into run dir  
+Results: `eval/RESULTS_FORMAL_R1.md`, `RESULTS_FORMAL_R2.md`, `RESULTS_FORMAL_R3_GEN_*.md`, `RESULTS_FORMAL_MULTISEED.md`.
 
-Example runs:
-- `eval/runs/20261017-154222_P02_edit_move_sphere_baseline/`
-- `eval/runs/20261017-155714_P04_constraint_left_of_check/`
+## Logging convention
 
-## Prompt2Scene-Check (`condition=check`)
+Run dir: `eval/runs/<YYYYMMDD-HHMMSS>_<prompt_id>_<condition>_llm/`
 
-Skeleton under `~/Projects/Prompt2Scene/check/` + Editor scripts in the Unity project.
+- `meta.json`, `commands.ndjson`, `stdout.log` / `stderr.log`, `result.json`
+- baseline: `plan.json`, `llm_response.json`, optional `check_report.json` / `r1_postcheck.json`
+- check: `multiturn_summary.json`, `round_XX/`
+
+Timestamps: **Asia/Shanghai (UTC+8)**.
+
+## Prompt2Scene-Check
 
 | Item | Path |
 |------|------|
-| Schema | `~/Projects/Prompt2Scene/check/schema/constraint_schema_v0.2.json` |
-| Sample | `~/Projects/Prompt2Scene/check/constraints/F03_sample.json` |
-| In-project JSON | `Assets/Prompt2Scene/Check/Constraints/F03_sample.json` |
+| Schema | `check/schema/constraint_schema_v0.2.json` |
+| Samples | `check/constraints/*.json` |
 | Editor C# | `Assets/Prompt2Scene/Editor/Prompt2SceneCheck/` |
-| Last report | `Prompt2Scene-Baseline/Logs/prompt2scene-check-last.json` |
-| README | `~/Projects/Prompt2Scene/check/README.md` |
+| Last report | `$PROJ/Logs/prompt2scene-check-last.json` |
+| Agent skill | `check/skill/SKILL.md` |
 
-Types: v0.1 `must_exist`/`left_of`/`same_y`/`bounds`/`no_overlap`; v0.2 `on_top_of`/`distance`/`facing`.
+Types: v0.1 `must_exist` / `left_of` / `same_y` / `bounds` / `no_overlap`; v0.2 `on_top_of` / `distance` / `facing`.
 
-**Editor:** open F03 → menu **Prompt2Scene → Check → Run Sample F03 Constraints**
+`on_top_of`: match support X/Z (`max_horizontal` default 0.5); dy in `[min_vertical, max_vertical]`. **Do not loosen thresholds without documenting before/after.**
 
-**CLI:**
-```bash
-export PATH="$HOME/.unity/bin:$PATH"
-unity command --project-path ~/Projects/Prompt2Scene-Baseline open_scene -- --path Assets/Prompt2Scene/Fixtures/F03_ConstraintSandbox.unity
-unity command --project-path ~/Projects/Prompt2Scene-Baseline eval -- --code 'var r = Prompt2Scene.Check.ConstraintChecker.RunDefaultSample(); return r.success+" "+r.passed+"/"+ (r.passed+r.failed);'
-```
-
-Verified 2026-10-18: F03 sample **10/10 PASS** (incl. on_top_of, distance, facing).
-
-## Formative A/B (first pass)
-
-Prompts: `eval/prompts/prompts.json` (**10** items).  
-Batch: `eval/scripts/run_ab_batch.sh` → summary `eval/RESULTS_AB.md` + `eval/results_ab_*.csv`.
-
-| automation | meaning | this pass |
-|---|---|---|
-| `baseline_cli` | Unity CLI edit smoke (no LLM) | P02, P03, P09 |
-| `check_cli` | ConstraintChecker on seeded F03 | P04–P08 |
-| `none` | generate / LLM not wired | P01, P10 skipped |
-
-Smoke uses per-prompt `constraint_file` / `baseline_action`. True LLM A/B generation not implemented yet.
-
-## Next steps
-1. ~~Fixtures + logging~~  
-2. ~~`smoke_run.sh` end-to-end~~  
-3. ~~Prompt2Scene-Check schema + Editor checker on F03~~  
-4. ~~Wire `condition=check` into smoke~~ — next: richer constraints / A/B batch runner  
-
-## Restore fixtures
-After a dirty run: discard scene changes in Editor, or re-checkout fixture `.unity` files from git once versioned.
-
-## LLM harness (DeepSeek) / 真 LLM 生成
-
-Scripts (under `eval/scripts/`):
-- `llm_client.py` — OpenAI-compatible DeepSeek chat; `--plan` asks for a JSON Unity CLI command list
-- `llm_run.sh` — load prompt → call DeepSeek → (optional) execute via `unity command` → optional Check on F03
-
-### Config (do not commit secrets)
-
-```bash
-# eval/.env  (gitignored)  or export in shell / ~/.zshrc
-DEEPSEEK_API_KEY=...
-DEEPSEEK_BASE_URL=https://api.deepseek.com   # default
-DEEPSEEK_MODEL=deepseek-v4-pro                 # default
-```
-
-Template: `eval/.env.example`.
-
-### Invoke
+## CLI reminders
 
 ```bash
 export PATH="$HOME/.unity/bin:$PATH"
-cd ~/Projects/InteractiveAI
-
-# Plan only (no Unity execute)
-./eval/scripts/llm_run.sh P02_edit_move_sphere baseline --dry-run
-
-# Plan + execute on live Pipeline (port 7800)
-./eval/scripts/llm_run.sh P02_edit_move_sphere baseline
-
-# After edits, also run ConstraintChecker when fixture is F03
-./eval/scripts/llm_run.sh P04_constraint_left_of check
+unity status   # expect ready on :7800
+unity command --project-path ~/Projects/Prompt2Scene-Baseline open_scene -- \
+  --path Assets/Prompt2Scene/Fixtures/F03_ConstraintSandbox.unity
 ```
 
-Dry-run still calls the API and writes `plan.json` under `eval/runs/<ts>_<id>_<condition>_llm/`.
-Logs: `llm_response.json`, `plan.json`, `commands.ndjson`, `meta.json`, `result.json`.
+Args after the command name need `--` then flags.
 
-Allowed plan commands: `open_scene`, `save_scene`, `find_gameobjects`, `create_gameobject`, `delete_gameobject`, `set_transform`, `get_component_properties`, `eval`.
-
-### Multi-turn repair (`condition=check`)
-
-`llm_run.sh … check` uses `llm_multiturn.py`:
-plan → execute → verify → on failure, feed report back to the model (default **3** rounds).
+## Smoke
 
 ```bash
-./eval/scripts/llm_run.sh P02_edit_move_sphere check --max-rounds 3
-./eval/scripts/llm_run.sh P04_constraint_left_of check
-# or: LLM_MAX_ROUNDS=3 ./eval/scripts/llm_run.sh P03_edit_duplicate_row check
+./eval/scripts/smoke_run.sh P02_edit_move_sphere baseline   # CLI-only edit smoke
+./eval/scripts/smoke_run.sh P04_constraint_left_of check
+./eval/scripts/llm_run.sh P01_generate_table baseline         # LLM generate
 ```
-
-- **F03**: verify = ConstraintChecker JSON
-- **Edit prompts (P02/P03/P09)**: verify = semantic postcheck from `success_criteria` (above / spacing 1.2–1.8 / y≈2)
-- Per-round logs: `eval/runs/<run>/round_01/…`, summary `multiturn_summary.json`
-
-## Formal formative Round 1 (minimal, DeepSeek-only)
-
-- Model: `deepseek-v4-pro` only (Qwen / other families deferred)
-- Prompts: **P02–P09** (edit + constraint); **P01/P10 generate deferred**
-- Matrix: each prompt × `baseline` (single-shot) × `check` (multiturn, max_rounds=3)
-- Seeds: 1 per cell for R1
-- Runner: `eval/scripts/run_formal_r1.sh` → `eval/RESULTS_FORMAL_R1.md`
-
-```bash
-./eval/scripts/run_formal_r1.sh
-python3 ./eval/scripts/write_formal_r1_results.py
-```
-
