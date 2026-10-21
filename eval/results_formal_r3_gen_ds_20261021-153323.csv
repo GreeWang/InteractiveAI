@@ -1,0 +1,5 @@
+prompt_id,family,condition,seed,provider,model,harness_ok,semantic_or_check_ok,rounds_used,run_dir,notes,tag
+P01_generate_table,generate,baseline,1,deepseek,deepseek-v4-pro,True,True,1,/Users/greenwong/Projects/InteractiveAI/eval/runs/20261021-153229_P01_generate_table_baseline_llm,"pass=True;exists=True;horiz=0;dy=0.75;Table=(0.00, 0.50, 0.00);Cup=(0.00, 1.25, 0.00)",r3_gen_ds
+P01_generate_table,generate,check,1,deepseek,deepseek-v4-pro,True,True,1,/Users/greenwong/Projects/InteractiveAI/eval/runs/20261021-153247_P01_generate_table_check_llm,"pass=True;exists=True;horiz=0;dy=0.75;Table=(0.00, 0.50, 0.00);Cup=(0.00, 1.25, 0.00);detail=Cup_on_Table",r3_gen_ds
+P10_generate_row,generate,baseline,1,deepseek,deepseek-v4-pro,True,True,1,/Users/greenwong/Projects/InteractiveAI/eval/runs/20261021-153300_P10_generate_row_baseline_llm,"pass=True;exists=True;dAB=1;dBC=1;A=(0.00, 0.50, 0.00);B=(1.00, 0.50, 0.00);C=(2.00, 0.50, 0.00)",r3_gen_ds
+P10_generate_row,generate,check,1,deepseek,deepseek-v4-pro,True,True,1,/Users/greenwong/Projects/InteractiveAI/eval/runs/20261021-153310_P10_generate_row_check_llm,pass=True;exists=True;dAB=1;dBC=1;detail=ABC_spacing,r3_gen_ds
