@@ -55,13 +55,24 @@ ENV_FILE="$ROOT/.env"
 
 die() { echo "error: $*" >&2; exit 1; }
 
-# Load .env without printing secrets
+# Load .env without printing secrets; keep caller overrides (LLM_PROVIDER / LLM_* / DEEPSEEK_MODEL / DASHSCOPE_MODEL)
+_PRESERVE_KEYS=(LLM_PROVIDER LLM_API_KEY LLM_BASE_URL LLM_MODEL DEEPSEEK_MODEL DASHSCOPE_MODEL DASHSCOPE_BASE_URL DEEPSEEK_BASE_URL LLM_SEED)
+_PRESERVED=()
+for _k in "${_PRESERVE_KEYS[@]}"; do
+  if [[ -n "${!_k+x}" ]]; then
+    _PRESERVED+=("$_k=${!_k}")
+  fi
+done
 if [[ -f "$ENV_FILE" ]]; then
   set -a
   # shellcheck disable=SC1090
   source "$ENV_FILE"
   set +a
 fi
+for _kv in "${_PRESERVED[@]:-}"; do
+  export "$_kv"
+done
+unset _k _kv _PRESERVED _PRESERVE_KEYS
 
 # Accept DeepSeek, Bailian/DashScope, or generic LLM_* key
 if [[ -z "${DEEPSEEK_API_KEY:-}${DASHSCOPE_API_KEY:-}${LLM_API_KEY:-}" ]]; then

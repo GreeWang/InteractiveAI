@@ -14,7 +14,14 @@ export PATH="${HOME}/.unity/bin:${PATH}"
 export TZ=Asia/Shanghai
 PROJ="${PROMPT2SCENE_PROJECT:-$HOME/Projects/Prompt2Scene-Baseline}"
 ENV_FILE="$ROOT/.env"
+_PRESERVE_KEYS=(LLM_PROVIDER LLM_API_KEY LLM_BASE_URL LLM_MODEL DEEPSEEK_MODEL DASHSCOPE_MODEL DASHSCOPE_BASE_URL DEEPSEEK_BASE_URL LLM_SEED FORMAL_TAG FORMAL_PROMPTS FORMAL_CONDITIONS FORMAL_SEEDS)
+_PRESERVED=()
+for _k in "${_PRESERVE_KEYS[@]}"; do
+  if [[ -n "${!_k+x}" ]]; then _PRESERVED+=("$_k=${!_k}"); fi
+done
 [[ -f "$ENV_FILE" ]] && set -a && source "$ENV_FILE" && set +a
+for _kv in "${_PRESERVED[@]:-}"; do export "$_kv"; done
+unset _k _kv _PRESERVED _PRESERVE_KEYS
 MAX_ROUNDS="${LLM_MAX_ROUNDS:-3}"
 TAG="${FORMAL_TAG:?set FORMAL_TAG}"
 PROMPTS_CSV="${FORMAL_PROMPTS:-P02_edit_move_sphere,P03_edit_duplicate_row,P09_edit_raise_sphere,P04_constraint_left_of,P05_constraint_on_top,P06_constraint_distance,P07_constraint_facing,P08_constraint_no_overlap}"
