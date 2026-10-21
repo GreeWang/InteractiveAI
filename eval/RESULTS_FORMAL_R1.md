@@ -46,3 +46,10 @@ Manifest: `/Users/greenwong/Projects/InteractiveAI/eval/runs/batch_formal_r1_202
 - `check` = multiturn repair up to 3 rounds (`llm_multiturn.py`).
 - Fixtures restored between cells; generate prompts P01/P10 deferred.
 
+
+## Post-hoc: P05 after harden (2026-10-21)
+
+R1 numbers above are **historical** (pre-harden). After system/prompt harden + CupOnBox prep,
+`deepseek-v4-pro` P05 baseline/check both pass in 1 round — see `eval/P05_HARDEN_EVIDENCE.md`.
+Checker thresholds were **not** loosened.
+
