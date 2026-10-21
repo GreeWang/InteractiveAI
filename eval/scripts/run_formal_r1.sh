@@ -13,7 +13,9 @@ export DEEPSEEK_MODEL="${DEEPSEEK_MODEL:-deepseek-v4-pro}"
 
 die() { echo "error: $*" >&2; exit 1; }
 command -v unity >/dev/null || die "unity missing"
-[[ -n "${DEEPSEEK_API_KEY:-}" ]] || die "DEEPSEEK_API_KEY missing"
+if [[ -z "${DEEPSEEK_API_KEY:-}${DASHSCOPE_API_KEY:-}${LLM_API_KEY:-}" ]]; then
+  die "no API key set (DEEPSEEK_API_KEY, DASHSCOPE_API_KEY, or LLM_API_KEY)"
+fi
 unity status --json | grep -q '"ready"' || die "Pipeline not ready"
 
 BATCH_TS="$(date +%Y%m%d-%H%M%S)"

@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Minimal OpenAI-compatible DeepSeek chat client for Prompt2Scene eval.
+"""Minimal OpenAI-compatible chat client for Prompt2Scene eval.
 
-Reads DEEPSEEK_API_KEY from the environment (or eval/.env via llm_run.sh).
-Never prints the key. Stdout is JSON only for machine consumption.
+Supports DeepSeek and Alibaba Cloud Bailian (DashScope compatible-mode).
+Resolves credentials via env precedence (see resolve_config). Never prints keys.
+Stdout is JSON only for machine consumption.
 """
 from __future__ import annotations
 
@@ -14,8 +15,10 @@ import urllib.error
 import urllib.request
 from typing import Any
 
-DEFAULT_BASE = "https://api.deepseek.com"
-DEFAULT_MODEL = "deepseek-v4-pro"
+DEFAULT_DEEPSEEK_BASE = "https://api.deepseek.com"
+DEFAULT_DEEPSEEK_MODEL = "deepseek-v4-pro"
+DEFAULT_BAILIAN_BASE = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+DEFAULT_BAILIAN_MODEL = "qwen-plus"
 
 # Allowed Unity CLI verbs the model may emit (official Pipeline commands).
 ALLOWED_COMMANDS = [
@@ -71,6 +74,117 @@ def load_dotenv(path: str) -> None:
                 os.environ[k] = v
 
 
+def _env(name: str) -> str:
+    return (os.environ.get(name) or "").strip()
+
+
+def _provider_requested() -> str:
+    """Normalized LLM_PROVIDER if set (deepseek|bailian|dashscope|...)."""
+    return _env("LLM_PROVIDER").lower()
+
+
+def completions_url(base: str) -> str:
+    """Build chat completions URL without double /v1/v1/.
+
+    If base already ends with /v1 (e.g. DashScope compatible-mode/v1),
+    append /chat/completions only; else append /v1/chat/completions.
+    """
+    b = base.rstrip("/")
+    if b.endswith("/v1"):
+        return f"{b}/chat/completions"
+    return f"{b}/v1/chat/completions"
+
+
+def resolve_config(
+    *,
+    model: str | None = None,
+    base_url: str | None = None,
+) -> dict[str, str]:
+    """Resolve api_key, base_url, model, provider.
+
+    Precedence:
+      1. Explicit CLI model / base_url (caller-passed)
+      2. LLM_API_KEY / LLM_BASE_URL / LLM_MODEL when any LLM_* credential/base/model set
+      3. LLM_PROVIDER=bailian|dashscope → DASHSCOPE_* (defaults for Bailian)
+      4. Else DeepSeek DEEPSEEK_* (current defaults)
+    """
+    provider_req = _provider_requested()
+    bailian = provider_req in ("bailian", "dashscope", "qwen", "aliyun")
+
+    # Generic LLM_* override path: if any of the three are set, prefer that family
+    # for missing pieces (still allow CLI model/base to win).
+    llm_key = _env("LLM_API_KEY")
+    llm_base = _env("LLM_BASE_URL")
+    llm_model = _env("LLM_MODEL")
+    use_llm_family = bool(llm_key or llm_base or llm_model)
+
+    if use_llm_family and not bailian:
+        api_key = llm_key or _env("DEEPSEEK_API_KEY") or _env("DASHSCOPE_API_KEY")
+        base = (base_url or llm_base or _env("DEEPSEEK_BASE_URL") or DEFAULT_DEEPSEEK_BASE).rstrip("/")
+        mdl = model or llm_model or _env("DEEPSEEK_MODEL") or DEFAULT_DEEPSEEK_MODEL
+        provider = provider_req or "llm"
+        if not api_key:
+            raise RuntimeError("LLM_API_KEY is not set (and no DEEPSEEK_/DASHSCOPE_ fallback key)")
+        return {
+            "api_key": api_key,
+            "base_url": base,
+            "model": mdl,
+            "provider": provider,
+        }
+
+    if bailian:
+        api_key = llm_key or _env("DASHSCOPE_API_KEY") or _env("LLM_API_KEY")
+        if not api_key:
+            raise RuntimeError(
+                "DASHSCOPE_API_KEY (or LLM_API_KEY) is not set for Bailian/DashScope"
+            )
+        base = (
+            base_url
+            or llm_base
+            or _env("DASHSCOPE_BASE_URL")
+            or DEFAULT_BAILIAN_BASE
+        ).rstrip("/")
+        mdl = model or llm_model or _env("DASHSCOPE_MODEL") or DEFAULT_BAILIAN_MODEL
+        return {
+            "api_key": api_key,
+            "base_url": base,
+            "model": mdl,
+            "provider": "bailian",
+        }
+
+    # Default: DeepSeek (unchanged when only DEEPSEEK_* is set)
+    api_key = llm_key or _env("DEEPSEEK_API_KEY")
+    if not api_key:
+        raise RuntimeError("DEEPSEEK_API_KEY is not set")
+    base = (
+        base_url or llm_base or _env("DEEPSEEK_BASE_URL") or DEFAULT_DEEPSEEK_BASE
+    ).rstrip("/")
+    mdl = model or llm_model or _env("DEEPSEEK_MODEL") or DEFAULT_DEEPSEEK_MODEL
+    return {
+        "api_key": api_key,
+        "base_url": base,
+        "model": mdl,
+        "provider": provider_req or "deepseek",
+    }
+
+
+def secret_values() -> list[str]:
+    """Non-empty API key values for redaction (never log these)."""
+    out = []
+    for name in ("DEEPSEEK_API_KEY", "DASHSCOPE_API_KEY", "LLM_API_KEY"):
+        v = _env(name)
+        if v:
+            out.append(v)
+    return out
+
+
+def redact_text(text: str) -> str:
+    for key in secret_values():
+        if key and key in text:
+            text = text.replace(key, "<redacted>")
+    return text
+
+
 def chat(
     messages: list[dict[str, str]],
     *,
@@ -79,12 +193,11 @@ def chat(
     temperature: float = 0.2,
     timeout_s: float = 300.0,
 ) -> dict[str, Any]:
-    api_key = os.environ.get("DEEPSEEK_API_KEY", "").strip()
-    if not api_key:
-        raise RuntimeError("DEEPSEEK_API_KEY is not set")
-    base = (base_url or os.environ.get("DEEPSEEK_BASE_URL") or DEFAULT_BASE).rstrip("/")
-    model = model or os.environ.get("DEEPSEEK_MODEL") or DEFAULT_MODEL
-    url = f"{base}/v1/chat/completions"
+    cfg = resolve_config(model=model, base_url=base_url)
+    api_key = cfg["api_key"]
+    base = cfg["base_url"]
+    model = cfg["model"]
+    url = completions_url(base)
     body = {
         "model": model,
         "messages": messages,
@@ -120,6 +233,7 @@ def chat(
         "http_status": status,
         "model": model,
         "base_url": base,
+        "provider": cfg["provider"],
         "content": content,
         "usage": payload.get("usage"),
         "raw_id": payload.get("id"),
@@ -193,10 +307,10 @@ def build_user_prompt(prompt_text: str, scene: str, fixture: str, extra: str = "
 
 
 def main() -> int:
-    ap = argparse.ArgumentParser(description="DeepSeek chat client for Prompt2Scene")
+    ap = argparse.ArgumentParser(description="OpenAI-compatible chat client for Prompt2Scene")
     ap.add_argument("--dotenv", default="", help="Optional .env path to load if key unset")
-    ap.add_argument("--model", default="", help="Override DEEPSEEK_MODEL")
-    ap.add_argument("--base-url", default="", help="Override DEEPSEEK_BASE_URL")
+    ap.add_argument("--model", default="", help="Override model (CLI > env)")
+    ap.add_argument("--base-url", default="", help="Override API base URL (CLI > env)")
     ap.add_argument("--temperature", type=float, default=0.2)
     ap.add_argument("--system", default="", help="Override system prompt")
     ap.add_argument("--user", default="", help="User message (or use --prompt-file)")
@@ -207,10 +321,35 @@ def main() -> int:
     ap.add_argument("--task", default="", help="Task text for --plan")
     ap.add_argument("--extra", default="", help="Extra context for --plan (e.g. check failures)")
     ap.add_argument("--out", default="", help="Write full result JSON to this path")
+    ap.add_argument(
+        "--print-config",
+        action="store_true",
+        help="Print resolved provider/model/base_url (no secrets) as JSON and exit",
+    )
     args = ap.parse_args()
 
     if args.dotenv:
         load_dotenv(args.dotenv)
+
+    if args.print_config:
+        try:
+            cfg = resolve_config(
+                model=args.model or None,
+                base_url=args.base_url or None,
+            )
+        except Exception as e:
+            print(json.dumps({"ok": False, "error": str(e)}, ensure_ascii=False))
+            return 1
+        safe = {
+            "ok": True,
+            "provider": cfg["provider"],
+            "model": cfg["model"],
+            "base_url": cfg["base_url"],
+            "completions_url": completions_url(cfg["base_url"]),
+            "has_api_key": bool(cfg["api_key"]),
+        }
+        print(json.dumps(safe, ensure_ascii=False))
+        return 0
 
     if args.plan:
         task = args.task or args.user

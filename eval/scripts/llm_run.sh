@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-# Prompt2Scene LLM harness — DeepSeek plan → optional Unity CLI execute.
+# Prompt2Scene LLM harness — OpenAI-compatible plan → optional Unity CLI execute.
 # Usage:
 #   ./llm_run.sh P02_edit_move_sphere baseline
 #   ./llm_run.sh P02_edit_move_sphere baseline --dry-run
 #   ./llm_run.sh P04_constraint_left_of check
 #   ./llm_run.sh P02_edit_move_sphere check --max-rounds 3
-# Env: DEEPSEEK_API_KEY (or eval/.env), DEEPSEEK_BASE_URL, DEEPSEEK_MODEL,
-#      PROMPT2SCENE_PROJECT, DRY_RUN=1
+# Env: DEEPSEEK_* (default) or LLM_PROVIDER=bailian + DASHSCOPE_* / LLM_*;
+#      see eval/.env.example. Also PROMPT2SCENE_PROJECT, DRY_RUN=1
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
@@ -63,7 +63,10 @@ if [[ -f "$ENV_FILE" ]]; then
   set +a
 fi
 
-[[ -n "${DEEPSEEK_API_KEY:-}" ]] || die "DEEPSEEK_API_KEY not set (export or put in eval/.env)"
+# Accept DeepSeek, Bailian/DashScope, or generic LLM_* key
+if [[ -z "${DEEPSEEK_API_KEY:-}${DASHSCOPE_API_KEY:-}${LLM_API_KEY:-}" ]]; then
+  die "no API key set (DEEPSEEK_API_KEY, DASHSCOPE_API_KEY, or LLM_API_KEY in eval/.env)"
+fi
 [[ -f "$PROMPTS_FILE" ]] || die "prompts missing: $PROMPTS_FILE"
 [[ "$CONDITION" == "baseline" || "$CONDITION" == "check" ]] || die "condition must be baseline|check"
 
@@ -111,10 +114,28 @@ if command -v unity >/dev/null 2>&1; then
   CLI_VERSION="$(unity --version 2>/dev/null | head -1 | tr -d '\r' || true)"
 fi
 
+# Resolve provider/model/base without printing secrets
+LLM_CFG_JSON="$(SCRIPT_DIR="$SCRIPT_DIR" python3 -c '
+import json, os, sys
+sys.path.insert(0, os.environ["SCRIPT_DIR"])
+import llm_client as lc
+cfg = lc.resolve_config()
+print(json.dumps({
+  "provider": cfg["provider"],
+  "model": cfg["model"],
+  "base_url": cfg["base_url"],
+  "completions_url": lc.completions_url(cfg["base_url"]),
+}))
+')"
+export LLM_RESOLVED_MODEL="$(printf '%s' "$LLM_CFG_JSON" | python3 -c 'import json,sys; print(json.load(sys.stdin)["model"])')"
+export LLM_RESOLVED_BASE="$(printf '%s' "$LLM_CFG_JSON" | python3 -c 'import json,sys; print(json.load(sys.stdin)["base_url"])')"
+export LLM_RESOLVED_PROVIDER="$(printf '%s' "$LLM_CFG_JSON" | python3 -c 'import json,sys; print(json.load(sys.stdin)["provider"])')"
+
 echo "[llm_run] prompt=$PROMPT_ID condition=$CONDITION dry_run=$DRY_RUN"
 echo "[llm_run] scene=$SCENE fixture=$FIXTURE"
 echo "[llm_run] run_dir=$RUN_DIR"
-echo "[llm_run] model=${DEEPSEEK_MODEL:-deepseek-v4-pro}"
+echo "[llm_run] provider=$LLM_RESOLVED_PROVIDER model=$LLM_RESOLVED_MODEL"
+echo "[llm_run] base_url=$LLM_RESOLVED_BASE"
 
 # --- LLM plan / multi-turn check ---
 echo "[llm_run] max_rounds=$MAX_ROUNDS"
@@ -198,10 +219,11 @@ for name in ["llm_response.json", "llm_client.stdout.json"]:
   if not p.exists():
     continue
   t = p.read_text(encoding="utf-8", errors="replace")
-  key = os.environ.get("DEEPSEEK_API_KEY", "")
-  if key and key in t:
-    t = t.replace(key, "<redacted>")
-    p.write_text(t, encoding="utf-8")
+  for name in ("DEEPSEEK_API_KEY", "DASHSCOPE_API_KEY", "LLM_API_KEY"):
+    key = os.environ.get(name, "")
+    if key and key in t:
+      t = t.replace(key, "<redacted>")
+  p.write_text(t, encoding="utf-8")
 '
   fi
 fi
@@ -398,15 +420,16 @@ meta = {
   "scene": sys.argv[5],
   "project": sys.argv[6],
   "prompt": json.loads(sys.argv[12]),
-  "automation": "llm_deepseek",
+  "automation": "llm",
   "started_at": sys.argv[7],
   "ended_at": sys.argv[8],
   "timezone": "Asia/Shanghai",
   "cli_version": sys.argv[9],
   "pipeline_port": 7800,
   "dry_run": sys.argv[10] == "1",
-  "model": __import__("os").environ.get("DEEPSEEK_MODEL", "deepseek-v4-pro"),
-  "base_url": __import__("os").environ.get("DEEPSEEK_BASE_URL", "https://api.deepseek.com"),
+  "provider": __import__("os").environ.get("LLM_RESOLVED_PROVIDER", "deepseek"),
+  "model": __import__("os").environ.get("LLM_RESOLVED_MODEL") or __import__("os").environ.get("DEEPSEEK_MODEL", "deepseek-v4-pro"),
+  "base_url": __import__("os").environ.get("LLM_RESOLVED_BASE") or __import__("os").environ.get("DEEPSEEK_BASE_URL", "https://api.deepseek.com"),
   "status_note": sys.argv[11],
   "max_rounds": int(__import__("os").environ.get("LLM_MAX_ROUNDS_META") or "3"),
   "multiturn": __import__("os").environ.get("LLM_MULTITURN_META") == "1",
@@ -430,7 +453,9 @@ Path(sys.argv[5]).write_text(json.dumps({
   "run_dir": sys.argv[4],
   "errors": json.loads(sys.argv[6]),
   "summary": sys.argv[7],
-  "automation": "llm_deepseek",
+  "automation": "llm",
+  "provider": os.environ.get("LLM_RESOLVED_PROVIDER", "deepseek"),
+  "model": os.environ.get("LLM_RESOLVED_MODEL") or os.environ.get("DEEPSEEK_MODEL", "deepseek-v4-pro"),
   "status_note": sys.argv[8],
   "dry_run": sys.argv[9]=="1",
   "max_rounds": int(os.environ.get("LLM_MAX_ROUNDS_META") or "3"),
@@ -438,7 +463,7 @@ Path(sys.argv[5]).write_text(json.dumps({
   "final_pass": extra.get("final_pass"),
   "rounds_used": extra.get("rounds_used"),
 }, indent=2, ensure_ascii=False)+"\n", encoding="utf-8")
-' "$success_bool" "$PROMPT_ID" "$CONDITION" "$RUN_DIR" "$RUN_DIR/result.json" "$errs_json" "llm_deepseek condition=$CONDITION" "$STATUS_NOTE" "$DRY_RUN"
+' "$success_bool" "$PROMPT_ID" "$CONDITION" "$RUN_DIR" "$RUN_DIR/result.json" "$errs_json" "llm condition=$CONDITION" "$STATUS_NOTE" "$DRY_RUN"
 
 echo "[llm_run] wrote $RUN_DIR"
 echo "[llm_run] success=$success_bool note=$STATUS_NOTE"

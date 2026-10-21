@@ -192,12 +192,9 @@ def ask_plan(task: str, scene: str, fixture: str, extra: str, out_path: Path, te
     user = lc.build_user_prompt(task, scene, fixture, extra)
     messages = [{"role": "system", "content": system}, {"role": "user", "content": user}]
     result = lc.chat(messages, temperature=temperature)
-    # redact key defensively
-    key = os.environ.get("DEEPSEEK_API_KEY", "")
-    text = json.dumps(result, ensure_ascii=False)
-    if key and key in text:
-        text = text.replace(key, "<redacted>")
-        result = json.loads(text)
+    # redact any provider API keys defensively
+    text = lc.redact_text(json.dumps(result, ensure_ascii=False))
+    result = json.loads(text)
     try:
         plan = lc.normalize_plan(lc.extract_json_object(result["content"]))
         result["plan"] = plan

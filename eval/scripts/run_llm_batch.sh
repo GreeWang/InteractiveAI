@@ -8,7 +8,10 @@ export TZ=Asia/Shanghai
 PROJ="${PROMPT2SCENE_PROJECT:-$HOME/Projects/Prompt2Scene-Baseline}"
 ENV_FILE="$ROOT/.env"
 if [[ -f "$ENV_FILE" ]]; then set -a; source "$ENV_FILE"; set +a; fi
-[[ -n "${DEEPSEEK_API_KEY:-}" ]] || { echo "error: DEEPSEEK_API_KEY missing" >&2; exit 1; }
+if [[ -z "${DEEPSEEK_API_KEY:-}${DASHSCOPE_API_KEY:-}${LLM_API_KEY:-}" ]]; then
+  echo "error: no API key set (DEEPSEEK_API_KEY, DASHSCOPE_API_KEY, or LLM_API_KEY)" >&2
+  exit 1
+fi
 
 die() { echo "error: $*" >&2; exit 1; }
 command -v unity >/dev/null || die "unity CLI missing"
