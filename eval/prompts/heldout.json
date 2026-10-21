@@ -1,0 +1,175 @@
+{
+  "version": "0.1.0",
+  "description": "Held-out briefs for automated A/B (not identical to formative P01–P12). Fixed model recommended: qwen3.8-max.",
+  "model_policy": "Use one fixed model across A/B (default qwen3.8-max).",
+  "prompts": [
+    {
+      "id": "H01_gen_desk_mug",
+      "phase": "generate",
+      "fixture": "F01",
+      "scene": "Assets/Prompt2Scene/Fixtures/F01_EmptyRoom.unity",
+      "text_en": "Create Desk (cube) near origin and Mug (sphere) resting centered on Desk (match XZ; mug y≈desk.y+0.75). Exact names Desk and Mug.",
+      "text_zh": "创建 Desk（立方体）与其上的 Mug（球体，XZ对齐）。",
+      "success_criteria": [
+        "exists:Desk,Mug",
+        "on_top"
+      ],
+      "automation": "llm",
+      "postcheck": "held_desk_mug",
+      "llm_hint": "Desk≈[0,0.5,0], Mug≈[0,1.25,0], mug scale~0.4"
+    },
+    {
+      "id": "H02_edit_sphere_stack",
+      "phase": "edit",
+      "fixture": "F02",
+      "scene": "Assets/Prompt2Scene/Fixtures/F02_EditBaseline.unity",
+      "text_en": "Stack SphereB on CubeA (SphereB directly above; keep Floor fixed).",
+      "text_zh": "SphereB叠到CubeA上。",
+      "success_criteria": [
+        "SphereB above CubeA"
+      ],
+      "automation": "llm",
+      "postcheck": "edit_above"
+    },
+    {
+      "id": "H03_edit_side_cube",
+      "phase": "edit",
+      "fixture": "F02",
+      "scene": "Assets/Prompt2Scene/Fixtures/F02_EditBaseline.unity",
+      "text_en": "Add SideCube to the +X side of CubeA with spacing about 1.5m.",
+      "text_zh": "在CubeA右侧约1.5m放SideCube。",
+      "success_criteria": [
+        "exists:SideCube",
+        "dist≈1.5"
+      ],
+      "automation": "llm",
+      "postcheck": "held_side_cube"
+    },
+    {
+      "id": "H04_left_same_y",
+      "phase": "constraint",
+      "fixture": "F03",
+      "scene": "Assets/Prompt2Scene/Fixtures/F03_ConstraintSandbox.unity",
+      "text_en": "Ensure RedBox remains to the left of BlueBall with matching height.",
+      "text_zh": "RedBox在BlueBall左侧且同高。",
+      "success_criteria": [
+        "left_of",
+        "same_y"
+      ],
+      "automation": "llm",
+      "constraint_file": "Assets/Prompt2Scene/Check/Constraints/P04_left_of.json"
+    },
+    {
+      "id": "H05_cup_stack",
+      "phase": "constraint",
+      "fixture": "F03",
+      "scene": "Assets/Prompt2Scene/Fixtures/F03_ConstraintSandbox.unity",
+      "text_en": "Seat CupOnBox on RedBox with XZ centered on RedBox (F03 RedBox≈(-1.5,0.5,0)).",
+      "text_zh": "CupOnBox居中叠在RedBox上。",
+      "success_criteria": [
+        "on_top"
+      ],
+      "automation": "llm",
+      "constraint_file": "Assets/Prompt2Scene/Check/Constraints/P05_on_top.json",
+      "llm_hint": "CupOnBox≈[-1.5,1.25,0]",
+      "prep": "displace_cup_origin"
+    },
+    {
+      "id": "H06_spacing_band",
+      "phase": "constraint",
+      "fixture": "F03",
+      "scene": "Assets/Prompt2Scene/Fixtures/F03_ConstraintSandbox.unity",
+      "text_en": "Keep RedBox–BlueBall distance between 2.5 and 3.5 meters.",
+      "text_zh": "RedBox与BlueBall间距2.5–3.5。",
+      "success_criteria": [
+        "distance band"
+      ],
+      "automation": "llm",
+      "constraint_file": "Assets/Prompt2Scene/Check/Constraints/P06_distance.json"
+    },
+    {
+      "id": "H07_face_neighbor",
+      "phase": "constraint",
+      "fixture": "F03",
+      "scene": "Assets/Prompt2Scene/Fixtures/F03_ConstraintSandbox.unity",
+      "text_en": "Yaw RedBox so it faces BlueBall within 30 degrees horizontally.",
+      "text_zh": "RedBox朝向BlueBall。",
+      "success_criteria": [
+        "facing"
+      ],
+      "automation": "llm",
+      "constraint_file": "Assets/Prompt2Scene/Check/Constraints/P07_facing.json"
+    },
+    {
+      "id": "H08_no_penetrate",
+      "phase": "constraint",
+      "fixture": "F03",
+      "scene": "Assets/Prompt2Scene/Fixtures/F03_ConstraintSandbox.unity",
+      "text_en": "RedBox and BlueBall must not interpenetrate.",
+      "text_zh": "RedBox与BlueBall不穿透。",
+      "success_criteria": [
+        "no_overlap"
+      ],
+      "automation": "llm",
+      "constraint_file": "Assets/Prompt2Scene/Check/Constraints/P08_no_overlap.json"
+    },
+    {
+      "id": "H09_lift_sphere",
+      "phase": "edit",
+      "fixture": "F02",
+      "scene": "Assets/Prompt2Scene/Fixtures/F02_EditBaseline.unity",
+      "text_en": "Lift SphereB so its y coordinate is approximately 2.0; keep x and z.",
+      "text_zh": "SphereB抬到y≈2。",
+      "success_criteria": [
+        "y≈2"
+      ],
+      "automation": "llm",
+      "postcheck": "raise_y2"
+    },
+    {
+      "id": "H10_row_xyz",
+      "phase": "generate",
+      "fixture": "F01",
+      "scene": "Assets/Prompt2Scene/Fixtures/F01_EmptyRoom.unity",
+      "text_en": "Spawn cubes named X, Y, Z in a +X row with neighbor spacing ~1m (0.8–1.2).",
+      "text_zh": "创建X/Y/Z一排间距约1m。",
+      "success_criteria": [
+        "exists X,Y,Z",
+        "spacing"
+      ],
+      "automation": "llm",
+      "postcheck": "held_row_xyz",
+      "llm_hint": "X(0,0.5,0) Y(1,0.5,0) Z(2,0.5,0)"
+    },
+    {
+      "id": "H11_keepout",
+      "phase": "constraint",
+      "fixture": "F03",
+      "scene": "Assets/Prompt2Scene/Fixtures/F03_ConstraintSandbox.unity",
+      "text_en": "Put CupOnBox on RedBox and keep it outside the origin keep-out volume (|x|,|z|≤0.75).",
+      "text_zh": "Cup叠在RedBox且避开原点净空。",
+      "success_criteria": [
+        "on_top",
+        "clearance"
+      ],
+      "automation": "llm",
+      "constraint_file": "Assets/Prompt2Scene/Check/Constraints/P11_clearance.json",
+      "prep": "displace_cup_origin"
+    },
+    {
+      "id": "H12_preserve_red",
+      "phase": "constraint",
+      "fixture": "F03",
+      "scene": "Assets/Prompt2Scene/Fixtures/F03_ConstraintSandbox.unity",
+      "text_en": "Do not move RedBox from (-1.5,0.5,0); adjust BlueBall only so left_of and distance 2.5–3.5 hold.",
+      "text_zh": "锁定RedBox，只动BlueBall满足左侧与间距。",
+      "success_criteria": [
+        "locked",
+        "left_of",
+        "distance"
+      ],
+      "automation": "llm",
+      "constraint_file": "Assets/Prompt2Scene/Check/Constraints/P12_locked.json"
+    }
+  ]
+}

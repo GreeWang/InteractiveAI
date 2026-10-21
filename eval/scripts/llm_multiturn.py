@@ -144,6 +144,47 @@ def verify_edit(proj: str, prompt_id: str) -> dict:
             'var ok=(d1>=0.8f&&d1<=1.2f)&&(d2>=0.8f&&d2<=1.2f);'
             'return "pass="+ok+";exists=True;dAB="+d1+";dBC="+d2+";detail=ABC_spacing";'
         )
+    elif prompt_id.startswith("H01"):
+        code = (
+            'var table=GameObject.Find("Desk"); var cup=GameObject.Find("Mug");'
+            'if(table==null||cup==null) return "pass=False;exists=False;detail=missing";'
+            'var tb=table.transform.position; var cp=cup.transform.position;'
+            'var horiz=Vector2.Distance(new Vector2(cp.x,cp.z), new Vector2(tb.x,tb.z));'
+            'var dy=cp.y-tb.y;'
+            'var ok=(horiz<=0.5f)&&(dy>=0.3f)&&(dy<=1.5f);'
+            'return "pass="+ok+";exists=True;horiz="+horiz+";dy="+dy+";detail=Mug_on_Desk";'
+        )
+    elif prompt_id.startswith("H02"):
+        code = (
+            'var a=GameObject.Find("CubeA").transform.position;'
+            'var b=GameObject.Find("SphereB").transform.position;'
+            'var above=(b.y>a.y+0.4f)&&(Mathf.Abs(b.x-a.x)<0.6f)&&(Mathf.Abs(b.z-a.z)<0.6f);'
+            'return "pass="+above+";SphereB="+b+";CubeA="+a+";detail=SphereB_above_CubeA";'
+        )
+    elif prompt_id.startswith("H03"):
+        code = (
+            'var c=GameObject.Find("SideCube");'
+            'if(c==null) return "pass=False;exists=False;dist=-1;detail=SideCube_missing";'
+            'var a=GameObject.Find("CubeA").transform.position;'
+            'var d=Vector3.Distance(a,c.transform.position);'
+            'var ok=(d>=1.2f && d<=1.8f);'
+            'return "pass="+ok+";exists=True;dist="+d+";detail=SideCube_spacing";'
+        )
+    elif prompt_id.startswith("H09"):
+        code = (
+            'var b=GameObject.Find("SphereB").transform.position;'
+            'var ok=Mathf.Abs(b.y-2.0f)<0.15f;'
+            'return "pass="+ok+";y="+b.y+";SphereB="+b+";detail=SphereB_y_approx_2";'
+        )
+    elif prompt_id.startswith("H10"):
+        code = (
+            'var a=GameObject.Find("X"); var b=GameObject.Find("Y"); var c=GameObject.Find("Z");'
+            'if(a==null||b==null||c==null) return "pass=False;exists=False;detail=missing_XYZ";'
+            'var pa=a.transform.position; var pb=b.transform.position; var pc=c.transform.position;'
+            'var d1=Vector3.Distance(pa,pb); var d2=Vector3.Distance(pb,pc);'
+            'var ok=(d1>=0.8f&&d1<=1.2f)&&(d2>=0.8f&&d2<=1.2f);'
+            'return "pass="+ok+";exists=True;dXY="+d1+";dYZ="+d2+";detail=XYZ_spacing";'
+        )
     else:
         return {"pass": False, "report": f"no_edit_verifier_for:{prompt_id}", "kind": "edit_postcheck"}
     raw = eval_code(proj, code)
@@ -220,7 +261,7 @@ def verify(proj: str, prompt: dict, run_dir: Path, round_i: int) -> dict:
     cfile = prompt.get("constraint_file") or ""
     if fixture == "F03" and cfile:
         return verify_constraint(proj, cfile, run_dir, round_i)
-    if pid.startswith(("P01", "P02", "P03", "P09", "P10")):
+    if pid.startswith(("P01", "P02", "P03", "P09", "P10", "H01", "H02", "H03", "H09", "H10")):
         return verify_edit(proj, pid)
     return {"pass": False, "report": "unsupported_prompt_for_check", "kind": "none"}
 
@@ -317,6 +358,11 @@ def main() -> int:
             print(json.dumps({"ok": False, "error": "unity_pipeline_not_ready"}))
             return 2
         open_scene(proj, scene)
+        try:
+            snap_path = str((run_dir / "snapshot_before.poses.json").resolve())
+            eval_code(proj, f'return Prompt2Scene.Check.SceneSnapshotUtil.SnapshotPosesTo(@"{snap_path}");')
+        except Exception as e:
+            print(f"[multiturn] snapshot_before failed: {e}")
 
     extra = ""
     for i in range(1, max_rounds + 1):
@@ -355,6 +401,13 @@ def main() -> int:
             ver = verify(proj, prompt, run_dir, i)
 
         (round_dir / "verify.json").write_text(json.dumps(ver, indent=2, ensure_ascii=False) + "\n")
+        if not args.dry_run:
+            try:
+                snap_path = str((round_dir / "snapshot_after.poses.json").resolve())
+                eval_code(proj, f'return Prompt2Scene.Check.SceneSnapshotUtil.SnapshotPosesTo(@"{snap_path}");')
+            except Exception as e:
+                print(f"[multiturn] snapshot_after failed: {e}")
+
         rec = {
             "round": i,
             "plan_ok": True,

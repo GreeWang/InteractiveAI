@@ -1,0 +1,202 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://prompt2scene.local/check/constraint_schema_v0.3.json",
+  "title": "Prompt2Scene-Check Constraint Set v0.3",
+  "type": "object",
+  "required": [
+    "id",
+    "version",
+    "constraints"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "scene_hint": {
+      "type": "string"
+    },
+    "locked": {
+      "type": "array",
+      "description": "Object names the bounded repairer must not move",
+      "items": {
+        "type": "string"
+      }
+    },
+    "constraints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "type"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "must_exist",
+              "no_overlap",
+              "left_of",
+              "same_y",
+              "bounds",
+              "on_top_of",
+              "distance",
+              "facing",
+              "clearance_volume",
+              "locked_transform"
+            ]
+          },
+          "target": {
+            "type": "string"
+          },
+          "a": {
+            "type": "string"
+          },
+          "b": {
+            "type": "string"
+          },
+          "toward": {
+            "type": "string"
+          },
+          "epsilon": {
+            "type": "number",
+            "default": 0.05
+          },
+          "min_distance": {
+            "type": "number"
+          },
+          "max_distance": {
+            "type": "number"
+          },
+          "max_horizontal": {
+            "type": "number",
+            "default": 0.5
+          },
+          "min_vertical": {
+            "type": "number",
+            "default": 0.05
+          },
+          "max_vertical": {
+            "type": "number",
+            "default": 2.0
+          },
+          "max_angle_deg": {
+            "type": "number",
+            "default": 30
+          },
+          "ignore_y": {
+            "type": "boolean",
+            "default": true
+          },
+          "min": {
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "number"
+              },
+              "y": {
+                "type": "number"
+              },
+              "z": {
+                "type": "number"
+              }
+            }
+          },
+          "max": {
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "number"
+              },
+              "y": {
+                "type": "number"
+              },
+              "z": {
+                "type": "number"
+              }
+            }
+          },
+          "axis": {
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "number"
+              },
+              "y": {
+                "type": "number"
+              },
+              "z": {
+                "type": "number"
+              }
+            }
+          },
+          "position": {
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "number"
+              },
+              "y": {
+                "type": "number"
+              },
+              "z": {
+                "type": "number"
+              }
+            }
+          },
+          "rotation_euler": {
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "number"
+              },
+              "y": {
+                "type": "number"
+              },
+              "z": {
+                "type": "number"
+              }
+            }
+          },
+          "pos_epsilon": {
+            "type": "number",
+            "default": 0.05
+          },
+          "rot_epsilon_deg": {
+            "type": "number",
+            "default": 5
+          },
+          "check_position": {
+            "type": "boolean",
+            "default": true
+          },
+          "check_rotation": {
+            "type": "boolean",
+            "default": false
+          },
+          "objects": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "For clearance_volume: names that must stay outside AABB"
+          },
+          "padding": {
+            "type": "number",
+            "default": 0.0,
+            "description": "Expand clearance AABB by this amount"
+          }
+        }
+      }
+    }
+  }
+}

@@ -68,6 +68,16 @@ on_top_of / "resting on" / "正上方" (critical):
 - Example: RedBox at (-1.5,0.5,0) → set CupOnBox to [-1.5,1.25,0] (NOT [0,1.5,0]).
 - Never place the top object at world origin unless the support is also at origin.
 
+Catalog (prefer these names when creating/editing):
+- Primitives: Cube, Sphere, Capsule, Cylinder, Plane
+- Aliases: Table, Cup, Chair, Lamp, Box, Ball, Shelf, Book, Plant
+- Fixtures: Floor, CubeA, SphereB, RedBox, BlueBall, CupOnBox
+Full list: eval/object_catalog.json / Assets/Prompt2Scene/Catalog/object_catalog.json
+
+New constraint types (schema v0.3):
+- clearance_volume: object AABB must stay outside keep-out min..max (padding optional).
+- locked_transform: target must remain near locked position (and optional rotation).
+
 Generate tasks (F01):
 - Create named primitives then set_transform. Keep scales modest (cube/sphere default ok; cup/sphere scale ~0.4 if needed).
 - For Cup on Table: Table (cube) near (0,0.5,0), Cup (sphere) at (0,1.25,0) matching Table XZ.

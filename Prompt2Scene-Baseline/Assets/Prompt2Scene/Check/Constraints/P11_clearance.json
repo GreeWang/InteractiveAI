@@ -1,0 +1,45 @@
+{
+  "id": "P11_clearance",
+  "version": "0.3.0",
+  "description": "CupOnBox must stay outside keep-out AABB near origin (clearance volume).",
+  "scene_hint": "Assets/Prompt2Scene/Fixtures/F03_ConstraintSandbox.unity",
+  "locked": [
+    "RedBox",
+    "BlueBall"
+  ],
+  "constraints": [
+    {
+      "id": "c_exist_cup",
+      "type": "must_exist",
+      "target": "CupOnBox"
+    },
+    {
+      "id": "c_clear_origin",
+      "type": "clearance_volume",
+      "objects": [
+        "CupOnBox"
+      ],
+      "min": {
+        "x": -0.75,
+        "y": 0.0,
+        "z": -0.75
+      },
+      "max": {
+        "x": 0.75,
+        "y": 2.5,
+        "z": 0.75
+      },
+      "padding": 0.0,
+      "target": "CupOnBox"
+    },
+    {
+      "id": "c_cup_on_red",
+      "type": "on_top_of",
+      "a": "CupOnBox",
+      "b": "RedBox",
+      "max_horizontal": 0.5,
+      "min_vertical": 0.3,
+      "max_vertical": 1.5
+    }
+  ]
+}

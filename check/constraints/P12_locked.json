@@ -1,0 +1,34 @@
+{
+  "id": "P12_locked",
+  "version": "0.3.0",
+  "description": "RedBox transform locked at F03 seed; BlueBall left_of inverted task moves BlueBall only.",
+  "scene_hint": "Assets/Prompt2Scene/Fixtures/F03_ConstraintSandbox.unity",
+  "locked": ["RedBox"],
+  "constraints": [
+    {"id": "c_exist_red", "type": "must_exist", "target": "RedBox"},
+    {"id": "c_exist_blue", "type": "must_exist", "target": "BlueBall"},
+    {
+      "id": "c_lock_red",
+      "type": "locked_transform",
+      "target": "RedBox",
+      "position": {"x": -1.5, "y": 0.5, "z": 0},
+      "check_position": true,
+      "check_rotation": false,
+      "pos_epsilon": 0.08
+    },
+    {
+      "id": "c_left",
+      "type": "left_of",
+      "a": "RedBox",
+      "b": "BlueBall"
+    },
+    {
+      "id": "c_dist",
+      "type": "distance",
+      "a": "RedBox",
+      "b": "BlueBall",
+      "min_distance": 2.5,
+      "max_distance": 3.5
+    }
+  ]
+}

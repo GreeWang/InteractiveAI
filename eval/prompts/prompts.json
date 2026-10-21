@@ -1,6 +1,6 @@
 {
-  "version": "0.3.0",
-  "description": "Formative A/B prompt set (official Unity CLI). automation: baseline_cli | check_cli | llm | none.",
+  "version": "0.4.0",
+  "description": "Formative + closeout prompt set (official Unity CLI). Includes clearance/locked. automation: baseline_cli | check_cli | llm | none.",
   "fixtures_root": "Assets/Prompt2Scene/Fixtures",
   "prompts": [
     {
@@ -31,7 +31,7 @@
         "SphereB above CubeA (~y+1)",
         "CubeA/Floor transforms unchanged after restore"
       ],
-      "automation": "baseline_cli",
+      "automation": "llm",
       "baseline_action": "move_sphere_above_cube"
     },
     {
@@ -45,7 +45,7 @@
         "exists:CubeC",
         "distance(CubeA,CubeC) ≈ 1.5"
       ],
-      "automation": "baseline_cli",
+      "automation": "llm",
       "baseline_action": "create_cube_c"
     },
     {
@@ -59,7 +59,7 @@
         "left_of:RedBox,BlueBall",
         "same_y"
       ],
-      "automation": "check_cli",
+      "automation": "llm",
       "constraint_file": "Assets/Prompt2Scene/Check/Constraints/P04_left_of.json",
       "llm_hint": "F03: RedBox≈(-1.5,0.5,0), BlueBall≈(1.5,0.5,0). left_of means RedBox.x < BlueBall.x with similar y."
     },
@@ -73,7 +73,7 @@
       "success_criteria": [
         "on_top_of:CupOnBox,RedBox"
       ],
-      "automation": "check_cli",
+      "automation": "llm",
       "constraint_file": "Assets/Prompt2Scene/Check/Constraints/P05_on_top.json",
       "llm_hint": "F03: RedBox≈(-1.5,0.5,0), BlueBall≈(1.5,0.5,0). on_top_of requires XZ alignment. Correct target ≈ [-1.5,1.25,0]."
     },
@@ -87,7 +87,7 @@
       "success_criteria": [
         "distance in [2.5,3.5]"
       ],
-      "automation": "check_cli",
+      "automation": "llm",
       "constraint_file": "Assets/Prompt2Scene/Check/Constraints/P06_distance.json",
       "llm_hint": "F03 seeds are already ~3m apart on X. Adjust if needed so distance ∈ [2.5,3.5]."
     },
@@ -101,7 +101,7 @@
       "success_criteria": [
         "facing:RedBox→BlueBall"
       ],
-      "automation": "check_cli",
+      "automation": "llm",
       "constraint_file": "Assets/Prompt2Scene/Check/Constraints/P07_facing.json",
       "llm_hint": "Rotate RedBox yaw so its forward points toward BlueBall (horizontal angle ≤30°)."
     },
@@ -115,7 +115,7 @@
       "success_criteria": [
         "no_overlap:RedBox,BlueBall"
       ],
-      "automation": "check_cli",
+      "automation": "llm",
       "constraint_file": "Assets/Prompt2Scene/Check/Constraints/P08_no_overlap.json",
       "llm_hint": "Ensure RedBox and BlueBall do not interpenetrate; keep them separated on X if needed."
     },
@@ -129,7 +129,7 @@
       "success_criteria": [
         "SphereB.y≈2.0 after edit"
       ],
-      "automation": "baseline_cli",
+      "automation": "llm",
       "baseline_action": "raise_sphere"
     },
     {
@@ -147,6 +147,37 @@
       "notes": "LLM→CLI generate on F01; scored by exists A/B/C + spacing.",
       "llm_hint": "create_gameobject three cubes named A,B,C; set positions along +X with ~1m spacing.",
       "postcheck": "generate_row"
+    },
+    {
+      "id": "P11_constraint_clearance",
+      "phase": "constraint",
+      "fixture": "F03",
+      "scene": "Assets/Prompt2Scene/Fixtures/F03_ConstraintSandbox.unity",
+      "text_zh": "把 CupOnBox 放到 RedBox 正上方（X/Z 对齐），并确保 CupOnBox 不进入原点附近净空区（|x|≤0.75 且 |z|≤0.75 的柱体）。RedBox/BlueBall 锁定勿动。",
+      "text_en": "Place CupOnBox on top of RedBox (match X/Z). CupOnBox must stay outside the keep-out AABB around origin (|x|,|z|≤0.75, y 0–2.5). Do not move RedBox or BlueBall.",
+      "success_criteria": [
+        "on_top_of:CupOnBox,RedBox",
+        "clearance_volume:CupOnBox outside origin AABB"
+      ],
+      "automation": "llm",
+      "constraint_file": "Assets/Prompt2Scene/Check/Constraints/P11_clearance.json",
+      "llm_hint": "F03: RedBox≈(-1.5,0.5,0). CupOnBox≈[-1.5,1.25,0] is both on_top and outside origin keep-out. Prefer catalog name CupOnBox. Do not place near [0,*,0]."
+    },
+    {
+      "id": "P12_constraint_locked",
+      "phase": "constraint",
+      "fixture": "F03",
+      "scene": "Assets/Prompt2Scene/Fixtures/F03_ConstraintSandbox.unity",
+      "text_zh": "保持 RedBox 位置锁定在约 (-1.5,0.5,0)；只调整 BlueBall，使 RedBox 仍在其左侧且间距 2.5–3.5 米。",
+      "text_en": "Keep RedBox locked near (-1.5,0.5,0). Adjust BlueBall only so RedBox stays left_of BlueBall and distance ∈ [2.5,3.5].",
+      "success_criteria": [
+        "locked_transform:RedBox",
+        "left_of:RedBox,BlueBall",
+        "distance in [2.5,3.5]"
+      ],
+      "automation": "llm",
+      "constraint_file": "Assets/Prompt2Scene/Check/Constraints/P12_locked.json",
+      "llm_hint": "Do NOT move RedBox. If needed move BlueBall to ~ (1.5,0.5,0). Catalog: RedBox, BlueBall."
     }
   ]
 }

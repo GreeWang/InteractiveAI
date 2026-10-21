@@ -42,3 +42,12 @@ export PATH="$HOME/.unity/bin:$PATH"
 ```
 
 Verified 2026-10-18: F03 sample **10/10 PASS** (incl. on_top_of, distance, facing).
+
+## Schema v0.3
+
+- File: `schema/constraint_schema_v0.3.json`
+- New types: `clearance_volume`, `locked_transform`
+- Repairer: `ConstraintRepairer.RepairFromPath` (CLI `eval`)
+- Snapshots: `SceneSnapshotUtil.SnapshotPosesTo`
+- Skill: `skill/SKILL.md`
+

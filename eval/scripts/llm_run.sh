@@ -49,7 +49,7 @@ CONDITION="${CONDITION:-baseline}"
 [[ "${DRY_RUN_ENV:-0}" == "1" ]] && DRY_RUN=1
 
 PROJ="${PROMPT2SCENE_PROJECT:-$HOME/Projects/Prompt2Scene-Baseline}"
-PROMPTS_FILE="$ROOT/prompts/prompts.json"
+PROMPTS_FILE="${PROMPTS_FILE:-$ROOT/prompts/prompts.json}"
 RUNS_DIR="$ROOT/runs"
 ENV_FILE="$ROOT/.env"
 

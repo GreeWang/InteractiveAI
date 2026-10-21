@@ -120,3 +120,18 @@ Args after the command name need `--` then flags.
 ./eval/scripts/smoke_run.sh P04_constraint_left_of check
 ./eval/scripts/llm_run.sh P01_generate_table baseline         # LLM generate
 ```
+
+---
+
+## Closeout addendum (2026-10-21 Asia/Shanghai)
+
+Automated proposal closeout (no human subjects):
+
+- **Check schema v0.3**: `clearance_volume`, `locked_transform`; enriched reports; `ConstraintRepairer`; scene pose snapshots.
+- **Catalog (~20)**: `eval/object_catalog.json` / `Assets/Prompt2Scene/Catalog/object_catalog.json`.
+- **Prompts P01–P12** + held-out `eval/prompts/heldout.json` (H01–H12).
+- **Week-2 gate (agent)**: `eval/WEEK2_DECISION_GATE.md`.
+- **Batches**: `eval/scripts/run_closeout_batch.sh` (task matrix / held-out A/B / ablation).
+- **Default model for large closeout batches**: Bailian `qwen3.8-max` (fixed across A/B). DeepSeek reserved for comparative cells.
+- **Human-only leftovers**: interviews, counterbalanced ratings, second assessor, in-editor Assistant (see gate doc).
+

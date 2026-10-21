@@ -1,0 +1,239 @@
+{
+  "version": "0.1.0",
+  "description": "Placeable catalog for Prompt2Scene (primitives + fixture names). No art pack required.",
+  "objects": [
+    {
+      "id": "prim_cube",
+      "name": "Cube",
+      "kind": "primitive",
+      "primitive": "cube",
+      "default_scale": [
+        1,
+        1,
+        1
+      ],
+      "collider": "BoxCollider",
+      "notes": "generic block"
+    },
+    {
+      "id": "prim_sphere",
+      "name": "Sphere",
+      "kind": "primitive",
+      "primitive": "sphere",
+      "default_scale": [
+        1,
+        1,
+        1
+      ],
+      "collider": "SphereCollider"
+    },
+    {
+      "id": "prim_capsule",
+      "name": "Capsule",
+      "kind": "primitive",
+      "primitive": "capsule",
+      "default_scale": [
+        1,
+        1,
+        1
+      ],
+      "collider": "CapsuleCollider"
+    },
+    {
+      "id": "prim_cylinder",
+      "name": "Cylinder",
+      "kind": "primitive",
+      "primitive": "cylinder",
+      "default_scale": [
+        1,
+        1,
+        1
+      ],
+      "collider": "CapsuleCollider/approx"
+    },
+    {
+      "id": "prim_plane",
+      "name": "Plane",
+      "kind": "primitive",
+      "primitive": "plane",
+      "default_scale": [
+        1,
+        1,
+        1
+      ],
+      "collider": "MeshCollider",
+      "notes": "ground-like"
+    },
+    {
+      "id": "cat_table",
+      "name": "Table",
+      "kind": "alias",
+      "primitive": "cube",
+      "default_scale": [
+        1.2,
+        0.1,
+        0.8
+      ],
+      "collider": "BoxCollider",
+      "suggest_pos": [
+        0,
+        0.5,
+        0
+      ]
+    },
+    {
+      "id": "cat_cup",
+      "name": "Cup",
+      "kind": "alias",
+      "primitive": "sphere",
+      "default_scale": [
+        0.4,
+        0.4,
+        0.4
+      ],
+      "collider": "SphereCollider"
+    },
+    {
+      "id": "cat_chair",
+      "name": "Chair",
+      "kind": "alias",
+      "primitive": "cube",
+      "default_scale": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "collider": "BoxCollider"
+    },
+    {
+      "id": "cat_lamp",
+      "name": "Lamp",
+      "kind": "alias",
+      "primitive": "cylinder",
+      "default_scale": [
+        0.2,
+        0.8,
+        0.2
+      ],
+      "collider": "CapsuleCollider"
+    },
+    {
+      "id": "cat_box",
+      "name": "Box",
+      "kind": "alias",
+      "primitive": "cube",
+      "default_scale": [
+        1,
+        1,
+        1
+      ],
+      "collider": "BoxCollider"
+    },
+    {
+      "id": "cat_ball",
+      "name": "Ball",
+      "kind": "alias",
+      "primitive": "sphere",
+      "default_scale": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "collider": "SphereCollider"
+    },
+    {
+      "id": "cat_shelf",
+      "name": "Shelf",
+      "kind": "alias",
+      "primitive": "cube",
+      "default_scale": [
+        1.5,
+        0.08,
+        0.4
+      ],
+      "collider": "BoxCollider"
+    },
+    {
+      "id": "cat_book",
+      "name": "Book",
+      "kind": "alias",
+      "primitive": "cube",
+      "default_scale": [
+        0.2,
+        0.05,
+        0.28
+      ],
+      "collider": "BoxCollider"
+    },
+    {
+      "id": "cat_plant",
+      "name": "Plant",
+      "kind": "alias",
+      "primitive": "capsule",
+      "default_scale": [
+        0.3,
+        0.6,
+        0.3
+      ],
+      "collider": "CapsuleCollider"
+    },
+    {
+      "id": "fix_floor",
+      "name": "Floor",
+      "kind": "fixture",
+      "fixture": "F02/F03",
+      "collider": "BoxCollider",
+      "notes": "existing Floor"
+    },
+    {
+      "id": "fix_cube_a",
+      "name": "CubeA",
+      "kind": "fixture",
+      "fixture": "F02",
+      "collider": "BoxCollider"
+    },
+    {
+      "id": "fix_sphere_b",
+      "name": "SphereB",
+      "kind": "fixture",
+      "fixture": "F02",
+      "collider": "SphereCollider"
+    },
+    {
+      "id": "fix_redbox",
+      "name": "RedBox",
+      "kind": "fixture",
+      "fixture": "F03",
+      "collider": "BoxCollider",
+      "seed_pos": [
+        -1.5,
+        0.5,
+        0
+      ]
+    },
+    {
+      "id": "fix_blueball",
+      "name": "BlueBall",
+      "kind": "fixture",
+      "fixture": "F03",
+      "collider": "SphereCollider",
+      "seed_pos": [
+        1.5,
+        0.5,
+        0
+      ]
+    },
+    {
+      "id": "fix_cup_on_box",
+      "name": "CupOnBox",
+      "kind": "fixture",
+      "fixture": "F03",
+      "collider": "SphereCollider",
+      "default_scale": [
+        0.4,
+        0.4,
+        0.4
+      ]
+    }
+  ]
+}

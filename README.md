@@ -106,3 +106,22 @@ Check agent skill：`check/skill/SKILL.md`。
 已忽略 Unity 的 `Library/`、`Temp/`、`Logs/`、`UserSettings/`，以及生成的 `*.csproj` / `*.sln` 等。  
 克隆后请用 Unity 打开一次 `Prompt2Scene-Baseline/`，以重新生成本地缓存与 IDE 工程文件。  
 `eval/runs/` 下单次运行产物默认不入库（保留目录占位）；结果摘要在 `eval/RESULTS_AB.md` 与 CSV。
+
+
+## Automated proposal closeout
+
+See `eval/WEEK2_DECISION_GATE.md` and `eval/PROPOSAL_AUTOMATED_CLOSEOUT.md`.
+
+Quick pointers:
+
+| Artifact | Path |
+|----------|------|
+| Check skill (v0.3) | `check/skill/SKILL.md` |
+| Constraint schema | `check/schema/constraint_schema_v0.3.json` |
+| Object catalog | `eval/object_catalog.json` |
+| Task matrix results | `eval/RESULTS_TASK_MATRIX.md` |
+| Held-out A/B | `eval/RESULTS_HELDOUT_AB.md` |
+| Checker P/R | `eval/CHECKER_PR.md` |
+| Ablation | `eval/RESULTS_ABLATION.md` |
+
+LLM providers: DeepSeek (`DEEPSEEK_*`) and Bailian/DashScope (`DASHSCOPE_*` / `LLM_PROVIDER=bailian`). Never commit `eval/.env`.

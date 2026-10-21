@@ -1,0 +1,134 @@
+{
+  "annotator": "single-agent",
+  "caveat": "single-annotator; not independent second assessor",
+  "cases": [
+    {
+      "id": "V01_left_ok",
+      "label": "valid",
+      "predicted": "valid",
+      "correct": true,
+      "constraint_file": "Assets/Prompt2Scene/Check/Constraints/P04_left_of.json",
+      "raw": "success=True;failed=0"
+    },
+    {
+      "id": "V02_on_top_ok",
+      "label": "valid",
+      "predicted": "valid",
+      "correct": true,
+      "constraint_file": "Assets/Prompt2Scene/Check/Constraints/P05_on_top.json",
+      "raw": "success=True;failed=0"
+    },
+    {
+      "id": "V03_dist_ok",
+      "label": "valid",
+      "predicted": "valid",
+      "correct": true,
+      "constraint_file": "Assets/Prompt2Scene/Check/Constraints/P06_distance.json",
+      "raw": "success=True;failed=0"
+    },
+    {
+      "id": "V04_face_ok",
+      "label": "valid",
+      "predicted": "valid",
+      "correct": true,
+      "constraint_file": "Assets/Prompt2Scene/Check/Constraints/P07_facing.json",
+      "raw": "success=True;failed=0"
+    },
+    {
+      "id": "V05_no_overlap_ok",
+      "label": "valid",
+      "predicted": "valid",
+      "correct": true,
+      "constraint_file": "Assets/Prompt2Scene/Check/Constraints/P08_no_overlap.json",
+      "raw": "success=True;failed=0"
+    },
+    {
+      "id": "V06_clear_ok",
+      "label": "valid",
+      "predicted": "valid",
+      "correct": true,
+      "constraint_file": "Assets/Prompt2Scene/Check/Constraints/P11_clearance.json",
+      "raw": "success=True;failed=0"
+    },
+    {
+      "id": "V07_locked_ok",
+      "label": "valid",
+      "predicted": "valid",
+      "correct": true,
+      "constraint_file": "Assets/Prompt2Scene/Check/Constraints/P12_locked.json",
+      "raw": "success=True;failed=0"
+    },
+    {
+      "id": "V08_f03_sample_ok",
+      "label": "valid",
+      "predicted": "valid",
+      "correct": true,
+      "constraint_file": "Assets/Prompt2Scene/Check/Constraints/F03_sample.json",
+      "raw": "success=True;failed=0"
+    },
+    {
+      "id": "I01_left_fail",
+      "label": "invalid",
+      "predicted": "invalid",
+      "correct": true,
+      "constraint_file": "Assets/Prompt2Scene/Check/Constraints/P04_left_of.json",
+      "raw": "success=False;failed=1"
+    },
+    {
+      "id": "I02_on_top_xz_fail",
+      "label": "invalid",
+      "predicted": "invalid",
+      "correct": true,
+      "constraint_file": "Assets/Prompt2Scene/Check/Constraints/P05_on_top.json",
+      "raw": "success=False;failed=1"
+    },
+    {
+      "id": "I03_dist_fail",
+      "label": "invalid",
+      "predicted": "invalid",
+      "correct": true,
+      "constraint_file": "Assets/Prompt2Scene/Check/Constraints/P06_distance.json",
+      "raw": "success=False;failed=1"
+    },
+    {
+      "id": "I04_face_fail",
+      "label": "invalid",
+      "predicted": "invalid",
+      "correct": true,
+      "constraint_file": "Assets/Prompt2Scene/Check/Constraints/P07_facing.json",
+      "raw": "success=False;failed=1"
+    },
+    {
+      "id": "I05_overlap_fail",
+      "label": "invalid",
+      "predicted": "invalid",
+      "correct": true,
+      "constraint_file": "Assets/Prompt2Scene/Check/Constraints/P08_no_overlap.json",
+      "raw": "success=False;failed=1"
+    },
+    {
+      "id": "I06_clear_fail",
+      "label": "invalid",
+      "predicted": "invalid",
+      "correct": true,
+      "constraint_file": "Assets/Prompt2Scene/Check/Constraints/P11_clearance.json",
+      "raw": "success=False;failed=2"
+    },
+    {
+      "id": "I07_locked_fail",
+      "label": "invalid",
+      "predicted": "invalid",
+      "correct": true,
+      "constraint_file": "Assets/Prompt2Scene/Check/Constraints/P12_locked.json",
+      "raw": "success=False;failed=2"
+    },
+    {
+      "id": "I08_missing_fail",
+      "label": "invalid",
+      "predicted": "invalid",
+      "correct": true,
+      "constraint_file": "Assets/Prompt2Scene/Check/Constraints/P05_on_top.json",
+      "raw": "success=False;failed=2"
+    }
+  ]
+}
