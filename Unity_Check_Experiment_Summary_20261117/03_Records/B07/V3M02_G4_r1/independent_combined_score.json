@@ -1,0 +1,16 @@
+{
+  "geometry_and_scene": false,
+  "asset_integrity": true,
+  "state_success": false,
+  "normal_finish": true,
+  "complete_success": false,
+  "failed_rules": [
+    "relative:V3M02Table:V3M02Seat1",
+    "relative:V3M02Table:V3M02Seat2",
+    "relative:V3M02Table:V3M02Seat3",
+    "relative:V3M02Table:V3M02Seat4",
+    "relative:V3M02Seat1:V3M02Seat4",
+    "relative:V3M02Seat2:V3M02Seat4",
+    "relative:V3M02Seat3:V3M02Seat4"
+  ]
+}

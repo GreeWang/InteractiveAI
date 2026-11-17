@@ -1,0 +1,68 @@
+{
+  "version": "check-v3-compact-feedback-finalization",
+  "project": "/Users/greenwong/Desktop/实验/Prompt2Scene-Check/Prompt2Scene-Baseline",
+  "original_scene": "Assets/P2SCV1/Scenes/BeforeExperiment_20261113_155722.unity",
+  "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+  "model": "qwen3.8-flash",
+  "temperature": 0.2,
+  "enable_thinking": false,
+  "tls_max_version": "TLSv1_2",
+  "pricing": {
+    "region": "cn-beijing",
+    "input_cny_per_million": 0.8,
+    "output_cny_per_million": 2.7,
+    "verified_date": "2026-11-16",
+    "source": "https://docs.bailian.console.aliyun.com/en/model-studio/qwen3-8-flash",
+    "discounts_assumed": false
+  },
+  "limits": {
+    "requests": 16,
+    "tools": 40,
+    "operations": 100,
+    "input_tokens": 96000,
+    "output_tokens": 12000,
+    "seconds": 1200,
+    "edit_batches": 4,
+    "check_constraints": 4,
+    "compare_state": 4
+  },
+  "budget_cny": {
+    "total": 15,
+    "pilot": 15,
+    "formal": 0,
+    "reserve": 0
+  },
+  "order_seed": 20261116,
+  "human_study": {
+    "target": 6,
+    "minimum": 4,
+    "status": "not_recruited"
+  },
+  "budget_starting_total_cny": 0,
+  "current_batch_max_cny": 15,
+  "finalization_reserve": {
+    "requests": 2,
+    "operations": 2,
+    "input_tokens": 24000,
+    "output_tokens": 1500,
+    "seconds": 120,
+    "max_output_per_request": 750
+  },
+  "stage": "pilot",
+  "global_budget": {
+    "limit_cny": 300,
+    "ledger_sources": [
+      "/Users/greenwong/Desktop/Interactive AI/outputs/check_v2_execution/cost_ledger.ndjson",
+      "/Users/greenwong/Desktop/Interactive AI/outputs/check_v2_formal/cost_ledger.ndjson",
+      "/Users/greenwong/Desktop/Interactive AI/outputs/check_v2_round2/cost_ledger.ndjson",
+      "/Users/greenwong/Documents/Codex/2026-11-13/zhe/outputs/Prompt2Scene-Check-v1/cost_ledger.ndjson",
+      "/Users/greenwong/Documents/Codex/2026-11-13/zhe/outputs/Prompt2Scene-Check-v5-formal-results/cost_ledger.ndjson"
+    ],
+    "lock_file": "/Users/greenwong/Desktop/Interactive AI/outputs/check_global_api_budget.lock",
+    "basis": "Deduplicate local request IDs conservatively; include full unknown reservations. Provider account balance or consumption outside these ledgers is not available."
+  },
+  "omitted_fields": [
+    "credential_file",
+    "skill_path"
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "run_id": "D06_G2_r1",
+  "task_id": "D06",
+  "group": "G2",
+  "repeat": 1,
+  "seed": 1,
+  "block": 4,
+  "normal_finish": true,
+  "state_success": false,
+  "complete_success": false,
+  "stop_reason": "finish",
+  "finish": {
+    "status": "partial",
+    "summary": "Applied the planned pose for D06SeatA (position (-2.2, 0.5, 0.98), yaw -47.2 toward the current table center). The remaining seats (B position+yaw, C/D yaw) were not yet written because the run entered finish-only mode before those tool calls.",
+    "verified": [
+      "Initial scene state probed: Table center (-0.8, 0.7, 2.6); seat AABB half-extents approx x 0.751 / z 0.275; floor top y=0.",
+      "Planned solution validated analytically against region bounds, keepout, fixed-object AABBs and 1.2 m XZ spacing.",
+      "D06SeatA root world position/yaw set via official set_transform call."
+    ],
+    "unresolved": [
+      "D06SeatB still at initial position (-2.0, 0.5, -2.0) with yaw 0 — outside its assigned region and not facing the table.",
+      "D06SeatC and D06SeatD still have yaw 0 — not facing the table center.",
+      "Final scene-wide validation of overlaps/spacing/facing was not executed after the edits."
+    ],
+    "limitations": [
+      "Only one transform write completed before the finish-only phase.",
+      "No scene file was saved (host saves results)."
+    ]
+  },
+  "initial_edit_failed": true,
+  "self_repaired": false,
+  "false_complete": false,
+  "process_protection_violation": true,
+  "final_protection_violation": true,
+  "flow_adherence": null,
+  "stats": {
+    "requests": 12,
+    "tools": 12,
+    "official_tools": 11,
+    "check_constraints": 0,
+    "compare_state": 0,
+    "input_tokens": 440037,
+    "output_tokens": 5231,
+    "cost_cny": 0.3661533,
+    "changed_steps": 1
+  },
+  "seconds": 77.8037704169983,
+  "wall_seconds": 77.80400085449219,
+  "finalization": [
+    {
+      "turn": 12,
+      "reasons": [
+        "input_reserve"
+      ],
+      "input_reserve": 102962
+    }
+  ],
+  "transport_failure": null,
+  "model_ids": [
+    "qwen3.8-flash"
+  ],
+  "asset_integrity_violation": [
+    "Assets/AgentScripts.meta",
+    "Assets/AgentScripts/D06Apply.cs",
+    "Assets/AgentScripts/D06Apply.cs.meta",
+    "Assets/AgentScripts/D06Probe.cs",
+    "Assets/AgentScripts/D06Probe.cs.meta"
+  ]
+}

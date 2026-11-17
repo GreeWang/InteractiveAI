@@ -1,0 +1,14 @@
+{
+  "status": "complete",
+  "summary": "Moved Seat1 and Seat2 into their respective seat regions and set yaw for all four chairs to face the current table center. All 76 contract rules pass at state_version 6.",
+  "verified": [
+    "check_constraints passed (76/76) at state_version 6 after final edits",
+    "compare_state at state_version 4 confirmed only authorized fields changed; subsequent edits only modified yaw of Seat1 and Seat2 which are in allowed list"
+  ],
+  "unresolved": [
+    "Final compare_state could not be executed due to finish_only mode, but last edit batch only changed yaw on Seat1 and Seat2 (both permitted), so no unauthorized changes are expected."
+  ],
+  "limitations": [
+    "Could not run final compare_state due to resource budget entering finish_only phase"
+  ]
+}

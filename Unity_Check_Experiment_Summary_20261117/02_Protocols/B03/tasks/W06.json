@@ -1,0 +1,177 @@
+{
+  "id": "W06",
+  "contract": {
+    "id": "W06",
+    "scene": "W",
+    "allowed": {
+      "A": [
+        "x",
+        "y",
+        "z",
+        "yaw"
+      ],
+      "B": [
+        "x",
+        "y",
+        "z",
+        "yaw"
+      ],
+      "C": [
+        "x",
+        "y",
+        "z",
+        "yaw"
+      ],
+      "D": [
+        "x",
+        "y",
+        "z",
+        "yaw"
+      ],
+      "E": [
+        "x",
+        "y",
+        "z",
+        "yaw"
+      ]
+    },
+    "request": "将 A、B、C、D、E 放入 U 的定向装架区。A、C、E 面向 Q1；B、D 面向 Q2。箱体本地 +Z 为正面，朝向误差不超过 10°；旋转后完整包围盒仍需在区内且由 U 支撑，无实体穿透。尺寸、固定库存和其他物体保持，物流通道留空。",
+    "regions": [
+      {
+        "id": "定向装架区",
+        "min": [
+          -0.3,
+          2.95,
+          0.1
+        ],
+        "max": [
+          3.65,
+          3.8,
+          1.5
+        ]
+      }
+    ],
+    "keepout": [
+      {
+        "id": "物流通道",
+        "min": [
+          -2.1,
+          0,
+          -4.7
+        ],
+        "max": [
+          -1.1,
+          4,
+          4.7
+        ]
+      }
+    ],
+    "inside": [
+      [
+        "A",
+        "定向装架区"
+      ],
+      [
+        "B",
+        "定向装架区"
+      ],
+      [
+        "C",
+        "定向装架区"
+      ],
+      [
+        "D",
+        "定向装架区"
+      ],
+      [
+        "E",
+        "定向装架区"
+      ]
+    ],
+    "support": [
+      [
+        "A",
+        "U"
+      ],
+      [
+        "B",
+        "U"
+      ],
+      [
+        "C",
+        "U"
+      ],
+      [
+        "D",
+        "U"
+      ],
+      [
+        "E",
+        "U"
+      ]
+    ],
+    "facing": [
+      [
+        "A",
+        "Q1"
+      ],
+      [
+        "B",
+        "Q2"
+      ],
+      [
+        "C",
+        "Q1"
+      ],
+      [
+        "D",
+        "Q2"
+      ],
+      [
+        "E",
+        "Q1"
+      ]
+    ],
+    "relative": [],
+    "distance": [],
+    "markers": {
+      "Q1": [
+        6,
+        0.05,
+        0.8
+      ],
+      "Q2": [
+        1,
+        0.05,
+        5.5
+      ]
+    },
+    "initial_state_ref": "W06_initial",
+    "contract_version": "5309042d2161637188b6d097a8d93394d7c22b5615859bed2bdfa18b8cab2032",
+    "grounded": [],
+    "definitions": {
+      "containment_tolerance_m": 0.005,
+      "support_height_tolerance_m": 0.01,
+      "penetration_tolerance_m": 0.001,
+      "protected_position_tolerance_m": 0.005,
+      "protected_rotation_tolerance_deg": 0.5,
+      "scale_tolerance": 1e-05,
+      "facing_angle_deg": 10,
+      "semantic_front": "local +Z, evaluated on XZ",
+      "workspace": {
+        "x": [
+          -7,
+          7
+        ],
+        "z": [
+          -6,
+          6
+        ]
+      },
+      "inventory": "All initial IDs and counts unchanged; no create/delete/scale/reparent",
+      "collision_pairs": "all target-target and target-fixed entities except Floor",
+      "regions": "full current world AABB containment, closed endpoints",
+      "facing_reference": "CURRENT object center or fixed public marker; never initial table center"
+    }
+  }
+}

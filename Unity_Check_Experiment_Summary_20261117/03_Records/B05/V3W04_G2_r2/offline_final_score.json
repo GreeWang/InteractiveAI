@@ -1,0 +1,1604 @@
+{
+  "success": false,
+  "protection_violation": false,
+  "checks": [
+    {
+      "rule_id": "inventory",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:Floor:position",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "error": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:Floor:rotation",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "angle": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:Floor:scale",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:Floor:name",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:Floor:kind",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:Floor:category",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:Floor:parent",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Box1:rotation",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "angle": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:V3W04Box1:scale",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Box1:name",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Box1:kind",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Box1:category",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Box1:parent",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Box2:rotation",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "angle": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:V3W04Box2:scale",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Box2:name",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Box2:kind",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Box2:category",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Box2:parent",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Box3:rotation",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "angle": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:V3W04Box3:scale",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Box3:name",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Box3:kind",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Box3:category",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Box3:parent",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Box4:rotation",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "angle": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:V3W04Box4:scale",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Box4:name",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Box4:kind",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Box4:category",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Box4:parent",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Box5:rotation",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "angle": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:V3W04Box5:scale",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Box5:name",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Box5:kind",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Box5:category",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Box5:parent",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Box6:rotation",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "angle": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:V3W04Box6:scale",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Box6:name",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Box6:kind",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Box6:category",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Box6:parent",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed0:position",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "error": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed0:rotation",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "angle": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed0:scale",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed0:name",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed0:kind",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed0:category",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed0:parent",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed1:position",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "error": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed1:rotation",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "angle": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed1:scale",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed1:name",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed1:kind",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed1:category",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed1:parent",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed2:position",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "error": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed2:rotation",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "angle": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed2:scale",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed2:name",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed2:kind",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed2:category",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed2:parent",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed3:position",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "error": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed3:rotation",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "angle": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed3:scale",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed3:name",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed3:kind",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed3:category",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed3:parent",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed4:position",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "error": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed4:rotation",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "angle": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed4:scale",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed4:name",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed4:kind",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed4:category",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed4:parent",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed5:position",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "error": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed5:rotation",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "angle": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed5:scale",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed5:name",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed5:kind",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed5:category",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed5:parent",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed6:position",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "error": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed6:rotation",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "angle": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed6:scale",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed6:name",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed6:kind",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed6:category",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed6:parent",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed7:position",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "error": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed7:rotation",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "angle": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed7:scale",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed7:name",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed7:kind",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed7:category",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed7:parent",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed8:position",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "error": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed8:rotation",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "angle": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed8:scale",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed8:name",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed8:kind",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed8:category",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed8:parent",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed9:position",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "error": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed9:rotation",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "angle": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed9:scale",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed9:name",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed9:kind",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed9:category",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Fixed9:parent",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Platform1:position",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "error": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:V3W04Platform1:rotation",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "angle": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:V3W04Platform1:scale",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Platform1:name",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Platform1:kind",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Platform1:category",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Platform1:parent",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Platform2:position",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "error": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:V3W04Platform2:rotation",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "angle": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:V3W04Platform2:scale",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Platform2:name",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Platform2:kind",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Platform2:category",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Platform2:parent",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Platform3:position",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "error": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:V3W04Platform3:rotation",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "angle": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:V3W04Platform3:scale",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Platform3:name",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Platform3:kind",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Platform3:category",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:V3W04Platform3:parent",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "inside:V3W04Box1:V3W04层区1",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "inside:V3W04Box2:V3W04层区1",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "inside:V3W04Box3:V3W04层区2",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "inside:V3W04Box4:V3W04层区2",
+      "passed": false,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "inside:V3W04Box5:V3W04层区3",
+      "passed": false,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "inside:V3W04Box6:V3W04层区3",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "support:V3W04Box1",
+      "passed": true,
+      "category": "target",
+      "measurement": {
+        "gap": -0.009999990463256836,
+        "margin": 0.06500005722045898
+      }
+    },
+    {
+      "rule_id": "support:V3W04Box2",
+      "passed": true,
+      "category": "target",
+      "measurement": {
+        "gap": -0.009999871253967285,
+        "margin": 0.0950002670288086
+      }
+    },
+    {
+      "rule_id": "support:V3W04Box3",
+      "passed": true,
+      "category": "target",
+      "measurement": {
+        "gap": -0.009999752044677734,
+        "margin": 0.10000002384185791
+      }
+    },
+    {
+      "rule_id": "support:V3W04Box4",
+      "passed": true,
+      "category": "target",
+      "measurement": {
+        "gap": -0.009999990463256836,
+        "margin": 0.04000002145767212
+      }
+    },
+    {
+      "rule_id": "support:V3W04Box5",
+      "passed": true,
+      "category": "target",
+      "measurement": {
+        "gap": -0.009999990463256836,
+        "margin": 0.034999966621398926
+      }
+    },
+    {
+      "rule_id": "support:V3W04Box6",
+      "passed": true,
+      "category": "target",
+      "measurement": {
+        "gap": 0.0,
+        "margin": 0.17499971389770508
+      }
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box1:V3W04Box2",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box1:V3W04Box3",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box1:V3W04Box4",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box1:V3W04Box5",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box1:V3W04Box6",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box1:V3W04Fixed0",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box1:V3W04Fixed1",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box1:V3W04Fixed2",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box1:V3W04Fixed3",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box1:V3W04Fixed4",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box1:V3W04Fixed5",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box1:V3W04Fixed6",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box1:V3W04Fixed7",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box1:V3W04Fixed8",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box1:V3W04Fixed9",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box1:V3W04Platform1",
+      "passed": false,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box1:V3W04Platform2",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box1:V3W04Platform3",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box2:V3W04Box3",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box2:V3W04Box4",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box2:V3W04Box5",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box2:V3W04Box6",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box2:V3W04Fixed0",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box2:V3W04Fixed1",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box2:V3W04Fixed2",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box2:V3W04Fixed3",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box2:V3W04Fixed4",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box2:V3W04Fixed5",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box2:V3W04Fixed6",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box2:V3W04Fixed7",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box2:V3W04Fixed8",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box2:V3W04Fixed9",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box2:V3W04Platform1",
+      "passed": false,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box2:V3W04Platform2",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box2:V3W04Platform3",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box3:V3W04Box4",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box3:V3W04Box5",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box3:V3W04Box6",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box3:V3W04Fixed0",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box3:V3W04Fixed1",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box3:V3W04Fixed2",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box3:V3W04Fixed3",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box3:V3W04Fixed4",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box3:V3W04Fixed5",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box3:V3W04Fixed6",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box3:V3W04Fixed7",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box3:V3W04Fixed8",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box3:V3W04Fixed9",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box3:V3W04Platform1",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box3:V3W04Platform2",
+      "passed": false,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box3:V3W04Platform3",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box4:V3W04Box5",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box4:V3W04Box6",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box4:V3W04Fixed0",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box4:V3W04Fixed1",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box4:V3W04Fixed2",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box4:V3W04Fixed3",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box4:V3W04Fixed4",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box4:V3W04Fixed5",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box4:V3W04Fixed6",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box4:V3W04Fixed7",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box4:V3W04Fixed8",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box4:V3W04Fixed9",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box4:V3W04Platform1",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box4:V3W04Platform2",
+      "passed": false,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box4:V3W04Platform3",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box5:V3W04Box6",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box5:V3W04Fixed0",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box5:V3W04Fixed1",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box5:V3W04Fixed2",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box5:V3W04Fixed3",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box5:V3W04Fixed4",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box5:V3W04Fixed5",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box5:V3W04Fixed6",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box5:V3W04Fixed7",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box5:V3W04Fixed8",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box5:V3W04Fixed9",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box5:V3W04Platform1",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box5:V3W04Platform2",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box5:V3W04Platform3",
+      "passed": false,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box6:V3W04Fixed0",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box6:V3W04Fixed1",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box6:V3W04Fixed2",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box6:V3W04Fixed3",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box6:V3W04Fixed4",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box6:V3W04Fixed5",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box6:V3W04Fixed6",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box6:V3W04Fixed7",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box6:V3W04Fixed8",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box6:V3W04Fixed9",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box6:V3W04Platform1",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box6:V3W04Platform2",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:V3W04Box6:V3W04Platform3",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "workspace:V3W04Box1",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "clear:V3W04Box1:V3W04保留通道",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "workspace:V3W04Box2",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "clear:V3W04Box2:V3W04保留通道",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "workspace:V3W04Box3",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "clear:V3W04Box3:V3W04保留通道",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "workspace:V3W04Box4",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "clear:V3W04Box4:V3W04保留通道",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "workspace:V3W04Box5",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "clear:V3W04Box5:V3W04保留通道",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "workspace:V3W04Box6",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "clear:V3W04Box6:V3W04保留通道",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    }
+  ]
+}

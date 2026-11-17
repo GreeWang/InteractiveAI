@@ -5,6 +5,14 @@
 
 详细评测约定见：[EVAL_PROTOCOL.md](./EVAL_PROTOCOL.md)。工具版本与连通记录见：[BASELINE_STACK.txt](./BASELINE_STACK.txt)。
 
+## 实验数据汇编 2026年11月17日
+
+[Unity Check 实验汇总文件夹](./Unity_Check_Experiment_Summary_20261117/) 包含7个批次、176次自动化任务运行的数据与协议记录。
+
+- [实验方法与数据报告](./Unity_Check_Experiment_Summary_20261117/Report.docx)
+- [关键数据表](./Unity_Check_Experiment_Summary_20261117/Key_Data.xlsx)
+- [文件说明](./Unity_Check_Experiment_Summary_20261117/README.txt)
+
 ## 目录结构
 
 | 路径 | 说明 |

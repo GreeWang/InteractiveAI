@@ -1,0 +1,464 @@
+{
+  "time": "2026-11-16T19:03:41+08:00",
+  "implementation": {
+    "created": "2026-11-16T19:03:41+08:00",
+    "sha256": {
+      "check_server.py": "42a1da5e1f3315aed991e9c3ae5e059f35650d4200088af797a3238e2f2be281",
+      "common.py": "b31c265b903e2f0017fe21c260f70114e03986cf04109f26b282eab544f3502f",
+      "feedback.py": "39ccea2b6879edbd6f65423c1d649ad5ef19a57b04e997dbe723d1d306bb1693",
+      "mcp_stdio.py": "d51f42b9b8c0f69917d49327f1503462f4ed6d351702a0944c2d84ad7b756e09",
+      "native_provider.py": "909986b5f142c04037fd1e43a27929ff47dd50fdbe7c3694da912c5affe3738d",
+      "observer.py": "91359e01eed6a86b146c51e4c2264c8ced9279550f35582586518f55dbaa79a9",
+      "offline_score.py": "67914cc57c220a7f038f82404fc9c44c1f25a55468fc52601fef14de50c48502",
+      "online_check.py": "85320156dd3d5305985186aa89dcd31340c279c17c1c766740588c74314b36b8",
+      "provider.py": "2402adb40b855080a9fcfc0ebe3a979477505292a08ff63a615f5347559b5fa4",
+      "run_actor.py": "ba76d1f2821787a98811f971a1c87d57817d3e852fe8019f994bb669ff68d0cc",
+      "run_experiment.py": "6df93c6bc55875bf457887ff1cb4b2c7b4b8062df1be09aa163fd13b10f8d81d",
+      "test_native.py": "9818881cc3a5f004a85142fd82c0496f757be6f3d8898ebd47dce42d42c32106",
+      "config.json": "db7c283a50f440d022b43d89d1888186be79ebf578d49bf589bb0b30fc567347",
+      "task_manifest.json": "4b73c5a3f90135b400f0bb9ec29f29fa1c4b2bddf683b827604d7bcd9ed32c5c",
+      "probe/clone_tools.json": "9a1c559bbf9dc3771ccb564e8ae283cce7994ffdca7315a69797b48630a09cc8",
+      "tasks/D05.json": "b0067b6e5ec51126b9d126f2188e7c0eda159bc785c0d5814a0f62564da26bd4",
+      "tasks/D06.json": "63f2a9dcd6220cc5dbeb27f023f8043c1c79967520d265eb03a281f232edb387",
+      "tasks/D07.json": "3b83cd7d24de0de7a7994c15b3b3de3198a7c90366708879f24d3bec8a9a9737",
+      "tasks/D08.json": "a8bf04c231534905af06e542675bdc99557f5bfc4ddd0fb0e6ab0f0f05b91ef6",
+      "tasks/V3M01.json": "6bdfdc284a075db80e4f2328c26b3694604c694e00d53c236fac36afb980f9af",
+      "tasks/V3M02.json": "12c587f7994f408d59ff03452e1df370c63d76e8a873d91ba0e4d7acfc9d629d",
+      "tasks/V3M03.json": "246b50d5d6807ad74368d51aba52d4be0e2fbcba0424d05206d601b6d1049f0e",
+      "tasks/V3M04.json": "188089bbda82a213c9dbcbe32be6c6fe140c3c8b3b03f607a5d3240c7765cfc7",
+      "tasks/V3M05.json": "86d85b075788fc0352b73bd8545094a960bd3e63aaa46c491bc9d780484ee154",
+      "tasks/V3M06.json": "10eedc01155d0570c95ff0b8b3d26070ac22a02469dec2c83212e45aa4fdf999",
+      "tasks/V3W01.json": "dbe1b394e358ea3411b66448ac2ccc20310e3ec48a6af13cb4a8d7483d300767",
+      "tasks/V3W02.json": "9360952b03543d14cf3388d3b79ac1d5c76f88a831eb9fcf39a91bea67dd1d59",
+      "tasks/V3W03.json": "7ab03754e4e7a2d565fcc5d74d7b571b7b830c894137d9069880d629a0aafb9c",
+      "tasks/V3W04.json": "62a766efade302c81fb853a9ebb68cd589b8b4c4ee0ab88744970c1f84aa898a",
+      "tasks/V3W05.json": "9110ad165eba5383b1302ad1080bea2351d36915c252b79609d81784d61da11f",
+      "tasks/V3W06.json": "01c2b3d6e2162b1ff7652274efc3094ebadc40bd99cbe81a8d9525efa44ec042"
+    }
+  },
+  "schedule": {
+    "created": "2026-11-16T18:53:34+08:00",
+    "stage": "formal",
+    "cells": [
+      {
+        "run_id": "V3W06_G2_r2",
+        "task_id": "V3W06",
+        "group": "G2",
+        "repeat": 2,
+        "seed": 2,
+        "block": 1
+      },
+      {
+        "run_id": "V3W06_G4_r2",
+        "task_id": "V3W06",
+        "group": "G4",
+        "repeat": 2,
+        "seed": 2,
+        "block": 1
+      },
+      {
+        "run_id": "V3W01_G4_r2",
+        "task_id": "V3W01",
+        "group": "G4",
+        "repeat": 2,
+        "seed": 2,
+        "block": 2
+      },
+      {
+        "run_id": "V3W01_G2_r2",
+        "task_id": "V3W01",
+        "group": "G2",
+        "repeat": 2,
+        "seed": 2,
+        "block": 2
+      },
+      {
+        "run_id": "V3M06_G2_r1",
+        "task_id": "V3M06",
+        "group": "G2",
+        "repeat": 1,
+        "seed": 1,
+        "block": 3
+      },
+      {
+        "run_id": "V3M06_G4_r1",
+        "task_id": "V3M06",
+        "group": "G4",
+        "repeat": 1,
+        "seed": 1,
+        "block": 3
+      },
+      {
+        "run_id": "V3W02_G4_r2",
+        "task_id": "V3W02",
+        "group": "G4",
+        "repeat": 2,
+        "seed": 2,
+        "block": 4
+      },
+      {
+        "run_id": "V3W02_G2_r2",
+        "task_id": "V3W02",
+        "group": "G2",
+        "repeat": 2,
+        "seed": 2,
+        "block": 4
+      },
+      {
+        "run_id": "V3M06_G2_r2",
+        "task_id": "V3M06",
+        "group": "G2",
+        "repeat": 2,
+        "seed": 2,
+        "block": 5
+      },
+      {
+        "run_id": "V3M06_G4_r2",
+        "task_id": "V3M06",
+        "group": "G4",
+        "repeat": 2,
+        "seed": 2,
+        "block": 5
+      },
+      {
+        "run_id": "V3M01_G4_r1",
+        "task_id": "V3M01",
+        "group": "G4",
+        "repeat": 1,
+        "seed": 1,
+        "block": 6
+      },
+      {
+        "run_id": "V3M01_G2_r1",
+        "task_id": "V3M01",
+        "group": "G2",
+        "repeat": 1,
+        "seed": 1,
+        "block": 6
+      },
+      {
+        "run_id": "V3W02_G2_r1",
+        "task_id": "V3W02",
+        "group": "G2",
+        "repeat": 1,
+        "seed": 1,
+        "block": 7
+      },
+      {
+        "run_id": "V3W02_G4_r1",
+        "task_id": "V3W02",
+        "group": "G4",
+        "repeat": 1,
+        "seed": 1,
+        "block": 7
+      },
+      {
+        "run_id": "V3W05_G4_r1",
+        "task_id": "V3W05",
+        "group": "G4",
+        "repeat": 1,
+        "seed": 1,
+        "block": 8
+      },
+      {
+        "run_id": "V3W05_G2_r1",
+        "task_id": "V3W05",
+        "group": "G2",
+        "repeat": 1,
+        "seed": 1,
+        "block": 8
+      },
+      {
+        "run_id": "V3W05_G2_r2",
+        "task_id": "V3W05",
+        "group": "G2",
+        "repeat": 2,
+        "seed": 2,
+        "block": 9
+      },
+      {
+        "run_id": "V3W05_G4_r2",
+        "task_id": "V3W05",
+        "group": "G4",
+        "repeat": 2,
+        "seed": 2,
+        "block": 9
+      },
+      {
+        "run_id": "V3M02_G4_r1",
+        "task_id": "V3M02",
+        "group": "G4",
+        "repeat": 1,
+        "seed": 1,
+        "block": 10
+      },
+      {
+        "run_id": "V3M02_G2_r1",
+        "task_id": "V3M02",
+        "group": "G2",
+        "repeat": 1,
+        "seed": 1,
+        "block": 10
+      },
+      {
+        "run_id": "V3M02_G2_r2",
+        "task_id": "V3M02",
+        "group": "G2",
+        "repeat": 2,
+        "seed": 2,
+        "block": 11
+      },
+      {
+        "run_id": "V3M02_G4_r2",
+        "task_id": "V3M02",
+        "group": "G4",
+        "repeat": 2,
+        "seed": 2,
+        "block": 11
+      },
+      {
+        "run_id": "V3W03_G4_r1",
+        "task_id": "V3W03",
+        "group": "G4",
+        "repeat": 1,
+        "seed": 1,
+        "block": 12
+      },
+      {
+        "run_id": "V3W03_G2_r1",
+        "task_id": "V3W03",
+        "group": "G2",
+        "repeat": 1,
+        "seed": 1,
+        "block": 12
+      },
+      {
+        "run_id": "V3W04_G2_r2",
+        "task_id": "V3W04",
+        "group": "G2",
+        "repeat": 2,
+        "seed": 2,
+        "block": 13
+      },
+      {
+        "run_id": "V3W04_G4_r2",
+        "task_id": "V3W04",
+        "group": "G4",
+        "repeat": 2,
+        "seed": 2,
+        "block": 13
+      },
+      {
+        "run_id": "V3M01_G4_r2",
+        "task_id": "V3M01",
+        "group": "G4",
+        "repeat": 2,
+        "seed": 2,
+        "block": 14
+      },
+      {
+        "run_id": "V3M01_G2_r2",
+        "task_id": "V3M01",
+        "group": "G2",
+        "repeat": 2,
+        "seed": 2,
+        "block": 14
+      },
+      {
+        "run_id": "V3W01_G2_r1",
+        "task_id": "V3W01",
+        "group": "G2",
+        "repeat": 1,
+        "seed": 1,
+        "block": 15
+      },
+      {
+        "run_id": "V3W01_G4_r1",
+        "task_id": "V3W01",
+        "group": "G4",
+        "repeat": 1,
+        "seed": 1,
+        "block": 15
+      },
+      {
+        "run_id": "V3M03_G4_r2",
+        "task_id": "V3M03",
+        "group": "G4",
+        "repeat": 2,
+        "seed": 2,
+        "block": 16
+      },
+      {
+        "run_id": "V3M03_G2_r2",
+        "task_id": "V3M03",
+        "group": "G2",
+        "repeat": 2,
+        "seed": 2,
+        "block": 16
+      },
+      {
+        "run_id": "V3M04_G2_r1",
+        "task_id": "V3M04",
+        "group": "G2",
+        "repeat": 1,
+        "seed": 1,
+        "block": 17
+      },
+      {
+        "run_id": "V3M04_G4_r1",
+        "task_id": "V3M04",
+        "group": "G4",
+        "repeat": 1,
+        "seed": 1,
+        "block": 17
+      },
+      {
+        "run_id": "V3M05_G4_r2",
+        "task_id": "V3M05",
+        "group": "G4",
+        "repeat": 2,
+        "seed": 2,
+        "block": 18
+      },
+      {
+        "run_id": "V3M05_G2_r2",
+        "task_id": "V3M05",
+        "group": "G2",
+        "repeat": 2,
+        "seed": 2,
+        "block": 18
+      },
+      {
+        "run_id": "V3W03_G2_r2",
+        "task_id": "V3W03",
+        "group": "G2",
+        "repeat": 2,
+        "seed": 2,
+        "block": 19
+      },
+      {
+        "run_id": "V3W03_G4_r2",
+        "task_id": "V3W03",
+        "group": "G4",
+        "repeat": 2,
+        "seed": 2,
+        "block": 19
+      },
+      {
+        "run_id": "V3M05_G4_r1",
+        "task_id": "V3M05",
+        "group": "G4",
+        "repeat": 1,
+        "seed": 1,
+        "block": 20
+      },
+      {
+        "run_id": "V3M05_G2_r1",
+        "task_id": "V3M05",
+        "group": "G2",
+        "repeat": 1,
+        "seed": 1,
+        "block": 20
+      },
+      {
+        "run_id": "V3W04_G2_r1",
+        "task_id": "V3W04",
+        "group": "G2",
+        "repeat": 1,
+        "seed": 1,
+        "block": 21
+      },
+      {
+        "run_id": "V3W04_G4_r1",
+        "task_id": "V3W04",
+        "group": "G4",
+        "repeat": 1,
+        "seed": 1,
+        "block": 21
+      },
+      {
+        "run_id": "V3M03_G4_r1",
+        "task_id": "V3M03",
+        "group": "G4",
+        "repeat": 1,
+        "seed": 1,
+        "block": 22
+      },
+      {
+        "run_id": "V3M03_G2_r1",
+        "task_id": "V3M03",
+        "group": "G2",
+        "repeat": 1,
+        "seed": 1,
+        "block": 22
+      },
+      {
+        "run_id": "V3M04_G2_r2",
+        "task_id": "V3M04",
+        "group": "G2",
+        "repeat": 2,
+        "seed": 2,
+        "block": 23
+      },
+      {
+        "run_id": "V3M04_G4_r2",
+        "task_id": "V3M04",
+        "group": "G4",
+        "repeat": 2,
+        "seed": 2,
+        "block": 23
+      },
+      {
+        "run_id": "V3W06_G4_r1",
+        "task_id": "V3W06",
+        "group": "G4",
+        "repeat": 1,
+        "seed": 1,
+        "block": 24
+      },
+      {
+        "run_id": "V3W06_G2_r1",
+        "task_id": "V3W06",
+        "group": "G2",
+        "repeat": 1,
+        "seed": 1,
+        "block": 24
+      }
+    ],
+    "order": "randomized task/seed blocks; alternating paired arm order"
+  },
+  "analysis_plan": {
+    "created": "2026-11-16T18:53:34+08:00",
+    "primary": "independent final geometry plus protected state AND valid finish within common resources",
+    "comparison": "G4 minus G2; 24 per arm in formal; paired fixed tasks/seeds",
+    "pilot_gate": "Operational native tools/finish/score/save completeness, independent of success rate",
+    "task_reuse": "Same fixed instances reused for an interface-controlled comparison; not a newly unseen task benchmark",
+    "bootstrap": {
+      "unit": "task",
+      "iterations": 10000,
+      "seed": 20261116
+    },
+    "secondary": [
+      "state success",
+      "false complete",
+      "repair after first failed changed state",
+      "diagnostics in required order before next edit",
+      "protection violations",
+      "requests/tokens/cost"
+    ],
+    "limits": {
+      "requests": 16,
+      "tools": 40,
+      "input_tokens": 512000,
+      "output_tokens": 16000,
+      "seconds": 1200
+    },
+    "native_tools": 160,
+    "shared_extra": "finish (study-control MCP)",
+    "g4_extra": [
+      "check_constraints",
+      "compare_state"
+    ],
+    "interpretation": "Original native Unity tool catalog preserved. Standard model function-calling adapter, shared study report tool, task rules and finite resource caps apply. Not an unmodified third-party client. No human participant outcomes. Do not pool old CLI-based runs."
+  }
+}

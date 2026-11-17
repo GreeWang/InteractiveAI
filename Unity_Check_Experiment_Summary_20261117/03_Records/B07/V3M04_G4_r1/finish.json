@@ -1,0 +1,18 @@
+{
+  "status": "complete",
+  "summary": "Placed the table and four chairs for V3M04 using only the authorized root x/z (table) and x/z/yaw (seats) fields. Table moved to root (-1.55, 2.65), yaw 0, so its full rotated world AABB [-2.59..-0.51] x [1.99..3.31] sits inside V3M04桌区. Each seat's AABB center was placed at the center of its own seat region (Seat1 (-3.05,1.0), Seat2 (-0.05,1.0), Seat3 (-3.05,4.3), Seat4 (-0.05,4.3)) and rotated about the current table center with local +Z as front: yaw 42.27 / -42.27 / 137.73 / -137.73 deg. All seats stay grounded (min y = 0 on the floor), their rotated AABBs remain within their regions, chair-to-chair XZ center distance is 3.0 m (>= 1.1 m), and no target overlaps another target, the fixed obstacles or the reserved corridor. Fixed objects, Floor, hierarchy, components, materials and all unauthorized fields were left untouched.",
+  "verified": [
+    "check_constraints: passed=true, 92/92 rules, 0 failures (state_version 3)",
+    "compare_state: passed=true; only authorized differences - V3M04Table position.x/z, each V3M04Seat position.x/z and rotation.y",
+    "Table AABB after move: min(-2.590,0.000,1.990) max(-0.510,1.520,3.310) fully inside V3M04桌区 (-2.9,-0.01,1.6)-(-0.2,1.8,3.7)",
+    "Seat1 AABB min(-3.461,0,0.592) max(-2.639,1.080,1.408) inside 座区1; Seat2 min(-0.461,0,0.592) max(0.361,1.080,1.408) inside 座区2; Seat3 min(-3.461,0,3.892) max(-2.639,1.080,4.708) inside 座区3; Seat4 min(-0.461,0,3.892) max(0.361,1.080,4.708) inside 座区4",
+    "Facing angles from each seat to current table center (-1.55,2.65): -42.27/42.27/-137.73/137.73 deg match applied yaws exactly (0 deg deviation, tolerance 10 deg)",
+    "Minimum seat-to-seat XZ center distance 3.00 m (>= 1.1 m required); all targets clear of V3M04保留通道 and of V3M04Fixed0-9",
+    "All five targets grounded: world AABB min y = 0.000 on the Floor top surface"
+  ],
+  "unresolved": [],
+  "limitations": [
+    "Verification relies on the read-only check_constraints/compare_state diagnostics plus renderer world AABB measurements; no runtime play-mode test was performed.",
+    "The scene was intentionally not saved by me - the host saves results after finishing."
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "status": "complete",
+  "summary": "Placed all six V3W04 boxes by world position only (XYZ; rotation/scale untouched, yaw stayed 0). Each pair sits on its assigned platform's actual top face with the box bottom exactly at the region min-Y (= platform top): Box1/Box2 on Platform1 inside 层区1 (bottom Y=1.29), Box3/Box4 on Platform2 inside 层区2 (Y=2.09), Box5/Box6 on Platform3 inside 层区3 (Y=2.89). Within each region the two boxes are separated diagonally (±0.55/0.6/0.65 in X and ±0.5 in Z from the platform centre) so no bounding boxes intersect, while every AABB stays fully inside its region bounds and inside the supporting platform footprint. Final validation pass reported containment, bottom-contact, target-target non-overlap and keepout clearance for all six boxes (ALL_OK=True). Platforms and fixed facilities were never modified (positions/rotations re-verified as initial values); no objects created, deleted, reparented or rescaled; Editor remained in edit mode and no scene save was performed.",
+  "verified": [
+    "Box renderer AABBs: Box1 min(-4.76,1.29,1.62) max(-4.04,1.81,2.38); Box2 min(-3.63,1.29,2.66) max(-2.97,2.13,3.34); Box3 min(-1.45,2.09,1.96) max(-0.75,2.81,2.64); Box4 min(-0.26,2.09,2.89) max(0.46,3.11,3.71); Box5 min(2.01,2.89,1.52) max(2.79,3.51,2.38); Box6 min(3.35,2.89,2.49) max(4.05,3.99,3.41)",
+    "Containment check against each region min/max passed for all 6 boxes (tolerance 0.0005 m)",
+    "Bottom-face contact equals platform top Y (1.30/2.10/2.90 measured earlier; region min-Y matched) for all 6 boxes",
+    "Pairwise AABB intersection test over all 15 box pairs: no overlaps",
+    "Keepout corridor x[-0.35,0.35] z[-5,-0.5]: no box intersects (all boxes z > 1.4)",
+    "Platform1/2/3 transform position and rotation re-read and unchanged from initial values",
+    "Only root localPosition written via a single eval batch; scale/eulerAngles left untouched"
+  ],
+  "unresolved": [],
+  "limitations": [
+    "Boxes have no Colliders, so overlap/separation was verified with renderer world AABBs rather than physics colliders",
+    "Region min-Y was used as the platform top reference; it matches the measured platform AABB tops (1.30/2.10/2.90)",
+    "Final scene save is left to the host as instructed"
+  ]
+}

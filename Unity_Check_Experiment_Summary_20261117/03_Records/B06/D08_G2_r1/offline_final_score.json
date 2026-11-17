@@ -1,0 +1,1656 @@
+{
+  "success": false,
+  "protection_violation": false,
+  "checks": [
+    {
+      "rule_id": "inventory",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Box1:roll_pitch",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Box1:scale",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Box1:name",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Box1:kind",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Box1:category",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Box1:parent",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Box2:roll_pitch",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Box2:scale",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Box2:name",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Box2:kind",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Box2:category",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Box2:parent",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Box3:roll_pitch",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Box3:scale",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Box3:name",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Box3:kind",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Box3:category",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Box3:parent",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Box4:roll_pitch",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Box4:scale",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Box4:name",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Box4:kind",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Box4:category",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Box4:parent",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Box5:roll_pitch",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Box5:scale",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Box5:name",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Box5:kind",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Box5:category",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Box5:parent",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Box6:roll_pitch",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Box6:scale",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Box6:name",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Box6:kind",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Box6:category",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Box6:parent",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed0:position",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "error": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:D08Fixed0:rotation",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "angle": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:D08Fixed0:scale",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed0:name",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed0:kind",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed0:category",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed0:parent",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed1:position",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "error": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:D08Fixed1:rotation",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "angle": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:D08Fixed1:scale",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed1:name",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed1:kind",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed1:category",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed1:parent",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed2:position",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "error": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:D08Fixed2:rotation",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "angle": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:D08Fixed2:scale",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed2:name",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed2:kind",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed2:category",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed2:parent",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed3:position",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "error": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:D08Fixed3:rotation",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "angle": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:D08Fixed3:scale",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed3:name",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed3:kind",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed3:category",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed3:parent",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed4:position",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "error": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:D08Fixed4:rotation",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "angle": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:D08Fixed4:scale",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed4:name",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed4:kind",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed4:category",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed4:parent",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed5:position",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "error": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:D08Fixed5:rotation",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "angle": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:D08Fixed5:scale",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed5:name",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed5:kind",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed5:category",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed5:parent",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed6:position",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "error": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:D08Fixed6:rotation",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "angle": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:D08Fixed6:scale",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed6:name",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed6:kind",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed6:category",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed6:parent",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed7:position",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "error": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:D08Fixed7:rotation",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "angle": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:D08Fixed7:scale",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed7:name",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed7:kind",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed7:category",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed7:parent",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed8:position",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "error": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:D08Fixed8:rotation",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "angle": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:D08Fixed8:scale",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed8:name",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed8:kind",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed8:category",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed8:parent",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed9:position",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "error": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:D08Fixed9:rotation",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "angle": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:D08Fixed9:scale",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed9:name",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed9:kind",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed9:category",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Fixed9:parent",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Left:position",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "error": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:D08Left:rotation",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "angle": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:D08Left:scale",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Left:name",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Left:kind",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Left:category",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Left:parent",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Right:position",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "error": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:D08Right:rotation",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "angle": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:D08Right:scale",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Right:name",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Right:kind",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Right:category",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:D08Right:parent",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:Floor:position",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "error": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:Floor:rotation",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "angle": 0.0
+      }
+    },
+    {
+      "rule_id": "preserve:Floor:scale",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:Floor:name",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:Floor:kind",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:Floor:category",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "preserve:Floor:parent",
+      "passed": true,
+      "category": "protection",
+      "measurement": {}
+    },
+    {
+      "rule_id": "inside:D08Box1:D08槽1",
+      "passed": false,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "inside:D08Box2:D08槽2",
+      "passed": false,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "inside:D08Box3:D08槽3",
+      "passed": false,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "inside:D08Box4:D08槽4",
+      "passed": false,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "inside:D08Box5:D08槽5",
+      "passed": false,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "inside:D08Box6:D08槽6",
+      "passed": false,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "support:D08Box1",
+      "passed": false,
+      "category": "target",
+      "measurement": {
+        "gap": -1.2,
+        "margin": -5.0249999
+      }
+    },
+    {
+      "rule_id": "support:D08Box2",
+      "passed": false,
+      "category": "target",
+      "measurement": {
+        "gap": -1.2,
+        "margin": -5.0499999
+      }
+    },
+    {
+      "rule_id": "support:D08Box3",
+      "passed": false,
+      "category": "target",
+      "measurement": {
+        "gap": -1.2,
+        "margin": -4.9999999
+      }
+    },
+    {
+      "rule_id": "support:D08Box4",
+      "passed": false,
+      "category": "target",
+      "measurement": {
+        "gap": -1.6,
+        "margin": -5.0249999
+      }
+    },
+    {
+      "rule_id": "support:D08Box5",
+      "passed": false,
+      "category": "target",
+      "measurement": {
+        "gap": -1.6,
+        "margin": -5.0499999
+      }
+    },
+    {
+      "rule_id": "support:D08Box6",
+      "passed": false,
+      "category": "target",
+      "measurement": {
+        "gap": -1.6,
+        "margin": -4.9999999
+      }
+    },
+    {
+      "rule_id": "facing:D08Box1",
+      "passed": false,
+      "category": "target",
+      "measurement": {
+        "angle": 12.680383491819796
+      }
+    },
+    {
+      "rule_id": "facing:D08Box2",
+      "passed": true,
+      "category": "target",
+      "measurement": {
+        "angle": 9.462322208025613
+      }
+    },
+    {
+      "rule_id": "facing:D08Box3",
+      "passed": true,
+      "category": "target",
+      "measurement": {
+        "angle": 6.182930165948278
+      }
+    },
+    {
+      "rule_id": "facing:D08Box4",
+      "passed": false,
+      "category": "target",
+      "measurement": {
+        "angle": 13.134022306396327
+      }
+    },
+    {
+      "rule_id": "facing:D08Box5",
+      "passed": true,
+      "category": "target",
+      "measurement": {
+        "angle": 8.530765609948139
+      }
+    },
+    {
+      "rule_id": "facing:D08Box6",
+      "passed": true,
+      "category": "target",
+      "measurement": {
+        "angle": 3.8140748342903783
+      }
+    },
+    {
+      "rule_id": "distance:D08Box1:D08Box2",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "distance:D08Box1:D08Box3",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "distance:D08Box1:D08Box4",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "distance:D08Box1:D08Box5",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "distance:D08Box1:D08Box6",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "distance:D08Box2:D08Box3",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "distance:D08Box2:D08Box4",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "distance:D08Box2:D08Box5",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "distance:D08Box2:D08Box6",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "distance:D08Box3:D08Box4",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "distance:D08Box3:D08Box5",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "distance:D08Box3:D08Box6",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "distance:D08Box4:D08Box5",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "distance:D08Box4:D08Box6",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "distance:D08Box5:D08Box6",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box1:D08Box2",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box1:D08Box3",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box1:D08Box4",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box1:D08Box5",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box1:D08Box6",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box1:D08Fixed0",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box1:D08Fixed1",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box1:D08Fixed2",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box1:D08Fixed3",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box1:D08Fixed4",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box1:D08Fixed5",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box1:D08Fixed6",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box1:D08Fixed7",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box1:D08Fixed8",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box1:D08Fixed9",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box1:D08Left",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box1:D08Right",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box2:D08Box3",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box2:D08Box4",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box2:D08Box5",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box2:D08Box6",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box2:D08Fixed0",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box2:D08Fixed1",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box2:D08Fixed2",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box2:D08Fixed3",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box2:D08Fixed4",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box2:D08Fixed5",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box2:D08Fixed6",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box2:D08Fixed7",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box2:D08Fixed8",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box2:D08Fixed9",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box2:D08Left",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box2:D08Right",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box3:D08Box4",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box3:D08Box5",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box3:D08Box6",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box3:D08Fixed0",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box3:D08Fixed1",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box3:D08Fixed2",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box3:D08Fixed3",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box3:D08Fixed4",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box3:D08Fixed5",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box3:D08Fixed6",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box3:D08Fixed7",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box3:D08Fixed8",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box3:D08Fixed9",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box3:D08Left",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box3:D08Right",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box4:D08Box5",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box4:D08Box6",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box4:D08Fixed0",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box4:D08Fixed1",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box4:D08Fixed2",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box4:D08Fixed3",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box4:D08Fixed4",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box4:D08Fixed5",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box4:D08Fixed6",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box4:D08Fixed7",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box4:D08Fixed8",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box4:D08Fixed9",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box4:D08Left",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box4:D08Right",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box5:D08Box6",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box5:D08Fixed0",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box5:D08Fixed1",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box5:D08Fixed2",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box5:D08Fixed3",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box5:D08Fixed4",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box5:D08Fixed5",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box5:D08Fixed6",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box5:D08Fixed7",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box5:D08Fixed8",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box5:D08Fixed9",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box5:D08Left",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box5:D08Right",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box6:D08Fixed0",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box6:D08Fixed1",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box6:D08Fixed2",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box6:D08Fixed3",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box6:D08Fixed4",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box6:D08Fixed5",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box6:D08Fixed6",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box6:D08Fixed7",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box6:D08Fixed8",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box6:D08Fixed9",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box6:D08Left",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "nonoverlap:D08Box6:D08Right",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "workspace:D08Box1",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "clear:D08Box1:D08通道",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "workspace:D08Box2",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "clear:D08Box2:D08通道",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "workspace:D08Box3",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "clear:D08Box3:D08通道",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "workspace:D08Box4",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "clear:D08Box4:D08通道",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "workspace:D08Box5",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "clear:D08Box5:D08通道",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "workspace:D08Box6",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "clear:D08Box6:D08通道",
+      "passed": true,
+      "category": "target",
+      "measurement": {}
+    },
+    {
+      "rule_id": "native_protected_structure",
+      "passed": true,
+      "category": "protection",
+      "measurement": {
+        "changes": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "batch_id": "B03",
+    "difference_pp": 20.833333333333336,
+    "task_bootstrap_95_low_pp": 4.166666666666666,
+    "task_bootstrap_95_high_pp": 41.66666666666667,
+    "source_path": "/Users/greenwong/Desktop/Interactive AI/outputs/check_v2_formal/analysis/results.json"
+  },
+  {
+    "batch_id": "B05",
+    "difference_pp": 37.5,
+    "task_bootstrap_95_low_pp": 8.333333333333332,
+    "task_bootstrap_95_high_pp": 66.66666666666666,
+    "source_path": "/Users/greenwong/Desktop/Interactive AI/outputs/check_v3_formal/formal/analysis.json"
+  },
+  {
+    "batch_id": "B07",
+    "difference_pp": 24.999999999999996,
+    "task_bootstrap_95_low_pp": -4.166666666666666,
+    "task_bootstrap_95_high_pp": 54.166666666666664,
+    "source_path": "/Users/greenwong/Desktop/Interactive AI/outputs/check_native_mcp/formal/analysis.json"
+  }
+]

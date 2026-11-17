@@ -1,0 +1,20 @@
+{
+  "status": "complete",
+  "summary": "Moved the table+4-seat group as a rigid set by one shared translation D=(+5.75, 0, +4.45) on XZ only, into V3M01活动区. New root positions: Table (2.50,0.62,2.10), Seat1 (1.78,0.48,0.95), Seat2 (3.22,0.48,0.95), Seat3 (1.78,0.48,3.25), Seat4 (3.22,0.48,3.25). Post-apply verification read every object's real world AABB (TextMesh label children excluded) and confirmed all five are fully inside the region with margin, grounded at y=0, clear of the reserved corridor (x∈[-0.35,0.35]) and of all ten fixed facilities, with no target-target overlap; Y, yaw, relative offsets, hierarchy and counts unchanged. Applied in one transactional batch (undoGroup 74); scene left unsaved for the host.",
+  "verified": [
+    "All 5 target AABBs inside region [1.18,-0.01,0.55]-[3.8,1.55,3.95]: x 1.54..3.46, y 0.00..1.24, z 0.71..3.49",
+    "Grounding: min.y == 0.00 for Table and all 4 seats (floor top y=0)",
+    "Zero intersection with keepout corridor x[-0.35,0.35] z[-5,5] (min target x = 1.54)",
+    "No overlap vs V3M01Fixed0..9 and no target-target overlap (penetration tolerance 0.001 m)",
+    "Pairwise relative offsets identical to initial (single shared delta): seats at ±0.72 X / ±1.15 Z from table center",
+    "Root position deltas: Table (+5.75,0,+4.45), Seat1/2 (+5.75,0,+4.45), Seat3/4 (+5.75,0,+4.45); dY=0 and rotation delta=0 deg for all",
+    "Native inventory preserved: 17 root GameObjects, no create/delete/reparent/enable change; still in Editor edit mode (isPlaying=false)"
+  ],
+  "unresolved": [],
+  "limitations": [
+    "Only MeshRenderer bounds were used as the 'actual' AABB; the objects carry no colliders, so renderer bounds are the authoritative extent.",
+    "TextMesh 'ID label' children were excluded from the measured AABB (they are non-collider annotation sprites offset above each object).",
+    "Region Y range includes -0.01, so grounding was checked as |min.y| <= 0.01 rather than min.y == region min.",
+    "Scene file intentionally not saved; persistence is the host's responsibility."
+  ]
+}

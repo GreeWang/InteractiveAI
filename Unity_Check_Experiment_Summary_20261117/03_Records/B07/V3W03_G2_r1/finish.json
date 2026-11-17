@@ -1,0 +1,17 @@
+{
+  "status": "partial",
+  "summary": "Analyzed scene W: Platform1 top y=1.1 (x[-3.95,-1.05], z[1.35,3.25]), region1 x[-3.89,-1.11] y[1.09,2.35] z[1.41,3.19]; Platform2 top y=2.36, region2 x[0.91,3.49] z[1.86,3.74]. Placed Box1 at (-2.6,1.425,2.3) and Box2 at (-1.5,1.425,2.3): both bottoms exactly on Platform1 top (y=1.1), fully inside region1, no overlap, clear of keepout corridor. Planned Box3 at (1.35,2.635,2.8) and Box4 at (2.75,2.72,2.8) on Platform2 top (y=2.36), inside region2, non-overlapping — but the batch was cut off before applying them.",
+  "verified": [
+    "Box1 world AABB x[-3.05,-2.15] y[1.1,1.75] z[1.94,2.66]: inside region1, bottom matches Platform1 top",
+    "Box2 world AABB x[-1.9,-1.1] y[1.1,1.9] z[1.84,2.76]: inside region1, bottom matches Platform1 top",
+    "Box1/Box2 separation 0.25 m in x; neither intersects keepout [-0.35,0.35]x[-5,-0.5]",
+    "All platforms/fixed objects untouched; only root positions of Box1/Box2 modified"
+  ],
+  "unresolved": [
+    "Box3 not yet moved to Platform2/region2 (target pos (1.35, 2.635, 2.8))",
+    "Box4 not yet moved to Platform2/region2 (target pos (2.75, 2.72, 2.8))"
+  ],
+  "limitations": [
+    "Run entered finish_only state after two writes, preventing application of the remaining two planned box positions."
+  ]
+}

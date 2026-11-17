@@ -1,0 +1,16 @@
+{
+  "status": "complete",
+  "summary": "Placed C1-C4 in seats 1-4 respectively, oriented them towards table T's center, and ensured all pairwise distances between chair centers are at least 1.00m. All constraints passed.",
+  "verified": [
+    "C1 is inside Seat 1",
+    "C2 is inside Seat 2",
+    "C3 is inside Seat 3",
+    "C4 is inside Seat 4",
+    "All chairs face Table T within tolerance",
+    "Minimum distance between any two chairs is >= 1.00m",
+    "No protected objects were moved",
+    "Keep-out zones are clear"
+  ],
+  "unresolved": [],
+  "limitations": []
+}

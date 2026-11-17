@@ -1,0 +1,15 @@
+{
+  "geometry_and_scene": false,
+  "asset_integrity": true,
+  "state_success": false,
+  "normal_finish": true,
+  "complete_success": false,
+  "failed_rules": [
+    "nonoverlap:V3W06Box1:V3W06Platform1",
+    "nonoverlap:V3W06Box2:V3W06Platform1",
+    "nonoverlap:V3W06Box3:V3W06Platform1",
+    "nonoverlap:V3W06Box4:V3W06Platform2",
+    "nonoverlap:V3W06Box5:V3W06Platform2",
+    "nonoverlap:V3W06Box6:V3W06Platform2"
+  ]
+}

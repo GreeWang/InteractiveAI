@@ -1,0 +1,30 @@
+test_entire_official_catalog_preserved (test_native.NativeInterfaceTests.test_entire_official_catalog_preserved) ... ok
+test_finish_schema_is_shared_and_type_errors_remain_errors (test_native.NativeInterfaceTests.test_finish_schema_is_shared_and_type_errors_remain_errors) ... ok
+test_missing_native_entity_fails_safely (test_native.NativeInterfaceTests.test_missing_native_entity_fails_safely) ... ok
+test_new_components_detected (test_native.NativeInterfaceTests.test_new_components_detected) ... ok
+test_no_private_reference_in_public_tasks (test_native.NativeInterfaceTests.test_no_private_reference_in_public_tasks) ... ok
+test_schema_cost_is_in_input_bound (test_native.NativeInterfaceTests.test_schema_cost_is_in_input_bound) ... ok
+test_actual_shared_finish_and_g4_only_check_servers (test_native.RealMCPTests.test_actual_shared_finish_and_g4_only_check_servers) ... /Users/greenwong/Desktop/Interactive AI/outputs/check_native_mcp/test_native.py:52: ResourceWarning: unclosed file <_io.TextIOWrapper name=9 encoding='utf-8'>
+  server=MCP(None,folder/'rpc.ndjson',command=[sys.executable,str(ROOT/'check_server.py'),str(folder),group])
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/Users/greenwong/Desktop/Interactive AI/outputs/check_native_mcp/test_native.py:52: ResourceWarning: unclosed file <_io.TextIOWrapper name=11 encoding='utf-8'>
+  server=MCP(None,folder/'rpc.ndjson',command=[sys.executable,str(ROOT/'check_server.py'),str(folder),group])
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/Users/greenwong/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/case.py:589: ResourceWarning: unclosed file <_io.TextIOWrapper name=5 encoding='utf-8'>
+  if method() is not None:
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/Users/greenwong/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/case.py:589: ResourceWarning: unclosed file <_io.TextIOWrapper name=7 encoding='utf-8'>
+  if method() is not None:
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/Users/greenwong/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/case.py:589: ResourceWarning: unclosed file <_io.TextIOWrapper name=10 encoding='utf-8'>
+  if method() is not None:
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/Users/greenwong/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/case.py:589: ResourceWarning: unclosed file <_io.TextIOWrapper name=13 encoding='utf-8'>
+  if method() is not None:
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.688s
+
+OK

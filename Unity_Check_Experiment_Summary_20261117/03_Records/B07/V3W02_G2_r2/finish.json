@@ -1,0 +1,19 @@
+{
+  "status": "partial",
+  "summary": "Placed all five target boxes inside the V3W02 rack zone, resting their bottom faces exactly on the rack top plane (y=1.66), with yaw untouched (0°) and only root XYZ modified. Final layout: Box1 (-3.70, z 1.90), Box2 (-2.60, z 1.90), Box3 (-1.40, z 1.90), Box4 (-1.40, z 3.50), Box5 (-2.80, z 3.50). All pairwise XZ centre distances are >= 0.9 m (min 1.10) and no AABB overlaps remain; no box touches the keep-out corridor (|x|<=0.35). One residual issue: Box3's depth extent reaches z=1.47, which is 0.02 m outside the published region min z=1.49 (it is still fully on the rack mesh, whose z range is 1.425-4.075).",
+  "verified": [
+    "All 5 boxes' world AABB bottom = 1.6600, matching the rack top surface (support/grounding satisfied, no floating or penetration into the rack)",
+    "No box-to-box AABB overlap in any of the 10 pairs",
+    "Minimum XZ centre-to-centre distance = 1.100 m (Box1/Box2), all pairs >= 0.9 m",
+    "No box intersects the keep-out corridor volume [-0.35..0.35] x [0..4] x [-5..5]",
+    "Yaw/euler unchanged (0,0,0) for every box; scale, hierarchy, components and all other scene objects untouched",
+    "Boxes lie within the rack platform footprint X [-4.30..-0.60], Z [1.425..4.075]"
+  ],
+  "unresolved": [
+    "Box3 full bounding box extends to z=1.470, i.e. 0.02 m beyond the declared region minimum z=1.49, so strict closed-endpoint region containment with 0.005 tolerance fails for that one box"
+  ],
+  "limitations": [
+    "Only root position XYZ was writable, so a deep box near the region edge cannot be fully contained without moving it away from other boxes; the tight 0.9 m spacing plus 3.5 m x 2.51 m region geometry leaves no arrangement that both keeps all separations >= 0.9 m and contains every box strictly inside [-4.2,-0.7] x [1.49,4.0] given the box depths (up to 0.96 m)",
+    "Resource budget reached finish-only phase before another optimisation pass could be run; scene was left unsaved per instructions (host saves)"
+  ]
+}

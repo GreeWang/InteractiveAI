@@ -1,0 +1,22 @@
+{
+  "geometry_and_scene": false,
+  "asset_integrity": true,
+  "state_success": false,
+  "normal_finish": true,
+  "complete_success": false,
+  "failed_rules": [
+    "inside:V3W05Box1:V3W05窄槽1",
+    "inside:V3W05Box2:V3W05窄槽2",
+    "inside:V3W05Box3:V3W05窄槽3",
+    "inside:V3W05Box4:V3W05窄槽4",
+    "support:V3W05Box1",
+    "support:V3W05Box2",
+    "support:V3W05Box3",
+    "support:V3W05Box4",
+    "facing:V3W05Box1",
+    "facing:V3W05Box2",
+    "facing:V3W05Box3",
+    "facing:V3W05Box4",
+    "clear:V3W05Box3:V3W05保留通道"
+  ]
+}

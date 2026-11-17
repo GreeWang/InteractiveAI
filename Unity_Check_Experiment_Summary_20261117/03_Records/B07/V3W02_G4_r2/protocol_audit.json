@@ -1,0 +1,40 @@
+{
+  "official_catalog_original": true,
+  "official_function_definitions_original": true,
+  "native_calls": 6,
+  "known_official_tool_calls": 6,
+  "unlisted_tool_names": [],
+  "invalid_or_limited_calls_rejected_before_dispatch": 0,
+  "rpc_errors_without_tool_result": 0,
+  "mismatches": [],
+  "asset_integrity": true,
+  "capture_present": true,
+  "actual_native_capture": true,
+  "strict_flow": {
+    "passed": false,
+    "versions": [
+      {
+        "version": 1,
+        "diagnostics": [
+          "check_constraints"
+        ],
+        "passed": false
+      },
+      {
+        "version": 2,
+        "diagnostics": [
+          "check_constraints"
+        ],
+        "passed": false
+      },
+      {
+        "version": 3,
+        "diagnostics": [
+          "check_constraints",
+          "compare_state"
+        ],
+        "passed": true
+      }
+    ]
+  }
+}

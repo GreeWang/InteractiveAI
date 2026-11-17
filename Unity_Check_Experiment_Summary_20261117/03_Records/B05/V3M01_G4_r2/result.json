@@ -1,0 +1,71 @@
+{
+  "run_id": "V3M01_G4_r2",
+  "task_id": "V3M01",
+  "group": "G4",
+  "normal_finish": true,
+  "state_success": true,
+  "complete_success": true,
+  "stop_reason": "finish",
+  "finish": {
+    "status": "complete",
+    "summary": "主桌与四把椅子已整组平移到目标活动区。所有对象仅X、Z位置变化，Y、yaw和其他字段保持初始值；相对位移保持不变。check_constraints全部92条规则通过，compare_state确认所有变更均为授权变更。",
+    "verified": [
+      "V3M01Table bounds [1.64,0.0,1.99] to [3.34,1.24,3.01] 在活动区内",
+      "V3M01Seat1 bounds [1.53,0.0,1.11] to [2.01,0.96,1.59] 在活动区内",
+      "V3M01Seat2 bounds [2.97,0.0,1.11] to [3.45,0.96,1.59] 在活动区内",
+      "V3M01Seat3 bounds [1.53,0.0,3.41] to [2.01,0.96,3.89] 在活动区内",
+      "V3M01Seat4 bounds [2.97,0.0,3.41] to [3.45,0.96,3.89] 在活动区内",
+      "所有对象接地(Y=0)",
+      "无重叠",
+      "避开保留通道(X范围-0.35到0.35)",
+      "相对位移保持不变(平移向量[5.74,0,4.85])",
+      "Y坐标和yaw未改变"
+    ],
+    "unresolved": [],
+    "limitations": []
+  },
+  "final_protection_violation": false,
+  "process_protection_violation": false,
+  "initial_edit_failed": true,
+  "self_repaired": true,
+  "false_complete": false,
+  "flow_adherence": true,
+  "latest_diagnostics": {
+    "check_constraints": {
+      "version": 10,
+      "turn": 6,
+      "passed": true
+    },
+    "compare_state": {
+      "version": 10,
+      "turn": 7,
+      "passed": true
+    }
+  },
+  "stats": {
+    "requests": 8,
+    "tools": 8,
+    "edit_batches": 2,
+    "operations": 10,
+    "successful_writes": 10,
+    "input_tokens": 61672,
+    "output_tokens": 703,
+    "cost_cny": 0.0512357,
+    "check_constraints": 2,
+    "compare_state": 2
+  },
+  "seconds": 18.463698875013506,
+  "loaded_skills": {
+    "unity-scene-ops": "e8e92d185adfc2b56a44936c01fbf13da5df6f66ba1126f252fa4322292a5909",
+    "unity-scene-check": "95e2ab006c148b6724c8f37eb8967913340c646b1e34ea807d0ac16906e80151"
+  },
+  "model_ids": [
+    "qwen3.8-flash"
+  ],
+  "transport_failure": null,
+  "finalization": [],
+  "wall_seconds": 18.601605892181396,
+  "block": 5,
+  "repeat": 2,
+  "seed": 2
+}

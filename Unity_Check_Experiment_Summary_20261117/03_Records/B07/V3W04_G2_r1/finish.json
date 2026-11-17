@@ -1,0 +1,18 @@
+{
+  "status": "complete",
+  "summary": "Placed all six V3W04 boxes onto their assigned platforms inside the specified layer regions by changing only root world position (x,y,z); yaw and all other fields untouched. Bottom faces sit exactly on each platform's actual top surface (P1 y=1.30, P2 y=2.10, P3 y=2.90), pairs are separated along X with clear gaps, full AABBs lie within both the region bounds and the platform footprints, and nothing intrudes into the reserved corridor (x∈[-0.35,0.35], z∈[-5,-0.5]). Platforms/fixed props were left at initial transforms. Final positions: Box1 (-3.300,1.560,2.500), Box2 (-4.300,1.720,2.500), Box3 (0.050,2.460,2.800), Box4 (-0.900,2.610,2.800), Box5 (3.600,3.210,2.450), Box6 (2.550,3.450,2.450).",
+  "verified": [
+    "Per-box MeshRenderer world AABB validated: containment in assigned region true for all 6 (tolerance 0.005)",
+    "Bottom-face support height equals platform actual top within 0.01 for all 6",
+    "Box AABB fully inside its platform XZ footprint for all 6",
+    "No target-target AABB intersection (checked pairwise with 0.001 expansion)",
+    "No box intersects the keepout corridor volume",
+    "All boxes rotY = 0.00 (unchanged); scale/parent/hierarchy unchanged",
+    "Platform1/2/3 positions and scales read back identical to initial values"
+  ],
+  "unresolved": [],
+  "limitations": [
+    "Validation used renderer bounds (no colliders exist on the boxes); ID-label child renderers extend outside the regions but are not part of the box body",
+    "Scene was not saved by me; host is expected to persist the result"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "run_id": "W04_G2_r2",
+  "task_id": "W04",
+  "group": "G2",
+  "normal_finish": false,
+  "state_success": false,
+  "complete_success": false,
+  "stop_reason": "UnknownOutcome",
+  "finish": null,
+  "final_protection_violation": false,
+  "process_protection_violation": false,
+  "initial_edit_failed": false,
+  "self_repaired": false,
+  "false_complete": false,
+  "flow_adherence": null,
+  "latest_diagnostics": {},
+  "stats": {
+    "requests": 1,
+    "tools": 0,
+    "edit_batches": 0,
+    "operations": 0,
+    "successful_writes": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "cost_cny": 0,
+    "check_constraints": 0,
+    "compare_state": 0
+  },
+  "seconds": 15.27798920799978,
+  "loaded_skills": {
+    "unity-scene-ops": "e8e92d185adfc2b56a44936c01fbf13da5df6f66ba1126f252fa4322292a5909"
+  },
+  "model_ids": [],
+  "transport_failure": "UnknownOutcome",
+  "repeat": 2,
+  "seed": 2,
+  "block": 18
+}

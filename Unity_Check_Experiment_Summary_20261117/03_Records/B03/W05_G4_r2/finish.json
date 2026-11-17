@@ -1,0 +1,13 @@
+{
+  "status": "complete",
+  "summary": "Placed A, B, and C into the directional mounting region on shelf U. All three boxes are oriented with their local +Z facing Q1 (yaw=90 degrees), supported by U, contained within the region bounds, and clear of all other objects and the logistics channel.",
+  "verified": [
+    "A: position [0.2, 3.15, 0.8], yaw 90, inside region, supported by U, facing Q1",
+    "B: position [1.2, 3.15, 0.8], yaw 90, inside region, supported by U, facing Q1",
+    "C: position [0.7, 3.15, 0.8], yaw 90, inside region, supported by U, facing Q1",
+    "No penetration with fixed inventory or other targets",
+    "Logistics channel kept clear"
+  ],
+  "unresolved": [],
+  "limitations": []
+}

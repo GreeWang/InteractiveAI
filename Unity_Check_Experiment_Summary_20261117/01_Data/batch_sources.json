@@ -1,0 +1,58 @@
+[
+  {
+    "batch_id": "B01",
+    "batch": "V2 开发第一轮",
+    "source_root": "/Users/greenwong/Desktop/Interactive AI/outputs/check_v2_execution",
+    "source_phase": "development",
+    "source_config_sha256": "b6e08e0170989ae16df2f35e2e921f8cf0150dacfbede215ccea3741350b9116",
+    "records": 8
+  },
+  {
+    "batch_id": "B02",
+    "batch": "V2 开发第二轮",
+    "source_root": "/Users/greenwong/Desktop/Interactive AI/outputs/check_v2_round2",
+    "source_phase": "development",
+    "source_config_sha256": "cef6faac5102a42e9d8060bec52acb6bbca8f78c348e6f84256081a8a9ce4047",
+    "records": 8
+  },
+  {
+    "batch_id": "B03",
+    "batch": "V2 正式",
+    "source_root": "/Users/greenwong/Desktop/Interactive AI/outputs/check_v2_formal",
+    "source_phase": "formal",
+    "source_config_sha256": "d127839bfbde12815af967315af353be0df429334016d5639c241432b69d8df8",
+    "records": 48
+  },
+  {
+    "batch_id": "B04",
+    "batch": "V3 开发",
+    "source_root": "/Users/greenwong/Desktop/Interactive AI/outputs/check_v3_development",
+    "source_phase": "development",
+    "source_config_sha256": "9438bf62869801f4eb514e187aaa858a84e8ee0c2e4901392f893aab249b535e",
+    "records": 8
+  },
+  {
+    "batch_id": "B05",
+    "batch": "V3 正式",
+    "source_root": "/Users/greenwong/Desktop/Interactive AI/outputs/check_v3_formal",
+    "source_phase": "formal",
+    "source_config_sha256": "1ed13829e9f804697a086392d00b8f4d13369141776c97b5b64d927a8995af52",
+    "records": 48
+  },
+  {
+    "batch_id": "B06",
+    "batch": "原生MCP 开发",
+    "source_root": "/Users/greenwong/Desktop/Interactive AI/outputs/check_native_mcp",
+    "source_phase": "pilot",
+    "source_config_sha256": "db7c283a50f440d022b43d89d1888186be79ebf578d49bf589bb0b30fc567347",
+    "records": 8
+  },
+  {
+    "batch_id": "B07",
+    "batch": "原生MCP 正式",
+    "source_root": "/Users/greenwong/Desktop/Interactive AI/outputs/check_native_mcp",
+    "source_phase": "formal",
+    "source_config_sha256": "db7c283a50f440d022b43d89d1888186be79ebf578d49bf589bb0b30fc567347",
+    "records": 48
+  }
+]

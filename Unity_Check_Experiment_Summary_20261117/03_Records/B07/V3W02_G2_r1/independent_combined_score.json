@@ -1,0 +1,20 @@
+{
+  "geometry_and_scene": false,
+  "asset_integrity": true,
+  "state_success": false,
+  "normal_finish": true,
+  "complete_success": false,
+  "failed_rules": [
+    "inside:V3W02Box1:V3W02装架区",
+    "inside:V3W02Box2:V3W02装架区",
+    "inside:V3W02Box3:V3W02装架区",
+    "inside:V3W02Box4:V3W02装架区",
+    "inside:V3W02Box5:V3W02装架区",
+    "support:V3W02Box1",
+    "support:V3W02Box2",
+    "support:V3W02Box3",
+    "support:V3W02Box4",
+    "support:V3W02Box5",
+    "clear:V3W02Box3:V3W02保留通道"
+  ]
+}

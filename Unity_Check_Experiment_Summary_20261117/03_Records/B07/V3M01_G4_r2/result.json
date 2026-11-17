@@ -1,0 +1,63 @@
+{
+  "run_id": "V3M01_G4_r2",
+  "task_id": "V3M01",
+  "group": "G4",
+  "repeat": 2,
+  "seed": 2,
+  "block": 14,
+  "normal_finish": true,
+  "state_success": true,
+  "complete_success": true,
+  "stop_reason": "finish",
+  "finish": {
+    "status": "partial",
+    "summary": "主桌与四把椅子已作为整组平移（统一偏移 dx=+5.67, dz≈+4.815），仅修改各自根 Transform 的 X/Z，Y、yaw、相对位移均保持初始值。最终位置：Table(2.42,2.555)、Seat1(1.70,1.405)、Seat2(3.14,1.405)、Seat3(1.70,3.705)、Seat4(3.14,3.705)。按最后一次官方测量推算，五个完整包围盒均在活动区 [1.18..3.8]x[0.55..3.95] 内（Seat3/Seat4 max z=3.945 < 3.95，min x=1.46 > 1.18；Seat1/Seat2 min z=1.165 > 0.55），底面 y=0 接地，且完全避开保留通道 x∈[-0.35,0.35]（最左包围盒 min x=0.872）。资源已进入 finish_only，未能对最终 state_version=3 取得 check_constraints/compare_state 确认。",
+    "verified": [
+      "state_version=2 时 check_constraints：92 条规则中 90 通过，仅 Seat3/Seat4 因 max z=3.96 超出 3.95 失败（margin -0.01）",
+      "随后整组再统一 dz=-0.015，使 Seat3/Seat4 max z=3.945，落入区内并留出 0.005 余量",
+      "所有移动只改 root position 的 x/z；Y 值（Table 0.62、Seat 0.48）与 yaw（0/0/0/180/180）未改动",
+      "两两相对位移保持不变（同一 dx/dz 应用于全部五个对象）",
+      "无创建/删除/重父级/缩放/组件或资产改动"
+    ],
+    "unresolved": [
+      "缺少针对最终状态 (state_version=3) 的 check_constraints 复核",
+      "缺少 compare_state 对受保护字段的差异核对"
+    ],
+    "limitations": [
+      "finish_only 阶段禁止继续调用场景工具，最终验证诊断未获取",
+      "包围盒数值来自 eval 读取的 renderer bounds，与官方 checker 容差可能有毫米级差异"
+    ]
+  },
+  "initial_edit_failed": true,
+  "self_repaired": true,
+  "false_complete": false,
+  "process_protection_violation": false,
+  "final_protection_violation": false,
+  "flow_adherence": false,
+  "stats": {
+    "requests": 12,
+    "tools": 12,
+    "official_tools": 8,
+    "check_constraints": 3,
+    "compare_state": 0,
+    "input_tokens": 439836,
+    "output_tokens": 2447,
+    "cost_cny": 0.35847569999999995,
+    "changed_steps": 3
+  },
+  "seconds": 54.725715958018554,
+  "wall_seconds": 54.726134061813354,
+  "finalization": [
+    {
+      "turn": 12,
+      "reasons": [
+        "input_reserve"
+      ],
+      "input_reserve": 102120
+    }
+  ],
+  "transport_failure": null,
+  "model_ids": [
+    "qwen3.8-flash"
+  ]
+}

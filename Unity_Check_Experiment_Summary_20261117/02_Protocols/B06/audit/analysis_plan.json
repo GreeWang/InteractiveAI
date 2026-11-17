@@ -1,0 +1,34 @@
+{
+  "created": "2026-11-16T18:53:34+08:00",
+  "primary": "independent final geometry plus protected state AND valid finish within common resources",
+  "comparison": "G4 minus G2; 24 per arm in formal; paired fixed tasks/seeds",
+  "pilot_gate": "Operational native tools/finish/score/save completeness, independent of success rate",
+  "task_reuse": "Same fixed instances reused for an interface-controlled comparison; not a newly unseen task benchmark",
+  "bootstrap": {
+    "unit": "task",
+    "iterations": 10000,
+    "seed": 20261116
+  },
+  "secondary": [
+    "state success",
+    "false complete",
+    "repair after first failed changed state",
+    "diagnostics in required order before next edit",
+    "protection violations",
+    "requests/tokens/cost"
+  ],
+  "limits": {
+    "requests": 16,
+    "tools": 40,
+    "input_tokens": 512000,
+    "output_tokens": 16000,
+    "seconds": 1200
+  },
+  "native_tools": 160,
+  "shared_extra": "finish (study-control MCP)",
+  "g4_extra": [
+    "check_constraints",
+    "compare_state"
+  ],
+  "interpretation": "Original native Unity tool catalog preserved. Standard model function-calling adapter, shared study report tool, task rules and finite resource caps apply. Not an unmodified third-party client. No human participant outcomes. Do not pool old CLI-based runs."
+}

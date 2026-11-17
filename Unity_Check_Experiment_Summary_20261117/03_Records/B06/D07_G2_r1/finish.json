@@ -1,0 +1,15 @@
+{
+  "status": "complete",
+  "summary": "Moved only the four boxes' root positions (yaw left at 0, no other fields touched). Low tier: D07BoxA at (-3.10, 1.70, 2.60) and D07BoxB at (-1.50, 1.80, 2.60), both with bottom faces exactly at y=1.40 (D07Low top surface) and full AABBs inside the low region [-3.6,1.39,1.85]-[-1,2.5,3.35]. High tier: D07BoxC at (1.95, 2.45, 2.60) and D07BoxD at (3.30, 2.65, 2.60), bottoms exactly at y=2.20 (D07High top surface), AABBs inside the high region [1.4,2.19,1.8]-[3.8,3.5,3.4]. Boxes do not overlap each other or any fixed object, and all lie outside the central channel keepout x[-0.4,0.4] (nearest box edge x=-1.1 / x=1.5). Fixed platforms D07Low/D07High verified unchanged from initial values.",
+  "verified": [
+    "Post-move AABBs read back: BoxA [-3.6,1.4,2.3]-[-2.6,2.0,2.9]; BoxB [-1.9,1.4,2.2]-[-1.1,2.2,3.0]; BoxC [1.5,2.2,2.25]-[2.4,2.7,2.95]; BoxD [3.0,2.2,2.3]-[3.6,3.1,2.9]",
+    "Support heights match platform tops within tolerance (1.40 vs D07Low top 1.40; 2.20 vs D07High top 2.20)",
+    "Containment within both regions satisfied on all axes",
+    "No target-target or target-fixed overlaps; keepout channel avoided",
+    "Rotations remain (0,0,0) and scales/hierarchy of all objects untouched"
+  ],
+  "unresolved": [],
+  "limitations": [
+    "Scene was modified via direct transform writes in edit mode; the host is responsible for saving the scene."
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "status": "partial",
+  "summary": "DTable, DSeatA, and DSeatB were moved to satisfy containment, grounding, non-overlap, and keepout constraints. However, the facing constraints for both seats relative to the final table center remain unmet (measured angles > 10 degrees). No edit batches remain to correct the yaw values.",
+  "verified": [
+    "DTable fully inside 开发桌区",
+    "DSeatA fully inside 开发座区A",
+    "DSeatB fully inside 开发座区B",
+    "All objects grounded on Floor",
+    "No entity penetration between targets or with fixed objects",
+    "Development reserve area clear",
+    "Permissions respected"
+  ],
+  "unresolved": [
+    "facing:DSeatA angle error ~69 deg",
+    "facing:DSeatB angle error ~93 deg"
+  ],
+  "limitations": [
+    "Out of apply_edits batches"
+  ]
+}

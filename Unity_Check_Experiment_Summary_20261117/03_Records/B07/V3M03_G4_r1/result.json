@@ -1,0 +1,63 @@
+{
+  "run_id": "V3M03_G4_r1",
+  "task_id": "V3M03",
+  "group": "G4",
+  "repeat": 1,
+  "seed": 1,
+  "block": 22,
+  "normal_finish": true,
+  "state_success": false,
+  "complete_success": false,
+  "stop_reason": "finish",
+  "finish": {
+    "status": "partial",
+    "summary": "Placed Seat1/Seat2/Seat3 into their assigned seat regions with yaw facing the current table center (1.35,0.68,2.35); Seat4 was not moved due to resource limits. Table left untouched (fixed-task main table must not be modified). Pending verification: check_constraints/compare_state were not run before the finish-only phase.",
+    "verified": [
+      "Probe of initial poses and AABBs obtained: seats 0.52x0.98x0.52 boxes, table center (1.35,0.68,2.35), keepout corridor z in [-5,-0.5]",
+      "Seat1 set to (-0.05,0.49,0.8) yaw 76.249 deg - inside region1 bounds x[-0.44,0.44] z[0.41,1.29], oriented toward table",
+      "Seat2 set to (2.75,0.49,0.8) yaw -76.249 deg - inside region2 x[2.26,3.14] z[0.41,1.29], oriented toward table",
+      "Seat3 set to (-0.05,0.49,3.9) yaw 103.751 deg - inside region3 x[-0.44,0.44] z[3.41,4.29], oriented toward table",
+      "XZ center separations chosen >=1.1 m (Seat1-Seat3 = 3.1 m, Seat2-Seat4 planned = 3.1 m, Seat1-Seat2 = 2.8 m, Seat3-Seat4 = 2.8 m)"
+    ],
+    "unresolved": [
+      "V3M03Seat4 still at initial position (-0.6,0.49,-2.6): not inside 座区4, not facing the table, and its AABB overlaps the reserved corridor (initial failing rule clear:V3M03Seat4:V3M03保留通道)",
+      "Final check_constraints and compare_state verification never executed (finish_only reached first)"
+    ],
+    "limitations": [
+      "Run hit the per-request tool budget after three of four seat placements; no further scene or diagnostic calls were permitted",
+      "Intended Seat4 placement was (2.75,0.49,3.9) yaw -103.751 deg, which satisfies region4 containment, facing, grounding and clearance from fixed props"
+    ]
+  },
+  "initial_edit_failed": true,
+  "self_repaired": false,
+  "false_complete": false,
+  "process_protection_violation": false,
+  "final_protection_violation": false,
+  "flow_adherence": false,
+  "stats": {
+    "requests": 11,
+    "tools": 11,
+    "official_tools": 9,
+    "check_constraints": 1,
+    "compare_state": 0,
+    "input_tokens": 433205,
+    "output_tokens": 2380,
+    "cost_cny": 0.35299,
+    "changed_steps": 3
+  },
+  "seconds": 46.29569995900965,
+  "wall_seconds": 46.29605197906494,
+  "finalization": [
+    {
+      "turn": 11,
+      "reasons": [
+        "input_reserve"
+      ],
+      "input_reserve": 108478
+    }
+  ],
+  "transport_failure": null,
+  "model_ids": [
+    "qwen3.8-flash"
+  ]
+}

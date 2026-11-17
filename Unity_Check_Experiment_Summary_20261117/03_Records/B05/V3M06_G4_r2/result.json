@@ -1,0 +1,78 @@
+{
+  "run_id": "V3M06_G4_r2",
+  "task_id": "V3M06",
+  "group": "G4",
+  "normal_finish": true,
+  "state_success": false,
+  "complete_success": false,
+  "stop_reason": "finish",
+  "finish": {
+    "status": "partial",
+    "summary": "Applied edits to all six target chairs: Seat1/Seat2 moved into their seat regions and rotated; Seat3/Seat4 yaw-only corrected; Seat5/Seat6 XZ-only moved into their seat regions. All changes are authorized per compare_state (no protected fields altered). check_constraints shows 125/126 rules passing, including containment in seat regions, grounding, non-overlap, >=1.1m XZ center spacing, keepout avoidance, and facing for Seat1, Seat2, Seat3, Seat5, Seat6. One facing rule remains failed for V3M06Seat4 (measured angle 159.998 deg vs table center; signed_error -159.998 deg), which would require a further yaw edit that is no longer permitted because the host entered finish_only due to input token reserve.",
+    "verified": [
+      "All actual differences are within allowed fields (compare_state passed)",
+      "Seat1/Seat2 fully inside 座区1/座区2; Seat5/Seat6 fully inside 座区5/座区6",
+      "Grounding, mutual non-overlap, and >=1.1m XZ center distance satisfied",
+      "Keepout channel avoided",
+      "Facing satisfied for Seat1, Seat2, Seat3, Seat5, Seat6"
+    ],
+    "unresolved": [
+      "facing:V3M06Seat4 still fails (current_yaw_deg=25.88, signed_error_deg=-159.998; correct absolute yaw would be ~25.88) — repair blocked by finish_only phase"
+    ],
+    "limitations": [
+      "Host reserved finish_only before the final Seat4 yaw correction could be submitted; only two edit batches remained but no diagnostic/edit budget was available in this phase."
+    ]
+  },
+  "final_protection_violation": false,
+  "process_protection_violation": false,
+  "initial_edit_failed": true,
+  "self_repaired": false,
+  "false_complete": false,
+  "flow_adherence": true,
+  "latest_diagnostics": {
+    "check_constraints": {
+      "version": 10,
+      "turn": 6,
+      "passed": false
+    },
+    "compare_state": {
+      "version": 10,
+      "turn": 7,
+      "passed": true
+    }
+  },
+  "stats": {
+    "requests": 8,
+    "tools": 8,
+    "edit_batches": 2,
+    "operations": 10,
+    "successful_writes": 10,
+    "input_tokens": 71670,
+    "output_tokens": 689,
+    "cost_cny": 0.05919629999999999,
+    "check_constraints": 2,
+    "compare_state": 2
+  },
+  "seconds": 20.626837083982537,
+  "loaded_skills": {
+    "unity-scene-ops": "e8e92d185adfc2b56a44936c01fbf13da5df6f66ba1126f252fa4322292a5909",
+    "unity-scene-check": "95e2ab006c148b6724c8f37eb8967913340c646b1e34ea807d0ac16906e80151"
+  },
+  "model_ids": [
+    "qwen3.8-flash"
+  ],
+  "transport_failure": null,
+  "finalization": [
+    {
+      "turn": 8,
+      "reasons": [
+        "input_reserve"
+      ],
+      "input_reserve": 34826
+    }
+  ],
+  "wall_seconds": 20.81078004837036,
+  "block": 11,
+  "repeat": 2,
+  "seed": 2
+}

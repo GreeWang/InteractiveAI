@@ -1,0 +1,37 @@
+{
+  "id": "chatcmpl-85096b97-9378-9ad6-86c8-4cc46fba6c08",
+  "object": "chat.completion",
+  "created": 1794825229,
+  "model": "qwen3.8-flash",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "id": "call_6ed2b7f099544d70ae22fd58",
+            "type": "function",
+            "function": {
+              "name": "get_scene_hierarchy",
+              "arguments": "{}"
+            },
+            "index": 0
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "logprobs": null
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 26892,
+    "total_tokens": 26906,
+    "completion_tokens": 14,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "text_tokens": 26892
+    }
+  }
+}

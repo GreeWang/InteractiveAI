@@ -1,0 +1,145 @@
+{
+  "id": "D06",
+  "contract": {
+    "id": "D06",
+    "scene": "M",
+    "allowed": {
+      "D06SeatA": [
+        "x",
+        "z",
+        "yaw"
+      ],
+      "D06SeatB": [
+        "x",
+        "z",
+        "yaw"
+      ],
+      "D06SeatC": [
+        "yaw"
+      ],
+      "D06SeatD": [
+        "yaw"
+      ]
+    },
+    "request": "将D06SeatA、D06SeatB分别放入指定座位区并面向固定D06Table；D06SeatC、D06SeatD只允许改yaw，也必须面向当前桌心，位置保持不变。四椅接地、中心XZ间距至少1.2米，完整包围盒不与固定设施或彼此重叠，避开保留区。桌和所有固定对象及未授权字段保持初始值。",
+    "regions": [
+      {
+        "id": "D06座位A",
+        "min": [
+          -2.7,
+          -0.01,
+          0.2
+        ],
+        "max": [
+          -1.5,
+          1.5,
+          1.4
+        ]
+      },
+      {
+        "id": "D06座位B",
+        "min": [
+          -0.1,
+          -0.01,
+          0.2
+        ],
+        "max": [
+          1.1,
+          1.5,
+          1.4
+        ]
+      }
+    ],
+    "keepout": [
+      {
+        "id": "D06保留区",
+        "min": [
+          2.5,
+          0,
+          -3
+        ],
+        "max": [
+          3.5,
+          3,
+          3
+        ]
+      }
+    ],
+    "inside": [
+      [
+        "D06SeatA",
+        "D06座位A"
+      ],
+      [
+        "D06SeatB",
+        "D06座位B"
+      ]
+    ],
+    "support": [],
+    "facing": [
+      [
+        "D06SeatA",
+        "D06Table"
+      ],
+      [
+        "D06SeatB",
+        "D06Table"
+      ],
+      [
+        "D06SeatC",
+        "D06Table"
+      ],
+      [
+        "D06SeatD",
+        "D06Table"
+      ]
+    ],
+    "relative": [],
+    "distance": [
+      [
+        [
+          "D06SeatA",
+          "D06SeatB",
+          "D06SeatC",
+          "D06SeatD"
+        ],
+        1.2
+      ]
+    ],
+    "markers": {},
+    "initial_state_ref": "D06_initial",
+    "contract_version": "3b11126b186793d1c8fb3db2969518042c7bd76451276d2227e12cdabe847f47",
+    "grounded": [
+      "D06SeatA",
+      "D06SeatB",
+      "D06SeatC",
+      "D06SeatD"
+    ],
+    "definitions": {
+      "containment_tolerance_m": 0.005,
+      "support_height_tolerance_m": 0.01,
+      "penetration_tolerance_m": 0.001,
+      "protected_position_tolerance_m": 0.005,
+      "protected_rotation_tolerance_deg": 0.5,
+      "scale_tolerance": 1e-05,
+      "facing_angle_deg": 10,
+      "semantic_front": "local +Z, evaluated on XZ",
+      "workspace": {
+        "x": [
+          -7,
+          7
+        ],
+        "z": [
+          -6,
+          6
+        ]
+      },
+      "inventory": "All initial IDs and counts unchanged; no create/delete/scale/reparent",
+      "collision_pairs": "all target-target and target-fixed entities except Floor",
+      "regions": "full current world AABB containment, closed endpoints",
+      "facing_reference": "CURRENT object center or fixed public marker; never initial table center",
+      "native_inventory": "All initial task entities and every initial scene GameObject and component remain; no create/delete/reparent/enable changes.",
+      "native_protected_fields": "Only allowed root world position/yaw fields may change. Other scene hierarchy, serialized component fields, mesh geometry, materials, and project assets/settings/scripts remain unchanged. Original pose/scale tolerances still apply."
+    }
+  }
+}

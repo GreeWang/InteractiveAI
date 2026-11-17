@@ -1,0 +1,10 @@
+{
+  "formal": [],
+  "development": [
+    "D05",
+    "D06",
+    "D07",
+    "D08"
+  ],
+  "provenance": "D05-D08 use new IDs, dimensions, positions and target regions; older formal tasks untouched"
+}

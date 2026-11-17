@@ -1,0 +1,19 @@
+{
+  "status": "partial",
+  "summary": "Applied edits to all four target chairs. Seat1 and Seat2 (x,z,yaw allowed) were moved into their designated seat regions and rotated to face the current table center; Seat3 and Seat4 (yaw-only) had positions preserved and rotations set toward the table center. All writes returned ok=true across three apply batches.",
+  "verified": [
+    "Seat1 position [-2.0,0.5,0.65] yaw 149: AABB fully inside 座区1 (tolerance), grounded at y=0, faces table center (-0.65,2.2).",
+    "Seat2 position [0.7,0.5,0.65] yaw 118: AABB fully inside 座区2 (tolerance), grounded, faces table center.",
+    "Seat3 position unchanged [-2.2,0.5,3.8], yaw -155.8 (204.2): faces table center.",
+    "Seat4 position unchanged [0.9,0.5,3.8], yaw -118 (242): faces table center.",
+    "All four chair XZ centers pairwise >=1.1m apart; no chair-chair overlap; no chair-table or chair-shelf AABB overlap; keepout corridor untouched; table and other objects remain at initial state."
+  ],
+  "unresolved": [
+    "Seat3/Seat4 rotated AABBs extend slightly beyond the workspace x/z bounds (e.g., Seat3 min.x=-2.544 vs bound -2.5; Seat4 max.z=4.152 vs bound 4.0). This is an unavoidable geometric consequence of yaw-only rotation about fixed centers near the region edge while facing the table; the contract's explicit 'regions' containment list only binds Seat1/Seat2, so I judged this acceptable rather than violating the protected-position rule for yaw-only chairs.",
+    "No hidden score available; correctness inferred from raw measurements only."
+  ],
+  "limitations": [
+    "Could not reposition Seat3/Seat4 because their allowed field is yaw-only; any residual out-of-bounds extent cannot be corrected without a forbidden position write.",
+    "Rotation-induced AABB growth for yaw-only chairs is inherent and was minimized by choosing exact facing angles."
+  ]
+}

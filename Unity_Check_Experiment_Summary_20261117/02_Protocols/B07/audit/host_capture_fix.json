@@ -1,0 +1,9 @@
+{
+  "reason": "Host save_scene cannot save as copy. Development actors, results and raw states are unchanged; host-only actual copy now uses native MCP eval SaveScene(saveAsCopy:true). Added initial snapshot equality guard to prevent inter-run contamination. Neither change supplies additional actor feedback or changes tools, prompts, limits, constraints, grading or model.",
+  "changed_runtime_files": [
+    "run_actor.py"
+  ],
+  "before_sha256": "fb2d2f2c7d6c3028050060399508359d445c6f8a703cf2f2dab21f19740ce3e4",
+  "after_sha256": "ba76d1f2821787a98811f971a1c87d57817d3e852fe8019f994bb669ff68d0cc",
+  "no_paid_reruns": true
+}

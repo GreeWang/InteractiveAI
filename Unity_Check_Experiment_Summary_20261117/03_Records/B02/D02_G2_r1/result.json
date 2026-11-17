@@ -1,0 +1,50 @@
+{
+  "run_id": "D02_G2_r1",
+  "task_id": "D02",
+  "group": "G2",
+  "normal_finish": true,
+  "state_success": true,
+  "complete_success": true,
+  "stop_reason": "finish",
+  "finish": {
+    "status": "complete",
+    "summary": "Moved DBoxA and DBoxB into the development support region on top of DSupport without overlap.",
+    "verified": [
+      "DBoxA bounds [1.0,2.0,-1.25] to [1.7,2.4,-0.75] are inside region [1,2,-1.8] to [3,3.2,-0.2].",
+      "DBoxB bounds [2.4,2.0,-1.35] to [2.9,2.7,-0.65] are inside region [1,2,-1.8] to [3,3.2,-0.2].",
+      "Both boxes have bottom Y=2.0 matching DSupport top surface Y=2.0 (support).",
+      "DBoxA X range [1.0,1.7] and DBoxB X range [2.4,2.9] do not overlap.",
+      "Neither box intersects the keepout channel [-0.5,0,-3] to [0.5,3,3].",
+      "Other objects (DFixed, DSupport, Floor) remain unchanged."
+    ],
+    "unresolved": [],
+    "limitations": []
+  },
+  "final_protection_violation": false,
+  "process_protection_violation": false,
+  "initial_edit_failed": false,
+  "self_repaired": false,
+  "false_complete": false,
+  "flow_adherence": null,
+  "latest_diagnostics": {},
+  "stats": {
+    "requests": 4,
+    "tools": 4,
+    "edit_batches": 1,
+    "operations": 2,
+    "successful_writes": 2,
+    "input_tokens": 9981,
+    "output_tokens": 336,
+    "cost_cny": 0.008892,
+    "check_constraints": 0,
+    "compare_state": 0
+  },
+  "seconds": 9.713566749996971,
+  "loaded_skills": {
+    "unity-scene-ops": "e8e92d185adfc2b56a44936c01fbf13da5df6f66ba1126f252fa4322292a5909"
+  },
+  "model_ids": [
+    "qwen3.8-flash"
+  ],
+  "transport_failure": null
+}

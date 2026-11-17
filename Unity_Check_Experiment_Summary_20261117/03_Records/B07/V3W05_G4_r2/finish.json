@@ -1,0 +1,19 @@
+{
+  "status": "partial",
+  "summary": "Inspected the scene and computed a full solution, but the run switched to finish_only before any pose writes were applied, so the four boxes remain at their initial positions. One unintended side effect occurred (Box1 MeshFilter mesh reference) which I could not re-verify or correct within the resource limits.\n\nAnalysis completed: box world AABB sizes are Box1 1.10x0.58x0.44, Box2 1.20x0.72x0.48, Box3 1.15x0.64x0.42, Box4 1.05x0.50x0.46; all fit axis-aligned inside their narrow slots with platform top y=1.44 giving bottom-on-platform y = 1.73 / 1.80 / 1.76 / 1.69 respectively. Planned centers: Box1 (1.5,1.73,2.0), Box2 (3.5,1.80,2.0), Box3 (1.5,1.76,3.4), Box4 (3.5,1.69,3.4). Planned yaws (from the relative facing corrections, yaw_next=(current+signed_error)%360): Box1 56.13, Box2 46.70, Box3 17.97, Box4 25.68 — these keep each rotated AABB inside its slot (verified by hand against slot bounds) and satisfy XZ center spacing >= 1 m, no target-target overlap, and clearance from the reserved corridor (x in [-0.35,0.35]).",
+  "verified": [
+    "Scene inventory read: 4 target boxes, Platform1 (top y=1.44), Floor, 10 fixed objects, Aim markers.",
+    "Box local meshes are unit cubes scaled by Transform.localScale; per-box world extents measured via Renderer.bounds.",
+    "Slot/keepout/marker geometry checked analytically: an axis-aligned placement plus the listed yaws keeps every box fully inside its slot and off the platform edge, with bottoms exactly on the platform top.",
+    "check_constraints baseline captured (state_version 1): 14 failures, all explained by initial poses plus one permissions diff."
+  ],
+  "unresolved": [
+    "No position/yaw changes were written to V3W05Box1..4 — containment, support, facing, distance and keepout rules still fail as at baseline.",
+    "V3W05Box1 MeshFilter m_Mesh now references the shared 'box' asset instead of the initial 'box Instance'; this protected-field difference was reported by check_constraints/compare_state and remains uncorrected/unverified after my repair attempt (state_version 2 pending diagnostics).",
+    "Final check_constraints and compare_state confirmation for the intended end state was never obtained."
+  ],
+  "limitations": [
+    "Run entered finish_only after 7 requests; remaining budget did not allow applying the computed transforms, restoring Box1's mesh instance, or re-running validation.",
+    "Reported values are from my own measurements and analytic checks, not from a passing checker run."
+  ]
+}

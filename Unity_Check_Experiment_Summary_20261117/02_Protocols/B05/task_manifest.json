@@ -1,0 +1,43 @@
+{
+  "formal": [
+    "V3M01",
+    "V3M02",
+    "V3M03",
+    "V3M04",
+    "V3M05",
+    "V3M06",
+    "V3W01",
+    "V3W02",
+    "V3W03",
+    "V3W04",
+    "V3W05",
+    "V3W06"
+  ],
+  "development": [],
+  "families": {
+    "meeting_rigid": [
+      "V3M01",
+      "V3M02"
+    ],
+    "meeting_facing": [
+      "V3M03",
+      "V3M04"
+    ],
+    "meeting_permissions": [
+      "V3M05",
+      "V3M06"
+    ],
+    "warehouse_packing": [
+      "V3W01",
+      "V3W02"
+    ],
+    "warehouse_support": [
+      "V3W03",
+      "V3W04"
+    ],
+    "warehouse_footprint": [
+      "V3W05",
+      "V3W06"
+    ]
+  }
+}

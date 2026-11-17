@@ -1,0 +1,16 @@
+{
+  "status": "complete",
+  "summary": "All six V3M06 chairs were adjusted to face the table's current center (0.55, 0.74, 2.65) while respecting allowed fields: Seat1/Seat2 moved (x,z) into their seat regions and yawed to face the table; Seat3/Seat4 rotated in place (yaw-only); Seat5/Seat6 translated (x,z only) into their regions keeping their existing yaws (90°/270°), which already point at the table from the new positions. Final poses: S1(-1.10,1.05,yaw45.88), S2(2.20,1.05,yaw314.12), S3(yaw134.12), S4(yaw225.88), S5(-1.28,2.65,yaw90), S6(2.38,2.65,yaw270). All chairs grounded at y=0 bounds-min, fully inside their assigned regions, pairwise XZ center distances ≥1.1 m (min 1.73), no overlaps, clear of the reserved corridor and fixed objects. Table and all other objects untouched.",
+  "verified": [
+    "check_constraints: passed=true, 126/126 rules, state_version 1",
+    "compare_state: passed=true; only authorized position.x/position.z/rotation changes on the six seats, all marked authorized",
+    "Facing verified programmatically: faceErr=0.00° for all six seats against current table center",
+    "Region containment verified: Seat1, Seat2, Seat5, Seat6 full world AABBs inside their regions with margin",
+    "Keepout corridor clear for all chairs; pairwise XZ distances >= 1.1 m and no AABB overlaps confirmed"
+  ],
+  "unresolved": [],
+  "limitations": [
+    "Scene not saved by me; host saves results after finish.",
+    "Verification relies on renderer AABB checks performed via eval plus the official check_constraints/compare_state diagnostics."
+  ]
+}

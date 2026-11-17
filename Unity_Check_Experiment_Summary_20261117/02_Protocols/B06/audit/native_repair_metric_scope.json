@@ -1,0 +1,7 @@
+{
+  "created": "2026-11-16T19:06:02.923683+08:00",
+  "primary_endpoint_unchanged": true,
+  "reason": "Native set_transform can edit one object per call, so first-changed-state failure followed by final success can reflect planned incremental construction. It is not sufficient evidence of an error-repair benefit.",
+  "reporting": "Retain frozen operational self_repaired counts, label them intermediate-failure-to-final-pass. Do not present as proven repair. Examine Check failure measurements, subsequent permitted edits and re-checks for concrete correction examples; label those qualitative.",
+  "no_model_or_intervention_changes": true
+}

@@ -1,0 +1,16 @@
+{
+  "geometry_and_scene": false,
+  "asset_integrity": true,
+  "state_success": false,
+  "normal_finish": true,
+  "complete_success": false,
+  "failed_rules": [
+    "inside:V3W01Box1:V3W01装架区",
+    "inside:V3W01Box2:V3W01装架区",
+    "support:V3W01Box1",
+    "support:V3W01Box2",
+    "nonoverlap:V3W01Box1:V3W01Rack",
+    "nonoverlap:V3W01Box2:V3W01Rack",
+    "nonoverlap:V3W01Box3:V3W01Rack"
+  ]
+}

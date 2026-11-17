@@ -1,0 +1,24 @@
+{
+  "status": "partial",
+  "summary": "Placed all five authorized objects and verified containment, grounding, separation and keepout; the four seats' facing yaws are currently ~5.7° off (within the 10° tolerance) but not yet at the exact values I computed.\n\nApplied (position x/z + seat yaw only):\n- V3M04Table → (-1.55, 2.65): rotated AABB [-2.59,1.99]→[-0.51,3.31], fully inside 桌区.\n- V3M04Seat1 → (-3.05, 1.00), yaw 311.99\n- V3M04Seat2 → (-0.05, 1.00), yaw 48.01\n- V3M04Seat3 → (-3.05, 4.30), yaw 228.01\n- V3M04Seat4 → (-0.05, 4.30), yaw 131.99\nAll seat AABBs verified inside their 座区 with ≥0.15 m margin; bottoms at y=0 (grounded); no overlap with each other, the table, fixed entities or the 保留通道 corridor. Seat-pair XZ center distances: 3.0 / 3.3 / 4.46 m — all ≥1.1 m.\n\nVerified failing item: my first yaw set used an inverted sign convention, so each seat's local +Z points 5.739° away from the table center (still under the 10° facing_angle_deg limit). I confirmed the correct convention (yaw = atan2(dx,dz)) and the exact replacement values, but the run entered finish-only before applying them.\n\nExact yaws that give 0.0000° error (positions unchanged, rotated half-extent in X = 0.4083 m, still inside every region):\n- Seat1 42.27369 · Seat2 317.72630 · Seat3 137.72630 · Seat4 222.27370",
+  "verified": [
+    "V3M04Table world AABB (-2.59,0,1.99)-(-0.51,1.52,3.31) is inside V3M04桌区 (-2.9,-0.01,1.6)-(-0.2,1.8,3.7)",
+    "V3M04Seat1 AABB (-3.36,0,0.73)-(-2.74,1.08,1.27) inside 座区1",
+    "V3M04Seat2 AABB (-0.36,0,0.73)-(0.26,1.08,1.27) inside 座区2",
+    "V3M04Seat3 AABB (-3.36,0,4.03)-(-2.74,1.08,4.57) inside 座区3",
+    "V3M04Seat4 AABB (-0.36,0,4.03)-(0.26,1.08,4.57) inside 座区4",
+    "All five targets have AABB min.y = 0.000 (resting on the Floor top at y=0)",
+    "Seat-pair XZ center distances 3.000/3.300/4.460 m, all >= 1.1 m",
+    "No target AABB intersects any V3M04Fixed* AABB or the keepout corridor x[-0.35,0.35] z[-5,-0.5]",
+    "Only x/z (table) and x/z/yaw (seats) root fields were written; Y positions, scales, parents, components, meshes and materials untouched",
+    "Object count unchanged: 5 targets + 10 fixed entities + Floor + marker container, no create/delete/reparent"
+  ],
+  "unresolved": [
+    "Seat facing is approximate, not exact: each seat's local +Z is 5.739° from the vector to the table's current center because the applied yaws used the opposite sign convention. This passes the 10° facing_angle_deg tolerance but is not the ideal 0° solution."
+  ],
+  "limitations": [
+    "The run reached the finish-only phase after 6 model requests, so the corrected yaw values (Seat1 42.27369, Seat2 317.72630, Seat3 137.72630, Seat4 222.27370) were computed and validated numerically but never submitted to the scene.",
+    "Validation used MeshFilter bounds scaled by lossyScale as the proxy for the full rotated world AABB, since the objects carry no Colliders.",
+    "I did not save the scene, per instructions; the host is responsible for persisting these edits."
+  ]
+}

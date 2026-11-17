@@ -1,0 +1,17 @@
+{
+  "geometry_and_scene": false,
+  "asset_integrity": true,
+  "state_success": false,
+  "normal_finish": true,
+  "complete_success": false,
+  "failed_rules": [
+    "inside:V3W03Box2:V3W03层区1",
+    "inside:V3W03Box3:V3W03层区2",
+    "inside:V3W03Box4:V3W03层区2",
+    "support:V3W03Box2",
+    "support:V3W03Box3",
+    "support:V3W03Box4",
+    "nonoverlap:V3W03Box2:V3W03Platform1",
+    "native_protected_structure"
+  ]
+}

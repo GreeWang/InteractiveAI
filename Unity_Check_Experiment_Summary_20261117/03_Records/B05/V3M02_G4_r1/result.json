@@ -1,0 +1,81 @@
+{
+  "run_id": "V3M02_G4_r1",
+  "task_id": "V3M02",
+  "group": "G4",
+  "normal_finish": true,
+  "state_success": false,
+  "complete_success": false,
+  "stop_reason": "finish",
+  "finish": {
+    "status": "partial",
+    "summary": "The table and four chairs were translated as a rigid group into the target activity area. All objects maintain their initial relative positions, Y coordinates, yaw rotations, and other fields. The table and seats are grounded and do not overlap fixed facilities or each other. However, Seat3 and Seat4 extend beyond the maximum Z boundary of the activity region (bounds max Z=4.56 vs region max Z=4.34), resulting in containment failures.",
+    "verified": [
+      "All objects are within the workspace bounds.",
+      "Y positions and yaw rotations remain unchanged from initial state.",
+      "Relative displacements between all pairs of objects remain unchanged.",
+      "No unauthorized changes to protected fields.",
+      "Table is fully inside the activity region.",
+      "Seat1 and Seat2 are fully inside the activity region.",
+      "No collisions with fixed shelves or pedestal."
+    ],
+    "unresolved": [
+      "Seat3 is not fully contained in V3M02活动区 (min margin -0.22m at Z max).",
+      "Seat4 is not fully contained in V3M02活动区 (min margin -0.22m at Z max)."
+    ],
+    "limitations": [
+      "Input token reserve reached, preventing further edit batches to adjust Z positions for full containment."
+    ]
+  },
+  "final_protection_violation": false,
+  "process_protection_violation": false,
+  "initial_edit_failed": true,
+  "self_repaired": false,
+  "false_complete": false,
+  "flow_adherence": true,
+  "latest_diagnostics": {
+    "check_constraints": {
+      "version": 10,
+      "turn": 6,
+      "passed": false
+    },
+    "compare_state": {
+      "version": 10,
+      "turn": 7,
+      "passed": true
+    }
+  },
+  "stats": {
+    "requests": 8,
+    "tools": 8,
+    "edit_batches": 2,
+    "operations": 10,
+    "successful_writes": 10,
+    "input_tokens": 66930,
+    "output_tokens": 993,
+    "cost_cny": 0.0562251,
+    "check_constraints": 2,
+    "compare_state": 2
+  },
+  "seconds": 20.097767166997073,
+  "loaded_skills": {
+    "unity-scene-ops": "e8e92d185adfc2b56a44936c01fbf13da5df6f66ba1126f252fa4322292a5909",
+    "unity-scene-check": "95e2ab006c148b6724c8f37eb8967913340c646b1e34ea807d0ac16906e80151"
+  },
+  "model_ids": [
+    "qwen3.8-flash"
+  ],
+  "transport_failure": null,
+  "finalization": [
+    {
+      "turn": 8,
+      "reasons": [
+        "input_reserve"
+      ],
+      "input_reserve": 33382
+    }
+  ],
+  "wall_seconds": 20.184929132461548,
+  "block": 20,
+  "repeat": 1,
+  "seed": 1
+}

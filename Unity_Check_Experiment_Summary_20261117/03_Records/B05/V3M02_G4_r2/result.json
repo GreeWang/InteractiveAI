@@ -1,0 +1,80 @@
+{
+  "run_id": "V3M02_G4_r2",
+  "task_id": "V3M02",
+  "group": "G4",
+  "normal_finish": true,
+  "state_success": false,
+  "complete_success": false,
+  "stop_reason": "finish",
+  "finish": {
+    "status": "partial",
+    "summary": "The table and four chairs were translated as a rigid group (preserving relative X/Z offsets, Y, yaw, and all other fields) into the target activity region. However, constraint checks failed due to overlaps with the fixed pedestal and bounds exceeding the region limits in some configurations. The current state has unauthorized changes or unmet requirements.",
+    "verified": [
+      "Relative positions between Table and Seats are preserved.",
+      "Y positions and yaw rotations are unchanged from initial state.",
+      "Only X and Z coordinates were modified for the allowed objects."
+    ],
+    "unresolved": [
+      "V3M02Table bounds exceed V3M02活动区 max X (4.11 > 3.8).",
+      "V3M02Seat2 and V3M02Seat4 bounds exceed V3M02活动区 max X (4.27 > 3.8).",
+      "V3M02Seat3 bounds exceed V3M02活动区 max Z (4.56 > 4.34).",
+      "Overlap detected between V3M02Pedestal and V3M02Seat1/V3M02Seat2 depending on position."
+    ],
+    "limitations": [
+      "Finish_only mode activated; no further edits or inspections can be performed.",
+      "The rigid group translation requires a specific offset that satisfies both containment and non-overlap constraints, which was not fully achieved within the edit budget."
+    ]
+  },
+  "final_protection_violation": false,
+  "process_protection_violation": false,
+  "initial_edit_failed": true,
+  "self_repaired": false,
+  "false_complete": false,
+  "flow_adherence": true,
+  "latest_diagnostics": {
+    "check_constraints": {
+      "version": 10,
+      "turn": 6,
+      "passed": false
+    },
+    "compare_state": {
+      "version": 10,
+      "turn": 7,
+      "passed": true
+    }
+  },
+  "stats": {
+    "requests": 8,
+    "tools": 8,
+    "edit_batches": 2,
+    "operations": 10,
+    "successful_writes": 10,
+    "input_tokens": 67464,
+    "output_tokens": 1028,
+    "cost_cny": 0.05674680000000001,
+    "check_constraints": 2,
+    "compare_state": 2
+  },
+  "seconds": 19.90720612500445,
+  "loaded_skills": {
+    "unity-scene-ops": "e8e92d185adfc2b56a44936c01fbf13da5df6f66ba1126f252fa4322292a5909",
+    "unity-scene-check": "95e2ab006c148b6724c8f37eb8967913340c646b1e34ea807d0ac16906e80151"
+  },
+  "model_ids": [
+    "qwen3.8-flash"
+  ],
+  "transport_failure": null,
+  "finalization": [
+    {
+      "turn": 8,
+      "reasons": [
+        "input_reserve"
+      ],
+      "input_reserve": 33916
+    }
+  ],
+  "wall_seconds": 19.99835205078125,
+  "block": 17,
+  "repeat": 2,
+  "seed": 2
+}

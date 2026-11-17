@@ -1,0 +1,140 @@
+{
+  "id": "W03",
+  "contract": {
+    "id": "W03",
+    "scene": "W",
+    "allowed": {
+      "A": [
+        "x",
+        "y",
+        "z"
+      ],
+      "B": [
+        "x",
+        "y",
+        "z"
+      ],
+      "C": [
+        "x",
+        "y",
+        "z"
+      ],
+      "D": [
+        "x",
+        "y",
+        "z"
+      ]
+    },
+    "request": "按明确分配表装架：A、B 进入 U 的上层目标区；C、D 进入 L 的下层目标区。保持原朝向和尺寸，完整进入各自区域并由指定层板支撑。固定库存、货架及其他对象不动，物流通道留空。",
+    "regions": [
+      {
+        "id": "上层目标区",
+        "min": [
+          -0.5,
+          2.95,
+          0
+        ],
+        "max": [
+          1.6,
+          3.8,
+          1.7
+        ]
+      },
+      {
+        "id": "下层目标区",
+        "min": [
+          -0.5,
+          0.95,
+          0
+        ],
+        "max": [
+          1.6,
+          1.8,
+          1.7
+        ]
+      }
+    ],
+    "keepout": [
+      {
+        "id": "物流通道",
+        "min": [
+          -2.1,
+          0,
+          -4.7
+        ],
+        "max": [
+          -1.1,
+          4,
+          4.7
+        ]
+      }
+    ],
+    "inside": [
+      [
+        "A",
+        "上层目标区"
+      ],
+      [
+        "B",
+        "上层目标区"
+      ],
+      [
+        "C",
+        "下层目标区"
+      ],
+      [
+        "D",
+        "下层目标区"
+      ]
+    ],
+    "support": [
+      [
+        "A",
+        "U"
+      ],
+      [
+        "B",
+        "U"
+      ],
+      [
+        "C",
+        "L"
+      ],
+      [
+        "D",
+        "L"
+      ]
+    ],
+    "facing": [],
+    "relative": [],
+    "distance": [],
+    "markers": {},
+    "initial_state_ref": "W03_initial",
+    "contract_version": "9b5d08c1a367099527530d992f851c03238cd4e00a3501aa57f556494e1ac1ea",
+    "grounded": [],
+    "definitions": {
+      "containment_tolerance_m": 0.005,
+      "support_height_tolerance_m": 0.01,
+      "penetration_tolerance_m": 0.001,
+      "protected_position_tolerance_m": 0.005,
+      "protected_rotation_tolerance_deg": 0.5,
+      "scale_tolerance": 1e-05,
+      "facing_angle_deg": 10,
+      "semantic_front": "local +Z, evaluated on XZ",
+      "workspace": {
+        "x": [
+          -7,
+          7
+        ],
+        "z": [
+          -6,
+          6
+        ]
+      },
+      "inventory": "All initial IDs and counts unchanged; no create/delete/scale/reparent",
+      "collision_pairs": "all target-target and target-fixed entities except Floor",
+      "regions": "full current world AABB containment, closed endpoints",
+      "facing_reference": "CURRENT object center or fixed public marker; never initial table center"
+    }
+  }
+}

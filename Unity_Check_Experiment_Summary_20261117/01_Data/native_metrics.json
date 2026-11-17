@@ -1,0 +1,541 @@
+{
+  "stage": "formal",
+  "groups": {
+    "G2": {
+      "n": 24,
+      "complete_success": 5,
+      "state_success": 5,
+      "normal_finish": 24,
+      "false_complete": 6,
+      "process_protection_violation": 5,
+      "final_protection_violation": 4,
+      "self_repaired": 2,
+      "repair_opportunities": 16,
+      "strict_flow": null,
+      "means": {
+        "requests": 11.333333333333334,
+        "tools": 11.291666666666666,
+        "official_tools": 10.166666666666666,
+        "check_constraints": 0,
+        "compare_state": 0,
+        "input_tokens": 417126.75,
+        "output_tokens": 4834.166666666667,
+        "cost_cny": 0.34675365
+      },
+      "mean_seconds": 74.74845578111974,
+      "cost_cny": 8.3220876,
+      "asset_integrity_violations": 3,
+      "scene_score_success": 5,
+      "modified_runs": 19,
+      "strict_flow_modified_runs": null,
+      "complete_and_required_flow": 5
+    },
+    "G4": {
+      "n": 24,
+      "complete_success": 11,
+      "state_success": 11,
+      "normal_finish": 24,
+      "false_complete": 1,
+      "process_protection_violation": 4,
+      "final_protection_violation": 4,
+      "self_repaired": 9,
+      "repair_opportunities": 17,
+      "strict_flow": 6,
+      "means": {
+        "requests": 11.083333333333334,
+        "tools": 11.083333333333334,
+        "official_tools": 7.833333333333333,
+        "check_constraints": 1.8333333333333333,
+        "compare_state": 0.375,
+        "input_tokens": 410752.2083333333,
+        "output_tokens": 3024.0833333333335,
+        "cost_cny": 0.3367667916666667
+      },
+      "mean_seconds": 55.95910969078856,
+      "cost_cny": 8.082403000000001,
+      "asset_integrity_violations": 2,
+      "scene_score_success": 13,
+      "modified_runs": 21,
+      "strict_flow_modified_runs": 3,
+      "complete_and_required_flow": 2
+    }
+  },
+  "difference_pp": 24.999999999999996,
+  "task_bootstrap_95_pp": [
+    -4.166666666666666,
+    54.166666666666664
+  ],
+  "paired_discordance": {
+    "g4_only": 8,
+    "g2_only": 2,
+    "exact_two_sided_p": 0.109375
+  },
+  "tasks": [
+    {
+      "task_id": "V3M01",
+      "G2": 1,
+      "G2_n": 2,
+      "G4": 1,
+      "G4_n": 2,
+      "difference": 0.0
+    },
+    {
+      "task_id": "V3M02",
+      "G2": 0,
+      "G2_n": 2,
+      "G4": 1,
+      "G4_n": 2,
+      "difference": 0.5
+    },
+    {
+      "task_id": "V3M03",
+      "G2": 1,
+      "G2_n": 2,
+      "G4": 0,
+      "G4_n": 2,
+      "difference": -0.5
+    },
+    {
+      "task_id": "V3M04",
+      "G2": 0,
+      "G2_n": 2,
+      "G4": 2,
+      "G4_n": 2,
+      "difference": 1.0
+    },
+    {
+      "task_id": "V3M05",
+      "G2": 0,
+      "G2_n": 2,
+      "G4": 0,
+      "G4_n": 2,
+      "difference": 0.0
+    },
+    {
+      "task_id": "V3M06",
+      "G2": 0,
+      "G2_n": 2,
+      "G4": 2,
+      "G4_n": 2,
+      "difference": 1.0
+    },
+    {
+      "task_id": "V3W01",
+      "G2": 1,
+      "G2_n": 2,
+      "G4": 1,
+      "G4_n": 2,
+      "difference": 0.0
+    },
+    {
+      "task_id": "V3W02",
+      "G2": 0,
+      "G2_n": 2,
+      "G4": 2,
+      "G4_n": 2,
+      "difference": 1.0
+    },
+    {
+      "task_id": "V3W03",
+      "G2": 0,
+      "G2_n": 2,
+      "G4": 1,
+      "G4_n": 2,
+      "difference": 0.5
+    },
+    {
+      "task_id": "V3W04",
+      "G2": 1,
+      "G2_n": 2,
+      "G4": 1,
+      "G4_n": 2,
+      "difference": 0.0
+    },
+    {
+      "task_id": "V3W05",
+      "G2": 1,
+      "G2_n": 2,
+      "G4": 0,
+      "G4_n": 2,
+      "difference": -0.5
+    },
+    {
+      "task_id": "V3W06",
+      "G2": 0,
+      "G2_n": 2,
+      "G4": 0,
+      "G4_n": 2,
+      "difference": 0.0
+    }
+  ],
+  "families": {
+    "meeting_rigid": {
+      "G2": {
+        "success": 1,
+        "n": 4
+      },
+      "G4": {
+        "success": 2,
+        "n": 4
+      }
+    },
+    "meeting_facing": {
+      "G2": {
+        "success": 1,
+        "n": 4
+      },
+      "G4": {
+        "success": 2,
+        "n": 4
+      }
+    },
+    "meeting_permissions": {
+      "G2": {
+        "success": 0,
+        "n": 4
+      },
+      "G4": {
+        "success": 2,
+        "n": 4
+      }
+    },
+    "warehouse_packing": {
+      "G2": {
+        "success": 1,
+        "n": 4
+      },
+      "G4": {
+        "success": 3,
+        "n": 4
+      }
+    },
+    "warehouse_support": {
+      "G2": {
+        "success": 1,
+        "n": 4
+      },
+      "G4": {
+        "success": 2,
+        "n": 4
+      }
+    },
+    "warehouse_footprint": {
+      "G2": {
+        "success": 1,
+        "n": 4
+      },
+      "G4": {
+        "success": 0,
+        "n": 4
+      }
+    }
+  },
+  "failed_rules": {
+    "V3W06_G2_r2": [
+      "inside:V3W06Box1:V3W06窄槽1",
+      "inside:V3W06Box2:V3W06窄槽2",
+      "inside:V3W06Box3:V3W06窄槽3",
+      "inside:V3W06Box4:V3W06窄槽4",
+      "inside:V3W06Box5:V3W06窄槽5",
+      "inside:V3W06Box6:V3W06窄槽6",
+      "support:V3W06Box1",
+      "support:V3W06Box2",
+      "support:V3W06Box3",
+      "support:V3W06Box4",
+      "support:V3W06Box5",
+      "support:V3W06Box6",
+      "facing:V3W06Box1",
+      "facing:V3W06Box3",
+      "facing:V3W06Box5",
+      "facing:V3W06Box6",
+      "clear:V3W06Box3:V3W06保留通道"
+    ],
+    "V3W06_G4_r2": [
+      "native_project_asset_integrity"
+    ],
+    "V3W01_G4_r2": [],
+    "V3W01_G2_r2": [],
+    "V3M06_G2_r1": [
+      "inside:V3M06Seat1:V3M06座区1",
+      "inside:V3M06Seat2:V3M06座区2",
+      "facing:V3M06Seat1",
+      "facing:V3M06Seat2",
+      "facing:V3M06Seat3",
+      "facing:V3M06Seat4"
+    ],
+    "V3M06_G4_r1": [],
+    "V3W02_G4_r2": [],
+    "V3W02_G2_r2": [
+      "inside:V3W02Box3:V3W02装架区"
+    ],
+    "V3M06_G2_r2": [
+      "inside:V3M06Seat1:V3M06座区1",
+      "inside:V3M06Seat2:V3M06座区2",
+      "inside:V3M06Seat5:V3M06座区5",
+      "inside:V3M06Seat6:V3M06座区6",
+      "facing:V3M06Seat1",
+      "facing:V3M06Seat2",
+      "facing:V3M06Seat3",
+      "facing:V3M06Seat4",
+      "facing:V3M06Seat5",
+      "facing:V3M06Seat6",
+      "clear:V3M06Seat5:V3M06保留通道"
+    ],
+    "V3M06_G4_r2": [],
+    "V3M01_G4_r1": [
+      "native_project_asset_integrity"
+    ],
+    "V3M01_G2_r1": [
+      "inside:V3M01Seat1:V3M01活动区",
+      "inside:V3M01Seat2:V3M01活动区"
+    ],
+    "V3W02_G2_r1": [
+      "inside:V3W02Box1:V3W02装架区",
+      "inside:V3W02Box2:V3W02装架区",
+      "inside:V3W02Box3:V3W02装架区",
+      "inside:V3W02Box4:V3W02装架区",
+      "inside:V3W02Box5:V3W02装架区",
+      "support:V3W02Box1",
+      "support:V3W02Box2",
+      "support:V3W02Box3",
+      "support:V3W02Box4",
+      "support:V3W02Box5",
+      "clear:V3W02Box3:V3W02保留通道"
+    ],
+    "V3W02_G4_r1": [],
+    "V3W05_G4_r1": [
+      "inside:V3W05Box1:V3W05窄槽1",
+      "inside:V3W05Box2:V3W05窄槽2",
+      "inside:V3W05Box3:V3W05窄槽3",
+      "inside:V3W05Box4:V3W05窄槽4",
+      "support:V3W05Box1",
+      "support:V3W05Box2",
+      "support:V3W05Box3",
+      "support:V3W05Box4",
+      "facing:V3W05Box1",
+      "facing:V3W05Box2",
+      "facing:V3W05Box3",
+      "facing:V3W05Box4",
+      "clear:V3W05Box3:V3W05保留通道"
+    ],
+    "V3W05_G2_r1": [],
+    "V3W05_G2_r2": [
+      "inside:V3W05Box4:V3W05窄槽4",
+      "facing:V3W05Box4",
+      "native_protected_structure",
+      "native_project_asset_integrity"
+    ],
+    "V3W05_G4_r2": [
+      "inside:V3W05Box1:V3W05窄槽1",
+      "inside:V3W05Box2:V3W05窄槽2",
+      "inside:V3W05Box3:V3W05窄槽3",
+      "inside:V3W05Box4:V3W05窄槽4",
+      "support:V3W05Box1",
+      "support:V3W05Box2",
+      "support:V3W05Box3",
+      "support:V3W05Box4",
+      "facing:V3W05Box1",
+      "facing:V3W05Box2",
+      "facing:V3W05Box3",
+      "facing:V3W05Box4",
+      "clear:V3W05Box3:V3W05保留通道",
+      "native_protected_structure"
+    ],
+    "V3M02_G4_r1": [
+      "relative:V3M02Table:V3M02Seat1",
+      "relative:V3M02Table:V3M02Seat2",
+      "relative:V3M02Table:V3M02Seat3",
+      "relative:V3M02Table:V3M02Seat4",
+      "relative:V3M02Seat1:V3M02Seat4",
+      "relative:V3M02Seat2:V3M02Seat4",
+      "relative:V3M02Seat3:V3M02Seat4"
+    ],
+    "V3M02_G2_r1": [
+      "inside:V3M02Table:V3M02活动区",
+      "inside:V3M02Seat1:V3M02活动区",
+      "inside:V3M02Seat2:V3M02活动区",
+      "inside:V3M02Seat3:V3M02活动区",
+      "inside:V3M02Seat4:V3M02活动区"
+    ],
+    "V3M02_G2_r2": [
+      "inside:V3M02Table:V3M02活动区",
+      "inside:V3M02Seat1:V3M02活动区",
+      "inside:V3M02Seat2:V3M02活动区",
+      "inside:V3M02Seat3:V3M02活动区",
+      "inside:V3M02Seat4:V3M02活动区",
+      "native_project_asset_integrity"
+    ],
+    "V3M02_G4_r2": [],
+    "V3W03_G4_r1": [
+      "inside:V3W03Box4:V3W03层区2",
+      "support:V3W03Box2",
+      "support:V3W03Box4",
+      "nonoverlap:V3W03Box1:V3W03Box2"
+    ],
+    "V3W03_G2_r1": [
+      "inside:V3W03Box2:V3W03层区1",
+      "inside:V3W03Box3:V3W03层区2",
+      "inside:V3W03Box4:V3W03层区2",
+      "support:V3W03Box2",
+      "support:V3W03Box3",
+      "support:V3W03Box4",
+      "nonoverlap:V3W03Box2:V3W03Platform1",
+      "native_protected_structure"
+    ],
+    "V3W04_G2_r2": [
+      "support:V3W04Box3",
+      "nonoverlap:V3W04Box1:V3W04Platform1",
+      "nonoverlap:V3W04Box2:V3W04Platform1",
+      "nonoverlap:V3W04Box3:V3W04Platform2",
+      "nonoverlap:V3W04Box4:V3W04Platform2",
+      "nonoverlap:V3W04Box5:V3W04Platform3",
+      "nonoverlap:V3W04Box6:V3W04Platform3"
+    ],
+    "V3W04_G4_r2": [
+      "inside:V3W04Box1:V3W04层区1",
+      "inside:V3W04Box2:V3W04层区1",
+      "inside:V3W04Box3:V3W04层区2",
+      "inside:V3W04Box4:V3W04层区2",
+      "inside:V3W04Box5:V3W04层区3",
+      "inside:V3W04Box6:V3W04层区3",
+      "support:V3W04Box1",
+      "support:V3W04Box2",
+      "support:V3W04Box3",
+      "support:V3W04Box4",
+      "support:V3W04Box5",
+      "support:V3W04Box6"
+    ],
+    "V3M01_G4_r2": [],
+    "V3M01_G2_r2": [],
+    "V3W01_G2_r1": [
+      "nonoverlap:V3W01Box3:V3W01Rack"
+    ],
+    "V3W01_G4_r1": [
+      "inside:V3W01Box1:V3W01装架区",
+      "inside:V3W01Box2:V3W01装架区",
+      "support:V3W01Box1",
+      "support:V3W01Box2",
+      "nonoverlap:V3W01Box1:V3W01Rack",
+      "nonoverlap:V3W01Box2:V3W01Rack",
+      "nonoverlap:V3W01Box3:V3W01Rack"
+    ],
+    "V3M03_G4_r2": [
+      "inside:V3M03Seat1:V3M03座区1",
+      "inside:V3M03Seat2:V3M03座区2",
+      "inside:V3M03Seat3:V3M03座区3",
+      "inside:V3M03Seat4:V3M03座区4",
+      "facing:V3M03Seat1",
+      "facing:V3M03Seat2",
+      "facing:V3M03Seat3",
+      "facing:V3M03Seat4",
+      "clear:V3M03Seat4:V3M03保留通道"
+    ],
+    "V3M03_G2_r2": [],
+    "V3M04_G2_r1": [
+      "facing:V3M04Seat1",
+      "facing:V3M04Seat2",
+      "facing:V3M04Seat3",
+      "facing:V3M04Seat4",
+      "native_project_asset_integrity"
+    ],
+    "V3M04_G4_r1": [],
+    "V3M05_G4_r2": [
+      "facing:V3M05Seat2"
+    ],
+    "V3M05_G2_r2": [
+      "facing:V3M05Seat3",
+      "facing:V3M05Seat4"
+    ],
+    "V3W03_G2_r2": [
+      "inside:V3W03Box4:V3W03层区2",
+      "nonoverlap:V3W03Box3:V3W03Platform2"
+    ],
+    "V3W03_G4_r2": [],
+    "V3M05_G4_r1": [
+      "native_protected_structure"
+    ],
+    "V3M05_G2_r1": [
+      "facing:V3M05Seat3",
+      "facing:V3M05Seat4"
+    ],
+    "V3W04_G2_r1": [],
+    "V3W04_G4_r1": [],
+    "V3M03_G4_r1": [
+      "inside:V3M03Seat4:V3M03座区4",
+      "facing:V3M03Seat1",
+      "facing:V3M03Seat2",
+      "facing:V3M03Seat3",
+      "facing:V3M03Seat4",
+      "clear:V3M03Seat4:V3M03保留通道"
+    ],
+    "V3M03_G2_r1": [
+      "inside:V3M03Seat1:V3M03座区1",
+      "inside:V3M03Seat2:V3M03座区2",
+      "inside:V3M03Seat3:V3M03座区3",
+      "inside:V3M03Seat4:V3M03座区4",
+      "facing:V3M03Seat1",
+      "facing:V3M03Seat2",
+      "facing:V3M03Seat3",
+      "facing:V3M03Seat4"
+    ],
+    "V3M04_G2_r2": [
+      "facing:V3M04Seat1",
+      "facing:V3M04Seat2",
+      "facing:V3M04Seat3",
+      "facing:V3M04Seat4"
+    ],
+    "V3M04_G4_r2": [],
+    "V3W06_G4_r1": [
+      "inside:V3W06Box1:V3W06窄槽1",
+      "inside:V3W06Box2:V3W06窄槽2",
+      "inside:V3W06Box3:V3W06窄槽3",
+      "inside:V3W06Box4:V3W06窄槽4",
+      "inside:V3W06Box5:V3W06窄槽5",
+      "inside:V3W06Box6:V3W06窄槽6",
+      "support:V3W06Box2",
+      "support:V3W06Box5",
+      "facing:V3W06Box1",
+      "facing:V3W06Box2",
+      "facing:V3W06Box3",
+      "facing:V3W06Box4",
+      "facing:V3W06Box5",
+      "facing:V3W06Box6",
+      "nonoverlap:V3W06Box1:V3W06Platform1",
+      "nonoverlap:V3W06Box2:V3W06Platform1",
+      "nonoverlap:V3W06Box3:V3W06Platform1",
+      "nonoverlap:V3W06Box4:V3W06Platform2",
+      "nonoverlap:V3W06Box5:V3W06Platform2",
+      "nonoverlap:V3W06Box6:V3W06Platform2"
+    ],
+    "V3W06_G2_r1": [
+      "nonoverlap:V3W06Box1:V3W06Platform1",
+      "nonoverlap:V3W06Box2:V3W06Platform1",
+      "nonoverlap:V3W06Box3:V3W06Platform1",
+      "nonoverlap:V3W06Box4:V3W06Platform2",
+      "nonoverlap:V3W06Box5:V3W06Platform2",
+      "nonoverlap:V3W06Box6:V3W06Platform2"
+    ]
+  },
+  "protocol": {
+    "all_original": true,
+    "native_actor_calls": 432,
+    "all_assets_unchanged": false,
+    "all_captures": true,
+    "all_actual_native_captures": true
+  },
+  "transport_failures": 0,
+  "model_ids": [
+    "qwen3.8-flash"
+  ],
+  "budget": {
+    "total": 19.0374156,
+    "pilot": 2.632925,
+    "formal": 16.4044906,
+    "reserve": 0
+  },
+  "aggregate_budget": {
+    "total": 49.084629400000004,
+    "requests": 2496,
+    "unknown_requests": 6
+  }
+}

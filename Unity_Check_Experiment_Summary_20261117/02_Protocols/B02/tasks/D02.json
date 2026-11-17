@@ -1,0 +1,101 @@
+{
+  "id": "D02",
+  "contract": {
+    "id": "D02",
+    "scene": "D",
+    "allowed": {
+      "DBoxA": [
+        "x",
+        "y",
+        "z"
+      ],
+      "DBoxB": [
+        "x",
+        "y",
+        "z"
+      ]
+    },
+    "request": "将 DBoxA、DBoxB 完整放入开发支撑区，由 DSupport 支撑且互不重叠。原朝向、尺寸、支撑台及其他对象保持，开发通道留空。",
+    "regions": [
+      {
+        "id": "开发支撑区",
+        "min": [
+          1,
+          2,
+          -1.8
+        ],
+        "max": [
+          3,
+          3.2,
+          -0.2
+        ]
+      }
+    ],
+    "keepout": [
+      {
+        "id": "开发通道",
+        "min": [
+          -0.5,
+          0,
+          -3
+        ],
+        "max": [
+          0.5,
+          3,
+          3
+        ]
+      }
+    ],
+    "inside": [
+      [
+        "DBoxA",
+        "开发支撑区"
+      ],
+      [
+        "DBoxB",
+        "开发支撑区"
+      ]
+    ],
+    "support": [
+      [
+        "DBoxA",
+        "DSupport"
+      ],
+      [
+        "DBoxB",
+        "DSupport"
+      ]
+    ],
+    "facing": [],
+    "relative": [],
+    "distance": [],
+    "markers": {},
+    "initial_state_ref": "D02_initial",
+    "contract_version": "2d72a1887aff827a836772b5fda01532bd0280d64c238510a60378278c82aa63",
+    "grounded": [],
+    "definitions": {
+      "containment_tolerance_m": 0.005,
+      "support_height_tolerance_m": 0.01,
+      "penetration_tolerance_m": 0.001,
+      "protected_position_tolerance_m": 0.005,
+      "protected_rotation_tolerance_deg": 0.5,
+      "scale_tolerance": 1e-05,
+      "facing_angle_deg": 10,
+      "semantic_front": "local +Z, evaluated on XZ",
+      "workspace": {
+        "x": [
+          -7,
+          7
+        ],
+        "z": [
+          -6,
+          6
+        ]
+      },
+      "inventory": "All initial IDs and counts unchanged; no create/delete/scale/reparent",
+      "collision_pairs": "all target-target and target-fixed entities except Floor",
+      "regions": "full current world AABB containment, closed endpoints",
+      "facing_reference": "CURRENT object center or fixed public marker; never initial table center"
+    }
+  }
+}

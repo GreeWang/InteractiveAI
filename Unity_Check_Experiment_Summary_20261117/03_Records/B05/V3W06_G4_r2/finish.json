@@ -1,0 +1,25 @@
+{
+  "status": "partial",
+  "summary": "Placed all six target boxes into their assigned narrow slots with correct support height, containment, non-overlap, >=1m XZ center spacing, and keepout avoidance. Box3 and Box6 facing targets are satisfied; Box1, Box2, Box4, and Box5 have incorrect yaw (facing away from their Aim markers). The run entered finish_only before a third edit batch could be submitted to correct these four yaws.",
+  "verified": [
+    "Containment: All 6 boxes fully inside their respective narrow slots (state_version 12)",
+    "Support: Bottom faces at platform top +0.01m within tolerance for all 6 boxes",
+    "Non-overlap: No box-box or box-platform penetration exceeding tolerance",
+    "Distance: All pairwise XZ center distances >= 1.0m",
+    "Keepout: No box intersects the reserved channel [-0.35,0,-5] to [0.35,4,5]",
+    "Facing Box3: yaw=180 correctly faces V3W06Aim3 (-2.65,0.05,2.4) from center (-2.65,2.02,3.5)",
+    "Facing Box6: yaw=0 correctly faces V3W06Aim6 (2.8,0.05,4.4) from center (2.8,2.61,3.3)",
+    "Permissions: compare_state at state_version 6 confirmed only authorized fields changed"
+  ],
+  "unresolved": [
+    "Facing Box1: current_yaw=270 but needs ~90 to face V3W06Aim1 (-2.5,0.05,2.1); signed_error=-180 indicates opposite direction",
+    "Facing Box2: current_yaw=90 but needs ~270 to face V3W06Aim2 (-2.75,0.05,2.1); signed_error=+180 indicates opposite direction",
+    "Facing Box4: current_yaw=90 but needs ~270 to face V3W06Aim4 (0.75,0.05,1.95); signed_error=+180 indicates opposite direction",
+    "Facing Box5: current_yaw=270 but needs ~90 to face V3W06Aim5 (4.95,0.05,1.95); signed_error=-180 indicates opposite direction",
+    "Final compare_state not executed due to finish_only constraint"
+  ],
+  "limitations": [
+    "Run entered finish_only after check_constraints at state_version 12, preventing submission of corrective yaw edits for Boxes 1, 2, 4, 5",
+    "compare_state was not run for state_version 12 due to finish_only restriction, though prior diff at version 6 showed only authorized changes"
+  ]
+}

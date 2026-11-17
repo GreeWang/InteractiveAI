@@ -1,0 +1,76 @@
+{
+  "run_id": "V3M05_G4_r2",
+  "task_id": "V3M05",
+  "group": "G4",
+  "normal_finish": true,
+  "state_success": true,
+  "complete_success": true,
+  "stop_reason": "finish",
+  "finish": {
+    "status": "complete",
+    "summary": "Moved Seat1 and Seat2 into their respective seat regions, rotated all four chairs to face the current table center, and verified all public contract constraints pass.",
+    "verified": [
+      "check_constraints passed 76/76 rules at state_version 5",
+      "compare_state at state_version 4 confirmed only authorized fields were changed (Seat1 x,z,yaw; Seat2 x,z,yaw; Seat3 yaw; Seat4 yaw)",
+      "All chairs grounded, non-overlapping, XZ center distance >= 1.1m, inside designated regions, avoiding keepout zones"
+    ],
+    "unresolved": [
+      "Final compare_state could not be executed due to finish_only budget restriction, but the last edit was a single yaw correction on Seat2 which is an authorized field, so no unauthorized changes are expected."
+    ],
+    "limitations": [
+      "Could not run final compare_state diagnostic due to input token reserve triggering finish_only mode early."
+    ]
+  },
+  "final_protection_violation": false,
+  "process_protection_violation": false,
+  "initial_edit_failed": true,
+  "self_repaired": true,
+  "false_complete": false,
+  "flow_adherence": false,
+  "latest_diagnostics": {
+    "check_constraints": {
+      "version": 5,
+      "turn": 7,
+      "passed": true
+    },
+    "compare_state": {
+      "version": 4,
+      "turn": 5,
+      "passed": true
+    }
+  },
+  "stats": {
+    "requests": 9,
+    "tools": 9,
+    "edit_batches": 2,
+    "operations": 5,
+    "successful_writes": 5,
+    "input_tokens": 74603,
+    "output_tokens": 397,
+    "cost_cny": 0.060754300000000004,
+    "check_constraints": 3,
+    "compare_state": 1
+  },
+  "seconds": 15.767442417010898,
+  "loaded_skills": {
+    "unity-scene-ops": "e8e92d185adfc2b56a44936c01fbf13da5df6f66ba1126f252fa4322292a5909",
+    "unity-scene-check": "95e2ab006c148b6724c8f37eb8967913340c646b1e34ea807d0ac16906e80151"
+  },
+  "model_ids": [
+    "qwen3.8-flash"
+  ],
+  "transport_failure": null,
+  "finalization": [
+    {
+      "turn": 8,
+      "reasons": [
+        "input_reserve"
+      ],
+      "input_reserve": 30184
+    }
+  ],
+  "wall_seconds": 15.878180980682373,
+  "block": 4,
+  "repeat": 2,
+  "seed": 2
+}

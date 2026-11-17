@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/Users/greenwong/Desktop/Interactive AI/outputs/check_native_mcp/audit/package_results.py", line 86, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/Users/greenwong/Desktop/Interactive AI/outputs/check_native_mcp/audit/package_results.py", line 36, in main
+    expected=read(R/stage/'runs'/cell['run_id']/'final_state.json');actual=snapshot(m,expected['state_version']);ok=close_state(actual,expected)
+                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/greenwong/Desktop/Interactive AI/outputs/check_native_mcp/observer.py", line 49, in snapshot
+    result=mcp.call('eval',dict(code=CODE,timeout=30000));payload=decode(result)
+                                                                  ^^^^^^^^^^^^^^
+  File "/Users/greenwong/Desktop/Interactive AI/outputs/check_native_mcp/observer.py", line 42, in decode
+    if result.get('isError'):raise RuntimeError('Official MCP returned error: '+str(result)[:1000])
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Official MCP returned error: {'content': [{'type': 'text', 'text': "Error: Failed to execute command 'eval': Network error: An error occurred while sending the request."}], 'isError': True}

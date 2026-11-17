@@ -1,0 +1,140 @@
+{
+  "id": "D07",
+  "contract": {
+    "id": "D07",
+    "scene": "W",
+    "allowed": {
+      "D07BoxA": [
+        "x",
+        "y",
+        "z"
+      ],
+      "D07BoxB": [
+        "x",
+        "y",
+        "z"
+      ],
+      "D07BoxC": [
+        "x",
+        "y",
+        "z"
+      ],
+      "D07BoxD": [
+        "x",
+        "y",
+        "z"
+      ]
+    },
+    "request": "把D07BoxA、D07BoxB放入D07低层目标区并由固定D07Low完整支撑；D07BoxC、D07BoxD放入D07高层目标区并由固定D07High完整支撑。只改四箱XYZ，不改yaw；底面贴合支撑面且不浮空、不穿透、不互相重叠，避开中央通道。完整实际包围盒须在对应区内，所有固定设施和其他字段保持初始值。",
+    "regions": [
+      {
+        "id": "D07低层目标区",
+        "min": [
+          -3.6,
+          1.39,
+          1.85
+        ],
+        "max": [
+          -1,
+          2.5,
+          3.35
+        ]
+      },
+      {
+        "id": "D07高层目标区",
+        "min": [
+          1.4,
+          2.19,
+          1.8
+        ],
+        "max": [
+          3.8,
+          3.5,
+          3.4
+        ]
+      }
+    ],
+    "keepout": [
+      {
+        "id": "D07通道",
+        "min": [
+          -0.4,
+          0,
+          -5
+        ],
+        "max": [
+          0.4,
+          4,
+          5
+        ]
+      }
+    ],
+    "inside": [
+      [
+        "D07BoxA",
+        "D07低层目标区"
+      ],
+      [
+        "D07BoxB",
+        "D07低层目标区"
+      ],
+      [
+        "D07BoxC",
+        "D07高层目标区"
+      ],
+      [
+        "D07BoxD",
+        "D07高层目标区"
+      ]
+    ],
+    "support": [
+      [
+        "D07BoxA",
+        "D07Low"
+      ],
+      [
+        "D07BoxB",
+        "D07Low"
+      ],
+      [
+        "D07BoxC",
+        "D07High"
+      ],
+      [
+        "D07BoxD",
+        "D07High"
+      ]
+    ],
+    "facing": [],
+    "relative": [],
+    "distance": [],
+    "markers": {},
+    "initial_state_ref": "D07_initial",
+    "contract_version": "6ba2c7c16a8836f85dca038c986b7a530ee6309ce770ea64fc037058938e4a24",
+    "grounded": [],
+    "definitions": {
+      "containment_tolerance_m": 0.005,
+      "support_height_tolerance_m": 0.01,
+      "penetration_tolerance_m": 0.001,
+      "protected_position_tolerance_m": 0.005,
+      "protected_rotation_tolerance_deg": 0.5,
+      "scale_tolerance": 1e-05,
+      "facing_angle_deg": 10,
+      "semantic_front": "local +Z, evaluated on XZ",
+      "workspace": {
+        "x": [
+          -7,
+          7
+        ],
+        "z": [
+          -6,
+          6
+        ]
+      },
+      "inventory": "All initial IDs and counts unchanged; no create/delete/scale/reparent",
+      "collision_pairs": "all target-target and target-fixed entities except Floor",
+      "regions": "full current world AABB containment, closed endpoints",
+      "facing_reference": "CURRENT object center or fixed public marker; never initial table center"
+    }
+  }
+}

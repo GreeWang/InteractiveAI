@@ -1,0 +1,14 @@
+{
+  "status": "complete",
+  "summary": "Placed C1-C4 in seats 1-4 respectively, oriented them to face table T's center, and ensured all pairwise distances between chair centers are at least 1.00 m. Protected objects (T, etc.) were not moved.",
+  "verified": [
+    "C1 is inside Seat 1 and facing T",
+    "C2 is inside Seat 2 and facing T",
+    "C3 is inside Seat 3 and facing T",
+    "C4 is inside Seat 4 and facing T",
+    "All pairwise distances between C1, C2, C3, C4 are >= 1.00 m",
+    "No protected objects were modified"
+  ],
+  "unresolved": [],
+  "limitations": []
+}

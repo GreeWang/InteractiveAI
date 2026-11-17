@@ -1,0 +1,18 @@
+{
+  "status": "partial",
+  "summary": "Applied the planned pose for D06SeatA (position (-2.2, 0.5, 0.98), yaw -47.2 toward the current table center). The remaining seats (B position+yaw, C/D yaw) were not yet written because the run entered finish-only mode before those tool calls.",
+  "verified": [
+    "Initial scene state probed: Table center (-0.8, 0.7, 2.6); seat AABB half-extents approx x 0.751 / z 0.275; floor top y=0.",
+    "Planned solution validated analytically against region bounds, keepout, fixed-object AABBs and 1.2 m XZ spacing.",
+    "D06SeatA root world position/yaw set via official set_transform call."
+  ],
+  "unresolved": [
+    "D06SeatB still at initial position (-2.0, 0.5, -2.0) with yaw 0 — outside its assigned region and not facing the table.",
+    "D06SeatC and D06SeatD still have yaw 0 — not facing the table center.",
+    "Final scene-wide validation of overlaps/spacing/facing was not executed after the edits."
+  ],
+  "limitations": [
+    "Only one transform write completed before the finish-only phase.",
+    "No scene file was saved (host saves results)."
+  ]
+}

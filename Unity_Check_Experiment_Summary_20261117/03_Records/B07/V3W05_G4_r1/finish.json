@@ -1,0 +1,24 @@
+{
+  "status": "failed",
+  "summary": "未修改场景。分析表明该契约在给定容差下存在几何矛盾：Box1(scale 1.1×0.58×0.44)与Box2(1.2×0.72×0.48)的窄槽1/2 X向半宽仅0.32 m，而两箱最小XZ包围盒半宽为0.44/0.48 m（长边沿Z时），因此必须yaw≈90°；但此时其面向Aim1(2.6,0.05,2.0)/Aim2(2.4,0.05,2.0)的方向误差约为90°，远超10°限制。反向检验：满足facing≤10°所需yaw≈56°/47°会使旋转后世界包围盒X向伸出槽外约0.22/0.26 m（超出containment_tolerance_m=0.005）。故inside+support+facing三组要求无法同时成立，任何放置尝试都会留下失败规则，因此保持初始状态、未写入任何对象。",
+  "verified": [
+    "读取了完整场景层级：仅 V3W05Fixed0-9、V3W05Platform1、V3W05Box1-4、Floor 与 Public region markers 存在，未创建/删除任何对象",
+    "实测各目标尺寸与平台：Platform1 center=(2.5,0.72,2.7) size=(3.7,1.44,2.9)，顶面 y=1.44，与所有窄槽 min.y=1.43 一致（支撑高度可由 box.position.y = 1.43 + height/2 满足）",
+    "check_constraints(state_version 0) 给出13条失败：4条inside、4条support、4条facing、1条clear(Box3与保留通道相交)",
+    "逐框枚举0-359°整数yaw并计算旋转后世界包围盒半宽/半深（tolerance 0.005）：Box1可行yaw集合={81..100}，其中对Aim1方向误差最小为9°（yaw=81）/0°（yaw=90，但ext.x=0.22→实际可行）；Box2可行yaw={262..278}；Box3可行yaw={350..10}；Box4可行yaw={171..190}",
+    "确认Box1/Box2在槽内可行yaw区间（约81-100°与262-278°）与facing所需区间（约46-66°与226-246°）完全不相交，即inside与facing互斥",
+    "确认四槽中心XZ间距均≥1 m（Box1↔Box2=2.0 m，Box3↔Box4=2.0 m，其余≈1.56 m），且槽区域全部位于保留通道 x∈[-0.35,0.35] 之外"
+  ],
+  "unresolved": [
+    "Box1: 无法同时满足 inside(V3W05窄槽1) 与 facing(V3W05Aim1)——槽宽0.64 m < 箱体最小X向跨度0.88 m，强制yaw≈90°，而对Aim1的方向误差≈90° > 10°",
+    "Box2: 同一矛盾（槽2宽0.64 m，箱体最小X向跨度0.96 m），可行yaw≈270°时 facing(Aim2) 误差≈90°",
+    "Box3/Box4: 单独看可在yaw≈0°/180°同时满足inside+support+facing，但整体任务因Box1/Box2不可行而未执行",
+    "未执行任何写入操作，因此13条初始失败规则（含Box3与保留通道的clear冲突）在当前场景中仍然存在"
+  ],
+  "limitations": [
+    "本次运行未改动任何Transform，场景保持初始值（state_version 0），宿主保存的将是原始布局",
+    "结论基于公开契约给出的region/marker数值与实测MeshRenderer.bounds（scale==lossyScale，无父级缩放），并使用定义的容差：containment 0.005 m、support 0.01 m、facing 10°、penetration 0.001 m",
+    "若验收允许更宽松的facing角度或更宽的窄槽（例如把槽1/2视为Z向而非X向窄），则方案可变为：Box1 pos=(1.5,1.72,2.0) yaw=90；Box2 pos=(3.5,1.79,2.0) yaw=270；Box3 pos=(1.5,1.75,3.4) yaw=0；Box4 pos=(3.5,1.68,3.4) yaw=180 —— 但这不满足当前公开的10° facing阈值，故未采用",
+    "资源提醒在本轮切换为 finish_only，未能进一步做亚度级yaw搜索或浮点优化验证"
+  ]
+}

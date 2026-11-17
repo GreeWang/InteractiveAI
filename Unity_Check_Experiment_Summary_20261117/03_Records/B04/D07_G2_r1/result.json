@@ -1,0 +1,54 @@
+{
+  "run_id": "D07_G2_r1",
+  "task_id": "D07",
+  "group": "G2",
+  "normal_finish": true,
+  "state_success": true,
+  "complete_success": true,
+  "stop_reason": "finish",
+  "finish": {
+    "status": "complete",
+    "summary": "Placed D07BoxA and D07BoxB on the D07Low support surface inside the low target region, and D07BoxC and D07BoxD on the D07High support surface inside the high target region. Only XYZ positions of the four boxes were changed; yaw/rotation, scale, and all fixed objects remain at initial values.",
+    "verified": [
+      "D07BoxA bounds [-3.5,1.4,2.3]-[-2.5,2.0,2.9] fully inside low region, bottom y=1.4 matches D07Low top 1.4, XZ footprint within D07Low",
+      "D07BoxB bounds [-1.8,1.4,2.2]-[-1.0,2.2,3.0] fully inside low region, bottom y=1.4 matches D07Low top, XZ footprint within D07Low",
+      "D07BoxC bounds [1.5,2.2,2.25]-[2.4,2.7,2.95] fully inside high region, bottom y=2.2 matches D07High top, XZ footprint within D07High",
+      "D07BoxD bounds [2.85,2.2,2.3]-[3.45,3.1,2.9] fully inside high region, bottom y=2.2 matches D07High top, XZ footprint within D07High",
+      "No box overlaps another; no box intersects central keepout channel x[-0.4,0.4]; rotations unchanged (all 0)",
+      "All fixed facilities retain initial position/rotation/scale"
+    ],
+    "unresolved": [],
+    "limitations": [
+      "Verification is based on reported world AABBs from inspect_scene; containment/support tolerances met with margin."
+    ]
+  },
+  "final_protection_violation": false,
+  "process_protection_violation": false,
+  "initial_edit_failed": true,
+  "self_repaired": true,
+  "false_complete": false,
+  "flow_adherence": null,
+  "latest_diagnostics": {},
+  "stats": {
+    "requests": 7,
+    "tools": 7,
+    "edit_batches": 2,
+    "operations": 6,
+    "successful_writes": 6,
+    "input_tokens": 53872,
+    "output_tokens": 1121,
+    "cost_cny": 0.0461243,
+    "check_constraints": 0,
+    "compare_state": 0
+  },
+  "seconds": 20.516309625003487,
+  "loaded_skills": {
+    "unity-scene-ops": "e8e92d185adfc2b56a44936c01fbf13da5df6f66ba1126f252fa4322292a5909"
+  },
+  "model_ids": [
+    "qwen3.8-flash"
+  ],
+  "transport_failure": null,
+  "finalization": [],
+  "wall_seconds": 20.5865740776062
+}

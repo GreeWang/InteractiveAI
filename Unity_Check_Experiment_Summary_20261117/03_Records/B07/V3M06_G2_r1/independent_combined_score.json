@@ -1,0 +1,15 @@
+{
+  "geometry_and_scene": false,
+  "asset_integrity": true,
+  "state_success": false,
+  "normal_finish": true,
+  "complete_success": false,
+  "failed_rules": [
+    "inside:V3M06Seat1:V3M06座区1",
+    "inside:V3M06Seat2:V3M06座区2",
+    "facing:V3M06Seat1",
+    "facing:V3M06Seat2",
+    "facing:V3M06Seat3",
+    "facing:V3M06Seat4"
+  ]
+}

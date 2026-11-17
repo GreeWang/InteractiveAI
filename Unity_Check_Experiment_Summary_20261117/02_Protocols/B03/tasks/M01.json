@@ -1,0 +1,128 @@
+{
+  "id": "M01",
+  "contract": {
+    "id": "M01",
+    "scene": "M",
+    "allowed": {
+      "T": [
+        "x",
+        "z"
+      ],
+      "C1": [
+        "x",
+        "z"
+      ],
+      "C2": [
+        "x",
+        "z"
+      ],
+      "C3": [
+        "x",
+        "z"
+      ],
+      "C4": [
+        "x",
+        "z"
+      ]
+    },
+    "request": "将 T 与 C1 至 C4 整组平移进活动区，保持所有组内相对位置和各自原朝向。不得移动立柱或其他物体，中间走道保持留空。",
+    "regions": [
+      {
+        "id": "活动区",
+        "min": [
+          -5.1,
+          -0.01,
+          1.4
+        ],
+        "max": [
+          -1.8,
+          1.7,
+          5.4
+        ]
+      }
+    ],
+    "keepout": [
+      {
+        "id": "中间走道",
+        "min": [
+          0.5,
+          0,
+          -5
+        ],
+        "max": [
+          1.5,
+          3,
+          4.4
+        ]
+      }
+    ],
+    "inside": [
+      [
+        "T",
+        "活动区"
+      ],
+      [
+        "C1",
+        "活动区"
+      ],
+      [
+        "C2",
+        "活动区"
+      ],
+      [
+        "C3",
+        "活动区"
+      ],
+      [
+        "C4",
+        "活动区"
+      ]
+    ],
+    "support": [],
+    "facing": [],
+    "relative": [
+      [
+        "T",
+        "C1",
+        "C2",
+        "C3",
+        "C4"
+      ]
+    ],
+    "distance": [],
+    "markers": {},
+    "initial_state_ref": "M01_initial",
+    "contract_version": "a0064f2999182501002a7217740a18fe9b43b944a26d7ef2c866d87d2dc60c9f",
+    "grounded": [
+      "T",
+      "C1",
+      "C2",
+      "C3",
+      "C4"
+    ],
+    "definitions": {
+      "containment_tolerance_m": 0.005,
+      "support_height_tolerance_m": 0.01,
+      "penetration_tolerance_m": 0.001,
+      "protected_position_tolerance_m": 0.005,
+      "protected_rotation_tolerance_deg": 0.5,
+      "scale_tolerance": 1e-05,
+      "facing_angle_deg": 10,
+      "semantic_front": "local +Z, evaluated on XZ",
+      "workspace": {
+        "x": [
+          -7,
+          7
+        ],
+        "z": [
+          -6,
+          6
+        ]
+      },
+      "inventory": "All initial IDs and counts unchanged; no create/delete/scale/reparent",
+      "collision_pairs": "all target-target and target-fixed entities except Floor",
+      "regions": "full current world AABB containment, closed endpoints",
+      "facing_reference": "CURRENT object center or fixed public marker; never initial table center"
+    }
+  }
+}

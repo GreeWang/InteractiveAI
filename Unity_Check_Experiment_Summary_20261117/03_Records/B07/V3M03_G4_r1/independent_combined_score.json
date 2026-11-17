@@ -1,0 +1,15 @@
+{
+  "geometry_and_scene": false,
+  "asset_integrity": true,
+  "state_success": false,
+  "normal_finish": true,
+  "complete_success": false,
+  "failed_rules": [
+    "inside:V3M03Seat4:V3M03座区4",
+    "facing:V3M03Seat1",
+    "facing:V3M03Seat2",
+    "facing:V3M03Seat3",
+    "facing:V3M03Seat4",
+    "clear:V3M03Seat4:V3M03保留通道"
+  ]
+}

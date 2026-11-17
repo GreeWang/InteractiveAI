@@ -1,0 +1,16 @@
+{
+  "geometry_and_scene": false,
+  "asset_integrity": true,
+  "state_success": false,
+  "normal_finish": true,
+  "complete_success": false,
+  "failed_rules": [
+    "support:V3W04Box3",
+    "nonoverlap:V3W04Box1:V3W04Platform1",
+    "nonoverlap:V3W04Box2:V3W04Platform1",
+    "nonoverlap:V3W04Box3:V3W04Platform2",
+    "nonoverlap:V3W04Box4:V3W04Platform2",
+    "nonoverlap:V3W04Box5:V3W04Platform3",
+    "nonoverlap:V3W04Box6:V3W04Platform3"
+  ]
+}

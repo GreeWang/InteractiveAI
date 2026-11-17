@@ -1,0 +1,19 @@
+{
+  "task_runs": 176,
+  "formal_runs": 144,
+  "development_runs": 32,
+  "batches": 7,
+  "group_summary_rows": 14,
+  "formal_task_rows": 36,
+  "unique_batch_run_keys": 176,
+  "copied_original_files": 1275,
+  "all_copied_files_hash_equal": true,
+  "selected_known_response_cost_cny": 24.2941474,
+  "native_compatibility_probe_cny": 0.0215514,
+  "global_recorded_upper_cny": 49.084629400000004,
+  "global_unknown_reservations": 6,
+  "new_experiment_runs": 0,
+  "new_model_api_requests": 0,
+  "public_contracts_checked": 52,
+  "public_contracts_equal_source": true
+}

@@ -1,0 +1,203 @@
+{
+  "id": "V3M04",
+  "contract": {
+    "id": "V3M04",
+    "scene": "M",
+    "allowed": {
+      "V3M04Table": [
+        "x",
+        "z"
+      ],
+      "V3M04Seat1": [
+        "x",
+        "z",
+        "yaw"
+      ],
+      "V3M04Seat2": [
+        "x",
+        "z",
+        "yaw"
+      ],
+      "V3M04Seat3": [
+        "x",
+        "z",
+        "yaw"
+      ],
+      "V3M04Seat4": [
+        "x",
+        "z",
+        "yaw"
+      ]
+    },
+    "request": "按指定区域布置桌椅，每把椅子都面向桌子当前中心，按旋转后的完整包围盒验收。困难题的主桌也必须移入桌区；固定题的主桌不得修改。椅子间XZ中心距离至少1.1米。全部目标接地、不与彼此及固定设施重叠，避开保留区；未授权对象和字段保持初始值。",
+    "regions": [
+      {
+        "id": "V3M04桌区",
+        "min": [
+          -2.9,
+          -0.01,
+          1.6
+        ],
+        "max": [
+          -0.2,
+          1.8,
+          3.7
+        ]
+      },
+      {
+        "id": "V3M04座区1",
+        "min": [
+          -3.51,
+          -0.01,
+          0.54
+        ],
+        "max": [
+          -2.59,
+          1.6,
+          1.46
+        ]
+      },
+      {
+        "id": "V3M04座区2",
+        "min": [
+          -0.51,
+          -0.01,
+          0.54
+        ],
+        "max": [
+          0.41000000000000003,
+          1.6,
+          1.46
+        ]
+      },
+      {
+        "id": "V3M04座区3",
+        "min": [
+          -3.51,
+          -0.01,
+          3.84
+        ],
+        "max": [
+          -2.59,
+          1.6,
+          4.76
+        ]
+      },
+      {
+        "id": "V3M04座区4",
+        "min": [
+          -0.51,
+          -0.01,
+          3.84
+        ],
+        "max": [
+          0.41000000000000003,
+          1.6,
+          4.76
+        ]
+      }
+    ],
+    "keepout": [
+      {
+        "id": "V3M04保留通道",
+        "min": [
+          -0.35,
+          0,
+          -5
+        ],
+        "max": [
+          0.35,
+          4,
+          -0.5
+        ]
+      }
+    ],
+    "inside": [
+      [
+        "V3M04Table",
+        "V3M04桌区"
+      ],
+      [
+        "V3M04Seat1",
+        "V3M04座区1"
+      ],
+      [
+        "V3M04Seat2",
+        "V3M04座区2"
+      ],
+      [
+        "V3M04Seat3",
+        "V3M04座区3"
+      ],
+      [
+        "V3M04Seat4",
+        "V3M04座区4"
+      ]
+    ],
+    "support": [],
+    "facing": [
+      [
+        "V3M04Seat1",
+        "V3M04Table"
+      ],
+      [
+        "V3M04Seat2",
+        "V3M04Table"
+      ],
+      [
+        "V3M04Seat3",
+        "V3M04Table"
+      ],
+      [
+        "V3M04Seat4",
+        "V3M04Table"
+      ]
+    ],
+    "relative": [],
+    "distance": [
+      [
+        [
+          "V3M04Seat1",
+          "V3M04Seat2",
+          "V3M04Seat3",
+          "V3M04Seat4"
+        ],
+        1.1
+      ]
+    ],
+    "markers": {},
+    "initial_state_ref": "V3M04_initial",
+    "contract_version": "4d1a892bf8f7dbcfa2691bf82f422b8565e951b5bcc5c3efec2f5f9721d26119",
+    "grounded": [
+      "V3M04Table",
+      "V3M04Seat1",
+      "V3M04Seat2",
+      "V3M04Seat3",
+      "V3M04Seat4"
+    ],
+    "definitions": {
+      "containment_tolerance_m": 0.005,
+      "support_height_tolerance_m": 0.01,
+      "penetration_tolerance_m": 0.001,
+      "protected_position_tolerance_m": 0.005,
+      "protected_rotation_tolerance_deg": 0.5,
+      "scale_tolerance": 1e-05,
+      "facing_angle_deg": 10,
+      "semantic_front": "local +Z, evaluated on XZ",
+      "workspace": {
+        "x": [
+          -7,
+          7
+        ],
+        "z": [
+          -6,
+          6
+        ]
+      },
+      "inventory": "All initial IDs and counts unchanged; no create/delete/scale/reparent",
+      "collision_pairs": "all target-target and target-fixed entities except Floor",
+      "regions": "full current world AABB containment, closed endpoints",
+      "facing_reference": "CURRENT object center or fixed public marker; never initial table center"
+    }
+  }
+}

@@ -1,0 +1,181 @@
+{
+  "id": "V3W04",
+  "contract": {
+    "id": "V3W04",
+    "scene": "W",
+    "allowed": {
+      "V3W04Box1": [
+        "x",
+        "y",
+        "z"
+      ],
+      "V3W04Box2": [
+        "x",
+        "y",
+        "z"
+      ],
+      "V3W04Box3": [
+        "x",
+        "y",
+        "z"
+      ],
+      "V3W04Box4": [
+        "x",
+        "y",
+        "z"
+      ],
+      "V3W04Box5": [
+        "x",
+        "y",
+        "z"
+      ],
+      "V3W04Box6": [
+        "x",
+        "y",
+        "z"
+      ]
+    },
+    "request": "将每个目标箱分配到inside和support指定的层区与固定平台上。只允许XYZ，yaw及其他字段不变。底面贴合各自平台实际顶面，完整包围盒在指定区域内，无浮空、穿透及重叠，并避开保留通道。所有支撑平台、固定设施保持初始状态。",
+    "regions": [
+      {
+        "id": "V3W04层区1",
+        "min": [
+          -4.815,
+          1.29,
+          1.46
+        ],
+        "max": [
+          -2.8850000000000002,
+          2.55,
+          3.54
+        ]
+      },
+      {
+        "id": "V3W04层区2",
+        "min": [
+          -1.54,
+          2.0900000000000003,
+          1.835
+        ],
+        "max": [
+          0.54,
+          3.35,
+          3.7649999999999997
+        ]
+      },
+      {
+        "id": "V3W04层区3",
+        "min": [
+          1.9349999999999998,
+          2.89,
+          1.3600000000000003
+        ],
+        "max": [
+          4.165,
+          4.15,
+          3.54
+        ]
+      }
+    ],
+    "keepout": [
+      {
+        "id": "V3W04保留通道",
+        "min": [
+          -0.35,
+          0,
+          -5
+        ],
+        "max": [
+          0.35,
+          4,
+          -0.5
+        ]
+      }
+    ],
+    "inside": [
+      [
+        "V3W04Box1",
+        "V3W04层区1"
+      ],
+      [
+        "V3W04Box2",
+        "V3W04层区1"
+      ],
+      [
+        "V3W04Box3",
+        "V3W04层区2"
+      ],
+      [
+        "V3W04Box4",
+        "V3W04层区2"
+      ],
+      [
+        "V3W04Box5",
+        "V3W04层区3"
+      ],
+      [
+        "V3W04Box6",
+        "V3W04层区3"
+      ]
+    ],
+    "support": [
+      [
+        "V3W04Box1",
+        "V3W04Platform1"
+      ],
+      [
+        "V3W04Box2",
+        "V3W04Platform1"
+      ],
+      [
+        "V3W04Box3",
+        "V3W04Platform2"
+      ],
+      [
+        "V3W04Box4",
+        "V3W04Platform2"
+      ],
+      [
+        "V3W04Box5",
+        "V3W04Platform3"
+      ],
+      [
+        "V3W04Box6",
+        "V3W04Platform3"
+      ]
+    ],
+    "facing": [],
+    "relative": [],
+    "distance": [],
+    "markers": {},
+    "initial_state_ref": "V3W04_initial",
+    "contract_version": "b905ef2ae8f20da1b2bdc8a9f8731c1542c4ee6e5ca0324a5f87c45f0f401fca",
+    "grounded": [],
+    "definitions": {
+      "containment_tolerance_m": 0.005,
+      "support_height_tolerance_m": 0.01,
+      "penetration_tolerance_m": 0.001,
+      "protected_position_tolerance_m": 0.005,
+      "protected_rotation_tolerance_deg": 0.5,
+      "scale_tolerance": 1e-05,
+      "facing_angle_deg": 10,
+      "semantic_front": "local +Z, evaluated on XZ",
+      "workspace": {
+        "x": [
+          -7,
+          7
+        ],
+        "z": [
+          -6,
+          6
+        ]
+      },
+      "inventory": "All initial IDs and counts unchanged; no create/delete/scale/reparent",
+      "collision_pairs": "all target-target and target-fixed entities except Floor",
+      "regions": "full current world AABB containment, closed endpoints",
+      "facing_reference": "CURRENT object center or fixed public marker; never initial table center",
+      "native_inventory": "All initial task entities and every initial scene GameObject and component remain; no create/delete/reparent/enable changes.",
+      "native_protected_fields": "Only allowed root world position/yaw fields may change. Other scene hierarchy, serialized component fields, mesh geometry, materials, and project assets/settings/scripts remain unchanged. Original pose/scale tolerances still apply."
+    }
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "passed": true,
+  "records": [
+    {
+      "task": "V3M01",
+      "entities": 16,
+      "max_geometry_error": 1.9073486345888568e-07,
+      "passed": true
+    },
+    {
+      "task": "V3M02",
+      "entities": 17,
+      "max_geometry_error": 2.2888183615066282e-07,
+      "passed": true
+    },
+    {
+      "task": "V3M03",
+      "entities": 16,
+      "max_geometry_error": 1.9073486345888568e-07,
+      "passed": true
+    },
+    {
+      "task": "V3M04",
+      "entities": 16,
+      "max_geometry_error": 1.9073486345888568e-07,
+      "passed": true
+    },
+    {
+      "task": "V3M05",
+      "entities": 16,
+      "max_geometry_error": 1.9073486345888568e-07,
+      "passed": true
+    },
+    {
+      "task": "V3M06",
+      "entities": 18,
+      "max_geometry_error": 1.9073486345888568e-07,
+      "passed": true
+    },
+    {
+      "task": "V3W01",
+      "entities": 15,
+      "max_geometry_error": 1.9073486345888568e-07,
+      "passed": true
+    },
+    {
+      "task": "V3W02",
+      "entities": 17,
+      "max_geometry_error": 1.9073486345888568e-07,
+      "passed": true
+    },
+    {
+      "task": "V3W03",
+      "entities": 17,
+      "max_geometry_error": 1.9073486345888568e-07,
+      "passed": true
+    },
+    {
+      "task": "V3W04",
+      "entities": 20,
+      "max_geometry_error": 1.9073486345888568e-07,
+      "passed": true
+    },
+    {
+      "task": "V3W05",
+      "entities": 16,
+      "max_geometry_error": 1.9073486345888568e-07,
+      "passed": true
+    },
+    {
+      "task": "V3W06",
+      "entities": 19,
+      "max_geometry_error": 1.9073486345888568e-07,
+      "passed": true
+    },
+    {
+      "task": "D05",
+      "entities": 17,
+      "max_geometry_error": 1.9073486345888568e-07,
+      "passed": true
+    },
+    {
+      "task": "D06",
+      "entities": 16,
+      "max_geometry_error": 1.9073486345888568e-07,
+      "passed": true
+    },
+    {
+      "task": "D07",
+      "entities": 17,
+      "max_geometry_error": 1.9073486345888568e-07,
+      "passed": true
+    },
+    {
+      "task": "D08",
+      "entities": 19,
+      "max_geometry_error": 1.9073486345888568e-07,
+      "passed": true
+    }
+  ],
+  "model_calls": 0,
+  "reference_solutions_not_loaded": true
+}

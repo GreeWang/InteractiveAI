@@ -1,0 +1,6 @@
+{
+  "kind": "actual_native_post_run_copy",
+  "method": "official MCP eval: EditorSceneManager.SaveScene(saveAsCopy:true)",
+  "actor_already_finished": true,
+  "final_state_unchanged": true
+}

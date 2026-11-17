@@ -1,0 +1,14 @@
+{
+  "official_catalog_original": true,
+  "official_function_definitions_original": true,
+  "native_calls": 9,
+  "known_official_tool_calls": 9,
+  "unlisted_tool_names": [],
+  "invalid_or_limited_calls_rejected_before_dispatch": 1,
+  "rpc_errors_without_tool_result": 0,
+  "mismatches": [],
+  "asset_integrity": false,
+  "capture_present": true,
+  "actual_native_capture": true,
+  "strict_flow": null
+}

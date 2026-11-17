@@ -1,0 +1,145 @@
+{
+  "id": "V3M05",
+  "contract": {
+    "id": "V3M05",
+    "scene": "M",
+    "allowed": {
+      "V3M05Seat1": [
+        "x",
+        "z",
+        "yaw"
+      ],
+      "V3M05Seat2": [
+        "x",
+        "z",
+        "yaw"
+      ],
+      "V3M05Seat3": [
+        "yaw"
+      ],
+      "V3M05Seat4": [
+        "yaw"
+      ]
+    },
+    "request": "调整指定椅子并全部面向固定主桌当前中心。严格遵守allowed字段：yaw-only椅子位置不变，XZ-only椅子朝向不变，其他目标仅改允许字段。可移动椅子的完整包围盒须在各自座区，全部椅子接地、互不重叠且XZ中心间距至少1.1米，避开固定设施和保留区。桌和其他对象全部保持初始状态。",
+    "regions": [
+      {
+        "id": "V3M05座区1",
+        "min": [
+          -2.46,
+          -0.01,
+          0.19
+        ],
+        "max": [
+          -1.54,
+          1.6,
+          1.11
+        ]
+      },
+      {
+        "id": "V3M05座区2",
+        "min": [
+          0.23999999999999994,
+          -0.01,
+          0.19
+        ],
+        "max": [
+          1.16,
+          1.6,
+          1.11
+        ]
+      }
+    ],
+    "keepout": [
+      {
+        "id": "V3M05保留通道",
+        "min": [
+          -0.35,
+          0,
+          -5
+        ],
+        "max": [
+          0.35,
+          4,
+          -0.5
+        ]
+      }
+    ],
+    "inside": [
+      [
+        "V3M05Seat1",
+        "V3M05座区1"
+      ],
+      [
+        "V3M05Seat2",
+        "V3M05座区2"
+      ]
+    ],
+    "support": [],
+    "facing": [
+      [
+        "V3M05Seat1",
+        "V3M05Table"
+      ],
+      [
+        "V3M05Seat2",
+        "V3M05Table"
+      ],
+      [
+        "V3M05Seat3",
+        "V3M05Table"
+      ],
+      [
+        "V3M05Seat4",
+        "V3M05Table"
+      ]
+    ],
+    "relative": [],
+    "distance": [
+      [
+        [
+          "V3M05Seat1",
+          "V3M05Seat2",
+          "V3M05Seat3",
+          "V3M05Seat4"
+        ],
+        1.1
+      ]
+    ],
+    "markers": {},
+    "initial_state_ref": "V3M05_initial",
+    "contract_version": "3c9454af3c98986ad0e14d8544370da2d5fe215689375bc4cbb23b3c41c878ce",
+    "grounded": [
+      "V3M05Seat1",
+      "V3M05Seat2",
+      "V3M05Seat3",
+      "V3M05Seat4"
+    ],
+    "definitions": {
+      "containment_tolerance_m": 0.005,
+      "support_height_tolerance_m": 0.01,
+      "penetration_tolerance_m": 0.001,
+      "protected_position_tolerance_m": 0.005,
+      "protected_rotation_tolerance_deg": 0.5,
+      "scale_tolerance": 1e-05,
+      "facing_angle_deg": 10,
+      "semantic_front": "local +Z, evaluated on XZ",
+      "workspace": {
+        "x": [
+          -7,
+          7
+        ],
+        "z": [
+          -6,
+          6
+        ]
+      },
+      "inventory": "All initial IDs and counts unchanged; no create/delete/scale/reparent",
+      "collision_pairs": "all target-target and target-fixed entities except Floor",
+      "regions": "full current world AABB containment, closed endpoints",
+      "facing_reference": "CURRENT object center or fixed public marker; never initial table center",
+      "native_inventory": "All initial task entities and every initial scene GameObject and component remain; no create/delete/reparent/enable changes.",
+      "native_protected_fields": "Only allowed root world position/yaw fields may change. Other scene hierarchy, serialized component fields, mesh geometry, materials, and project assets/settings/scripts remain unchanged. Original pose/scale tolerances still apply."
+    }
+  }
+}

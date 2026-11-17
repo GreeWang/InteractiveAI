@@ -1,0 +1,597 @@
+{
+  "time": "2026-11-16T13:20:24+08:00",
+  "passed": true,
+  "formal_count": 12,
+  "development_fixture_count": 4,
+  "records": [
+    {
+      "id": "M01",
+      "passed": true,
+      "initial_incomplete": true,
+      "reference_online_passed": true,
+      "reference_offline_passed": true,
+      "save_reopen_stable": true,
+      "reset_stable": true,
+      "bounds_crosscheck": true,
+      "negative_cases": [
+        {
+          "case": "relative_layout_changed",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "center_inside_body_outside",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "protected_object_moved",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "target_overlap",
+          "online_detected": true,
+          "offline_detected": true
+        }
+      ],
+      "initial_scene": "Assets/P2SCV1/Scenes/check_v2_M01_initial.unity",
+      "reference_scene": "Assets/P2SCV1/Scenes/check_v2_M01_reference.unity",
+      "initial_hash": "4cb7382b6ef89bfb4cd337fc992a2433435575914b641c5497f763947f8d595a",
+      "contract_hash": "c1a257fa7e338627bf598aebdaae3d739ee9460d1dfe125c227eba31b689b970"
+    },
+    {
+      "id": "M02",
+      "passed": true,
+      "initial_incomplete": true,
+      "reference_online_passed": true,
+      "reference_offline_passed": true,
+      "save_reopen_stable": true,
+      "reset_stable": true,
+      "bounds_crosscheck": true,
+      "negative_cases": [
+        {
+          "case": "relative_layout_changed",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "center_inside_body_outside",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "protected_object_moved",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "target_overlap",
+          "online_detected": true,
+          "offline_detected": true
+        }
+      ],
+      "initial_scene": "Assets/P2SCV1/Scenes/check_v2_M02_initial.unity",
+      "reference_scene": "Assets/P2SCV1/Scenes/check_v2_M02_reference.unity",
+      "initial_hash": "6b3e8c4897ce7f06c1d20a4d133aa2d0cc8a0b87fc57c2ebd59d66b310419ab4",
+      "contract_hash": "44197461ad3acef3aba22e8f9530d017af7275df7a4a2553fe579075ad4a3d1d"
+    },
+    {
+      "id": "M03",
+      "passed": true,
+      "initial_incomplete": true,
+      "reference_online_passed": true,
+      "reference_offline_passed": true,
+      "save_reopen_stable": true,
+      "reset_stable": true,
+      "bounds_crosscheck": true,
+      "negative_cases": [
+        {
+          "case": "center_inside_body_outside",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "incorrect_heading",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "protected_object_moved",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "target_overlap",
+          "online_detected": true,
+          "offline_detected": true
+        }
+      ],
+      "initial_scene": "Assets/P2SCV1/Scenes/check_v2_M03_initial.unity",
+      "reference_scene": "Assets/P2SCV1/Scenes/check_v2_M03_reference.unity",
+      "initial_hash": "86d54c00751594d00b08a8b3feb40841af0f7acb87d10786d713c4e4d0dac44a",
+      "contract_hash": "c20eaec30f989c752ea4878f70c1132a0e6806cbbc41946400ebba473bb3c331"
+    },
+    {
+      "id": "M04",
+      "passed": true,
+      "initial_incomplete": true,
+      "reference_online_passed": true,
+      "reference_offline_passed": true,
+      "save_reopen_stable": true,
+      "reset_stable": true,
+      "bounds_crosscheck": true,
+      "negative_cases": [
+        {
+          "case": "center_inside_body_outside",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "old_table_facing",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "protected_object_moved",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "target_overlap",
+          "online_detected": true,
+          "offline_detected": true
+        }
+      ],
+      "initial_scene": "Assets/P2SCV1/Scenes/check_v2_M04_initial.unity",
+      "reference_scene": "Assets/P2SCV1/Scenes/check_v2_M04_reference.unity",
+      "initial_hash": "86d54c00751594d00b08a8b3feb40841af0f7acb87d10786d713c4e4d0dac44a",
+      "contract_hash": "77301358c31f3fa8a751eea09f0cfd8c3301e2703ef71230f51b38260f48a4ce"
+    },
+    {
+      "id": "M05",
+      "passed": true,
+      "initial_incomplete": true,
+      "reference_online_passed": true,
+      "reference_offline_passed": true,
+      "save_reopen_stable": true,
+      "reset_stable": true,
+      "bounds_crosscheck": true,
+      "negative_cases": [
+        {
+          "case": "center_inside_body_outside",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "incorrect_heading",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "protected_object_moved",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "yaw_only_chair_position_changed",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "target_overlap",
+          "online_detected": true,
+          "offline_detected": true
+        }
+      ],
+      "initial_scene": "Assets/P2SCV1/Scenes/check_v2_M05_initial.unity",
+      "reference_scene": "Assets/P2SCV1/Scenes/check_v2_M05_reference.unity",
+      "initial_hash": "86d54c00751594d00b08a8b3feb40841af0f7acb87d10786d713c4e4d0dac44a",
+      "contract_hash": "6e743891f6bb1b9d949407ca7a8bcd2183f236031e438ef345fdbbd1daa426ff"
+    },
+    {
+      "id": "M06",
+      "passed": true,
+      "initial_incomplete": true,
+      "reference_online_passed": true,
+      "reference_offline_passed": true,
+      "save_reopen_stable": true,
+      "reset_stable": true,
+      "bounds_crosscheck": true,
+      "negative_cases": [
+        {
+          "case": "center_inside_body_outside",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "incorrect_heading",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "protected_object_moved",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "yaw_only_chair_position_changed",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "target_overlap",
+          "online_detected": true,
+          "offline_detected": true
+        }
+      ],
+      "initial_scene": "Assets/P2SCV1/Scenes/check_v2_M06_initial.unity",
+      "reference_scene": "Assets/P2SCV1/Scenes/check_v2_M06_reference.unity",
+      "initial_hash": "e78211364cbc61a1764807f1e004370e5d36d931bc06dff5f743befc43998747",
+      "contract_hash": "ae195a2dc26228a689a0c6dfa80ccabe4aedf42b4fdb1c67a12864a6e2a81145"
+    },
+    {
+      "id": "W01",
+      "passed": true,
+      "initial_incomplete": true,
+      "reference_online_passed": true,
+      "reference_offline_passed": true,
+      "save_reopen_stable": true,
+      "reset_stable": true,
+      "bounds_crosscheck": true,
+      "negative_cases": [
+        {
+          "case": "center_inside_body_outside",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "floating_above_support",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "protected_object_moved",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "target_overlap",
+          "online_detected": true,
+          "offline_detected": true
+        }
+      ],
+      "initial_scene": "Assets/P2SCV1/Scenes/check_v2_W01_initial.unity",
+      "reference_scene": "Assets/P2SCV1/Scenes/check_v2_W01_reference.unity",
+      "initial_hash": "47d491a4c3120d42f981d235b27100a2ba8b62f4994fd966b6ec1706ba865ec0",
+      "contract_hash": "eefb9990fbb55a973117ebdfd4dbe7950e34c1a4c607c2a9902b86245c907224"
+    },
+    {
+      "id": "W02",
+      "passed": true,
+      "initial_incomplete": true,
+      "reference_online_passed": true,
+      "reference_offline_passed": true,
+      "save_reopen_stable": true,
+      "reset_stable": true,
+      "bounds_crosscheck": true,
+      "negative_cases": [
+        {
+          "case": "center_inside_body_outside",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "floating_above_support",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "protected_object_moved",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "target_overlap",
+          "online_detected": true,
+          "offline_detected": true
+        }
+      ],
+      "initial_scene": "Assets/P2SCV1/Scenes/check_v2_W02_initial.unity",
+      "reference_scene": "Assets/P2SCV1/Scenes/check_v2_W02_reference.unity",
+      "initial_hash": "cb83d3f28d0506c94a0078788b0982fbb3c304ab84acadc8ac31cebedb1a4812",
+      "contract_hash": "6b0332a76432a2a527c9807cbb621d0189c3a56dbe379b4bcf2da830fa2cfca8"
+    },
+    {
+      "id": "W03",
+      "passed": true,
+      "initial_incomplete": true,
+      "reference_online_passed": true,
+      "reference_offline_passed": true,
+      "save_reopen_stable": true,
+      "reset_stable": true,
+      "bounds_crosscheck": true,
+      "negative_cases": [
+        {
+          "case": "center_inside_body_outside",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "floating_above_support",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "protected_object_moved",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "target_overlap",
+          "online_detected": true,
+          "offline_detected": true
+        }
+      ],
+      "initial_scene": "Assets/P2SCV1/Scenes/check_v2_W03_initial.unity",
+      "reference_scene": "Assets/P2SCV1/Scenes/check_v2_W03_reference.unity",
+      "initial_hash": "167a5b4a6e4bc5b7a71640bbc2640be42f863911dd706f2b144a940aabed3fe6",
+      "contract_hash": "8b403e5adf1b5688cad40d8e60814f6032021fabb4dd6e056fd2578a19549061"
+    },
+    {
+      "id": "W04",
+      "passed": true,
+      "initial_incomplete": true,
+      "reference_online_passed": true,
+      "reference_offline_passed": true,
+      "save_reopen_stable": true,
+      "reset_stable": true,
+      "bounds_crosscheck": true,
+      "negative_cases": [
+        {
+          "case": "center_inside_body_outside",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "floating_above_support",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "protected_object_moved",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "target_overlap",
+          "online_detected": true,
+          "offline_detected": true
+        }
+      ],
+      "initial_scene": "Assets/P2SCV1/Scenes/check_v2_W04_initial.unity",
+      "reference_scene": "Assets/P2SCV1/Scenes/check_v2_W04_reference.unity",
+      "initial_hash": "bb3d1f7b2811c9f7549908b67fc482a036632988d7dd2363b11cba1e0671b9db",
+      "contract_hash": "39a8f727b00bf07faa033cbca4ca012de07ae8d22b74d84c00a1366e113c0032"
+    },
+    {
+      "id": "W05",
+      "passed": true,
+      "initial_incomplete": true,
+      "reference_online_passed": true,
+      "reference_offline_passed": true,
+      "save_reopen_stable": true,
+      "reset_stable": true,
+      "bounds_crosscheck": true,
+      "negative_cases": [
+        {
+          "case": "center_inside_body_outside",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "floating_above_support",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "incorrect_heading",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "protected_object_moved",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "target_overlap",
+          "online_detected": true,
+          "offline_detected": true
+        }
+      ],
+      "initial_scene": "Assets/P2SCV1/Scenes/check_v2_W05_initial.unity",
+      "reference_scene": "Assets/P2SCV1/Scenes/check_v2_W05_reference.unity",
+      "initial_hash": "b82e91b390f4257bdc2b519be4bf00fdeda7ea66896cd26853bc3bfaa576616f",
+      "contract_hash": "152f19ecf9a177607df5d92ffc6bdb4f0f3a267a94209f22e4d0b144676e4102"
+    },
+    {
+      "id": "W06",
+      "passed": true,
+      "initial_incomplete": true,
+      "reference_online_passed": true,
+      "reference_offline_passed": true,
+      "save_reopen_stable": true,
+      "reset_stable": true,
+      "bounds_crosscheck": true,
+      "negative_cases": [
+        {
+          "case": "center_inside_body_outside",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "floating_above_support",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "incorrect_heading",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "protected_object_moved",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "target_overlap",
+          "online_detected": true,
+          "offline_detected": true
+        }
+      ],
+      "initial_scene": "Assets/P2SCV1/Scenes/check_v2_W06_initial.unity",
+      "reference_scene": "Assets/P2SCV1/Scenes/check_v2_W06_reference.unity",
+      "initial_hash": "174eab31c684da8756f391b618c22c3da62b4090612cb9160d58b713d30f15b8",
+      "contract_hash": "6f235f00e058e032e64593883cd110c7b9448058e5da4c82a35e67d03e45bb4d"
+    },
+    {
+      "id": "D01",
+      "passed": true,
+      "initial_incomplete": true,
+      "reference_online_passed": true,
+      "reference_offline_passed": true,
+      "save_reopen_stable": true,
+      "reset_stable": true,
+      "bounds_crosscheck": true,
+      "negative_cases": [
+        {
+          "case": "center_inside_body_outside",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "protected_object_moved",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "target_overlap",
+          "online_detected": true,
+          "offline_detected": true
+        }
+      ],
+      "initial_scene": "Assets/P2SCV1/Scenes/check_v2_D01_initial.unity",
+      "reference_scene": "Assets/P2SCV1/Scenes/check_v2_D01_reference.unity",
+      "initial_hash": "20be0910532d77e9e0c3d91172c2e218b68b1b0240b4805a6cc536eef6ff4613",
+      "contract_hash": "6e8834c6e4836dff85cf40d6c7a20294deafdbc686ef3a6d5242d047f0d07485"
+    },
+    {
+      "id": "D02",
+      "passed": true,
+      "initial_incomplete": true,
+      "reference_online_passed": true,
+      "reference_offline_passed": true,
+      "save_reopen_stable": true,
+      "reset_stable": true,
+      "bounds_crosscheck": true,
+      "negative_cases": [
+        {
+          "case": "center_inside_body_outside",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "floating_above_support",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "protected_object_moved",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "target_overlap",
+          "online_detected": true,
+          "offline_detected": true
+        }
+      ],
+      "initial_scene": "Assets/P2SCV1/Scenes/check_v2_D02_initial.unity",
+      "reference_scene": "Assets/P2SCV1/Scenes/check_v2_D02_reference.unity",
+      "initial_hash": "36050eac03c7e731510e83aee7c544837fa6785d41a83e152b77ffff9602faca",
+      "contract_hash": "10b8f6d168f9927459c4d545df5d96ccf7f45ccecd5a8d97bf0bf88126d07a38"
+    },
+    {
+      "id": "D03",
+      "passed": true,
+      "initial_incomplete": true,
+      "reference_online_passed": true,
+      "reference_offline_passed": true,
+      "save_reopen_stable": true,
+      "reset_stable": true,
+      "bounds_crosscheck": true,
+      "negative_cases": [
+        {
+          "case": "incorrect_heading",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "protected_object_moved",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "target_overlap",
+          "online_detected": true,
+          "offline_detected": true
+        }
+      ],
+      "initial_scene": "Assets/P2SCV1/Scenes/check_v2_D03_initial.unity",
+      "reference_scene": "Assets/P2SCV1/Scenes/check_v2_D03_reference.unity",
+      "initial_hash": "4b13fa1f7733837d80074cbdea3c4bd3671ee98f0de5b504a2ce7f33cd99408b",
+      "contract_hash": "228087abd9fc9fa7f94a8f9ca46495454e0de64e668764d250e943c9467d80bc"
+    },
+    {
+      "id": "D04",
+      "passed": true,
+      "initial_incomplete": true,
+      "reference_online_passed": true,
+      "reference_offline_passed": true,
+      "save_reopen_stable": true,
+      "reset_stable": true,
+      "bounds_crosscheck": true,
+      "negative_cases": [
+        {
+          "case": "center_inside_body_outside",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "incorrect_heading",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "protected_object_moved",
+          "online_detected": true,
+          "offline_detected": true
+        },
+        {
+          "case": "target_overlap",
+          "online_detected": true,
+          "offline_detected": true
+        }
+      ],
+      "initial_scene": "Assets/P2SCV1/Scenes/check_v2_D04_initial.unity",
+      "reference_scene": "Assets/P2SCV1/Scenes/check_v2_D04_reference.unity",
+      "initial_hash": "6785faf8a126dd86504e6f9b83709498c707342ac85435c50fdd2e7fe2a74d7d",
+      "contract_hash": "40b11eb2efb4955f28df1837c710257d694d93aeb4d1a3a0c788af554f04d13c"
+    }
+  ],
+  "failures": [],
+  "original_context_restored": true,
+  "model_calls": 0
+}

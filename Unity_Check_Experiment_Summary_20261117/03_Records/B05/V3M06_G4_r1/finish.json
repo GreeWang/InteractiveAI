@@ -1,0 +1,22 @@
+{
+  "status": "complete",
+  "summary": "Adjusted all six chairs to face the current center of V3M06Table while strictly respecting allowed fields: Seat1/Seat2 moved (x,z,yaw), Seat3/Seat4 rotated only (yaw), Seat5/Seat6 translated only (x,z). All constraints passed check_constraints (126/126) and compare_state confirmed only authorized changes.",
+  "verified": [
+    "facing:V3M06Seat1",
+    "facing:V3M06Seat2",
+    "facing:V3M06Seat3",
+    "facing:V3M06Seat4",
+    "facing:V3M06Seat5",
+    "facing:V3M06Seat6",
+    "containment:V3M06Seat1 in 座区1",
+    "containment:V3M06Seat2 in 座区2",
+    "containment:V3M06Seat5 in 座区5",
+    "containment:V3M06Seat6 in 座区6",
+    "grounded:all seats",
+    "distance>=1.1m between all seat pairs",
+    "no overlap with fixed objects or keepout channel",
+    "table and other objects unchanged"
+  ],
+  "unresolved": [],
+  "limitations": []
+}

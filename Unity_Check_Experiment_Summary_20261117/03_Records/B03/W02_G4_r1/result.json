@@ -1,0 +1,52 @@
+{
+  "run_id": "W02_G4_r1",
+  "task_id": "W02",
+  "group": "G4",
+  "normal_finish": false,
+  "state_success": false,
+  "complete_success": false,
+  "stop_reason": "input_budget_precheck",
+  "finish": null,
+  "final_protection_violation": false,
+  "process_protection_violation": false,
+  "initial_edit_failed": true,
+  "self_repaired": false,
+  "false_complete": false,
+  "flow_adherence": false,
+  "latest_diagnostics": {
+    "check_constraints": {
+      "version": 12,
+      "turn": 6,
+      "passed": false
+    },
+    "compare_state": {
+      "version": 6,
+      "turn": 4,
+      "passed": true
+    }
+  },
+  "stats": {
+    "requests": 6,
+    "tools": 6,
+    "edit_batches": 2,
+    "operations": 12,
+    "successful_writes": 12,
+    "input_tokens": 65126,
+    "output_tokens": 312,
+    "cost_cny": 0.05294320000000001,
+    "check_constraints": 2,
+    "compare_state": 1
+  },
+  "seconds": 12.755861958983587,
+  "loaded_skills": {
+    "unity-scene-ops": "e8e92d185adfc2b56a44936c01fbf13da5df6f66ba1126f252fa4322292a5909",
+    "unity-scene-check": "02888575c31511f247612d16588a2dfbdc6c947c0d30a555c94695d9469b7f2f"
+  },
+  "model_ids": [
+    "qwen3.8-flash"
+  ],
+  "transport_failure": null,
+  "repeat": 1,
+  "seed": 1,
+  "block": 11
+}

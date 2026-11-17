@@ -1,0 +1,59 @@
+{
+  "run_id": "D07_G4_r1",
+  "task_id": "D07",
+  "group": "G4",
+  "repeat": 1,
+  "seed": 1,
+  "block": 1,
+  "normal_finish": true,
+  "state_success": true,
+  "complete_success": true,
+  "stop_reason": "finish",
+  "finish": {
+    "status": "complete",
+    "summary": "Placed all four D07 boxes by changing only their root XYZ positions (yaw left at 0). D07BoxA (-3.1,1.7,2.6) and D07BoxB (-1.5,1.8,2.6) sit with bottoms exactly on the D07Low top surface (y=1.4) inside the low region; D07BoxC (1.9,2.45,2.6) and D07BoxD (3.5,2.65,2.6) sit on the D07High top surface (y=2.2) inside the high region. Final check_constraints passed 72/72 rules (containment, support contact, no overlap, keepout clear), and compare_state shows only authorized position changes on the four boxes with all fixed objects and other fields at initial values.",
+    "verified": [
+      "check_constraints: passed=true, 72/72 rules, state_version 6",
+      "compare_state: passed=true; only D07BoxA/B/C/D position x/y/z changed, all marked authorized",
+      "Bottom faces at y=1.4 (A,B on D07Low) and y=2.2 (C,D on D07High): exact support contact, no float/penetration",
+      "Full AABBs within low region [-3.6,1.39,1.85]-[-1,2.5,3.35] and high region [1.4,2.19,1.8]-[3.8,3.5,3.4]",
+      "No box-box or box-fixed overlap; central channel keepout [-0.4,0,-5]-[0.4,4,5] untouched; yaw unchanged (0)"
+    ],
+    "unresolved": [],
+    "limitations": [
+      "Verification relies on the checker's reported world AABBs/tolerances; scene was not saved per instructions (host saves results)."
+    ]
+  },
+  "initial_edit_failed": true,
+  "self_repaired": true,
+  "false_complete": false,
+  "process_protection_violation": false,
+  "final_protection_violation": false,
+  "flow_adherence": false,
+  "stats": {
+    "requests": 12,
+    "tools": 12,
+    "official_tools": 8,
+    "check_constraints": 2,
+    "compare_state": 1,
+    "input_tokens": 419249,
+    "output_tokens": 1175,
+    "cost_cny": 0.3385717,
+    "changed_steps": 6
+  },
+  "seconds": 32.10888499999419,
+  "wall_seconds": 32.10897994041443,
+  "finalization": [
+    {
+      "turn": 12,
+      "reasons": [
+        "input_reserve"
+      ],
+      "input_reserve": 95862
+    }
+  ],
+  "transport_failure": null,
+  "model_ids": [
+    "qwen3.8-flash"
+  ]
+}

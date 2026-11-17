@@ -1,0 +1,15 @@
+{
+  "status": "complete",
+  "summary": "Moved table T to the center of the designated table area at [-2.8, 0.75, 3.4]. Placed chairs C1-C4 in seats 1-4 respectively, ensuring they are at least 1.0m apart and facing the new table center.",
+  "verified": [
+    "T is inside 桌区 bounds.",
+    "C1 is inside 座位1 bounds and faces T (yaw 135).",
+    "C2 is inside 座位2 bounds and faces T (yaw 225).",
+    "C3 is inside 座位3 bounds and faces T (yaw 45).",
+    "C4 is inside 座位4 bounds and faces T (yaw 315).",
+    "Distance between adjacent chairs (e.g., C1-C2) is 1.4m > 1.0m.",
+    "No objects intersect keepout zones."
+  ],
+  "unresolved": [],
+  "limitations": []
+}

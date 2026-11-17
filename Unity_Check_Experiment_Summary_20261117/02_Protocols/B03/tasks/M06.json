@@ -1,0 +1,143 @@
+{
+  "id": "M06",
+  "contract": {
+    "id": "M06",
+    "scene": "M",
+    "allowed": {
+      "C1": [
+        "x",
+        "z",
+        "yaw"
+      ],
+      "C2": [
+        "x",
+        "z",
+        "yaw"
+      ],
+      "C3": [
+        "yaw"
+      ],
+      "C4": [
+        "yaw"
+      ]
+    },
+    "request": "将 C1 放入左座位区、C2 放入右座位区；C1、C2 可以平移和转向，C3、C4 只能原地转向。四把目标椅均面向 T 桌心，中心两两至少相隔 1.20 m。T 和其余对象保持，走道留空。C5、C6、E1、E2 完全不可修改。",
+    "regions": [
+      {
+        "id": "左座位区",
+        "min": [
+          -4,
+          -0.01,
+          -1.95
+        ],
+        "max": [
+          -3.05,
+          1.5,
+          -1
+        ]
+      },
+      {
+        "id": "右座位区",
+        "min": [
+          -1.1,
+          -0.01,
+          -1.95
+        ],
+        "max": [
+          -0.3,
+          1.5,
+          -1
+        ]
+      }
+    ],
+    "keepout": [
+      {
+        "id": "中间走道",
+        "min": [
+          0.5,
+          0,
+          -5
+        ],
+        "max": [
+          1.5,
+          3,
+          4.4
+        ]
+      }
+    ],
+    "inside": [
+      [
+        "C1",
+        "左座位区"
+      ],
+      [
+        "C2",
+        "右座位区"
+      ]
+    ],
+    "support": [],
+    "facing": [
+      [
+        "C1",
+        "T"
+      ],
+      [
+        "C2",
+        "T"
+      ],
+      [
+        "C3",
+        "T"
+      ],
+      [
+        "C4",
+        "T"
+      ]
+    ],
+    "relative": [],
+    "distance": [
+      [
+        [
+          "C1",
+          "C2",
+          "C3",
+          "C4"
+        ],
+        1.2
+      ]
+    ],
+    "markers": {},
+    "initial_state_ref": "M06_initial",
+    "contract_version": "2740a34d1d6d47fb7257a61e7bb4561f7a0f5f37475e5edc10cc4fc0f542e1e3",
+    "grounded": [
+      "C1",
+      "C2",
+      "C3",
+      "C4"
+    ],
+    "definitions": {
+      "containment_tolerance_m": 0.005,
+      "support_height_tolerance_m": 0.01,
+      "penetration_tolerance_m": 0.001,
+      "protected_position_tolerance_m": 0.005,
+      "protected_rotation_tolerance_deg": 0.5,
+      "scale_tolerance": 1e-05,
+      "facing_angle_deg": 10,
+      "semantic_front": "local +Z, evaluated on XZ",
+      "workspace": {
+        "x": [
+          -7,
+          7
+        ],
+        "z": [
+          -6,
+          6
+        ]
+      },
+      "inventory": "All initial IDs and counts unchanged; no create/delete/scale/reparent",
+      "collision_pairs": "all target-target and target-fixed entities except Floor",
+      "regions": "full current world AABB containment, closed endpoints",
+      "facing_reference": "CURRENT object center or fixed public marker; never initial table center"
+    }
+  }
+}

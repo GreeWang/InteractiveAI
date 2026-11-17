@@ -1,0 +1,13 @@
+{
+  "status": "complete",
+  "summary": "DChairA and DChairB yaw values were updated to face the marker DP at [0, 0.05, 3.8]. Positions remained unchanged. All other objects and fields are preserved. No entity penetration occurred.",
+  "verified": [
+    "facing:DChairA passed with angle error ~0.0001 degrees",
+    "facing:DChairB passed with angle error ~0.0038 degrees",
+    "permissions check passed (only yaw modified)",
+    "nonoverlap checks passed for all pairs",
+    "workspace bounds respected"
+  ],
+  "unresolved": [],
+  "limitations": []
+}

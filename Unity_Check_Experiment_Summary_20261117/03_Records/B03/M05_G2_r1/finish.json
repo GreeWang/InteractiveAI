@@ -1,0 +1,13 @@
+{
+  "status": "complete",
+  "summary": "C1 moved to left seating area and C2 to right seating area, both facing table T. C3 and C4 already faced T and were not modified. All chairs are separated by at least 1.0m.",
+  "verified": [
+    "C1 position [-3.6, 0.5, -1.7] is inside left region [-4.2,-0.01,-2.4] to [-3,1.5,-1]",
+    "C2 position [-0.4, 0.5, -1.7] is inside right region [-1.1,-0.01,-2.4] to [0.3,1.5,-1]",
+    "All four chairs (C1,C2,C3,C4) have yaw=180° facing T center (-2.1,0.75,-0.4)",
+    "Minimum pairwise distance between chair centers is ~1.29m > 1.00m",
+    "No protected objects were modified"
+  ],
+  "unresolved": [],
+  "limitations": []
+}

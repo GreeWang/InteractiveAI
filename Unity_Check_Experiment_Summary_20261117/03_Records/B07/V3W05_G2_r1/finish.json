@@ -1,0 +1,17 @@
+{
+  "status": "complete",
+  "summary": "Applied the precomputed solution: all four boxes placed centered in their narrow slots, bottom faces resting on Platform1 top (y=1.44), with yaw oriented toward each Aim marker. Box1 pos(1.5,1.73,2) yaw90; Box2 pos(3.5,1.80,2) yaw270; Box3 pos(1.5,1.76,3.4) yaw0; Box4 pos(3.5,1.69,3.4) yaw180. Verified via world-AABB corner math before writing; batch applied successfully (undoGroup 51).",
+  "verified": [
+    "Each box's rotated world AABB is fully inside its assigned slot region (min margins 0.16-0.28 m)",
+    "Bottom face y = 1.44 exactly matches Platform1 top surface for all four boxes",
+    "Facing angle between local +Z and direction to the assigned Aim marker is ~0 deg (<10 deg tolerance) for all four",
+    "No box AABB intersects the keepout corridor x[-0.35,0.35]",
+    "Pairwise XZ center distances are 1.4 m or 2.0 m, all >= 1.0 m; AABBs do not overlap",
+    "Only authorized root position/yaw fields changed; no objects created/deleted/reparented"
+  ],
+  "unresolved": [],
+  "limitations": [
+    "Verification used mesh-bounds-based world AABB calculations (no colliders assumed); final acceptance relies on the evaluator's own AABB method",
+    "Scene was not saved by me per instructions; host handles persistence"
+  ]
+}

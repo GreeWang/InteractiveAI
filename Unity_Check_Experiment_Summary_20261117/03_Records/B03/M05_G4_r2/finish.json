@@ -1,0 +1,18 @@
+{
+  "status": "complete",
+  "summary": "C1 moved to left seating area (-3.6, -1.7) and C2 moved to right seating area (-0.4, -1.7). All four chairs (C1, C2, C3, C4) rotated to face table T center. Pairwise distances between chair centers are all >= 1.0 m. No protected objects were modified. Walkway remains clear.",
+  "verified": [
+    "inside:C1:左座位区 passed",
+    "inside:C2:右座位区 passed",
+    "facing:C1 passed (angle 0.0)",
+    "facing:C2 passed (angle ~0.0)",
+    "facing:C3 passed (angle ~0.0)",
+    "facing:C4 passed (angle ~0.0)",
+    "distance constraints all passed (min 1.4m between C3-C4)",
+    "nonoverlap constraints all passed",
+    "clear:C1/C2/C3/C4:中间走道 passed",
+    "permissions passed"
+  ],
+  "unresolved": [],
+  "limitations": []
+}

@@ -1,0 +1,15 @@
+{
+  "status": "complete",
+  "summary": "Placed all six target boxes into their assigned narrow slots with yaw-only rotation and XYZ moves, bottom faces flush on the supporting platforms (Box1-3 on Platform1 top y=1.56, Box4-6 on Platform2 top y=2.24), each facing its public Aim marker within 1 degree. Verified via actual rotated world AABBs: full containment in slots, no target-target overlap, XZ center distances >= 1 m, and no box intersecting the reserved channel (x -0.35..0.35). Final checks: check_constraints passed 134/134 rules; compare_state shows only authorized position/rotation changes on V3W06Box1-6, all other objects and fields at initial values.",
+  "verified": [
+    "check_constraints: passed=true, 134/134 rules, state_version 1",
+    "compare_state: passed=true, differences limited to authorized x/y/z/yaw of the six boxes",
+    "Per-box runtime audit: inside=True, grounded=True (minY equals platform top), facing angle error <= 1 deg for all six boxes",
+    "No pair violations reported (overlap or XZ center distance < 1 m) and no CHANNEL HIT entries"
+  ],
+  "unresolved": [],
+  "limitations": [
+    "Solver script files were written under Assets/AgentWork/ as helper sources; scene save left to the host as instructed.",
+    "Facing tolerance achieved is ~1 deg against the 10 deg contract limit."
+  ]
+}

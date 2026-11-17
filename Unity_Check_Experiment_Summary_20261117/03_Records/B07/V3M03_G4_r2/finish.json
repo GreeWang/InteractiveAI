@@ -1,0 +1,23 @@
+{
+  "status": "partial",
+  "summary": "Diagnosed the V3M03 layout but reached the resource limit before applying any edits; the scene remains at its initial state. Findings: all four chairs (V3M03Seat1-4) start in a row at z=-2.60, x=-4.8/-3.4/-2.0/-0.6, yaw 0, with a 0.52x0.98x0.52 world AABB (mesh-only, no colliders). The table V3M03Table is at (1.35,0.68,2.35), AABB 0.42..2.28 x, 1.81..2.89 z — it lies outside every seat region and must be moved into the table area (hard variant), which also changes the facing reference point. check_constraints reported 9 failures of 78 rules: 4 \"inside\" region violations, 4 \"facing\" violations (signed errors 51.17/43.82/34.09/21.50 deg against the current table center 1.35,0.68,2.35), and 1 keepout violation for Seat4 (AABB overlaps the reserved corridor by 0.01 m at x=-0.35). Planned repair: move the table so its full rotated AABB sits inside the central table zone clear of the corridor (e.g. center near x=1.35, z=2.35 kept or shifted to satisfy the region), place Seat1/Seat3 at x=0.0 and Seat2/Seat4 at x=2.70 (centers 2.70 m apart, well above the 1.1 m minimum), z=1.55 for the front pair and z=3.15 for the rear pair, then set each chair yaw = atan2(tableCenter.x - chair.x, tableCenter.z - chair.z) mod 360 so local +Z points at the current table center within the 10 deg tolerance. No writes were performed.",
+  "verified": [
+    "Initial poses and AABBs of V3M03Table and V3M03Seat1-4 measured via eval (renderer bounds; objects have MeshFilter/MeshRenderer/P2SCV1Object only, no Collider components)",
+    "Fixed environment inventory captured: V3M03Fixed0-9 are shelves located far from the seat regions (x about +/-6.1 or z about -5.25), so they will not conflict with the planned chair/table positions",
+    "Authoritative rule status read from check_constraints: 78 rules checked, 69 passed, 9 failed (4 inside, 4 facing, 1 keepout) at state_version 0",
+    "Facing target_point confirmed as the CURRENT table center (1.35, 0.68, 2.35) and the update rule yaw_next=(current_yaw+signed_error)%360",
+    "Only root world position (x,z) and yaw fields are writable for V3M03Seat1-4 per the allowed map; the table has no allowed fields listed in this run's contract copy"
+  ],
+  "unresolved": [
+    "No edits applied: chairs still occupy their initial row and fail all four 'inside' region rules",
+    "Chair yaws still 0 deg; all four 'facing' rules fail",
+    "Seat4 still intersects the reserved corridor by 0.01 m ('clear' rule fails)",
+    "Table relocation into the table zone was not executed and the contract's allowed map lists no writable fields for V3M03Table, so whether the table move is permitted in this run could not be confirmed",
+    "Final re-validation with check_constraints and compare_state after edits was not performed"
+  ],
+  "limitations": [
+    "The run switched to finish_only before any write call, so the plan above is unexecuted and unverified",
+    "Per-chair rotated-AABB extents used for region containment were assumed square in XZ (0.52 m) from the axis-aligned initial bounds; exact extents under non-zero yaw should be re-measured after placement",
+    "Support/grounding was inferred from the initial bounds bottom y=0.00 rather than an explicit support rule (the contract's support list is empty)"
+  ]
+}

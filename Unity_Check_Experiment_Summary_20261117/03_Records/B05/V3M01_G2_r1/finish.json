@@ -1,0 +1,20 @@
+{
+  "status": "complete",
+  "summary": "Applied a single rigid translation of the table+4-chair group by (+5.74, 0, +4.6) in X/Z only, preserving Y, yaw, scale and all pairwise relative offsets. Verified via inspect_scene that every object's actual world AABB lies fully inside V3M01活动区 [1.18,-0.01,0.55]..[3.8,1.55,3.95], bottoms rest at y=0 (grounded), no target-target or target-fixed overlaps exist, and all objects are clear of the keepout corridor [-0.35..0.35] in X.",
+  "verified": [
+    "V3M01Table bounds [1.64,0,1.74]-[3.34,1.24,2.76] inside region; min x 1.64>1.18, max x 3.34<3.8, min z 1.74>0.55, max z 2.76<3.95, max y 1.24<1.55",
+    "V3M01Seat1 bounds [1.53,0,0.86]-[2.01,0.96,1.34] inside region",
+    "V3M01Seat2 bounds [2.97,0,0.86]-[3.45,0.96,1.34] inside region",
+    "V3M01Seat3 bounds [1.53,0,3.16]-[2.01,0.96,3.64] inside region",
+    "V3M01Seat4 bounds [2.97,0,3.16]-[3.45,0.96,3.64] inside region",
+    "All five objects have bounds_min.y = 0.0 (grounded on Floor top)",
+    "No overlap between any pair of targets (seats vs table separated in Z: seats end at 1.34 < table start 1.74; seats end at 3.16 > table end 2.76)",
+    "No overlap with fixed shelves (nearest shelf Fixed6 x range 5.825-6.375 far from targets)",
+    "All targets have x >= 1.53, well outside keepout corridor x <= 0.35",
+    "Y positions unchanged (table 0.62, seats 0.48); rotations/yaw unchanged (table/seats1/2 yaw 0, seats3/4 yaw 180); scales unchanged"
+  ],
+  "unresolved": [],
+  "limitations": [
+    "Region max Y is 1.55 while table height reaches 1.24 — within tolerance; no vertical movement was permitted anyway."
+  ]
+}

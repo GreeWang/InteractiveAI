@@ -1,0 +1,17 @@
+{
+  "report_pages": 8,
+  "report_all_pages_visually_reviewed": true,
+  "workbook_sheets": 4,
+  "workbook_all_sheets_visually_reviewed": true,
+  "workbook_formula_error_matches": 0,
+  "observations": 176,
+  "summary_group_rows": 14,
+  "formal_task_rows": 36,
+  "public_contracts_checked": 52,
+  "original_source_files_verified": 1275,
+  "source_originals_unchanged": true,
+  "pilot_and_formal_runtime_versions_matched": true,
+  "subjective_phrase_scan_matches": [],
+  "new_task_runs": 0,
+  "new_experiment_model_api_requests": 0
+}

@@ -1,0 +1,197 @@
+{
+  "id": "V3M06",
+  "contract": {
+    "id": "V3M06",
+    "scene": "M",
+    "allowed": {
+      "V3M06Seat1": [
+        "x",
+        "z",
+        "yaw"
+      ],
+      "V3M06Seat2": [
+        "x",
+        "z",
+        "yaw"
+      ],
+      "V3M06Seat3": [
+        "yaw"
+      ],
+      "V3M06Seat4": [
+        "yaw"
+      ],
+      "V3M06Seat5": [
+        "x",
+        "z"
+      ],
+      "V3M06Seat6": [
+        "x",
+        "z"
+      ]
+    },
+    "request": "调整指定椅子并全部面向固定主桌当前中心。严格遵守allowed字段：yaw-only椅子位置不变，XZ-only椅子朝向不变，其他目标仅改允许字段。可移动椅子的完整包围盒须在各自座区，全部椅子接地、互不重叠且XZ中心间距至少1.1米，避开固定设施和保留区。桌和其他对象全部保持初始状态。",
+    "regions": [
+      {
+        "id": "V3M06座区1",
+        "min": [
+          -1.56,
+          -0.01,
+          0.5900000000000001
+        ],
+        "max": [
+          -0.6400000000000001,
+          1.6,
+          1.51
+        ]
+      },
+      {
+        "id": "V3M06座区2",
+        "min": [
+          1.7400000000000002,
+          -0.01,
+          0.5900000000000001
+        ],
+        "max": [
+          2.66,
+          1.6,
+          1.51
+        ]
+      },
+      {
+        "id": "V3M06座区5",
+        "min": [
+          -1.61,
+          -0.01,
+          2.32
+        ],
+        "max": [
+          -0.95,
+          1.6,
+          2.98
+        ]
+      },
+      {
+        "id": "V3M06座区6",
+        "min": [
+          2.05,
+          -0.01,
+          2.32
+        ],
+        "max": [
+          2.71,
+          1.6,
+          2.98
+        ]
+      }
+    ],
+    "keepout": [
+      {
+        "id": "V3M06保留通道",
+        "min": [
+          -0.35,
+          0,
+          -5
+        ],
+        "max": [
+          0.35,
+          4,
+          -0.5
+        ]
+      }
+    ],
+    "inside": [
+      [
+        "V3M06Seat1",
+        "V3M06座区1"
+      ],
+      [
+        "V3M06Seat2",
+        "V3M06座区2"
+      ],
+      [
+        "V3M06Seat5",
+        "V3M06座区5"
+      ],
+      [
+        "V3M06Seat6",
+        "V3M06座区6"
+      ]
+    ],
+    "support": [],
+    "facing": [
+      [
+        "V3M06Seat1",
+        "V3M06Table"
+      ],
+      [
+        "V3M06Seat2",
+        "V3M06Table"
+      ],
+      [
+        "V3M06Seat3",
+        "V3M06Table"
+      ],
+      [
+        "V3M06Seat4",
+        "V3M06Table"
+      ],
+      [
+        "V3M06Seat5",
+        "V3M06Table"
+      ],
+      [
+        "V3M06Seat6",
+        "V3M06Table"
+      ]
+    ],
+    "relative": [],
+    "distance": [
+      [
+        [
+          "V3M06Seat1",
+          "V3M06Seat2",
+          "V3M06Seat3",
+          "V3M06Seat4",
+          "V3M06Seat5",
+          "V3M06Seat6"
+        ],
+        1.1
+      ]
+    ],
+    "markers": {},
+    "initial_state_ref": "V3M06_initial",
+    "contract_version": "f2291619f5cb2f5a2b95b004582a5d697779484d86834ed23da8bfcbde4b4c0c",
+    "grounded": [
+      "V3M06Seat1",
+      "V3M06Seat2",
+      "V3M06Seat3",
+      "V3M06Seat4",
+      "V3M06Seat5",
+      "V3M06Seat6"
+    ],
+    "definitions": {
+      "containment_tolerance_m": 0.005,
+      "support_height_tolerance_m": 0.01,
+      "penetration_tolerance_m": 0.001,
+      "protected_position_tolerance_m": 0.005,
+      "protected_rotation_tolerance_deg": 0.5,
+      "scale_tolerance": 1e-05,
+      "facing_angle_deg": 10,
+      "semantic_front": "local +Z, evaluated on XZ",
+      "workspace": {
+        "x": [
+          -7,
+          7
+        ],
+        "z": [
+          -6,
+          6
+        ]
+      },
+      "inventory": "All initial IDs and counts unchanged; no create/delete/scale/reparent",
+      "collision_pairs": "all target-target and target-fixed entities except Floor",
+      "regions": "full current world AABB containment, closed endpoints",
+      "facing_reference": "CURRENT object center or fixed public marker; never initial table center"
+    }
+  }
+}

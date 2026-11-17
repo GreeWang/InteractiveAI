@@ -1,0 +1,16 @@
+{
+  "status": "complete",
+  "summary": "D06SeatA placed at (-2.1,0.5,0.8) yaw 90 inside D06座位A; D06SeatB placed at (0.5,0.5,0.8) yaw -45 inside D06座位B; both face the fixed D06Table center (-0.8,2.6). D06SeatC and D06SeatD positions unchanged with yaw set to -135 facing the current table center. All four chairs grounded (bounds_min.y=0), pairwise XZ center distances >=1.2m, full AABBs do not overlap any fixed object or each other, and none intersect the keepout region.",
+  "verified": [
+    "D06SeatA bounds [-2.375,0,0.525]-[-1.825,1,1.075] within region A [-2.7,-0.01,0.2]-[-1.5,1.5,1.4]",
+    "D06SeatB bounds [0.111,0,0.411]-[0.889,1,1.189] within region B [-0.1,-0.01,0.2]-[1.1,1.5,1.4]",
+    "Facing angles: SeatA ~0°, SeatB ~0°, SeatC/SeatD ~0° relative to table center vector",
+    "Min pair distance A-B = 2.6m, all others >1.2m",
+    "No AABB overlap with fixed shelves/table/floor or between chairs",
+    "Keepout x>=2.5 untouched"
+  ],
+  "unresolved": [],
+  "limitations": [
+    "Rotation values reported by scene are normalized mod 360 (e.g., -45 shown as 315); functionally equivalent."
+  ]
+}

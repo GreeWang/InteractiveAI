@@ -1,0 +1,15 @@
+{
+  "status": "complete",
+  "summary": "Moved Seat1 and Seat2 into their respective seat regions, rotated all four chairs to face the current table center, and verified all public contract constraints pass.",
+  "verified": [
+    "check_constraints passed 76/76 rules at state_version 5",
+    "compare_state at state_version 4 confirmed only authorized fields were changed (Seat1 x,z,yaw; Seat2 x,z,yaw; Seat3 yaw; Seat4 yaw)",
+    "All chairs grounded, non-overlapping, XZ center distance >= 1.1m, inside designated regions, avoiding keepout zones"
+  ],
+  "unresolved": [
+    "Final compare_state could not be executed due to finish_only budget restriction, but the last edit was a single yaw correction on Seat2 which is an authorized field, so no unauthorized changes are expected."
+  ],
+  "limitations": [
+    "Could not run final compare_state diagnostic due to input token reserve triggering finish_only mode early."
+  ]
+}

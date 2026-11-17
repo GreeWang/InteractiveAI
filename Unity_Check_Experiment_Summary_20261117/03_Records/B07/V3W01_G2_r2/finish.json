@@ -1,0 +1,19 @@
+{
+  "status": "complete",
+  "summary": "Moved only the XYZ of V3W01Box1/2/3 (yaw untouched at 0) into the single region \"V3W01装架区\" and seated all three on the fixed platform V3W01Rack (top y=1.28), arranged in a row along X at z=2.55: Box1 (1.43,1.59,2.55), Box2 (2.65,1.72,2.55), Box3 (3.87,1.55,2.55). Verified against real MeshRenderer world AABBs: full containment in the region (closed endpoints, tolerance 0.005), bottoms exactly flush with rack top 1.28 (diff 0.000, no float/penetration), full footprints inside rack extents x[0.85,4.45] z[1.5,3.6], no box-box overlap (X gaps 0.45 / 0.50 m), XZ center distances 1.22 / 2.44 / 1.22 m (all ≥0.9), and no intersection with the keepout corridor x[-0.35,0.35]. No other objects, fields, hierarchy, components or assets were changed; scene left unsaved for host save.",
+  "verified": [
+    "Region containment: Box1 x[1.00,1.86] z[2.19,2.91]; Box2 x[2.31,2.99] z[2.08,3.02]; Box3 x[3.49,4.25] z[2.225,2.875] — all within x[1,4.3] y[1.27,2.6] z[1.6,3.5]",
+    "Support: all three bottoms = 1.28 = rack top (|diff| < 0.01); each footprint fully inside rack AABB x[0.85,4.45] z[1.5,3.6]",
+    "No penetration/float: bottoms coincident with platform surface, tops ≤ 2.16 < region ceiling 2.6",
+    "Pairwise AABB overlap test with 0.001 tolerance: false for all 3 pairs",
+    "XZ center distances: Box1-Box2 1.22 m, Box2-Box3 1.22 m, Box1-Box3 2.44 m (≥ 0.9 m)",
+    "Keepout corridor [-0.35,0.35]x[0,4]x[-5,5]: no box intersects (nearest box min x = 1.00)",
+    "Yaw preserved at 0° for all three boxes; only position channels written",
+    "Fixed objects, Floor, labels, markers, components and hierarchy untouched (single set_transform per box target)"
+  ],
+  "unresolved": [],
+  "limitations": [
+    "Verification used MeshRenderer.bounds (world AABB) of each box root mesh; the child 'ID label' TextMesh renderers are decorative and excluded from the acceptance bounding box.",
+    "Scene was intentionally not saved — the host performs the save after finish."
+  ]
+}

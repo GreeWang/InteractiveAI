@@ -1,0 +1,10 @@
+{
+  "passed": false,
+  "changed": [
+    "Assets/AgentWork.meta",
+    "Assets/AgentWork/V3W06_solve.cs",
+    "Assets/AgentWork/V3W06_solve.cs.meta",
+    "Assets/AgentWork/V3W06_survey.cs",
+    "Assets/AgentWork/V3W06_survey.cs.meta"
+  ]
+}

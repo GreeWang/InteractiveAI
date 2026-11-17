@@ -1,0 +1,292 @@
+{
+  "id": "D08",
+  "contract": {
+    "id": "D08",
+    "scene": "W",
+    "allowed": {
+      "D08Box1": [
+        "x",
+        "y",
+        "z",
+        "yaw"
+      ],
+      "D08Box2": [
+        "x",
+        "y",
+        "z",
+        "yaw"
+      ],
+      "D08Box3": [
+        "x",
+        "y",
+        "z",
+        "yaw"
+      ],
+      "D08Box4": [
+        "x",
+        "y",
+        "z",
+        "yaw"
+      ],
+      "D08Box5": [
+        "x",
+        "y",
+        "z",
+        "yaw"
+      ],
+      "D08Box6": [
+        "x",
+        "y",
+        "z",
+        "yaw"
+      ]
+    },
+    "request": "把D08Box1至D08Box6分别完整放入同编号窄槽；前三箱由D08Left支撑，后三箱由D08Right支撑。允许XYZ和yaw，各箱还须面向各自公开标记D08Aim1至D08Aim6，按旋转后的实际包围盒验收。底面贴合支撑、各箱互不重叠、XZ中心间距至少0.8米，并避开中央通道。所有固定设施和其余字段保持初始值。",
+    "regions": [
+      {
+        "id": "D08槽1",
+        "min": [
+          -3.925,
+          1.19,
+          1.95
+        ],
+        "max": [
+          -3.175,
+          2.2,
+          3.65
+        ]
+      },
+      {
+        "id": "D08槽2",
+        "min": [
+          -2.775,
+          1.19,
+          1.95
+        ],
+        "max": [
+          -2.025,
+          2.2,
+          3.65
+        ]
+      },
+      {
+        "id": "D08槽3",
+        "min": [
+          -1.625,
+          1.19,
+          1.95
+        ],
+        "max": [
+          -0.875,
+          2.2,
+          3.65
+        ]
+      },
+      {
+        "id": "D08槽4",
+        "min": [
+          1.125,
+          1.59,
+          1.95
+        ],
+        "max": [
+          1.875,
+          2.6,
+          3.65
+        ]
+      },
+      {
+        "id": "D08槽5",
+        "min": [
+          2.125,
+          1.59,
+          1.95
+        ],
+        "max": [
+          2.875,
+          2.6,
+          3.65
+        ]
+      },
+      {
+        "id": "D08槽6",
+        "min": [
+          3.125,
+          1.59,
+          1.95
+        ],
+        "max": [
+          3.875,
+          2.6,
+          3.65
+        ]
+      }
+    ],
+    "keepout": [
+      {
+        "id": "D08通道",
+        "min": [
+          -0.4,
+          0,
+          -5
+        ],
+        "max": [
+          0.4,
+          4,
+          5
+        ]
+      }
+    ],
+    "inside": [
+      [
+        "D08Box1",
+        "D08槽1"
+      ],
+      [
+        "D08Box2",
+        "D08槽2"
+      ],
+      [
+        "D08Box3",
+        "D08槽3"
+      ],
+      [
+        "D08Box4",
+        "D08槽4"
+      ],
+      [
+        "D08Box5",
+        "D08槽5"
+      ],
+      [
+        "D08Box6",
+        "D08槽6"
+      ]
+    ],
+    "support": [
+      [
+        "D08Box1",
+        "D08Left"
+      ],
+      [
+        "D08Box2",
+        "D08Left"
+      ],
+      [
+        "D08Box3",
+        "D08Left"
+      ],
+      [
+        "D08Box4",
+        "D08Right"
+      ],
+      [
+        "D08Box5",
+        "D08Right"
+      ],
+      [
+        "D08Box6",
+        "D08Right"
+      ]
+    ],
+    "facing": [
+      [
+        "D08Box1",
+        "D08Aim1"
+      ],
+      [
+        "D08Box2",
+        "D08Aim2"
+      ],
+      [
+        "D08Box3",
+        "D08Aim3"
+      ],
+      [
+        "D08Box4",
+        "D08Aim4"
+      ],
+      [
+        "D08Box5",
+        "D08Aim5"
+      ],
+      [
+        "D08Box6",
+        "D08Aim6"
+      ]
+    ],
+    "relative": [],
+    "distance": [
+      [
+        [
+          "D08Box1",
+          "D08Box2",
+          "D08Box3",
+          "D08Box4",
+          "D08Box5",
+          "D08Box6"
+        ],
+        0.8
+      ]
+    ],
+    "markers": {
+      "D08Aim1": [
+        -2.65,
+        0.05,
+        2.8
+      ],
+      "D08Aim2": [
+        -1.5,
+        0.05,
+        2.8
+      ],
+      "D08Aim3": [
+        -0.35,
+        0.05,
+        2.8
+      ],
+      "D08Aim4": [
+        2.4,
+        0.05,
+        2.8
+      ],
+      "D08Aim5": [
+        3.4,
+        0.05,
+        2.8
+      ],
+      "D08Aim6": [
+        4.4,
+        0.05,
+        2.8
+      ]
+    },
+    "initial_state_ref": "D08_initial",
+    "contract_version": "534ff99b3dc92314578ef43983baf31ae03c4d8817c4e0599a56a753edbe3b5a",
+    "grounded": [],
+    "definitions": {
+      "containment_tolerance_m": 0.005,
+      "support_height_tolerance_m": 0.01,
+      "penetration_tolerance_m": 0.001,
+      "protected_position_tolerance_m": 0.005,
+      "protected_rotation_tolerance_deg": 0.5,
+      "scale_tolerance": 1e-05,
+      "facing_angle_deg": 10,
+      "semantic_front": "local +Z, evaluated on XZ",
+      "workspace": {
+        "x": [
+          -7,
+          7
+        ],
+        "z": [
+          -6,
+          6
+        ]
+      },
+      "inventory": "All initial IDs and counts unchanged; no create/delete/scale/reparent",
+      "collision_pairs": "all target-target and target-fixed entities except Floor",
+      "regions": "full current world AABB containment, closed endpoints",
+      "facing_reference": "CURRENT object center or fixed public marker; never initial table center"
+    }
+  }
+}

@@ -1,0 +1,229 @@
+{
+  "id": "M04",
+  "contract": {
+    "id": "M04",
+    "scene": "M",
+    "allowed": {
+      "T": [
+        "x",
+        "z"
+      ],
+      "C1": [
+        "x",
+        "z",
+        "yaw"
+      ],
+      "C2": [
+        "x",
+        "z",
+        "yaw"
+      ],
+      "C3": [
+        "x",
+        "z",
+        "yaw"
+      ],
+      "C4": [
+        "x",
+        "z",
+        "yaw"
+      ]
+    },
+    "request": "先规划 T 在桌区的新位置，并将 C1 至 C4 分别安排到座位1至座位4，全部面向移动后的桌心。四椅中心两两至少相隔 1.00 m；维护区和走道留空，其余物体不动。",
+    "regions": [
+      {
+        "id": "桌区",
+        "min": [
+          -4.1,
+          -0.01,
+          2.6
+        ],
+        "max": [
+          -1.5,
+          1.7,
+          4.2
+        ]
+      },
+      {
+        "id": "座位1",
+        "min": [
+          -4.2,
+          -0.01,
+          1.5
+        ],
+        "max": [
+          -2.8,
+          1.5,
+          2.6
+        ]
+      },
+      {
+        "id": "座位2",
+        "min": [
+          -2.8,
+          -0.01,
+          1.5
+        ],
+        "max": [
+          -1.4,
+          1.5,
+          2.6
+        ]
+      },
+      {
+        "id": "座位3",
+        "min": [
+          -4.2,
+          -0.01,
+          4.2
+        ],
+        "max": [
+          -2.8,
+          1.5,
+          5.25
+        ]
+      },
+      {
+        "id": "座位4",
+        "min": [
+          -2.8,
+          -0.01,
+          4.2
+        ],
+        "max": [
+          -1.4,
+          1.5,
+          5.25
+        ]
+      }
+    ],
+    "keepout": [
+      {
+        "id": "中间走道",
+        "min": [
+          0.5,
+          0,
+          -5
+        ],
+        "max": [
+          1.5,
+          3,
+          4.4
+        ]
+      },
+      {
+        "id": "维护区1",
+        "min": [
+          -5.1,
+          0,
+          1.5
+        ],
+        "max": [
+          -4.5,
+          2.4,
+          5.4
+        ]
+      },
+      {
+        "id": "维护区2",
+        "min": [
+          -1.1,
+          0,
+          1.5
+        ],
+        "max": [
+          -0.5,
+          2.4,
+          5.4
+        ]
+      }
+    ],
+    "inside": [
+      [
+        "T",
+        "桌区"
+      ],
+      [
+        "C1",
+        "座位1"
+      ],
+      [
+        "C2",
+        "座位2"
+      ],
+      [
+        "C3",
+        "座位3"
+      ],
+      [
+        "C4",
+        "座位4"
+      ]
+    ],
+    "support": [],
+    "facing": [
+      [
+        "C1",
+        "T"
+      ],
+      [
+        "C2",
+        "T"
+      ],
+      [
+        "C3",
+        "T"
+      ],
+      [
+        "C4",
+        "T"
+      ]
+    ],
+    "relative": [],
+    "distance": [
+      [
+        [
+          "C1",
+          "C2",
+          "C3",
+          "C4"
+        ],
+        1.0
+      ]
+    ],
+    "markers": {},
+    "initial_state_ref": "M04_initial",
+    "contract_version": "2ab33498ef04b00956013e680bfea6734e49e50b1450bdca5a561ffff27839fe",
+    "grounded": [
+      "T",
+      "C1",
+      "C2",
+      "C3",
+      "C4"
+    ],
+    "definitions": {
+      "containment_tolerance_m": 0.005,
+      "support_height_tolerance_m": 0.01,
+      "penetration_tolerance_m": 0.001,
+      "protected_position_tolerance_m": 0.005,
+      "protected_rotation_tolerance_deg": 0.5,
+      "scale_tolerance": 1e-05,
+      "facing_angle_deg": 10,
+      "semantic_front": "local +Z, evaluated on XZ",
+      "workspace": {
+        "x": [
+          -7,
+          7
+        ],
+        "z": [
+          -6,
+          6
+        ]
+      },
+      "inventory": "All initial IDs and counts unchanged; no create/delete/scale/reparent",
+      "collision_pairs": "all target-target and target-fixed entities except Floor",
+      "regions": "full current world AABB containment, closed endpoints",
+      "facing_reference": "CURRENT object center or fixed public marker; never initial table center"
+    }
+  }
+}

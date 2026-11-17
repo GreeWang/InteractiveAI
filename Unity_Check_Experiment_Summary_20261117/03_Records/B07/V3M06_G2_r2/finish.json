@@ -1,0 +1,21 @@
+{
+  "status": "partial",
+  "summary": "Studied the V3M06 scene and derived the required target poses, but ran out of model requests before applying them. Table center is (0.55, 0.74, 2.65); all chairs are axis-aligned 0.58 x 1.06 x 0.58 boxes (half-extents 0.29/0.53/0.29), so ground contact needs y = 0.53. Derived solution: Seat1 -> pos (-1.10, 0.53, 1.05), yaw 0; Seat2 -> pos (2.20, 0.53, 1.05), yaw 180; Seat3 (yaw-only) keep pos (-1.10, 0.53, 4.25), yaw 180; Seat4 (yaw-only) keep pos (2.20, 0.53, 4.25), yaw 0; Seat5 (x/z-only) keep yaw 90, move to (0.60, 0.53, 2.65); Seat6 (x/z-only) keep yaw 270, move to (2.20, 0.53, 2.65). This puts every movable chair AABB fully inside its seat zone, avoids the reserved corridor (x -0.35..0.35, z -5..-0.5) and all fixed props, keeps all six facing the table within 10 deg, and yields minimum XZ center spacing 1.10 m with no overlaps.",
+  "verified": [
+    "Scene hierarchy and inventory read: 10 fixed props, 1 table, 6 seats, Floor, marker parent — unchanged.",
+    "Table world center measured as (0.550, 0.740, 2.650) with extents (1.120, 0.740, 0.640).",
+    "All six seats measured: scale (0.580, 1.060, 0.580), mesh-local cube, so world AABB half-extents are 0.29 / 0.53 / 0.29 at any yaw.",
+    "Floor top surface confirmed at y = 0.0, hence grounded chair root y must be 0.530.",
+    "Initial poses recorded for all seats: Seat1 (-4.60,0.53,-2.80,yaw0), Seat2 (-3.30,0.53,-2.80,yaw0), Seat3 (-1.10,0.53,4.25,yaw90), Seat4 (2.20,0.53,4.25,yaw90), Seat5 (0.60,0.53,-0.90,yaw90), Seat6 (1.90,0.53,-0.90,yaw270).",
+    "Feasibility computed analytically: proposed targets satisfy zone containment (tolerance 0.005), keepout avoidance, fixed-prop clearance, facing tolerance 10 deg, and the 1.1 m XZ center-spacing rule."
+  ],
+  "unresolved": [
+    "No writes were applied: all six chairs remain at their initial poses, so the scene does not yet satisfy the contract.",
+    "Post-edit validation (AABB containment, overlap, spacing, facing) was never executed against the live scene."
+  ],
+  "limitations": [
+    "The run entered finish-only mode after 5 of 6 allowed model requests were consumed on inspection, leaving no budget for set_transform writes plus verification.",
+    "Only MeshRenderer bounds were available for collision reasoning; no colliders exist in the scene, so overlap checks rely on analytic AABB math rather than a physics query.",
+    "ID-label children have zero-thickness planar bounds at y=1.145 and were treated as cosmetic, not part of chair collision volume."
+  ]
+}

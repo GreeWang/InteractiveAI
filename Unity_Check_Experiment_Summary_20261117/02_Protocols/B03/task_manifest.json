@@ -1,0 +1,23 @@
+{
+  "formal": [
+    "M01",
+    "M02",
+    "M03",
+    "M04",
+    "M05",
+    "M06",
+    "W01",
+    "W02",
+    "W03",
+    "W04",
+    "W05",
+    "W06"
+  ],
+  "development": [
+    "D01",
+    "D02",
+    "D03",
+    "D04"
+  ],
+  "provenance": "Formal design matches delivered v2. Development fixtures use disjoint IDs, geometry and target regions; no formal model calls."
+}

@@ -1,0 +1,294 @@
+{
+  "id": "V3W06",
+  "contract": {
+    "id": "V3W06",
+    "scene": "W",
+    "allowed": {
+      "V3W06Box1": [
+        "x",
+        "y",
+        "z",
+        "yaw"
+      ],
+      "V3W06Box2": [
+        "x",
+        "y",
+        "z",
+        "yaw"
+      ],
+      "V3W06Box3": [
+        "x",
+        "y",
+        "z",
+        "yaw"
+      ],
+      "V3W06Box4": [
+        "x",
+        "y",
+        "z",
+        "yaw"
+      ],
+      "V3W06Box5": [
+        "x",
+        "y",
+        "z",
+        "yaw"
+      ],
+      "V3W06Box6": [
+        "x",
+        "y",
+        "z",
+        "yaw"
+      ]
+    },
+    "request": "把目标长方体箱完整放入各自窄槽并由指定固定平台支撑，同时面向各自公开Aim标记。允许XYZ和yaw，按旋转后的实际世界包围盒验收。底面贴合平台，目标互不重叠、XZ中心间距至少1米，避开保留通道。所有未授权对象及字段保持初始值。",
+    "regions": [
+      {
+        "id": "V3W06窄槽1",
+        "min": [
+          -3.92,
+          1.55,
+          1.3900000000000001
+        ],
+        "max": [
+          -3.2800000000000002,
+          2.8600000000000003,
+          2.81
+        ]
+      },
+      {
+        "id": "V3W06窄槽2",
+        "min": [
+          -1.97,
+          1.55,
+          1.3900000000000001
+        ],
+        "max": [
+          -1.3299999999999998,
+          2.8600000000000003,
+          2.81
+        ]
+      },
+      {
+        "id": "V3W06窄槽3",
+        "min": [
+          -3.4299999999999997,
+          1.55,
+          3.15
+        ],
+        "max": [
+          -1.8699999999999999,
+          2.8600000000000003,
+          3.85
+        ]
+      },
+      {
+        "id": "V3W06窄槽4",
+        "min": [
+          1.53,
+          2.2300000000000004,
+          1.24
+        ],
+        "max": [
+          2.17,
+          3.54,
+          2.66
+        ]
+      },
+      {
+        "id": "V3W06窄槽5",
+        "min": [
+          3.5300000000000002,
+          2.2300000000000004,
+          1.24
+        ],
+        "max": [
+          4.17,
+          3.54,
+          2.66
+        ]
+      },
+      {
+        "id": "V3W06窄槽6",
+        "min": [
+          2.0199999999999996,
+          2.2300000000000004,
+          2.9499999999999997
+        ],
+        "max": [
+          3.58,
+          3.54,
+          3.65
+        ]
+      }
+    ],
+    "keepout": [
+      {
+        "id": "V3W06保留通道",
+        "min": [
+          -0.35,
+          0,
+          -5
+        ],
+        "max": [
+          0.35,
+          4,
+          5
+        ]
+      }
+    ],
+    "inside": [
+      [
+        "V3W06Box1",
+        "V3W06窄槽1"
+      ],
+      [
+        "V3W06Box2",
+        "V3W06窄槽2"
+      ],
+      [
+        "V3W06Box3",
+        "V3W06窄槽3"
+      ],
+      [
+        "V3W06Box4",
+        "V3W06窄槽4"
+      ],
+      [
+        "V3W06Box5",
+        "V3W06窄槽5"
+      ],
+      [
+        "V3W06Box6",
+        "V3W06窄槽6"
+      ]
+    ],
+    "support": [
+      [
+        "V3W06Box1",
+        "V3W06Platform1"
+      ],
+      [
+        "V3W06Box2",
+        "V3W06Platform1"
+      ],
+      [
+        "V3W06Box3",
+        "V3W06Platform1"
+      ],
+      [
+        "V3W06Box4",
+        "V3W06Platform2"
+      ],
+      [
+        "V3W06Box5",
+        "V3W06Platform2"
+      ],
+      [
+        "V3W06Box6",
+        "V3W06Platform2"
+      ]
+    ],
+    "facing": [
+      [
+        "V3W06Box1",
+        "V3W06Aim1"
+      ],
+      [
+        "V3W06Box2",
+        "V3W06Aim2"
+      ],
+      [
+        "V3W06Box3",
+        "V3W06Aim3"
+      ],
+      [
+        "V3W06Box4",
+        "V3W06Aim4"
+      ],
+      [
+        "V3W06Box5",
+        "V3W06Aim5"
+      ],
+      [
+        "V3W06Box6",
+        "V3W06Aim6"
+      ]
+    ],
+    "relative": [],
+    "distance": [
+      [
+        [
+          "V3W06Box1",
+          "V3W06Box2",
+          "V3W06Box3",
+          "V3W06Box4",
+          "V3W06Box5",
+          "V3W06Box6"
+        ],
+        1.0
+      ]
+    ],
+    "markers": {
+      "V3W06Aim1": [
+        -2.5,
+        0.05,
+        2.1
+      ],
+      "V3W06Aim2": [
+        -2.75,
+        0.05,
+        2.1
+      ],
+      "V3W06Aim3": [
+        -2.65,
+        0.05,
+        2.4
+      ],
+      "V3W06Aim4": [
+        0.75,
+        0.05,
+        1.9499999999999997
+      ],
+      "V3W06Aim5": [
+        4.95,
+        0.05,
+        1.95
+      ],
+      "V3W06Aim6": [
+        2.8,
+        0.05,
+        4.4
+      ]
+    },
+    "initial_state_ref": "V3W06_initial",
+    "contract_version": "dbc755e4de09b1304fa3359cdcb59d03840c61dad07e65d7d05c0b8b5aafc4f1",
+    "grounded": [],
+    "definitions": {
+      "containment_tolerance_m": 0.005,
+      "support_height_tolerance_m": 0.01,
+      "penetration_tolerance_m": 0.001,
+      "protected_position_tolerance_m": 0.005,
+      "protected_rotation_tolerance_deg": 0.5,
+      "scale_tolerance": 1e-05,
+      "facing_angle_deg": 10,
+      "semantic_front": "local +Z, evaluated on XZ",
+      "workspace": {
+        "x": [
+          -7,
+          7
+        ],
+        "z": [
+          -6,
+          6
+        ]
+      },
+      "inventory": "All initial IDs and counts unchanged; no create/delete/scale/reparent",
+      "collision_pairs": "all target-target and target-fixed entities except Floor",
+      "regions": "full current world AABB containment, closed endpoints",
+      "facing_reference": "CURRENT object center or fixed public marker; never initial table center",
+      "native_inventory": "All initial task entities and every initial scene GameObject and component remain; no create/delete/reparent/enable changes.",
+      "native_protected_fields": "Only allowed root world position/yaw fields may change. Other scene hierarchy, serialized component fields, mesh geometry, materials, and project assets/settings/scripts remain unchanged. Original pose/scale tolerances still apply."
+    }
+  }
+}

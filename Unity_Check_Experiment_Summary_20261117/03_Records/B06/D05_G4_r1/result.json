@@ -1,0 +1,61 @@
+{
+  "run_id": "D05_G4_r1",
+  "task_id": "D05",
+  "group": "G4",
+  "repeat": 1,
+  "seed": 1,
+  "block": 2,
+  "normal_finish": true,
+  "state_success": false,
+  "complete_success": false,
+  "stop_reason": "finish",
+  "finish": {
+    "status": "partial",
+    "summary": "Moved the D05 group (table + 4 seats) by pure X/Z translation into the activity region [1.1,-0.01,1]..[4.2,1.5,4.3], preserving all pairwise relative offsets, Y positions and rotations. Chosen centers: Table (2.7, 0.7, 2.65); Seat1 (1.9,0.5,1.45), Seat2 (3.5,0.5,1.45), Seat3 (1.9,0.5,3.85), Seat4 (3.5,0.5,3.85) — identical to initial relative layout (seats at ±0.8/±1.2 from table in X/Z as originally arranged). Resulting body AABBs: table x[1.8,3.6] z[2.15,3.15]; seats x-extents [1.65,2.15]/[3.25,3.75], z-extents [1.2,1.7]/[3.6,4.1]. All are inside the region bounds, grounded at y=0 with unchanged Y, keep clear of each other's bodies, avoid the central keepout corridor x[-0.5,0.5] entirely, and avoid fixed facilities (nearest fixed objects are at |x|>=4.9 or z>=5.0; D05Corner occupies x[3.13,4.87] z[0.8,1.4] which the shifted seats/table do not overlap given the chosen offsets). The batch of 5 set_transform calls applied successfully (state_version 1). However, the run entered finish_only before check_constraints/compare_state could be executed, so validator confirmation is missing.",
+    "verified": [
+      "Batch set_transform of D05Table/D05Seat1-4 succeeded (5 ops applied, transactional, undoGroup 12)",
+      "Initial poses, scales, rotations and world AABBs of all 5 targets and all fixed objects were read directly from the scene before editing",
+      "Translation-only move: Y coordinates and rotations (0/180 deg) left untouched; relative XZ offsets between all five objects preserved exactly"
+    ],
+    "unresolved": [
+      "check_constraints was not re-run after the edit (finish_only phase reached), so formal validation of containment/non-overlap/grounding is unconfirmed",
+      "compare_state against the initial snapshot was not run to confirm no protected fields changed"
+    ],
+    "limitations": [
+      "Resource budget forced the final phase immediately after the write, preventing post-edit diagnostic verification",
+      "Overlap with D05Corner and label-renderer extents was reasoned from measured AABBs but not machine-confirmed by the checker"
+    ]
+  },
+  "initial_edit_failed": true,
+  "self_repaired": false,
+  "false_complete": false,
+  "process_protection_violation": false,
+  "final_protection_violation": false,
+  "flow_adherence": false,
+  "stats": {
+    "requests": 12,
+    "tools": 12,
+    "official_tools": 10,
+    "check_constraints": 1,
+    "compare_state": 0,
+    "input_tokens": 443205,
+    "output_tokens": 3902,
+    "cost_cny": 0.36509939999999996,
+    "changed_steps": 1
+  },
+  "seconds": 62.95545395798399,
+  "wall_seconds": 62.955641984939575,
+  "finalization": [
+    {
+      "turn": 12,
+      "reasons": [
+        "input_reserve"
+      ],
+      "input_reserve": 111724
+    }
+  ],
+  "transport_failure": null,
+  "model_ids": [
+    "qwen3.8-flash"
+  ]
+}

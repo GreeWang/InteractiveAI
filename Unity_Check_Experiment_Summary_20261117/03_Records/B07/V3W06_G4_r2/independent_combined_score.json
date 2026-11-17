@@ -1,0 +1,10 @@
+{
+  "geometry_and_scene": true,
+  "asset_integrity": false,
+  "state_success": false,
+  "normal_finish": true,
+  "complete_success": false,
+  "failed_rules": [
+    "native_project_asset_integrity"
+  ]
+}

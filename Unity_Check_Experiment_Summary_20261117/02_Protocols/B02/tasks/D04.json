@@ -1,0 +1,139 @@
+{
+  "id": "D04",
+  "contract": {
+    "id": "D04",
+    "scene": "D",
+    "allowed": {
+      "DTable": [
+        "x",
+        "z"
+      ],
+      "DSeatA": [
+        "x",
+        "z",
+        "yaw"
+      ],
+      "DSeatB": [
+        "x",
+        "z",
+        "yaw"
+      ]
+    },
+    "request": "将 DTable 完整放入开发桌区；DSeatA、DSeatB 分别完整放入开发座区A、B，面向最终 DTable 桌心。所有对象落地，无实体穿透。DFixed、尺寸和其他字段保持，开发保留区留空。",
+    "regions": [
+      {
+        "id": "开发桌区",
+        "min": [
+          -3,
+          -0.01,
+          1.5
+        ],
+        "max": [
+          -0.5,
+          2,
+          3.5
+        ]
+      },
+      {
+        "id": "开发座区A",
+        "min": [
+          -3.5,
+          -0.01,
+          0.2
+        ],
+        "max": [
+          -2,
+          1.5,
+          1.7
+        ]
+      },
+      {
+        "id": "开发座区B",
+        "min": [
+          -1.8,
+          -0.01,
+          0.2
+        ],
+        "max": [
+          -0.3,
+          1.5,
+          1.7
+        ]
+      }
+    ],
+    "keepout": [
+      {
+        "id": "开发保留区",
+        "min": [
+          1,
+          0,
+          -3
+        ],
+        "max": [
+          2,
+          3,
+          3
+        ]
+      }
+    ],
+    "inside": [
+      [
+        "DTable",
+        "开发桌区"
+      ],
+      [
+        "DSeatA",
+        "开发座区A"
+      ],
+      [
+        "DSeatB",
+        "开发座区B"
+      ]
+    ],
+    "support": [],
+    "facing": [
+      [
+        "DSeatA",
+        "DTable"
+      ],
+      [
+        "DSeatB",
+        "DTable"
+      ]
+    ],
+    "relative": [],
+    "distance": [],
+    "markers": {},
+    "initial_state_ref": "D04_initial",
+    "contract_version": "80f25eda5e240b11894dfff1fd5c8caad2d1bdb972141d4f8d570dc4e20e784f",
+    "grounded": [
+      "DTable",
+      "DSeatA",
+      "DSeatB"
+    ],
+    "definitions": {
+      "containment_tolerance_m": 0.005,
+      "support_height_tolerance_m": 0.01,
+      "penetration_tolerance_m": 0.001,
+      "protected_position_tolerance_m": 0.005,
+      "protected_rotation_tolerance_deg": 0.5,
+      "scale_tolerance": 1e-05,
+      "facing_angle_deg": 10,
+      "semantic_front": "local +Z, evaluated on XZ",
+      "workspace": {
+        "x": [
+          -7,
+          7
+        ],
+        "z": [
+          -6,
+          6
+        ]
+      },
+      "inventory": "All initial IDs and counts unchanged; no create/delete/scale/reparent",
+      "collision_pairs": "all target-target and target-fixed entities except Floor",
+      "regions": "full current world AABB containment, closed endpoints",
+      "facing_reference": "CURRENT object center or fixed public marker; never initial table center"
+    }
+  }
+}

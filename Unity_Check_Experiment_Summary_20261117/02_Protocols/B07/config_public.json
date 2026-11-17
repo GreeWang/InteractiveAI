@@ -1,0 +1,84 @@
+{
+  "version": "official-mcp-vs-official-mcp-check",
+  "project": "/Users/greenwong/Desktop/实验/Prompt2Scene-Check/NativeMCP_Compare",
+  "original_scene": "Assets/P2SCV1/Scenes/BeforeExperiment_20261113_155722.unity",
+  "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+  "model": "qwen3.8-flash",
+  "temperature": 0.2,
+  "enable_thinking": false,
+  "tls_max_version": "TLSv1_2",
+  "pricing": {
+    "region": "cn-beijing",
+    "input_cny_per_million": 0.8,
+    "output_cny_per_million": 2.7,
+    "verified_date": "2026-11-16",
+    "source": "https://docs.bailian.console.aliyun.com/en/model-studio/qwen3-8-flash",
+    "discounts_assumed": false
+  },
+  "limits": {
+    "requests": 16,
+    "tools": 40,
+    "input_tokens": 512000,
+    "output_tokens": 16000,
+    "seconds": 1200
+  },
+  "budget_cny": {
+    "total": 40,
+    "pilot": 10,
+    "formal": 30,
+    "reserve": 0
+  },
+  "order_seed": 2026111603,
+  "human_study": {
+    "target": 6,
+    "minimum": 4,
+    "status": "not_recruited"
+  },
+  "budget_starting_total_cny": 0,
+  "current_batch_max_cny": 40,
+  "finalization_reserve": {
+    "requests": 2,
+    "input_tokens": 64000,
+    "output_tokens": 4096,
+    "seconds": 120,
+    "max_output_per_request": 2048
+  },
+  "stage": "formal",
+  "global_budget": {
+    "limit_cny": 300,
+    "ledger_sources": [
+      "/Users/greenwong/Desktop/Interactive AI/outputs/check_v2_execution/cost_ledger.ndjson",
+      "/Users/greenwong/Desktop/Interactive AI/outputs/check_v2_formal/cost_ledger.ndjson",
+      "/Users/greenwong/Desktop/Interactive AI/outputs/check_v2_round2/cost_ledger.ndjson",
+      "/Users/greenwong/Documents/Codex/2026-11-13/zhe/outputs/Prompt2Scene-Check-v1/cost_ledger.ndjson",
+      "/Users/greenwong/Documents/Codex/2026-11-13/zhe/outputs/Prompt2Scene-Check-v5-formal-results/cost_ledger.ndjson",
+      "/Users/greenwong/Desktop/Interactive AI/outputs/check_v3_development/cost_ledger.ndjson",
+      "/Users/greenwong/Desktop/Interactive AI/outputs/check_v3_formal/cost_ledger.ndjson"
+    ],
+    "lock_file": "/Users/greenwong/Desktop/Interactive AI/outputs/check_global_api_budget.lock",
+    "basis": "Deduplicate local request IDs conservatively; include full unknown reservations. Provider account balance or consumption outside these ledgers is not available."
+  },
+  "original_source_project": "/Users/greenwong/Desktop/实验/Prompt2Scene-Check/Prompt2Scene-Baseline",
+  "scene_assets": {
+    "V3M01": "Assets/P2SCV1/Scenes/check_v3f_V3M01_initial.unity",
+    "V3M02": "Assets/P2SCV1/Scenes/check_v3f_V3M02_initial.unity",
+    "V3M03": "Assets/P2SCV1/Scenes/check_v3f_V3M03_initial.unity",
+    "V3M04": "Assets/P2SCV1/Scenes/check_v3f_V3M04_initial.unity",
+    "V3M05": "Assets/P2SCV1/Scenes/check_v3f_V3M05_initial.unity",
+    "V3M06": "Assets/P2SCV1/Scenes/check_v3f_V3M06_initial.unity",
+    "V3W01": "Assets/P2SCV1/Scenes/check_v3f_V3W01_initial.unity",
+    "V3W02": "Assets/P2SCV1/Scenes/check_v3f_V3W02_initial.unity",
+    "V3W03": "Assets/P2SCV1/Scenes/check_v3f_V3W03_initial.unity",
+    "V3W04": "Assets/P2SCV1/Scenes/check_v3f_V3W04_initial.unity",
+    "V3W05": "Assets/P2SCV1/Scenes/check_v3f_V3W05_initial.unity",
+    "V3W06": "Assets/P2SCV1/Scenes/check_v3f_V3W06_initial.unity",
+    "D05": "Assets/P2SCV1/Scenes/check_v3d_D05_initial.unity",
+    "D06": "Assets/P2SCV1/Scenes/check_v3d_D06_initial.unity",
+    "D07": "Assets/P2SCV1/Scenes/check_v3d_D07_initial.unity",
+    "D08": "Assets/P2SCV1/Scenes/check_v3d_D08_initial.unity"
+  },
+  "omitted_fields": [
+    "credential_file",
+    "skill_path"
+  ]
+}

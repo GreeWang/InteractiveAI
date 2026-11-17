@@ -1,0 +1,75 @@
+{
+  "run_id": "V3M05_G4_r1",
+  "task_id": "V3M05",
+  "group": "G4",
+  "normal_finish": true,
+  "state_success": true,
+  "complete_success": true,
+  "stop_reason": "finish",
+  "finish": {
+    "status": "complete",
+    "summary": "Moved Seat1 and Seat2 into their respective seat regions and set yaw for all four chairs to face the current table center. All 76 contract rules pass at state_version 6.",
+    "verified": [
+      "check_constraints passed (76/76) at state_version 6 after final edits",
+      "compare_state at state_version 4 confirmed only authorized fields changed; subsequent edits only modified yaw of Seat1 and Seat2 which are in allowed list"
+    ],
+    "unresolved": [
+      "Final compare_state could not be executed due to finish_only mode, but last edit batch only changed yaw on Seat1 and Seat2 (both permitted), so no unauthorized changes are expected."
+    ],
+    "limitations": [
+      "Could not run final compare_state due to resource budget entering finish_only phase"
+    ]
+  },
+  "final_protection_violation": false,
+  "process_protection_violation": false,
+  "initial_edit_failed": true,
+  "self_repaired": true,
+  "false_complete": false,
+  "flow_adherence": false,
+  "latest_diagnostics": {
+    "check_constraints": {
+      "version": 6,
+      "turn": 7,
+      "passed": true
+    },
+    "compare_state": {
+      "version": 4,
+      "turn": 5,
+      "passed": true
+    }
+  },
+  "stats": {
+    "requests": 9,
+    "tools": 9,
+    "edit_batches": 2,
+    "operations": 6,
+    "successful_writes": 6,
+    "input_tokens": 75427,
+    "output_tokens": 389,
+    "cost_cny": 0.0613919,
+    "check_constraints": 3,
+    "compare_state": 1
+  },
+  "seconds": 22.103267166996375,
+  "loaded_skills": {
+    "unity-scene-ops": "e8e92d185adfc2b56a44936c01fbf13da5df6f66ba1126f252fa4322292a5909",
+    "unity-scene-check": "95e2ab006c148b6724c8f37eb8967913340c646b1e34ea807d0ac16906e80151"
+  },
+  "model_ids": [
+    "qwen3.8-flash"
+  ],
+  "transport_failure": null,
+  "finalization": [
+    {
+      "turn": 8,
+      "reasons": [
+        "input_reserve"
+      ],
+      "input_reserve": 30538
+    }
+  ],
+  "wall_seconds": 22.249571084976196,
+  "block": 3,
+  "repeat": 1,
+  "seed": 1
+}

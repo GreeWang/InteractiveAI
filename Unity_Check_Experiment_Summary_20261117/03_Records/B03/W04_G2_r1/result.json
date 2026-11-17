@@ -1,0 +1,40 @@
+{
+  "run_id": "W04_G2_r1",
+  "task_id": "W04",
+  "group": "G2",
+  "normal_finish": false,
+  "state_success": false,
+  "complete_success": false,
+  "stop_reason": "input_budget_precheck",
+  "finish": null,
+  "final_protection_violation": false,
+  "process_protection_violation": false,
+  "initial_edit_failed": true,
+  "self_repaired": false,
+  "false_complete": false,
+  "flow_adherence": null,
+  "latest_diagnostics": {},
+  "stats": {
+    "requests": 9,
+    "tools": 9,
+    "edit_batches": 4,
+    "operations": 24,
+    "successful_writes": 24,
+    "input_tokens": 94711,
+    "output_tokens": 586,
+    "cost_cny": 0.077351,
+    "check_constraints": 0,
+    "compare_state": 0
+  },
+  "seconds": 19.625678958982462,
+  "loaded_skills": {
+    "unity-scene-ops": "e8e92d185adfc2b56a44936c01fbf13da5df6f66ba1126f252fa4322292a5909"
+  },
+  "model_ids": [
+    "qwen3.8-flash"
+  ],
+  "transport_failure": null,
+  "repeat": 1,
+  "seed": 1,
+  "block": 14
+}

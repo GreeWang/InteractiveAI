@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "no_reference_solution_used": true,
+  "allowed_pose_unpenalized": true,
+  "unauthorized_pose_detected": true,
+  "extra_object_detected": true,
+  "reset_stable": true
+}

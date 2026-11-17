@@ -1,0 +1,16 @@
+{
+  "status": "complete",
+  "summary": "布置完成：主桌（困难题，允许移动 x/z）移入 V3M04桌区，中心 (-1.55, 2.65)，其 AABB X[-2.59,-0.51] Z[1.99,3.31] 完整包含于桌区。四把椅子分别置于四个座区中心角位 (-3.05/−0.05, 1.0/4.3)，并按当前桌中心计算 yaw（42.274 / 317.726 / 137.726 / 222.274 度），使局部 +Z 朝向桌子中心；旋转后完整包围盒均落在各自座区内且与相邻边界留有 >0.04m 余量。椅间最小 XZ 中心距离 3.0m ≥ 1.1m；所有目标接地（y 保持初始值，底面 y=0）；不与彼此、固定设施重叠，且完全避开保留通道（座区 z≥0.54 > -0.5）。仅修改了授权的根位置/偏航字段。check_constraints 92/92 通过，compare_state 显示全部差异均为授权字段。",
+  "verified": [
+    "check_constraints: passed=true, 92/92 rules (state_version 1)",
+    "compare_state: passed=true, 仅 14 项授权 position.x/z 与 rotation(yaw) 差异，全部 authorized=true",
+    "桌子 AABB 完整位于 V3M04桌区；四椅旋转后 AABB 完整位于各座区（容差 0.005 内验证通过）",
+    "椅子两两 XZ 中心距离最小 3.0m ≥ 1.1m",
+    "所有目标底面 y=0 接地；无 target-target / target-fixed 重叠；未侵入保留通道"
+  ],
+  "unresolved": [],
+  "limitations": [
+    "按宿主说明未自行保存场景文件，结果由宿主保存",
+    "朝向验收以评估器 facing 规则（≤10°）实测通过为准"
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "kind": "development_only_reconstruction",
+  "reason": "Original host save_scene parameter was invalid; raw final state and grade already preserved. Native save-as-copy preflight and archive recovery after all actors ended.",
+  "zero_additional_model_calls": true,
+  "pose_and_geometry_tolerance": 1e-05,
+  "protected_state_exact": true
+}

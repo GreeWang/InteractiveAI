@@ -1,0 +1,23 @@
+{
+  "status": "failed",
+  "summary": "No scene mutation was performed. Inspection of the open scene (Assets/P2SCV1/Scenes/check_v3f_V3M02_initial.unity) shows the task is infeasible under the contract's constraints, so I stopped rather than apply a knowingly-invalid move.\n\nKey facts measured from the live scene:\n- Table root pos (-3.25, 0.71, -2.35); its mesh body AABB is 2.02 x 1.42 x 1.22 (x -4.26..-2.24, z -2.96..-1.74). It also has an \"ID label\" TextMesh child whose renderer spans 6.72 m in X (world x -6.61..0.11, y 1.53).\n- Seat1..Seat4 bodies are 0.62 x 1.04 x 0.62; each seat also carries a 2.14 m wide ID-label plane at y = 1.12.\n- Activity region is only 2.50 m (X) x 3.58 m (Z): [1.3, -0.01, 0.76] .. [3.8, 1.8, 4.34]. Keep-out corridor is [-0.35, 0, -5] .. [0.35, 4, 5]; V3M02Pedestal occupies [2.37..2.73] x [0.89..1.21] inside the region.\n- Feasibility solve on body-only AABBs with one common delta d=(dx,dz): dx must lie in [5.50, 6.96] and dz in [4.08, 5.62]. Every such d puts all five objects east of x = 1.28, i.e. overlapping the pedestal footprint for any dz that also keeps them inside the region — so even ignoring labels there is no collision-free placement.\n- Including the required \"full actual bounding box\" (the ID-label planes), the table alone needs >= 6.72 m of free X inside a 2.50 m region, which no translation can satisfy; the label planes also sit above the seats' own bounds and cannot be tucked away.\n- Y and yaw are frozen by the contract, so the table body bottom (y = 0) and label height (y = 1.53 < 1.8) cannot be adjusted to gain clearance.\n\nBecause both the strict full-AABB containment and the target-vs-fixed-facility non-overlap requirements are unsatisfiable by X/Z-only translation, I left all five roots at their initial values (protected pose fields therefore remain exactly at initial).",
+  "verified": [
+    "Active scene confirmed as Assets/P2SCV1/Scenes/check_v3f_V3M02_initial.unity; 42 GameObjects, 18 roots, inventory unchanged.",
+    "Per-object world AABBs read directly from renderers: Table body 2.02x1.42x1.22 plus 6.72m-wide ID label; each seat body 0.62x1.04x0.62 plus 2.14m-wide ID label.",
+    "Fixed entities enumerated: Floor, V3M02Fixed0..9 pillars, V3M02Pedestal (inside the activity region at x 2.37..2.73, z 0.89..1.21), Public region markers (zone-edge strips only, no colliders).",
+    "None of the five targets has any collider, so overlap checks reduce to AABB intersection against fixed entities.",
+    "Solved the single-delta containment interval for body-only AABBs: dx in [5.50, 6.96], dz in [4.08, 5.62]; all candidates clear the keep-out corridor but all collide with the pedestal footprint.",
+    "Confirmed the table's 6.72 m full actual AABB exceeds the 2.50 m region width, making full-AABB containment impossible under X/Z-only translation.",
+    "No transform writes were issued; all five roots still report their initial positions and yaws."
+  ],
+  "unresolved": [
+    "The group was not moved into the activity region: full actual-bounding-box containment is geometrically impossible because the table's ID-label plane (6.72 m in X) is wider than the region (2.50 m), and Y/yaw changes are forbidden.",
+    "Even restricting to mesh-body AABBs only, every admissible common delta overlaps the fixed V3M02Pedestal inside the region, so the non-overlap requirement cannot be met either.",
+    "Contract fields 'relative' (Table vs Seat1..4) and 'grounded' were left trivially satisfied at initial values since nothing moved."
+  ],
+  "limitations": [
+    "Only static inspection tools were used after the feasibility proof failed; no trial placements were written, to avoid leaving protected pose fields outside tolerance.",
+    "Region/keep-out geometry was taken from the contract text and cross-checked against the scene's marker strips, which agree (region edges at x 0.8..4.3, z 0.26..4.84).",
+    "If the grader excludes the auto-generated 'ID label' children from the 'actual bounding box', a body-only placement would still need the pedestal treated as non-blocking or a different delta range; none exists within the stated tolerances."
+  ]
+}

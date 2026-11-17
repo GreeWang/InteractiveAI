@@ -1,0 +1,16 @@
+{
+  "status": "complete",
+  "summary": "已将 D06SeatA 移至 (-2.1, 0.5, 0.8)（yaw 39.8°）、D06SeatB 移至 (0.5, 0.5, 0.8)（yaw 324.2°），分别落入 D06座位A / D06座位B；D06SeatC、D06SeatD 位置保持不变，仅改 yaw 为 136.74° / 223.26°。四椅均面向当前 D06Table 中心 (-0.8, 0.7, 2.6)。check_constraints 76/76 通过，compare_state 显示仅有授权字段变化。",
+  "verified": [
+    "check_constraints: passed=true, 76/76 rules, state_version=2",
+    "compare_state: passed=true; 差异仅为 SeatA/SeatB 的 x/z/rotation 与 SeatC/SeatD 的 rotation，全部 authorized=true",
+    "座位区包含关系与保留区避开通过（inside/keepout 规则无失败）",
+    "接地、中心 XZ 间距≥1.2m、包围盒不与固定设施或彼此重叠的规则均通过",
+    "桌、Floor、D06Fixed0-9 及所有未授权字段保持初始值"
+  ],
+  "unresolved": [],
+  "limitations": [
+    "结果由宿主保存，本次未自行保存场景文件",
+    "朝向修正经两轮迭代：第一轮按初始报告的相对误差设置 yaw 后仍不满足，第二轮用更新后的 signed_error 修正才通过"
+  ]
+}

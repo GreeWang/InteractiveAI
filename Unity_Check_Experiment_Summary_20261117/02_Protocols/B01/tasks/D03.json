@@ -1,0 +1,69 @@
+{
+  "id": "D03",
+  "contract": {
+    "id": "D03",
+    "scene": "D",
+    "allowed": {
+      "DChairA": [
+        "yaw"
+      ],
+      "DChairB": [
+        "yaw"
+      ]
+    },
+    "request": "DChairA、DChairB 的位置不动，只改 yaw 面向开发标记 DP。水平误差不超过10度。所有其他对象、字段和尺寸保持，不能发生实体穿透。",
+    "regions": [],
+    "keepout": [],
+    "inside": [],
+    "support": [],
+    "facing": [
+      [
+        "DChairA",
+        "DP"
+      ],
+      [
+        "DChairB",
+        "DP"
+      ]
+    ],
+    "relative": [],
+    "distance": [],
+    "markers": {
+      "DP": [
+        0,
+        0.05,
+        3.8
+      ]
+    },
+    "initial_state_ref": "D03_initial",
+    "contract_version": "404ee0103d6f2e3c350ca7d9727efe27d12a65e530cce131d79ffab77ca662e7",
+    "grounded": [
+      "DChairA",
+      "DChairB"
+    ],
+    "definitions": {
+      "containment_tolerance_m": 0.005,
+      "support_height_tolerance_m": 0.01,
+      "penetration_tolerance_m": 0.001,
+      "protected_position_tolerance_m": 0.005,
+      "protected_rotation_tolerance_deg": 0.5,
+      "scale_tolerance": 1e-05,
+      "facing_angle_deg": 10,
+      "semantic_front": "local +Z, evaluated on XZ",
+      "workspace": {
+        "x": [
+          -7,
+          7
+        ],
+        "z": [
+          -6,
+          6
+        ]
+      },
+      "inventory": "All initial IDs and counts unchanged; no create/delete/scale/reparent",
+      "collision_pairs": "all target-target and target-fixed entities except Floor",
+      "regions": "full current world AABB containment, closed endpoints",
+      "facing_reference": "CURRENT object center or fixed public marker; never initial table center"
+    }
+  }
+}

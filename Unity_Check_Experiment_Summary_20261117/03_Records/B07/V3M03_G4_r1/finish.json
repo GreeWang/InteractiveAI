@@ -1,0 +1,19 @@
+{
+  "status": "partial",
+  "summary": "Placed Seat1/Seat2/Seat3 into their assigned seat regions with yaw facing the current table center (1.35,0.68,2.35); Seat4 was not moved due to resource limits. Table left untouched (fixed-task main table must not be modified). Pending verification: check_constraints/compare_state were not run before the finish-only phase.",
+  "verified": [
+    "Probe of initial poses and AABBs obtained: seats 0.52x0.98x0.52 boxes, table center (1.35,0.68,2.35), keepout corridor z in [-5,-0.5]",
+    "Seat1 set to (-0.05,0.49,0.8) yaw 76.249 deg - inside region1 bounds x[-0.44,0.44] z[0.41,1.29], oriented toward table",
+    "Seat2 set to (2.75,0.49,0.8) yaw -76.249 deg - inside region2 x[2.26,3.14] z[0.41,1.29], oriented toward table",
+    "Seat3 set to (-0.05,0.49,3.9) yaw 103.751 deg - inside region3 x[-0.44,0.44] z[3.41,4.29], oriented toward table",
+    "XZ center separations chosen >=1.1 m (Seat1-Seat3 = 3.1 m, Seat2-Seat4 planned = 3.1 m, Seat1-Seat2 = 2.8 m, Seat3-Seat4 = 2.8 m)"
+  ],
+  "unresolved": [
+    "V3M03Seat4 still at initial position (-0.6,0.49,-2.6): not inside 座区4, not facing the table, and its AABB overlaps the reserved corridor (initial failing rule clear:V3M03Seat4:V3M03保留通道)",
+    "Final check_constraints and compare_state verification never executed (finish_only reached first)"
+  ],
+  "limitations": [
+    "Run hit the per-request tool budget after three of four seat placements; no further scene or diagnostic calls were permitted",
+    "Intended Seat4 placement was (2.75,0.49,3.9) yaw -103.751 deg, which satisfies region4 containment, facing, grounding and clearance from fixed props"
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "official_catalog_original": true,
+  "official_function_definitions_original": true,
+  "native_calls": 8,
+  "mismatches": [],
+  "asset_integrity": true,
+  "capture_present": true,
+  "actual_native_capture": false,
+  "strict_flow": {
+    "passed": false,
+    "versions": [
+      {
+        "version": 1,
+        "diagnostics": [],
+        "passed": false
+      },
+      {
+        "version": 2,
+        "diagnostics": [],
+        "passed": false
+      },
+      {
+        "version": 3,
+        "diagnostics": [],
+        "passed": false
+      },
+      {
+        "version": 4,
+        "diagnostics": [
+          "check_constraints"
+        ],
+        "passed": false
+      },
+      {
+        "version": 5,
+        "diagnostics": [],
+        "passed": false
+      },
+      {
+        "version": 6,
+        "diagnostics": [
+          "check_constraints",
+          "compare_state"
+        ],
+        "passed": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "status": "complete",
+  "summary": "All six V3M06 chairs were adjusted to face the table's current center (0.55, 0.74, 2.65) while respecting each object's allowed fields only. Seat1/Seat2 (x,z,yaw) moved into seat regions 1 and 2 at y unchanged (0.53) and were yawed to face the table; Seat3/Seat4 (yaw-only) kept their positions and were yawed toward the table; Seat5/Seat6 (x,z-only) kept their yaws (90°/270°, already facing the table line) and were moved into seat regions 5 and 6. Final check_constraints passed 126/126 rules and compare_state reported every difference as authorized, with no unauthorized changes to the table or other objects.",
+  "verified": [
+    "check_constraints: 126/126 rules passed at state_version 2 (containment in all four seat regions, grounding, non-overlap, >=1.1m XZ center spacing, keepout clearance, facing within 10 deg for all six seats)",
+    "compare_state passed: only allowed root position/yaw fields changed; all 12 diffs marked authorized",
+    "Table and all non-target objects remain at initial pose/scale/hierarchy (no create/delete/reparent/scale edits issued)",
+    "Seat3/Seat4 positions untouched (yaw-only); Seat5/Seat6 rotations untouched (XZ-only)"
+  ],
+  "unresolved": [],
+  "limitations": [
+    "Verification relies on the read-only check_constraints/compare_state evaluators against the immutable initial snapshot; no runtime play-mode test was performed.",
+    "Scene file was not saved by me per instructions - the host is expected to persist the result."
+  ]
+}

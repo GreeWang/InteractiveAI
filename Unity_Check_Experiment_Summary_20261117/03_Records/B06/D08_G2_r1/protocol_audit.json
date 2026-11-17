@@ -1,0 +1,10 @@
+{
+  "official_catalog_original": true,
+  "official_function_definitions_original": true,
+  "native_calls": 10,
+  "mismatches": [],
+  "asset_integrity": true,
+  "capture_present": true,
+  "actual_native_capture": false,
+  "strict_flow": null
+}

@@ -1,0 +1,11 @@
+{
+  "geometry_and_scene": false,
+  "asset_integrity": true,
+  "state_success": false,
+  "normal_finish": true,
+  "complete_success": false,
+  "failed_rules": [
+    "inside:V3M01Seat1:V3M01活动区",
+    "inside:V3M01Seat2:V3M01活动区"
+  ]
+}

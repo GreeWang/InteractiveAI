@@ -1,0 +1,71 @@
+{
+  "created": "2026-11-16T18:53:34+08:00",
+  "stage": "pilot",
+  "cells": [
+    {
+      "run_id": "D07_G2_r1",
+      "task_id": "D07",
+      "group": "G2",
+      "repeat": 1,
+      "seed": 1,
+      "block": 1
+    },
+    {
+      "run_id": "D07_G4_r1",
+      "task_id": "D07",
+      "group": "G4",
+      "repeat": 1,
+      "seed": 1,
+      "block": 1
+    },
+    {
+      "run_id": "D05_G4_r1",
+      "task_id": "D05",
+      "group": "G4",
+      "repeat": 1,
+      "seed": 1,
+      "block": 2
+    },
+    {
+      "run_id": "D05_G2_r1",
+      "task_id": "D05",
+      "group": "G2",
+      "repeat": 1,
+      "seed": 1,
+      "block": 2
+    },
+    {
+      "run_id": "D08_G2_r1",
+      "task_id": "D08",
+      "group": "G2",
+      "repeat": 1,
+      "seed": 1,
+      "block": 3
+    },
+    {
+      "run_id": "D08_G4_r1",
+      "task_id": "D08",
+      "group": "G4",
+      "repeat": 1,
+      "seed": 1,
+      "block": 3
+    },
+    {
+      "run_id": "D06_G4_r1",
+      "task_id": "D06",
+      "group": "G4",
+      "repeat": 1,
+      "seed": 1,
+      "block": 4
+    },
+    {
+      "run_id": "D06_G2_r1",
+      "task_id": "D06",
+      "group": "G2",
+      "repeat": 1,
+      "seed": 1,
+      "block": 4
+    }
+  ],
+  "order": "randomized task/seed blocks; alternating paired arm order"
+}

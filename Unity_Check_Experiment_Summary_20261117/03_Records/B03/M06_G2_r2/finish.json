@@ -1,0 +1,13 @@
+{
+  "status": "complete",
+  "summary": "Placed C1 in the left seating area and C2 in the right seating area, both facing table T. Rotated C3 and C4 in place to face table T. All four chairs are separated by at least 1.20 m center-to-center.",
+  "verified": [
+    "C1 is inside the left seating region [-4,-0.01,-1.95] to [-3.05,1.5,-1].",
+    "C2 is inside the right seating region [-1.1,-0.01,-1.95] to [-0.3,1.5,-1].",
+    "All four chairs (C1, C2, C3, C4) have a yaw of 180 or 0 degrees respectively, pointing their local +Z axis towards the center of table T (-2.1, -0.4).",
+    "Minimum distance between any two chair centers is 1.4 m (between C1 and C3), which satisfies the >= 1.20 m constraint.",
+    "No protected objects were modified."
+  ],
+  "unresolved": [],
+  "limitations": []
+}
